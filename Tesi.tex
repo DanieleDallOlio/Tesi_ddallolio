@@ -4,13 +4,18 @@
 \usepackage{listings}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{float}
+
+\graphicspath{{./Figure/}}
 
 \pagestyle{headings}
+\bibliographystyle{plain}
 \title{Implementazione, creazione e ottimizzazione di una pipeline per l'analisi biofisica su cluster a basso consumo energetico}
 \author{Daniele Dall'Olio}
 \date{\today}
 
-\includeonly{C1}
+\includeonly{C1,C2}
 \begin{document}
 
 
@@ -34,5 +39,6 @@ Nel terzo capitolo verrano mostrati i risultati finali più rilevanti con l'aggi
 Per terminare sarà presente un paragrafo destinato alle conclusioni, alle considerazioni finali e agli sviluppi futuri del progetto, tutto basato sugli esiti più interessanti tratti dalle indagini svolte.
 
 \include{C1}
+\include{C2}
 
 \end{document}
