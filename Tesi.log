@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.4)  31 AUG 2017 11:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.4)  31 AUG 2017 12:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -509,23 +509,28 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box30
 \@float@everytoks=\toks24
 \@floatcapt=\box31
-) (./Tesi.aux (./C1.aux) (./C2.aux))
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eurosym/eurosym.sty
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box32
+) (./Tesi.aux
+(./C1.aux) (./C2.aux))
 \openout1 = `Tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Info: Redefining \it@ocap on input line 19.
-LaTeX Info: Redefining \it@ccap on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Info: Redefining \it@ocap on input line 20.
+LaTeX Info: Redefining \it@ccap on input line 20.
 
 
 File italian.ldf warning: 
@@ -533,14 +538,14 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 19.
+italian.ldf    on input line 20.
 
 \c@lstlisting=\count119
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count120
 \scratchdimen=\dimen132
-\scratchbox=\box32
+\scratchbox=\box33
 \nofMPsegments=\count121
 \nofMParguments=\count122
 \everyMPshowfont=\toks25
@@ -628,11 +633,11 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 271.
  [15] [16]
 [17]
-Overfull \hbox (37.43716pt too wide) in paragraph at lines 340--349
+Overfull \hbox (37.43716pt too wide) in paragraph at lines 345--354
  []$[]$ 
  []
 
-) [18] [19]
+[18]) [19]
 \openout2 = `C2.aux'.
 
  (./C2.tex
@@ -641,7 +646,7 @@ Capitolo 2.
 
 
 
-] [21] [22] <./Figure/Workflow.jpg, id=84, 304.88907pt x 478.03593pt>
+] [21] [22] <./Figure/Workflow.jpg, id=85, 304.88907pt x 478.03593pt>
 File: ./Figure/Workflow.jpg Graphic file (type jpg)
 
 <use ./Figure/Workflow.jpg>
@@ -658,32 +663,29 @@ Overfull \hbox (1.22348pt too wide) in paragraph at lines 140--141
 o-cu-ra-te dal fi-le \OT1/cmr/m/it/12 con-fig.yaml
  []
 
-[25]) [26] (./Tesi.aux (./C1.aux) (./C2.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[25]) [26] (./Tesi.aux (./C1.aux) (./C2.aux)) ) 
 Here is how much of TeX's memory you used:
- 5211 strings out of 493013
- 66394 string characters out of 6135683
- 164654 words of memory out of 5000000
- 8662 multiletter control sequences out of 15000+600000
- 11416 words of font info for 41 fonts, out of 8000000 for 9000
+ 5273 strings out of 493013
+ 67283 string characters out of 6135683
+ 163966 words of memory out of 5000000
+ 8719 multiletter control sequences out of 15000+600000
+ 11533 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,10n,44p,790b,1801s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmtt12.pfb>
-Output written on Tesi.pdf (26 pages, 242363 bytes).
+</usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+l12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
+Output written on Tesi.pdf (26 pages, 249672 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
+ 132 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
