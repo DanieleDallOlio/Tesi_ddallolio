@@ -1,1 +1,179 @@
 \chapter{Risultati}
+\label{cap:3}
+I risultati finali sono suddivisi nelle tre caratteristiche su cui è stata sviluppata l'analisi dei dati.
+Saranno presentate quindi una sezione relativa ai tempi di esecuzione, una sulla memoria rss e una riguardo ai processi di lettura e scrittura. 
+La descrizione delle relazioni più interessanti sarà, inoltre, accompagnata dall'utilizzo di alcuni tra i grafici formati durante l'indagine statistica.
+
+\section{Tempi di esecuzione}
+L'indagine sui tempi di esecuzione, come spiegato nel paragrafo \ref{sbsec:Te}, è stata condotta approfondendo le seguenti relazioni: i tempi di esecuzione per le regole, la durata complessiva del processo e i tempi impiegati per intervalli differenti con lo stesso range. 
+Questa sezione si occuperà di presentare gli esiti finali più rilevanti di ognuno di tali aspetti.
+
+\subsection{Tempi e regole}
+Le regole previste dal procedimento hanno diviso questo ramo dell'analisi in due parti, una relativo a quei processi che non dipendono dal tipo di dati considerato e uno relativo a quelli che invece dipendono. 
+Considerando le prime, è evidente dalla figura \ref{fig:Tind} come l'unico processo significativo è l'indicizzazione dello human reference per BWA, mentre le rimanenti non influiscono in alcun modo. 
+In più, la differenza tra le potenze computazionali è netta già da questa figura, dato che tra l'apparecchio migliore e il peggiore vi è uno scarto di più di un'ora.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.46]{Tind.png}
+\caption{Tempi di esecuzione per le regole indipendenti dal subset}
+\label{fig:Tind}
+\end{figure}
+Nonostante la durata per l'indicizzazione sia già notevole, il vantaggio di questa fase  è che può essere riprodotta una sola volta per tutti i successivi lavori, a causa della sua indipendeza.
+
+Passando alle regole dipendenti, i grafici riportati nella figura \ref{fig:Tdip} mostrano i vari andamenti per quei subset citati in precedenza con letture di range massimo 3 milioni.
+Le fasi del procedimento che esauriscono più tempo sono la mappatura, che incrementa velocemente, e il riallineamento, che al contrario cresce lentamente; mentre le altre regole aumentano ma impiegano tempi sempre inferiori a 5 minuti.
+
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Build BAM}]
+	{\label{subfig:BB}
+	\includegraphics[width=.46\textwidth]{build_bam.png}
+	} \quad
+\subfloat[][\emph{Mapping}]
+	{\label{subfig:Map}
+	\includegraphics[width=.46\textwidth]{mapping.png}
+	} \\
+\end{figure}
+\begin{figure}[H]
+\ContinuedFloat
+\centering
+\subfloat[][\emph{Mark Duplicates}]
+	{\label{subfig:MD}
+	\includegraphics[width=.46\textwidth]{mark_duplicates.png}
+	} \quad
+\subfloat[][\emph{Realigner}]
+	{\label{subfig:Rlg}
+	\includegraphics[width=.46\textwidth]{realigner.png}
+	} \\
+\end{figure}
+\begin{figure}[H]
+\ContinuedFloat
+\centering
+\subfloat[][\emph{Sort Picard}]
+	{\label{subfig:SP}
+	\includegraphics[width=.46\textwidth]{sort_picard.png}
+	} 
+\caption{}
+\label{fig:Tdip}
+\end{figure}
+
+Ciascun gruppo di dati è stato sottoposto a regressione lineare e sono stati pure calcolati i coefficienti di correlazione, i quali hanno evidenziato come il tempo di esecuzione di ogni regola cresce linearmente rispetto al range del subset.
+L'unica regola che mostra una particolarità è la fase di riallineamento(Figura\ref{subfig:Rlg}), dove soprattutto per la cpu Avoton i tempi oscillano quando i subset sono piccoli. 
+In dettaglio, i coefficienti di correlazione in questa regola sono per le cpu Xeon, Atom(avoton) e Pentium n3700, rispettivamente: $0.812$, $0.656$ e $0.923$. 
+Tale conseguenza è data da due fattori, dove il primo è la già citata oscillazione dei tempi per piccole variazione del range degli intervalli e il secondo è una caduta di performance dovute ad agenti scionosciuti, presumibilmente di natura tecnica.
+Quest'ultimo effetto è rilevabile visibilmente per avoton(linea verde nel grafico \ref{subfig:Rlg}), dove il fenomeno di oscillazione iniziale è ben nitido.
+Nonostante ciò, visto che il numero di dati che è abbondantemente superiore al centinaio, il coefficiente di Pearson determina comunque che i dati siano disposti linearmente.
+
+E' possibile visualizzare grazie al grafico () l'andamento della macchina più performante, nominata xeond, rispetto ad un esempio di macchina tradizionale, classical, sull'intero range da 0 a 9 milioni.
+
+
+\subsection{Durata complessiva}
+Un interessante aspetto rilevato è stato il tempo complessivo per concludere l'intero procedimento dei passaggi per il sequenziamento che dipendono dal subset, quindi escludendo soprattuto l'indexing per bwa.
+Il grafico \ref{fig:Ttot} è riferito ai subset con massimo range di 3 milioni e, anche in questo caso, la regressione lineare è confermata dai coefficienti di correlazione che superano abbondantemente lo $0.95$, per ciascuna macchina.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.46]{Tempi_complessivi.png}
+\caption{Tempi di esecuzione per le regole indipendenti dal subset}
+\label{fig:Ttot}
+\end{figure}
+
+\subsection{Tempi per stessi range}
+Un approfondimento è richiesto per valutare quanto il contenuto dei dati influenza la tenuta temporale e, in conseguenza, sono state considerate varie posizioni iniziali di estrazioni dal materiale genetico grezzo, lasciando invariato la lunghezza dei dati.
+Questa operazione è stata fatta, come già indicato nel paragrafo \ref{subsec:simc}, su intervalli da diecimila e centomila letture.
+
+Sono riportati nella figura \ref{fig:Trng} due grafici rappresentativi dei due andamenti che predominano questa analisi.
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Sorting per subset da diecimila}]
+	{\label{subfig:Spdieci}
+	\includegraphics[width=.46\textwidth]{sort_picard_10000.png}
+	} \quad
+\subfloat[][\emph{Mapping per subset da centomila}]
+	{\label{subfig:Mcento}
+	\includegraphics[width=.46\textwidth]{mapping_100000.png}
+	} \\
+\caption{}
+\label{fig:Trng}
+\end{figure}
+
+Il primo caso è quello di un comportamento pressochè costante, che è il più intuitivo e che si manifesta per la maggior parte dei grafici.
+Il secondo rappresenta, invece, un andamento che si allontana da una costanza ma che assume più i contorni di un fenomeno stocastico rispetto al range del subset.
+Dalla seconda figura si vede proprio l'effetto di allontanamento dalla retta di fit e già si vede come questa sia comunque leggermente inclinata senza un parvente motivo.
+
+E' possibile ipotizzare che per le regole che elaborano nello specifico le misure nei subset (la mappatura e il riallineamento), i lavori si adattino al tipo di dati e che ciò comporti un'oscillazione del tempo non ben prestabilita.
+
+\section{Memoria RSS}
+La memoria rss è stata studiata analogamente al tempo eccetto che per lo studio di una memoria complessiva dell'intero processo. 
+Ciò implica che sono state analizzate in un primo momento le occupazioni della memoria per ognuna delle regole e che poi è stato tentato di definire l'andamento per diversi intervalli con stesso range. 
+
+\subsection{RSS e regole}
+Le informazioni sui vari comportamenti sono tratte dai grafici in figura \ref{fig:RSSr}, per i quali sono necessarie delle descrizioni specifiche, dato che non si ha un andamento generale. 
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Build BAM}]
+	{\label{subfig:BB_rss}
+	\includegraphics[width=.46\textwidth]{Max_rss_build_bam.png}
+	} \quad
+\subfloat[][\emph{Mapping}]
+	{\label{subfig:Map_rss}
+	\includegraphics[width=.46\textwidth]{Max_rss_mapping.png}
+	} \\
+\end{figure}
+\begin{figure}[H]
+\ContinuedFloat
+\centering
+\subfloat[][\emph{Mark Duplicates}]
+	{\label{subfig:MD_rss}
+	\includegraphics[width=.46\textwidth]{Max_rss_mark_duplicates.png}
+	} \quad
+\subfloat[][\emph{Realigner}]
+	{\label{subfig:Rlg_rss}
+	\includegraphics[width=.46\textwidth]{Max_rss_realigner.png}
+	} \\
+\end{figure}
+\begin{figure}[H]
+\ContinuedFloat
+\centering
+\subfloat[][\emph{Sort Picard}]
+	{\label{subfig:SP_rss}
+	\includegraphics[width=.46\textwidth]{Max_rss_sort_picard.png}
+	} 
+\caption{}
+\label{fig:RSSr}
+\end{figure}
+
+E' evidente che regole di marcamento dei duplicati, di riordimento per picard e di formazione del file BAM, sono pressochè adattabili ad un logaritmo. 
+Ciò indica una saturazione della memoria per un certo range di subset raggiunto e questo sarà un fattore rilevante per la determinazione di un'uso efficace della parallelizzazione.
+
+Le altre due regole che si soffermano specificatamente nei dati, la mappatura e il riallineamento, manifestano una costanza di uso della memoria ma con un notevole distinzione.
+Nel caso del mapping tutte e tre le macchine lavorano alla stessa intensità, indicando una saturazione generale dell'utilizzo della memoria, mentre il riallineamento distingue una costanza singolare per ognuna delle cpu. 
+
+Allo stesso modo che per i tempi, è stato ottenuto pure il grafico(\ref{fig:RSSind}) per le regole indipendenti dal set di dati, dove a differenza dell'impiego temporale anche l'indicizzazione dello human reference per picard consuma una parte della memoria. 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.46]{Max_rss_ind.png}
+\caption{Max RSS per le regole indipendenti dal subset}
+\label{fig:RSSind}
+\end{figure}
+
+\subsection{RSS per stessi range}
+Lo studio sulla memoria per intervalli diversi su stessi range ha prodotto due comportamenti caratteristici, che sono stati posti in figura \ref{fig:RSSrng}.
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Sorting per subset da diecimila}]
+	{\label{subfig:Spdiecirss}
+	\includegraphics[width=.46\textwidth]{Max_rss_sort_picard_dieci.png}
+	} \quad
+\subfloat[][\emph{Mark duplicates per subset da centomila}]
+	{\label{subfig:Mdcentorss}
+	\includegraphics[width=.46\textwidth]{Max_rss_mark_duplicates_cento.png}
+	} \\
+\caption{}
+\label{fig:RSSrng}
+\end{figure}
+
+Nella prima figura i dati oscillano leggermente rispetto ad un valore costante, ma con tali valori diversi per ciascuna cpu; mentre nella seconda, la linea su cui i dati sembrano adattarsi è la stessa per ogni apparecchio.
+Ciò indica come per alcuni lavori i dispositivi si comportino allo stesso modo, o saturano completamente, e per altri la distinzione è più netta. 
+In generale però, diversamente dai tempi di esecuzione, l'occupazione della memoria rss tende a non dipendere dal contenuto dei subset aventi la stessa grandezza, dato che tende a rimanere costante per ogni regola.
+
+\section{Processi di I-O} 
