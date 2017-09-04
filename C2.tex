@@ -15,7 +15,7 @@ Il procedimento seguito dal sistema è suddivisibile in tre fasi: installazione,
 La prima di queste, la fase di installazione, evidenzia quali sono i fattori che permettono all'esecuzione di avvenire senza problemi.
 
 
-In seguito, con la fase di esecuzione, è chiarita la struttura fondamentale del procedimento, ovvero la parte relativa all'algoritmo genetico, ed è definita la successione dei diversi passaggi: dalle estrazioni dei subset di DNA, fino alla produzione e semplicazione dei dati generati dal metodo.
+In seguito, con la fase di esecuzione, è chiarita la struttura fondamentale del procedimento, ovvero la parte relativa all'algoritmo di analisi genetica, ed è definita la successione dei diversi passaggi: dalle estrazioni dei subset di DNA, fino alla produzione e semplicazione dei dati generati dal metodo.
 
 
 Infine, sono esposte, nella fase di configurazione, le modalità di impostazione del programma, così da garantire una corretta gestione dei parametri e delle istruzioni da trasmettere ad esso.
@@ -50,7 +50,7 @@ Conclusi gli interventi preparatori, può essere avviata l'esecuzione del proced
 \subsection{Esecuzione}
 La fase esecutiva comprende una serie di processi che si possono raggruppare in tre macro sezioni ben definite.
 La prima di esse descrive il processo di estrazione dei sottogruppi, o subset, di sequenze di DNA che si sceglie analizzare.
-La seconda contiene il fulcro del procedimento, quindi illustra il tipo di operazioni svolte dall'algoritmo genetico e dichiara quali sono i prodotti attesi.
+La seconda contiene il fulcro del procedimento, quindi illustra il tipo di operazioni svolte dal metodo per lo studio del genoma e dichiara quali sono i prodotti attesi.
 La terza racchiude un'operazione di riordinamento e di semplificazione di tali ultimi prodotti per agevolare le successive analisi statistiche.
 
 
@@ -85,7 +85,7 @@ Tali passaggi, in particolare, sono concretizzati nello Snakefile da regole che 
 L'algoritmo GATK-LOD\ped{n} è stato integrato solo fino al riallineamento di GATK, escludendo quindi i passaggi di riallineamento Indel e di ricalibrazione dei punteggi di qualità.
 Allo stesso tempo non sono state considerate le fasi fondamentali di chiamata alle varianti e l'implementazione del classificatore LOD\ped{n} di MuTect, vera novità del metodo GATK-LOD\ped{n}.
 
-Questa forte selezione degli step è stata voluta appositamente per non appesantire lo studio sull'ottimizzazione computazionale e, quindi, è stato scelto di concentrare le analisi solo su quelle operazioni che formano le basi dell'algoritmo genetico.
+Questa forte selezione degli step è stata voluta appositamente per non appesantire lo studio sull'ottimizzazione computazionale e, quindi, è stato scelto di concentrare le analisi solo su quelle operazioni che formano le basi dell'algoritmo per l'indagine del DNA.
 In tale maniera, è facilitato sia l'indagine sulla scalabilità che il confronto tra i diversi apparecchi adoperati, così da poter trarre rapidamente le prime conclusioni.
 
 I primi step consistono nell'indicizzazione del genoma umano di riferimento per i software che partecipano al sequenziamento.
@@ -165,11 +165,85 @@ Ora che la natura del sistema è stata argomentata e sono stati approfonditi pur
 
 \section{Studio statistico}
 Questa sezione si occupa di descrivere quale tipologia di studio statistico è stato compiuto e quali sono state le simulazioni sostenute. 
-In particolare, saranno indicati tutti i generi di prodotti finali generati, per poi anticipare coloro che sono stati realmente considerati e che saranno illustrati nel capitolo finale.
+In particolare, saranno indicate quali caratteristiche sono state considerate e quali relazioni sono state oggetto di studio.     
 
-L'analisi dei dati è stata condotta utilizzando il linguaggio di Python, sulla piattaforma iPython, e dotandosi di specifiche librerie per la statistica: pandas, matplotlib e seaborn.
+L'analisi dei dati è stata condotta utilizzando il linguaggio di Python, sulla piattaforma iPython, e dotandosi di specifiche librerie per la statistica, tra cui: pandas, matplotlib e seaborn.
 
-Il trattamento dei dati ha coinvolto inizialmente le funzioni sui dataframe procurate da pandas per l'estrazione e la modifica delle tabelle finali del procedimento.
-Una volta lette le tabelle, a queste sono state aggiunte tre colonne contenenti gli estremi di ogni subset, nelle prime due, e il range di ciascuno di questi, nella terza.
-Così facendo, il riordinamento dei dati può riferirsi a più di una colonna, oltre al numero della simulazione, come ad esempio al range dei subset.
+Il trattamento dei dati ha coinvolto inizialmente le funzioni sui dataframe, procurate da pandas, per l'estrazione e la modifica delle tabelle finali, ricavate al termine del procedimento.
+Tali tabelle sono state ridotte ad un unico dataframe a cui sono state aggiunte quattro colonne per facilitare l'analisi. 
+Le prime due contengono gli estremi del subset, ovvero la posizione della lettura iniziale e la posizione di quella finale, la terza contiene il range di ogni subset e la quarta il logaritmo del tempo di esecuzione.
+Da questo unico contenitore sono state estratte progressivamente le tabelle utili ai vari studi.
+
+Il capitolo è suddiviso in quattro sezione, dove le prime tre corrispondono alle caratteristiche principali su cui è stata condotta l'indagine statistica: il tempo di esecuzione, il max\verb!_!rss e i processi di input ed output. 
+L'ultima sezione include una semplice presentazione sul tipo di simulazioni che sono state completate.
+
+
+\subsection{Analisi sul tempo di esecuzione}
+Lo studio sul tempo di esecuzione è stato eseguito con lo scopo di delineare un andamento preciso di esso per ogni regola e per ognuna delle cpu adoperata.  
+
+Inizialmente è stata derivata dal dataframe generale una tabella in cui ogni lavoro svolto corrispondesse a un subset e che, quindi, non fossero presenti quelle regole indipendenti dal tipo di dati analizzati.
+I lavori che dipendono dai dati sono, in sequenza, la mappatura, l'ordinamento tramite picard, la rilevazione dei duplicati, la creazione dei file bam e il riallineamento.
+Al contrario, i processi indipendenti sono le indicizzazioni dello human reference per bwa, per picard e per samtools. 
+
+In seguito è stata graficata la dipendenza del tempo di esecuzione di ogni regola rispetto al range del subset, portando sullo stesso grafico anche l'andamento relativo al tipo di dispositivo impiegato. 
+In questa maniera è stato possibile verificare le differenze di prestazione tra i dispositivi e adattare la relazione matematica più idonea tra il tempo e il range per ciascuno di essi.
+
+La funzione usata per i grafici è stata lmplot di seaborn, i cui attributi hanno fornito le opzioni migliori sia per la visualizzazione del grafico che per la ricerca della curva di fitting più adeguata.
+
+Una volta osservato l'andamento del tempo per ogni singola regola, l'attenzione è stata rivolta al tempo totale impiegato sempre dalle stesse regole.
+Per calcolare il tempo totale sono state sfruttate le proprietà della funzione groupby proveniente dalla libreria numpy, la quale ha consentito la creazione di una nuova tabella avente la colonna per il tempo complessivo.
+
+Un tale grafico consente di osservare come cresce il tempo di esecuzione all'aumentare del range e come ciò è influenzato dal tipo di macchina adoperata.
+
+Terminato lo studio sui lavori dipendenti dall'intervallo dei dati, sono state brevemente considerate anche le regole indipendenti.
+L'unica elaborazione effettuata è stata tracciare su un grafico i tempi impiegati per il completamento di ogni regola e ciò è stato descritto, sulla stessa figura, per ogni tipo di cpu.
+
+L'ultima analisi conseguita, relativa alle tempistiche, è stata esaminare il comportamento dei tempi di esecuzione tra diversi intervalli di lettura con diversi estremi ma con lo stesso range.
+Ciò è stato fatto per ognuna delle regole e per ciascuna delle macchine.
+Così operando, è possibile osservare se la durata di completamento dei lavori è influenzata dal contenuto del subset processato e con quale entità ciò influisce.
+
+Il tempo impiegato per concludere ogni regola non è l'unico fattore da prendere in considerazione, visto che per promuovere l'uso della parallelizzazione è indispensabile analizzare le modalità di utilizzo della cpu. 
+
+\subsection{Analisi sul max rss}
+La rss o \textit{Resident Set Size} è la memoria fisica, non estesa, che un singolo processo sfrutta e in Snakemake questa grandezza è espressa, nel file di benchmarking, in ordine di megabytes(MB). 
+In realtà, Snakemake non fa altro che ottenere le informazioni sulla memoria dal tool psutil e successivamente converte talune in MB, dato che psutil le dispone in bytes.
+
+I dettagli su rss è di fondamentale importantanza per un corretto sviluppo di un sistema parallelizzato.
+Infatti, lo studio sull'andamento di tale memoria consente di verificare fino a che livello di scalabilità la cpu è proficua e quando il suo uso comincia a saturare.
+Questi comportamenti indicano fino a che punto è possibile ottimizzare l'utilizzo dei core della cpu in modo da realizzare una parallelizzazione efficiente.
+
+Lo studio statistico condotto è stato interessato, come per le tempistiche, ad osservare il comportamento della memoria rss in base alle regole, ai subsets e ai diversi apparecchi.
+Perciò sono stati elaborati i grafici per ogni regola in funzione del range del subset, quelli relativi alle regole indipendenti dai dati e il comportamento per lo stesso range ma diverso intervallo, sempre considerando tutti i dispositivi coinvolti.
+Non è stato descritto l'utilizzo complessivo della cpu per ogni simulazione, ovvero la somma tra gli rss, perchè le informazioni essenziali per la parallelizzazione provengono dagli specifici utilizzi per i singoli lavori. 
+    
+
+\subsection{Analisi sui processi di input ed output} 
+Due ulteriori dati che Snakemake trascrive nel benchmark sono ottenuti da psutil, specificatamente dalla funzione \verb!disk_io_counters!, e sono il numero di bytes letti e quelli scritti dal processo.
+In particolare, questi sono rispettivamente nominati \verb!io_in! e \verb!io_out! e, come per la memoria rss, sono convertiti in megabytes da Snakemake. 
+
+Queste due proprietà garantiscono una conoscenza più approfondita di come la cpu partecipa alla computazione, evidenziando con quale intensità, espressa in MB, essa è coinvolta nelle distinte operazioni.
+Così come l'analisi di rss, la statistica sulle fasi di input ed output delinea gli effetti che i lavori causano sull'apparecchio.
+Da queste informazioni si può trarre una valutazione su quanto al massimo è possibile servirsi della cpu e fino a che punto l'utilizzo di essa è efficace.
+
+Le analisi realizzate sono state le stesse che per la memoria rss e quindi sono stati studiati gli andamenti dell'input e dell'output per le regole dipendenti dai subset e pure quelle indipendenti.
+Ugualmente ai casi precedenti sono state valutate anche le dipendenze per il tipo di cpu e sono stati confrontati intervalli diversi aventi identico range.
+Non è stato presa in esame il valore complessivo per l'input e output nell'intero arco dell'esecuzione perchè da tale dato totale non è possibile ricavare alcuna informazione proficua.
+ 
+\subsection{Le simulazioni completate} 
+Le simulazioni che sono state eseguite ai fini di questa tesi sono state scelte per valutare le performance sui nodi dei cluster a disposizione, in modo da evidenziarne la potenziale scalabilità.
+
+I dispositivi low power adoperati, che sono stati mostrati nel paragrafo \ref{sec:LP} , sono stati impiegati in base alle loro diverse potenze computazionali e di seguito sono sono esposti i tipi di subset su cui hanno operato.
+
+Tutti le macchine hanno processato gli stessi subset di dati con un range di iniziale 5000 fino a 3 milioni, passando per i multipli di diecimila, di centomila e di un milione.
+In questo modo è stato possibile studiare l'attitudine delle macchine a processare dati identici con larghezza crescente e come questo incremento condiziona l'uso della cpu. 
+In dettaglio, queste simulazioni sono state ripetute dieci volte per il dispositivo {Xeon D-1540}, che è il più performante, e cinque volte per gli altri nodi, dato che i tempi di esaurimento del processo coprivano già per tali piccoli gruppi di dati un arco di tempo considerevole.
+
+Solo sulla macchina montane Xeon sono stati portati avanti i subset fino ad un range di 9 milioni, sempre con un intervallo di 1 milioni tra due subset consecutivi, e ciò per confermare gli andamenti tratti dalle analisi precedenti.
+Non sono stati fatti proseguire anche gli altri apparecchi perchè, oltre i prolungati tempi di esecuzione, lo scopo della tesi è valutare il comportamento dei nodi su piccoli subset di dati e quali indicazioni questo possa dare per sviluppare un'esecuzione parallelizzata efficace. 
+Visto che per tale valutazione sono sufficienti i dati fino a 3 milioni, solo la macchina più performante è andata oltre per affermare le stime ottenute.
+
+Infine, sono stati estratti vari intervalli con lo stesso range per verificare se il contenuto dei dati influenza significativamente le computazioni.
+I due range trattati sono stati diecimila e centomila, e per ricavare intervalli diversi sono stati estratti i relativi subsets in posizioni differenti nel materiale genetico grezzo a disposizione.
+
+Nel capitolo seguente saranno esposti gli esiti più rilevanti, selezionati dai prodotti finali dell'analisi statistica effettuata sui dati delle simulazioni.  
 
