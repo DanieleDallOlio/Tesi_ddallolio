@@ -49,7 +49,7 @@ Da quel momento in poi, il termine comune affiliato alle nuove tecniche sul geno
 
 \subsubsection{NGS}
 La necessità di garantire una maggior rapidità, e anche di ridurre le spese, ha aperto un altro capitolo nella ricerca sul genoma umano: il Next-Generation Sequecing.
-Essa deriva dal fatto che il metodo Sanger, pur essendo altamente qualificato, ha ottenuto l'intero genoma umano in circa tredici anni per un investimento economico massiccio. 
+\textbf{Essa deriva dal fatto che il metodo Sanger, per via dell'alta precisione, ha ottenuto l'intero genoma umano in circa tredici anni per un investimento economico massiccio.} 
 Questa nuova generazione di tecnologie, che sfrutta la parallelizzazione di processi su scale microscopiche, concede ai ricercatori strumenti estremamente più veloci, tali da stimare il genoma di un individuo in meno di un giorno, e molto meno costosi.
 In aggiunta, i numerosi metodi sviluppati all'interno del NGS sono fortemente radicati sulla teoria dei network, la quale è una branca della fisica che ha subito nell'ultimo ventennio un notevole progresso e che ha acquistato un significato oramai fondamentale nella ricerca medica e biologica. 
 
@@ -189,8 +189,8 @@ Nello specifico, la maggioranza dei modelli utilizzati e studiati sono basati su
 \subsubsection{Teoria sui network}
 La teoria dei network è materia prevalentemente dei fisici, dove per network si intende uno schema a base matematica che mira a rappresentare un sistema complesso, cercando di modellizzare le caratteristiche collettive. 
 Un network è composto da elementi chiamati nodi, i quali sono collegati tramite percorsi, detti path, e tra cui sono presenti relazioni, denominate link. 
-La fisica ha adottato e sviluppato la teoria dei network per spiegare quelle leggi della natura di carattere generico e che hanno origine da manifestazioni stocastiche.
-Gli strumenti matematici adoperati nella teoria dei network sono prevalentemente le matrici e i grafi, le cui proprietà garantiscono la massima espressione di connettività e di evoluzione che contraddinguono i sistemi complessi. 
+La teoria dei network è stata adottata e sviluppata per spiegare quelle leggi della natura di carattere generico e che hanno origine da manifestazioni stocastiche.
+Gli strumenti matematici adoperati in questa teoria sono prevalentemente le matrici e i grafi, le cui proprietà garantiscono la massima espressione di connettività e di evoluzione che contraddinguono i sistemi complessi. 
 
 I sistemi presenti in biologia sono generalmente un insieme di oggetti fortemente interagenti di cui si conoscono le proprietà; come possono essere ad esempio le reti geniche o il sistema nervoso umano.
 Sono proprio i meccanismi dei network infatti la causa per cui non è più indispensabile ricostruire il codice genetico puntualmente, dato che risulta conveniente ricombinare tante stringhe casuali dello stesso filamento di DNA(shotgun sequencing).
@@ -230,7 +230,7 @@ Rispettivamente le tre chiavi implicano l'utilizzo di comandi da terminale, l'es
 La dichiarazione dei file di input e di output esprime le condizioni iniziali per la regola e il risultato atteso, così permettendo al programma di riconoscere le relative dipendenze e stabilire l'ordine di successione dei singoli lavori.
 Per facilitare la comprensione del codice, è possibile creare, grazie al comando \textit{dot} della libreria Graphviz, un diagramma che schematizzi la sequenza delle regole.
 Infatti questa sequenza, che ha il nome di \textit{DAG} (Directed Acyclic Graph), è visualizzata da \textit{dot} in una struttura ramificata dove i lavori sono rappresentati da nodi e dove le dipendenze sono semplicemente descritte da linee congiungenti. 
- 
+Dalla forma assunta da tale struttura è facile osservare che il lavoro degli sviluppatori del DAG è stato basato sulla teoria dei network e che l'applicazione di questa consente una descrizione semplice e compatta del sistema. 
 L'utilità della schematizzazione consente anche di studiare quali dei lavori da eseguire sono parallelizzabili e quali, invece, devono mantenere una prestabilita sequenzialità. 
 Ciò è possibile proprio dal fatto che il comando \textit{dot} rappresenta la successione delle regole solo e unicamente in base alle dipendenze reciproche, mantenendo quindi, ad esempio, la ripetizione di alcune regole sullo stesso livello di operatività.
 Questo sistema di riconoscimento dei lavori potenzialmente simultanei da un contributo importante per impostare meccanismi di parallelizzazione. 
@@ -245,6 +245,12 @@ In particolare, oltre ai threads, è possibile specificare singolarmente per ogn
 
 Altre due notevoli proprietà di Snakemake sono la portabilità e un innovativo meccanismo di inferenza.
 La prima manifesta le poche dipendenze di installazione, dato che è in generale sufficiente dotarsi di Python; mentre la seconda rappresenta un moderno supporto all'inferenza per nome che si compie grazie a wildcards nominate nelle regole.
+
+Le wildcards consistono in nomi che agiscono come parametri e che servono ad automatizzare le operazioni di riconoscimento delle dipendenze tra regole. 
+In dettaglio, quando una variabile è associata ad una wildcard, è naturale che questa sia associata a più valori e che, quindi, il nome della variabile sia semplicemente una chiave. 
+In presenza di una wildcard nell'input di una regola, i valori in essa contenuti sono ricercati negli output delle altre regole e, dopo aver tracciato le dipendenze, tale regola è eseguita una volta per ogni valore attribuito alla chiave.
+Così agendo, le ripetizioni delle regole su diversi valori della wildcard sono sullo stesso piano di esecuzione, favorendo la parallelizzazione dei lavori.   
+  
 
 Una peculiarietà particolarmente utile di Snakemake è la capacità di riprendere l'esecuzione di una pipeline interrotta, esattamente dalla regola in cui si trovava al momento dell'interruzione.
 Ciò è garantito dal fatto che il sistema attiva una regola solo se è assente il relativo output e, quindi, solo coloro che non sono state ultimate , o rimaste intoccate, prendono parte alla nuova esecuzione senza ripartire dall'inizio.
@@ -315,6 +321,7 @@ In questo modo, dopo che Conda è chiamato da Snakemake per l'attivazione del pa
 Il contenuto dei file di configurazione è, in conclusione, determinante per il corretto, oltre che miglior, funzionamento del sistema.
 
 \section{I dispositivi low power}
+\label{sec:LP}
 I gruppi di ricerca che insistono nel proporre metodi avanzati per l'analisi dei big data in campo biomedico, non si limitano ad ottimizzare la sola componente software, bensì affrontano pure la scelta del tipo di componente hardware da adoperare.
 Lo sviluppo di applicazioni sempre più raffinate ha richiesto infatti, nel corso del tempo, un progresso tecnologico che procedesse di pari passo e che permettesse di soddisfare in maniera esaustiva le richieste dei ricercatori.
 Normalmente, i macchinari prediletti sono quelli più potenti e performanti che, pur essendo abili nel terminare i lavori previsti, hanno il difetto principale di consumare massicce quantità di energia.
@@ -323,10 +330,10 @@ Il dispendio di energia di uno strumento elettrico avviene, in particolare, alla
 Tale effetto equivale ad uno spreco di energia ed esso si riproduce in ogni macchinario elettrico.
 Il contenimento del calore, e quindi in generale una diminuzione dello spreco energetico, consente non solo una diminuzione dei costi per il sostentamento dell'apparecchio, che può penalizzare le grandi aziende, ma anche il miglioramento della resa del dispositivo.
 Difatti, il contenimento del calore implica la presenza di sistemi di raffreddamento che consumano grandi quantità di energia e, nel complesso, ciò ricade su ulteriore spesa degli esercenti.
-Un dato significativo relativo alle spese di raffreddamento è dato sempre dall'Università di Bologna, dove la bolletta annuale per il dispendio elettrico sfiora i due milioni di euro.
+Un dato significativo relativo alle spese di raffreddamento è ad esempio sostenuto dal CNAF di Bologna(National Center for Frame Analysis) dove il costo annuale per il dispendio elettrico è dell'ordine del milione di euro.
 
 L'altro difetto predomaninate è il costo che le macchine tradizionali richiedono, dato che spesso equivalgono a decine di migliaia di euro, come dimostrato ad esempio dall'Università Alma Mater Studiorum di Bologna(UNIBO) che per gli apparecchi a disposizione ha investito un cifra prossima ai \euro 25 000 per singola macchina.
-In aggiunta, un altro fattore penalizzante è dato dall'impossibilità di aggiornare questi dispositivi, dato che ciò consisterebbe nell'acquisto di un'altra macchina più evoluta.
+In aggiunta, un altro fattore penalizzante è dato dalla mancanza di scalabilità di aggiornare questi dispositivi, dato che ciò consisterebbe nell'acquisto di un'altra macchina più evoluta.
 
 Tali aspetti negativi hanno spinto vari team di studiosi ad interessarsi a differenti risorse computazionali, tra cui quella relativa ai dispositivi low power.
 I macchinari low power sono strumenti che mirano ad abbassare il consumo energetico e soprattutto ad incrementare l'efficienza.
@@ -352,6 +359,7 @@ $\begin{array}{*{4}{c}}
 	\bottomrule
 \end{array}$
 \caption{}
+\label{tab:1}
 \end{table}
 
 \begin{table}
