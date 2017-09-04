@@ -9,9 +9,12 @@
 \usepackage{eurosym}
 \usepackage{hyperref}
 \usepackage[scientific-notation=true]{siunitx}
+\usepackage{wrapfig}
+\usepackage{subfig}
 
 
-\graphicspath{{./Figure/}}
+\graphicspath{{./Figure/} {./Figure/Grafici_Finali/}}
+
 
 \pagestyle{headings}
 \bibliographystyle{plain}
@@ -19,10 +22,10 @@
 \author{Daniele Dall'Olio}
 \date{\today}
 
-\includeonly{C1,C2,C3}
+\includeonly{C1,C2,C3,C4}
 \begin{document}
 
-
+\tableofcontents
 
 \section*{Prefazione}
 Questa tesi presenta un progetto dedito allo studio dell'efficienza computazionale di cluster a basso consumo energetico adoperati per l'analisi biofisica.
@@ -59,5 +62,5 @@ Per terminare saranno mostrate le conclusioni, le considerazioni finali e gli sv
 \include{C1}
 \include{C2}
 \include{C3}
-
+\include{C4}
 \end{document}
