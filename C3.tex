@@ -148,7 +148,8 @@ Ciò indica una saturazione della memoria per un certo range di subset raggiunto
 Le altre due regole che si soffermano specificatamente nei dati, la mappatura e il riallineamento, manifestano una costanza di uso della memoria ma con un notevole distinzione.
 Nel caso del mapping tutte e tre le macchine lavorano alla stessa intensità, indicando una saturazione generale dell'utilizzo della memoria, mentre il riallineamento distingue una costanza singolare per ognuna delle cpu. 
 
-Allo stesso modo che per i tempi, è stato ottenuto pure il grafico(\ref{fig:RSSind}) per le regole indipendenti dal set di dati, dove a differenza dell'impiego temporale anche l'indicizzazione dello human reference per picard consuma una parte della memoria. 
+Allo stesso modo che per i tempi, è stato ottenuto pure il grafico(\ref{fig:RSSind}) per le regole indipendenti dal set di dati, dove a differenza dell'impiego temporale anche l'indicizzazione dello human reference per picard consuma una parte della memoria.
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.46]{Max_rss_ind.png}
@@ -177,3 +178,162 @@ Ciò indica come per alcuni lavori i dispositivi si comportino allo stesso modo,
 In generale però, diversamente dai tempi di esecuzione, l'occupazione della memoria rss tende a non dipendere dal contenuto dei subset aventi la stessa grandezza, dato che tende a rimanere costante per ogni regola.
 
 \section{Processi di I-O} 
+Gli ultimi risultati sono stati ottenuti dall'indagine sui processi di input e output coinvolti nel completamento di ogni lavoro.
+Questa sezione è suddivisa in due parti che determinano come la lettura e la scrittura sono dipendenti dal set di dati e se il contenuto di tali dati incide sull'uso della macchina per l'input ed l'output.
+
+\subsection{I-O e regole}
+Il primo esito riportato è per le regole indipendenti dai subset ed eccetto l'indicizzazione per BWA l'impatto è praticamente nullo.
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Scrittura per regole indipendenti dai subset}]
+	{\label{subfig:Iind}
+	\includegraphics[width=.46\textwidth]{I_ind.png}
+	} \quad
+\subfloat[][\emph{Scrittura per regole indipendenti dai subset.}]
+	{\label{subfig:Oind}
+	\includegraphics[width=.46\textwidth]{O_ind.png}
+	} \\
+\caption{}
+\label{fig:RSSrng}
+\end{figure}
+Diversamente dai tempi e dalla memoria, il lavoro di indicizzazione non è sempre costante sia nel caso di input che per quello dell'output.
+Riguardo all'input, le macchine più performanti (Xeon e Pentium N3700) per la maggior parte delle volte non eseguono alcuna lettura mentre la rimanente varia imprevedibilmente per valori elevati.
+Per l'output invece, l'andamento è costante per Pentium, al contrario di Xeon e Atom che similmente occupano due valori ben distinti. 
+
+
+Considerando le regole che invece dipendono dal subset, sono elecanti di seguito gli andamenti dei processi per ognuna di esse.
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Lettura per la mappatura}]
+	{\label{subfig:IM}
+	\includegraphics[width=.46\textwidth]{IO_Input_mapping.png}
+	} \quad
+\subfloat[][\emph{Scrittura per la mappatura}]
+	{\label{subfig:OM}
+	\includegraphics[width=.46\textwidth]{IO_Output_mapping.png}
+	} \\
+\caption{}
+\label{fig:IOm}
+\end{figure}
+
+La fase di lettura per la mappatura sembra crescere esponenzialmente per le due macchine migliori mentre per Pentium N3700 la crescita ha un andamento che tende a saturare in maniera logaritmica. 
+Gli elementi finali di Atom non seguono però un'esponenziale, suggerendo che avvenga una saturazione anche per le altre due macchine per range dei subset superiori.
+
+La fase di scrittura, invece, mostra una andamento lineare praticamente omogeneo per tutte le macchine.  
+
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Lettura per il sorting di picard}]
+	{\label{subfig:ISp}
+	\includegraphics[width=.46\textwidth]{IO_Input_sort_picard.png}
+	} \quad
+\subfloat[][\emph{Scrittura per il sorting di picard}]
+	{\label{subfig:OSp}
+	\includegraphics[width=.46\textwidth]{IO_Output_sort_picard.png}
+	} \\
+\caption{}
+\label{fig:IOSp}
+\end{figure}
+
+Il lavoro di riordinamento per picard è ambiguo nella lettura perchè le macchine incrementano con traiettorie non ben definibili.
+Ad esempio, per Pentium la traiettoria potrebbe essere adattata ad una retta ma un certo sotto gruppo di dati descrive una direzione diversa, vanificando l'ipotesi.
+
+La scrittura invece inizia ad assumere contorni più chiari dopo una certa grandezza del subset, oltre il quale tende a crescere linearmente. 
+Prima di raggiungere tale grandezza ogni macchina, per range diversi, mostra un avvallamento non motivabile direttamente da questo tipo di studio statistico.  
+
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Lettura per la marcatura dei duplicati}]
+	{\label{subfig:IMd}
+	\includegraphics[width=.46\textwidth]{IO_Input_mark_duplicates.png}
+	} \quad
+\subfloat[][\emph{Scrittura per la marcatura dei duplicati}]
+	{\label{subfig:OMd}
+	\includegraphics[width=.46\textwidth]{IO_Output_mark_duplicates.png}
+	} \\
+\caption{}
+\label{fig:IOMd}
+\end{figure}
+
+La descrizione della marcatura dei duplicati determina che la fase di lettura è coinvolta solo marginalmente, dato che esaurisce in generale meno di $2\,MB$, mentre quella di scrittura segue la stessa attitudine che il sorting per picard.
+Infatti ciò è evidente soprattutto in Xeon, per cui prima di avanzare con linearità è ben delineato un ventre di una curva.  
+
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Lettura per la formazione del BAM}]
+	{\label{subfig:IBB}
+	\includegraphics[width=.46\textwidth]{IO_Input_build_bam.png}
+	} \quad
+\subfloat[][\emph{Scrittura per la formazione del BAM}]
+	{\label{subfig:OBB}
+	\includegraphics[width=.46\textwidth]{IO_Output_build_bam.png}
+	} \\
+\caption{}
+\label{fig:IOBB}
+\end{figure}
+
+Riguardo al passaggio per la costruzione dei file BAM, il numbero dei megabytes letti è trascurabile, al contrario che per la scrittura che segue una crescita logaritmica fino a circa 1 milione di subset, per poi cominciare a calare vistosamente.
+
+Le ragioni di questo calo non sono spiegabili, come nei casi precedenti, semplicemente osservando tale relazione dato che sarebbe più esauriente un approfindimento sia sulle prestazione dei macchinari che sul funzionamento dell'algoritmo di formazione del BAM. 
+
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Lettura per il riallineamento}]
+	{\label{subfig:IR}
+	\includegraphics[width=.46\textwidth]{IO_Input_realigner.png}
+	} \quad
+\subfloat[][\emph{Scrittura per il riallineamento}]
+	{\label{subfig:OR}
+	\includegraphics[width=.46\textwidth]{IO_Output_realigner.png}
+	} \\
+\caption{}
+\label{fig:IOR}
+\end{figure}
+
+In coda, il riallineamento mostra contemporaneamente il carattere meno comprensibile per la fase di lettura e quello più nitido per la fase di scrittura.
+I valori riportati nel grafico di input sono difficili da decifrare; non c'è ne un andamento univoco tra le cpu che tra i dati associati ad ognuna di esse.
+Sono presenti un numero considerevole di processi che consumano una percentuale infinitesima in input che, però, sono alternati a salti elevati che tra loro non suggeriscono alcun andamento ben fissato.
+Evidentemente la natura del metodo di riallineamento influenza pesantemente questa fase dei bytes, riproducendo una lettura dei bytes fortemente discontinua.
+
+Nettamente diverso è il caso della scrittura, dove i dati tracciano una curva simile ad un logaritmo senza essere dotati di valori estranei ad essa.
+In più, i vari andamenti sono ordinati rispetto alla potenza computazionale delle macchine anche se le discrepanze in questo frangente sono sottili.
+
+\par Prima di passare al caso degli intervalli diversi con stesso intervallo, è utile sottolineare quali sono i lavori che generalemente consumano più bytes in fase di lettura e scrittura.
+In entrambi i casi è il mapping ha vantare l'utilizzo maggior e all'opposto è la formazione dei BAM che necessita del minor uso delle operazioni. 
+L'unico passaggio che presenta una netta inversione nell'uso di lettura e scrittura è, come si può controllare in figura \ref{fig:IOR}, il riallineamento.
+
+\subsection{I-O per stessi range}
+L'ultima valutazione è stata eseguita, allo stesso modo che per i tempi e la memoria,  su intervalli diversi con lo stesso numero di letture.
+Sono stati scelti i grafici sottostanti per illustrare gli andamenti più interessanti ricavati durante le analisi.
+\begin{figure}[H]
+\centering
+\subfloat[][\emph{Input per realigner su range diecimila}]
+	{\label{subfig:IRdieci}
+	\includegraphics[width=.46\textwidth]{IO_I_realigner_dieci.png}
+	} \quad
+\subfloat[][\emph{Output per realigner su range diecimila}]
+	{\label{subfig:ORdieci}
+	\includegraphics[width=.46\textwidth]{IO_O_realigner_dieci.png}
+	} \\
+\end{figure}
+\begin{figure}[H]
+\ContinuedFloat
+\centering
+\subfloat[][\emph{Input per mapping su range centomila}]
+	{\label{subfig:MIcento}
+	\includegraphics[width=.46\textwidth]{IO_I_map_cento.png}
+	} \quad
+\centering
+\subfloat[][\emph{Output per mapping su range centomila}]
+	{\label{subfig:MOcento}
+	\includegraphics[width=.46\textwidth]{IO_O_map_cento.png}
+	} 
+\caption{}
+\label{fig:IOrng}
+\end{figure}
+
+I passaggi di scrittura mostrano un andamento più omogeneo per tipo di subset, pressochè costante nel caso della figura \ref{subfig:ORdieci} e per Atom(avoton) in \ref{subfig:ORdieci}.
+E' interessante notare come le macchine computino con modalità diverse e che ciò causi la perdita dell'ordine delle cpu, dalla migliore alla peggiore, che caratterizzava le analisi per i tempi e la memoria.  
+
+Diverso è il caso della lettura che è rappresanto sia in \ref{subfig:IRdieci} che in \ref{subfig:MIcento}.  
+Le varie tracce non seguono andamenti ben definiti e sono spesso accompagnati da netti salti tra le misure di lettura, i quali inducono a pensare che sia il contenuto dei subset a determinare il tipo di lettura da svolgere. 
