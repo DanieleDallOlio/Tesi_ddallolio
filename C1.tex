@@ -76,7 +76,7 @@ Le mutazioni genetiche si distinguono in due tipologie: germinali e somatiche. L
 L'algoritmo GATK-LOD\ped{n} si focalizza sulle mutazioni somatiche perchè esse hanno un ruolo chiave nella progressione della malattia e nella resistenza alla chemioterapia.
 
 L'interesse nel proporre questo metodo nasce dal desiderio di poter predisporre di uno strumento che non si aggiunga al gruppo di software già esistenti, bensì che ottimizzi e potenzi alcuni tra questi.
-E' per questo che il team di studiosi ha considerato due applicazioni standard, GATK e MuTect, e li ha composti in modo da migliorare i prodotti finali di entrambi.
+\'E per questo che il team di studiosi ha considerato due applicazioni standard, GATK e MuTect, e li ha composti in modo da migliorare i prodotti finali di entrambi.
 Infatti alla completa esecuzione di GATK è stato applicato una componente di MuTect, ovvero un classificatore Bayesiano conosciuto come LOD\ped{n}, il cui scopo è verificare un ulteriore volta i risultati ottenuti.
 I passaggi previsti dall'algoritmo sono vari e di seguito saranno esposti coloro ritenuti più rilevanti.
 
@@ -109,7 +109,7 @@ i passaggi fondamentali alla base delle applicazioni utilizzate nel metodo GATK-
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{GATK-LODn.png}
-\caption{GATK-LOD\ped{n} Workflow}
+\caption{Workflow di GATK-LOD\ped{n}}
 \label{fig: GATK-LODn}
 \end{figure}
 
@@ -139,7 +139,7 @@ Questi shards contengono tutte le informazioni della regione genomica associata 
 Altre caratteristiche di GATK sono la possibilità di selezionare solo certe regioni del genoma, la parallelizzazione delle azioni da svolgere, l'organizzazione dei files di input grazie ad un'operazione di merging e la presenza di un walker relativo alla depth of coverage(DoC).
 
 Il metodo stima il genotipo più probabile attraverso un semplice algoritmo Bayesiano, che ha funzione sia di punto di partenza per sviluppare nuovi classificatori; che di mettere in luce le capacità di parallelizzazione e di ottimizzazione della memoria disposte da GATK.
-E' importante sottolineare che è proprio la semplicità dell'operatore la causa di molti falsi positivi chiamati.
+\'E importante sottolineare che è proprio la semplicità dell'operatore la causa di molti falsi positivi chiamati.
 
 Il Genome Analysis Toolkit è quindi un framework che, grazie al suo nuovo approccio ai big data e alla piena libertà di sviluppo, fornisce strumenti importanti per l'elaborazione di algoritmi più specifici come il GATK-LOD\ped{n}.
 
@@ -333,66 +333,69 @@ Normalmente, i macchinari prediletti sono quelli più potenti e performanti che,
 Il dispendio di energia di uno strumento elettrico avviene, in particolare, alla conversione da corrente analogica (AC) a corrente digitale (DC): questo passaggio implica un'innalzamento della temperatura che causa lo sprigionamento di calore nell'ambiente circostante, da cui si ha una perdita di lavoro.
 Tale effetto equivale ad uno spreco di energia ed esso si riproduce in ogni macchinario elettrico.
 Il contenimento del calore, e quindi in generale una diminuzione dello spreco energetico, consente non solo una diminuzione dei costi per il sostentamento dell'apparecchio, che può penalizzare le grandi aziende, ma anche il miglioramento della resa del dispositivo.
-Difatti, il contenimento del calore implica la presenza di sistemi di raffreddamento che consumano grandi quantità di energia e, nel complesso, ciò ricade su ulteriore spesa degli esercenti.
-Un dato significativo relativo alle spese di raffreddamento è ad esempio sostenuto dal CNAF di Bologna(National Center for Frame Analysis) dove il costo annuale per il dispendio elettrico è dell'ordine del milione di euro.
+Difatti, il contenimento del calore implica la presenza di sistemi di raffreddamento che consumano grandi quantità di energia.
+Un dato significativo relativo alle spese di raffreddamento è ad esempio sostenuto dal data center del INFN-CNAF(Centro nazionale delle tecnologie informatiche dell'INFN) a Bologna, dove il costo annuale per l'energia elettrica è dell'ordine del milione di euro.
 
-L'altro difetto predomaninate è il costo che le macchine tradizionali richiedono, dato che spesso equivalgono a decine di migliaia di euro, come dimostrato ad esempio dall'Università Alma Mater Studiorum di Bologna(UNIBO) che per gli apparecchi a disposizione ha investito un cifra prossima ai \euro 25 000 per singola macchina.
-In aggiunta, un altro fattore penalizzante è dato dalla mancanza di scalabilità di aggiornare questi dispositivi, dato che ciò consisterebbe nell'acquisto di un'altra macchina più evoluta.
+L'altro difetto predominante è il costo che le macchine server tradizionali richiedono, che è dell'ordine delle migliaia di euro.
+
+In aggiunta, un altro fattore penalizzante è dato dalla mancanza di scalabilità per aggiornare questi dispositivi, visto che ciò consisterebbe nell'acquisto di un'altra macchina più evoluta. 
+Per i nodi low power invece, l'aggiornamento è facilmente accessibile.
 
 Tali aspetti negativi hanno spinto vari team di studiosi ad interessarsi a differenti risorse computazionali, tra cui quella relativa ai dispositivi low power.
 I macchinari low power sono strumenti che mirano ad abbassare il consumo energetico e soprattutto ad incrementare l'efficienza.
 
 Questi strumenti, però, non sono una vera novità nel campo tecnologico, dato che alcuni oggetti, come gli orologi, possono essere già considerati tali.
 La vera innovazione è l'impiego di strumenti di questo calibro nei processi computazionali sui big data.
-Ovviamente, la differenza di performance tra gli apparecchi low power e i potenti macchinari utilizzati giornalmente è abissale.
+Ovviamente, la differenza di performance tra i nodi low power e i macchinari utilizzati normalmente è netta, poichè tipicamente le prime hanno una potenza inferiore ai 45\,W.
 Nonostante ciò, la cooperazione fra diversi dispositivi di tale genere, il cluster, potrebbe ambire a sostituire gli apparecchi moderni.
 Questa tesi descrive proprio una ricerca introduttiva ad una questione così rilevante, che, difatti, considera la computazione non sul cluster ma sulle singole macchine: i nodi low power.
 
-I dispositivi coinvolti in questi studio sono stati scelti con caratteristiche tecniche differenti, in modo da evidenziare fra taluni una crescita delle prestazioni.
+Le macchine server coinvolte in questa tesi sono state scelte con caratteristiche tecniche differenti, in modo da evidenziare fra talune una crescita delle prestazioni.
 In accordo con il centro nazionale per la ricerca e lo sviluppo sulle tecnologie per l'informazione e la comunicazione (CNAF) dell'Istituto Nazionale di Fisica Nucleare, avente sede a Bologna, sono state utilizzate alcuni server appartenti al bastion dell'INFN.
-I dettagli sui nodi dei cluster utilizzati per la computazioni sono esposti nelle tabelle sottostante.
-\begin{table}
-\centering
-$\begin{array}{*{4}{c}}
+
+I dettagli sui nodi dei cluster utilizzati per le computazioni sono esposti nelle tabelle sottostanti \ref{tab:cpu}, che includono sia i tre nodi low power che un nodo di un server tradizionale (bio8).
+In particolare, tutti i nodi montano processori con architettura X86\_64 su sistema operativo Linux Debian 9.
+
+\begin{table}[H]
+\begin{threeparttable}
+\resizebox{1.0\textwidth}{!}{%
+$\begin{array}{*{6}{c}}
 	\toprule
-		Hostname & Hostname(10Gb/s) & ISA & Microarchitecture(Platform)/litho \\
+		Nodo & CPU & Memory & Storage & Costo\text{*} & Consumo\text{*}  \\
 	\midrule
-		xeond & xeond & x86_64 & Broadwell/14nm \\
-		avoton & avoton & x86_64 & Silvermont(Avoton)/22nm \\
-		n3700-0{0,2} & - & x86_64 & Airmont(Braswell)/14nm \\
+		xeond & \text{1x Xeon D-1540} & 16\,GB & 8 TB(HDD) & \text{\euro 1000} & 60W\\
+		avoton & \text{1x Atom C2750}  & 16\,GB & 5 TB(HDD) & \text{\euro 600} & 30W\\
+		n3700 & \text{1x Pentium N3700}  & 8\,GB & 0.5 TB(SSD) & \text{\euro 130} & 8W \\
+		bio8 & \text{1x Xeon E5-2620v4} & 12\,GB & 2 TB(HDD) & \text{\euro 10000} & 180W\\		
 	\bottomrule
-\end{array}$
-\caption{}
+\end{array}$%
+}
+\begin{tablenotes}\footnotesize
+\item[*] I valori di costo e consumo energetico sono stimati.
+\end{tablenotes}
+\end{threeparttable}
+\caption{Caratteristiche dei nodi usati.}
 \label{tab:1}
 \end{table}
 
-\begin{table}
+\begin{table}[H]
 \centering
-$\begin{array}{*{4}{c}}
+\resizebox{1.0\textwidth}{!}{%
+$\begin{array}{*{6}{c}}
 	\toprule
-		CPU & Freq(GHz) & Cores & Cache(MB)\\
+		CPU & Microarchitecture(Platform)/litho & Freq(GHz) & Cores & Cache & TDP\\
 	\midrule
-		\text{Xeon D-1540} & 2.0(2.60) & 8(16) & 12 \\
-		\text{Atom C2750} & 2.40(2.60) & 8 & 4 \\
-		\text{Pentium N3700} & 1.60(2.40) & 4 & 2 \\
+		\text{Xeon D-1540} & Broadwell/14nm & 2.0(2.60) & 8(16) & 12MB & 45W \\
+		\text{Atom C2750} & Silvermont(Avoton)/22nm & 2.40(2.60) & 8 & 4MB & 20W \\
+		\text{Pentium N3700} & Airmont(Braswell)/14nm & 1.60(2.40) & 4 & 2MB & 6W \\
+		\text{Xeon E5-2620v4} & Broadwell-EP/14nm & 2.10(3.00) & 8(16) & 20MB & 85W \\
 	\bottomrule
-\end{array}$
-\caption{}
+\end{array}$%
+}
+\caption{Caratteristiche delle CPU dei nodi.}
+\label{tab:cpu}
 \end{table}
 
-\begin{table}
-\centering
-$\begin{array}{*{4}{c}}
-	\toprule
-		Memory(GB) & Ubuntu & TDP \\
-	\midrule
-		16 & 16.04.2 & 45W \\
-		16 & 16.04.1 & 20W \\
-		8 & 16.04.2 & 6W \\
-	\bottomrule
-\end{array}$
-\caption{}
-\end{table}
 
 %Figura di GATK-LODn ?
 %Figura che rappresenta gli step di GATK e MuTect?
