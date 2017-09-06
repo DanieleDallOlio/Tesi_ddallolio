@@ -12,6 +12,12 @@
 \usepackage{wrapfig}
 \usepackage{subfig}
 \usepackage{cite}
+\usepackage{capt-of}
+\usepackage{booktabs, caption, makecell}
+\renewcommand\theadfont{\bfseries}
+\usepackage{threeparttable}
+\usepackage{varwidth}
+\usepackage{tabularx}
 
 
 \graphicspath{{./Figure/} {./Figure/Grafici_Finali/}}
@@ -19,14 +25,12 @@
 
 \pagestyle{headings}
 \bibliographystyle{plain}
-\title{Implementazione, creazione e ottimizzazione di una pipeline per l'analisi biofisica su cluster a basso consumo energetico}
+\title{Implementazione, creazione e ottimizzazione di una pipeline per l'analisi biofisica su nodi a basso consumo energetico}
 \author{Daniele Dall'Olio}
 \date{\today}
 
 \includeonly{C1,C2,C3,C4}
 \begin{document}
-
-\tableofcontents
 
 \section*{Prefazione}
 Questa tesi presenta un progetto dedito allo studio dell'efficienza computazionale di cluster a basso consumo energetico adoperati per l'analisi biofisica.
@@ -59,6 +63,8 @@ Nel terzo capitolo verrano illustrati i risultati finali più rilevanti con l'ag
 Inoltre sarà presente anche un breve accenno ai dati non considerati proficui e a coloro che sono stati trascurati.
 
 Per terminare saranno mostrate le conclusioni, le considerazioni finali e gli sviluppi futuri del progetto, in base agli esiti più interessanti tratti dalle indagini svolte.
+
+\tableofcontents
 
 \include{C1}
 \include{C2}

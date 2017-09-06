@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.4)  6 SEP 2017 13:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.4)  7 SEP 2017 00:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -977,30 +977,56 @@ Package caption Info: wrapfig package is loaded.
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
-) (./Tesi.aux (./C1.aux)
-(./C2.aux) (./C3.aux
-
-LaTeX Warning: Label `fig:RSSrng' multiply defined.
-
-) (./C4.aux))
+)
+(/usr/share/texlive/texmf-dist/tex/latex/capt-of/capt-of.sty
+Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
+)
+(/usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen191
+\c@nlinenum=\count182
+\TeXr@lab=\toks27
+)
+(/usr/share/texlive/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box57
+)
+(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box58
+\sift@deathcycles=\count183
+\@vwid@loff=\dimen192
+\@vwid@roff=\dimen193
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
+\TX@col@width=\dimen194
+\TX@old@table=\dimen195
+\TX@old@col=\dimen196
+\TX@target=\dimen197
+\TX@delta=\dimen198
+\TX@cols=\count184
+\TX@ftn=\toks28
+) (./Tesi.aux
+(./C1.aux) (./C2.aux) (./C3.aux) (./C4.aux))
 \openout1 = `Tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Info: Redefining \it@ocap on input line 27.
-LaTeX Info: Redefining \it@ccap on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Info: Redefining \it@ocap on input line 33.
+LaTeX Info: Redefining \it@ccap on input line 33.
 
 
 File italian.ldf warning: 
@@ -1008,22 +1034,22 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 27.
+italian.ldf    on input line 33.
 
-\c@lstlisting=\count182
+\c@lstlisting=\count185
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count183
-\scratchdimen=\dimen191
-\scratchbox=\box57
-\nofMPsegments=\count184
-\nofMParguments=\count185
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count186
-\MPscratchDim=\dimen192
-\MPnumerator=\count187
-\makeMPintoPDFobject=\count188
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count186
+\scratchdimen=\dimen199
+\scratchbox=\box59
+\nofMPsegments=\count187
+\nofMParguments=\count188
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count189
+\MPscratchDim=\dimen256
+\MPnumerator=\count190
+\makeMPintoPDFobject=\count191
+\everyMPtoPDFconversion=\toks30
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1041,8 +1067,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box58
-Package hyperref Info: Link coloring OFF on input line 27.
+\AtBeginShipoutBox=\box60
+Package hyperref Info: Link coloring OFF on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1050,11 +1076,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count189
+\c@section@level=\count192
 )
-LaTeX Info: Redefining \ref on input line 27.
-LaTeX Info: Redefining \pageref on input line 27.
-LaTeX Info: Redefining \nameref on input line 27.
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
 
 (./Tesi.out) (./Tesi.out)
 \@outlinefile=\write3
@@ -1144,19 +1170,21 @@ File: siunitx-abbreviations.cfg 2017/01/01 v2.7a siunitx: Abbreviated units
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c__siunitx_mathsf_int=\count190
-\c__siunitx_mathtt_int=\count191
+\c__siunitx_mathsf_int=\count193
+\c__siunitx_mathtt_int=\count194
 
-(./Tesi.toc [1
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
+] [2] (./Tesi.toc)
 \tf@toc=\write4
 \openout4 = `Tesi.toc'.
 
- [2]
-[3]
+
+[3
+
+]
 \openout2 = `C1.aux'.
 
  (./C1.tex
@@ -1177,7 +1205,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 70.
 
-[7] [8] <./Figure/GATK-LODn.png, id=205, 512.91624pt x 521.95pt>
+[7] [8] <./Figure/GATK-LODn.png, id=185, 512.91624pt x 521.95pt>
 File: ./Figure/GATK-LODn.png Graphic file (type png)
 
 <use ./Figure/GATK-LODn.png>
@@ -1196,371 +1224,298 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 281.
  [17]
-[18] [19]
-Overfull \hbox (37.43716pt too wide) in paragraph at lines 356--365
- []$[]$ 
- []
-
-) [20] [21]
+[18] [19]) [20]
 \openout2 = `C2.aux'.
 
  (./C2.tex
 Capitolo 2.
-[22
+[21
 
 
 
-] [23]
+] [22]
 Overfull \hbox (13.62294pt too wide) in paragraph at lines 67--68
 []\OT1/cmr/m/n/12 Nel la-vo-ro ine-ren-te a que-sta te-si, ^^Re sta-to scrit-to
  uno script in Py-thon(\OT1/cmr/m/it/12 split.py\OT1/cmr/m/n/12 )
  []
 
-[24] <./Figure/Workflow.jpg, id=323, 304.88907pt x 478.03593pt>
+[23] <./Figure/Workflow.jpg, id=302, 304.88907pt x 478.03593pt>
 File: ./Figure/Workflow.jpg Graphic file (type jpg)
 
 <use ./Figure/Workflow.jpg>
 Package pdftex.def Info: ./Figure/Workflow.jpg used on input line 105.
 (pdftex.def)             Requested size: 152.44415pt x 239.01738pt.
- [25]
-Overfull \hbox (265.64886pt too wide) in paragraph at lines 122--123
+ [24]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 122.
+
+Overfull \hbox (19.19943pt too wide) in paragraph at lines 122--123
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[26 <./Figure/Workflow.jpg>]
+[25 <./Figure/Workflow.jpg>]
 Overfull \hbox (4.48734pt too wide) in paragraph at lines 144--145
 []\OT1/cmr/m/n/12 Le in-for-ma-zio-ni ne-ces-sa-rie al-lo Sna-ke-fi-le so-no pr
 o-cu-ra-te dal fi-le \OT1/cmr/m/it/12 con-fig.yaml\OT1/cmr/m/n/12 ,
  []
 
-[27] [28] [29] [30] [31]) [32]
+[26] [27] [28] [29]) [30]
 \openout2 = `C3.aux'.
 
  (./C3.tex
 Capitolo 3.
-<./Figure/Grafici_Finali/Tind.png, id=367, 519.9425pt x 397.485pt>
+<./Figure/Grafici_Finali/Tind.png, id=343, 519.9425pt x 397.485pt>
 File: ./Figure/Grafici_Finali/Tind.png Graphic file (type png)
 
 <use ./Figure/Grafici_Finali/Tind.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Tind.png used on input line 17
 .
 (pdftex.def)             Requested size: 239.17645pt x 182.8453pt.
- [33
+ [31
 
 
 
 ]
-<./Figure/Grafici_Finali/build_bam.png, id=374, 452.69125pt x 430.60875pt>
+
+LaTeX Warning: Reference `fig:Tdip' on page 32 undefined on input line 23.
+
+<./Figure/Grafici_Finali/build_bam.png, id=350, 452.69125pt x 428.60126pt>
 File: ./Figure/Grafici_Finali/build_bam.png Graphic file (type png)
 
 <use ./Figure/Grafici_Finali/build_bam.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/build_bam.png used on input li
-ne 31.
-(pdftex.def)             Requested size: 179.40262pt x 170.65036pt.
+ne 28.
+(pdftex.def)             Requested size: 207.47711pt x 196.43303pt.
 
-<./Figure/Grafici_Finali/mapping.png, id=375, 440.64626pt x 430.60875pt>
+Overfull \hbox (51.47949pt too wide) in paragraph at lines 28--29
+ [][] 
+ []
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 47.
+
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 47.
+
+
+[32 <./Figure/Grafici_Finali/Tind.png>]
+<./Figure/Grafici_Finali/mapping.png, id=356, 440.64626pt x 428.60126pt>
 File: ./Figure/Grafici_Finali/mapping.png Graphic file (type png)
 
 <use ./Figure/Grafici_Finali/mapping.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/mapping.png used on input line
- 35.
-(pdftex.def)             Requested size: 179.40262pt x 175.31546pt.
+ 53.
+(pdftex.def)             Requested size: 207.47711pt x 201.8023pt.
 
-<./Figure/Grafici_Finali/mark_duplicates.png, id=376, 446.66875pt x 430.60875pt
+Overfull \hbox (51.47949pt too wide) in paragraph at lines 53--54
+ [][] 
+ []
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 72.
+
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 72.
+
+
+
+<./Figure/Grafici_Finali/mark_duplicates.png, id=357, 446.66875pt x 428.60126pt
 >
 File: ./Figure/Grafici_Finali/mark_duplicates.png Graphic file (type png)
  <use ./Figure/Grafici_Finali/mark_duplicates.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/mark_duplicates.png used on in
-put line 43.
-(pdftex.def)             Requested size: 179.40262pt x 172.95006pt.
+put line 78.
+(pdftex.def)             Requested size: 207.47711pt x 199.08824pt.
 
-<./Figure/Grafici_Finali/realigner.png, id=377, 441.65pt x 430.60875pt>
+Overfull \hbox (51.47949pt too wide) in paragraph at lines 78--79
+ [][] 
+ []
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 97.
+
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 97.
+
+
+[33 <./Figure/Grafici_Finali/build_bam.png> <./Figure/Grafici_Finali/mapping.pn
+g>] <./Figure/Grafici_Finali/realigner.png, id=367, 441.65pt x 428.60126pt>
 File: ./Figure/Grafici_Finali/realigner.png Graphic file (type png)
 
 <use ./Figure/Grafici_Finali/realigner.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/realigner.png used on input li
-ne 47.
-(pdftex.def)             Requested size: 179.40262pt x 174.91466pt.
+ne 103.
+(pdftex.def)             Requested size: 207.47711pt x 201.34451pt.
 
-<./Figure/Grafici_Finali/sort_picard.png, id=378, 446.66875pt x 430.60875pt>
+Overfull \hbox (51.47949pt too wide) in paragraph at lines 103--104
+ [][] 
+ []
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 122
+.
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 122
+.
+
+<./Figure/Grafici_Finali/sort_picard.png, id=368, 446.66875pt x 428.60126pt>
 File: ./Figure/Grafici_Finali/sort_picard.png Graphic file (type png)
 
 <use ./Figure/Grafici_Finali/sort_picard.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/sort_picard.png used on input 
-line 55.
-(pdftex.def)             Requested size: 179.40262pt x 172.95006pt.
- [34 <./Figure/Grafici_Finali/Tind.png> <./Figure/Grafici_Finali/build_bam.png>
- <./Figure/Grafici_Finali/mapping.png>] [35 <./Figure/Grafici_Finali/mark_dupli
-cates.png> <./Figure/Grafici_Finali/realigner.png> <./Figure/Grafici_Finali/sor
-t_picard.png>]
-<./Figure/Grafici_Finali/Tempi_complessivi.png, id=406, 510.90875pt x 501.875pt
->
+line 128.
+(pdftex.def)             Requested size: 207.47711pt x 199.08824pt.
+
+Overfull \hbox (51.47949pt too wide) in paragraph at lines 128--129
+ [][] 
+ []
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 147
+.
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 147
+.
+
+[34 <./Figure/Grafici_Finali/mark_duplicates.png> <./Figure/Grafici_Finali/real
+igner.png>]
+<./Figure/Grafici_Finali/Tempi_complessivi.png, id=380, 510.90875pt x 500.87125
+pt>
 File: ./Figure/Grafici_Finali/Tempi_complessivi.png Graphic file (type png)
  <use ./Figure/Grafici_Finali/Tempi_complessivi.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Tempi_complessivi.png used on 
-input line 75.
-(pdftex.def)             Requested size: 235.02087pt x 230.8653pt.
- [36 <./Figure/Grafici_Finali/Tempi_complessivi.png>]pdfTeX warning (ext4): des
-tination with the same identifier (name{subfigure.3.2.1}) has been already used
-, duplicate ignored
-<to be read again> 
-                   \relax 
-l.87 \subfloat
-              [][\emph{Sorting per subset da diecimila}]
-<./Figure/Grafici_Finali/sort_picard_10000.png, id=415, 457.71pt x 430.60875pt>
+input line 170.
+(pdftex.def)             Requested size: 207.47711pt x 203.39436pt.
+
+Overfull \hbox (51.47949pt too wide) in paragraph at lines 170--171
+ [][] 
+ []
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 189
+.
+
+
+Package varwidth Warning: Failed to reprocess entire contents on input line 189
+.
+
+[35 <./Figure/Grafici_Finali/sort_picard.png>]
+<./Figure/Grafici_Finali/sort_picard_10000.png, id=390, 457.71pt x 428.60126pt>
 File: ./Figure/Grafici_Finali/sort_picard_10000.png Graphic file (type png)
 <use ./Figure/Grafici_Finali/sort_picard_10000.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/sort_picard_10000.png used on 
-input line 90.
-(pdftex.def)             Requested size: 179.40262pt x 168.77776pt.
-pdfTeX warning (ext4): destination with the same identifier (name{subfigure.3.2
-.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.91 \subfloat
-              [][\emph{Mapping per subset da centomila}]
-<./Figure/Grafici_Finali/mapping_100000.png, id=416, 451.6875pt x 430.60875pt>
+input line 202.
+(pdftex.def)             Requested size: 179.40262pt x 167.99092pt.
+
+<./Figure/Grafici_Finali/mapping_100000.png, id=391, 451.6875pt x 428.60126pt>
 File: ./Figure/Grafici_Finali/mapping_100000.png Graphic file (type png)
 
 <use ./Figure/Grafici_Finali/mapping_100000.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/mapping_100000.png used on inp
-ut line 94.
-(pdftex.def)             Requested size: 179.40262pt x 171.03145pt.
-
-<./Figure/Grafici_Finali/Max_rss_build_bam.png, id=418, 461.725pt x 430.60875pt
->
+ut line 206.
+(pdftex.def)             Requested size: 179.40262pt x 170.23412pt.
+ [36 <./Figure/Grafici_Finali/Tempi_complessivi.png>]
+<./Figure/Grafici_Finali/Max_rss_build_bam.png, id=400, 455.7025pt x 428.60126p
+t>
 File: ./Figure/Grafici_Finali/Max_rss_build_bam.png Graphic file (type png)
  <use ./Figure/Grafici_Finali/Max_rss_build_bam.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_build_bam.png used on 
-input line 116.
-(pdftex.def)             Requested size: 179.40262pt x 167.31252pt.
+input line 230.
+(pdftex.def)             Requested size: 179.40262pt x 168.73647pt.
 
-<./Figure/Grafici_Finali/Max_rss_mapping.png, id=419, 456.70625pt x 430.60875pt
+<./Figure/Grafici_Finali/Max_rss_mapping.png, id=401, 456.70625pt x 428.60126pt
 >
 File: ./Figure/Grafici_Finali/Max_rss_mapping.png Graphic file (type png)
  <use ./Figure/Grafici_Finali/Max_rss_mapping.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_mapping.png used on in
-put line 120.
-(pdftex.def)             Requested size: 179.40262pt x 169.1457pt.
+put line 234.
+(pdftex.def)             Requested size: 179.40262pt x 168.35716pt.
  [37 <./Figure/Grafici_Finali/sort_picard_10000.png> <./Figure/Grafici_Finali/m
 apping_100000.png>]
-<./Figure/Grafici_Finali/Max_rss_mark_duplicates.png, id=428, 456.70625pt x 430
-.60875pt>
+<./Figure/Grafici_Finali/Max_rss_mark_duplicates.png, id=412, 456.70625pt x 428
+.60126pt>
 File: ./Figure/Grafici_Finali/Max_rss_mark_duplicates.png Graphic file (type pn
 g)
  <use ./Figure/Grafici_Finali/Max_rss_mark_duplicates.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_mark_duplicates.png us
-ed on input line 128.
-(pdftex.def)             Requested size: 179.40262pt x 169.1457pt.
+ed on input line 242.
+(pdftex.def)             Requested size: 179.40262pt x 168.35716pt.
 
-<./Figure/Grafici_Finali/Max_rss_realigner.png, id=429, 456.70625pt x 430.60875
-pt>
+<./Figure/Grafici_Finali/Max_rss_realigner.png, id=413, 443.6575pt x 428.60126p
+t>
 File: ./Figure/Grafici_Finali/Max_rss_realigner.png Graphic file (type png)
  <use ./Figure/Grafici_Finali/Max_rss_realigner.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_realigner.png used on 
-input line 132.
-(pdftex.def)             Requested size: 179.40262pt x 169.1457pt.
+input line 246.
+(pdftex.def)             Requested size: 179.40262pt x 173.30788pt.
 
-<./Figure/Grafici_Finali/Max_rss_sort_picard.png, id=430, 456.70625pt x 430.608
-75pt>
+<./Figure/Grafici_Finali/Max_rss_sort_picard.png, id=414, 456.70625pt x 428.601
+26pt>
 File: ./Figure/Grafici_Finali/Max_rss_sort_picard.png Graphic file (type png)
  <use ./Figure/Grafici_Finali/Max_rss_sort_picard.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_sort_picard.png used o
-n input line 140.
-(pdftex.def)             Requested size: 179.40262pt x 169.1457pt.
+n input line 254.
+(pdftex.def)             Requested size: 179.40262pt x 168.35716pt.
  [38 <./Figure/Grafici_Finali/Max_rss_build_bam.png> <./Figure/Grafici_Finali/M
 ax_rss_mapping.png> <./Figure/Grafici_Finali/Max_rss_mark_duplicates.png> <./Fi
 gure/Grafici_Finali/Max_rss_realigner.png>]
-<./Figure/Grafici_Finali/Max_rss_ind.png, id=448, 494.84875pt x 385.44pt>
+<./Figure/Grafici_Finali/Max_rss_ind.png, id=431, 494.84875pt x 349.305pt>
 File: ./Figure/Grafici_Finali/Max_rss_ind.png Graphic file (type png)
 
 <use ./Figure/Grafici_Finali/Max_rss_ind.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_ind.png used on input 
-line 155.
-(pdftex.def)             Requested size: 227.6332pt x 177.30455pt.
+line 269.
+(pdftex.def)             Requested size: 227.6332pt x 160.68224pt.
  [39 <./Figure/Grafici_Finali/Max_rss_sort_picard.png>]pdfTeX warning (ext4): d
-estination with the same identifier (name{subfigure.3.3.1}) has been already us
+estination with the same identifier (name{subfigure.3.9.1}) has been already us
 ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.164 \subfloat
-               [][\emph{Sorting per subset da diecimila}]
-<./Figure/Grafici_Finali/Max_rss_sort_picard_dieci.png, id=457, 450.68375pt x 4
-30.60875pt>
+l.278 \subfloat
+               [][\emph{Sort Picard per subset da diecimila reads.}]
+<./Figure/Grafici_Finali/Max_rss_sort_picard_dieci.png, id=441, 444.66125pt x 4
+28.60126pt>
 File: ./Figure/Grafici_Finali/Max_rss_sort_picard_dieci.png Graphic file (type 
 png)
  <use ./Figure/Grafici_Finali/Max_rss_sort_picard_dieci.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_sort_picard_dieci.png 
-used on input line 167.
-(pdftex.def)             Requested size: 179.40262pt x 171.41255pt.
-pdfTeX warning (ext4): destination with the same identifier (name{subfigure.3.3
+used on input line 281.
+(pdftex.def)             Requested size: 179.40262pt x 172.92203pt.
+pdfTeX warning (ext4): destination with the same identifier (name{subfigure.3.9
 .2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.168 \subfloat
-               [][\emph{Mark duplicates per subset da centomila}]
-<./Figure/Grafici_Finali/Max_rss_mark_duplicates_cento.png, id=458, 459.7175pt 
-x 430.60875pt>
+l.282 \subfloat
+               [][\emph{Mark Duplicates per subset da centomila reads.}]
+<./Figure/Grafici_Finali/Max_rss_mark_duplicates_cento.png, id=442, 453.695pt x
+ 428.60126pt>
 File: ./Figure/Grafici_Finali/Max_rss_mark_duplicates_cento.png Graphic file (t
 ype png)
  <use ./Figure/Grafici_Finali/Max_rss_mark_duplicates_cento.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_mark_duplicates_cento.
-png used on input line 171.
-(pdftex.def)             Requested size: 179.40262pt x 168.04185pt.
+png used on input line 285.
+(pdftex.def)             Requested size: 179.40262pt x 169.48203pt.
 
 [40 <./Figure/Grafici_Finali/Max_rss_ind.png> <./Figure/Grafici_Finali/Max_rss_
 sort_picard_dieci.png> <./Figure/Grafici_Finali/Max_rss_mark_duplicates_cento.p
-ng>] <./Figure/Grafici_Finali/I_ind.png, id=468, 494.84875pt x 385.44pt>
-File: ./Figure/Grafici_Finali/I_ind.png Graphic file (type png)
-
-<use ./Figure/Grafici_Finali/I_ind.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/I_ind.png used on input line 1
-91.
-(pdftex.def)             Requested size: 179.40262pt x 139.73459pt.
-
-<./Figure/Grafici_Finali/O_ind.png, id=469, 494.84875pt x 385.44pt>
-File: ./Figure/Grafici_Finali/O_ind.png Graphic file (type png)
-
-<use ./Figure/Grafici_Finali/O_ind.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/O_ind.png used on input line 1
-95.
-(pdftex.def)             Requested size: 179.40262pt x 139.73459pt.
-
-<./Figure/Grafici_Finali/IO_Input_mapping.png, id=470, 455.7025pt x 430.60875pt
->
-File: ./Figure/Grafici_Finali/IO_Input_mapping.png Graphic file (type png)
- <use ./Figure/Grafici_Finali/IO_Input_mapping.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_Input_mapping.png used on i
-nput line 210.
-(pdftex.def)             Requested size: 179.40262pt x 169.5268pt.
-
-<./Figure/Grafici_Finali/IO_Output_mapping.png, id=471, 455.7025pt x 430.60875p
-t>
-File: ./Figure/Grafici_Finali/IO_Output_mapping.png Graphic file (type png)
- <use ./Figure/Grafici_Finali/IO_Output_mapping.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_Output_mapping.png used on 
-input line 214.
-(pdftex.def)             Requested size: 179.40262pt x 169.5268pt.
- [41 <./Figure/Grafici_Finali/I_ind.png> <./Figure/Grafici_Finali/O_ind.png>]
-<./Figure/Grafici_Finali/IO_Input_sort_picard.png, id=480, 455.7025pt x 430.608
-75pt>
-File: ./Figure/Grafici_Finali/IO_Input_sort_picard.png Graphic file (type png)
- <use ./Figure/Grafici_Finali/IO_Input_sort_picard.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_Input_sort_picard.png used 
-on input line 229.
-(pdftex.def)             Requested size: 179.40262pt x 169.5268pt.
-
-<./Figure/Grafici_Finali/IO_Output_sort_picard.png, id=481, 461.725pt x 430.608
-75pt>
-File: ./Figure/Grafici_Finali/IO_Output_sort_picard.png Graphic file (type png)
-
- <use ./Figure/Grafici_Finali/IO_Output_sort_picard.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_Output_sort_picard.png used
- on input line 233.
-(pdftex.def)             Requested size: 179.40262pt x 167.31252pt.
- [42 <./Figure/Grafici_Finali/IO_Input_mapping.png> <./Figure/Grafici_Finali/IO
-_Output_mapping.png> <./Figure/Grafici_Finali/IO_Input_sort_picard.png> <./Figu
-re/Grafici_Finali/IO_Output_sort_picard.png>]
-<./Figure/Grafici_Finali/IO_Input_mark_duplicates.png, id=496, 463.7325pt x 430
-.60875pt>
-File: ./Figure/Grafici_Finali/IO_Input_mark_duplicates.png Graphic file (type p
-ng)
- <use ./Figure/Grafici_Finali/IO_Input_mark_duplicates.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_Input_mark_duplicates.png u
-sed on input line 249.
-(pdftex.def)             Requested size: 179.40262pt x 166.58977pt.
-
-<./Figure/Grafici_Finali/IO_Output_mark_duplicates.png, id=497, 461.725pt x 430
-.60875pt>
-File: ./Figure/Grafici_Finali/IO_Output_mark_duplicates.png Graphic file (type 
-png)
- <use ./Figure/Grafici_Finali/IO_Output_mark_duplicates.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_Output_mark_duplicates.png 
-used on input line 253.
-(pdftex.def)             Requested size: 179.40262pt x 167.31252pt.
-
-<./Figure/Grafici_Finali/IO_Input_build_bam.png, id=498, 452.69125pt x 430.6087
-5pt>
-File: ./Figure/Grafici_Finali/IO_Input_build_bam.png Graphic file (type png)
- <use ./Figure/Grafici_Finali/IO_Input_build_bam.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_Input_build_bam.png used on
- input line 266.
-(pdftex.def)             Requested size: 179.40262pt x 170.65036pt.
-
-<./Figure/Grafici_Finali/IO_Output_build_bam.png, id=499, 472.76625pt x 430.608
-75pt>
-File: ./Figure/Grafici_Finali/IO_Output_build_bam.png Graphic file (type png)
- <use ./Figure/Grafici_Finali/IO_Output_build_bam.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_Output_build_bam.png used o
-n input line 270.
-(pdftex.def)             Requested size: 179.40262pt x 163.40962pt.
- [43 <./Figure/Grafici_Finali/IO_Input_mark_duplicates.png> <./Figure/Grafici_F
-inali/IO_Output_mark_duplicates.png>]
-<./Figure/Grafici_Finali/IO_Input_realigner.png, id=510, 455.7025pt x 430.60875
-pt>
-File: ./Figure/Grafici_Finali/IO_Input_realigner.png Graphic file (type png)
- <use ./Figure/Grafici_Finali/IO_Input_realigner.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_Input_realigner.png used on
- input line 285.
-(pdftex.def)             Requested size: 179.40262pt x 169.5268pt.
-
-<./Figure/Grafici_Finali/IO_Output_realigner.png, id=511, 472.76625pt x 430.608
-75pt>
-File: ./Figure/Grafici_Finali/IO_Output_realigner.png Graphic file (type png)
- <use ./Figure/Grafici_Finali/IO_Output_realigner.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_Output_realigner.png used o
-n input line 289.
-(pdftex.def)             Requested size: 179.40262pt x 163.40962pt.
- [44 <./Figure/Grafici_Finali/IO_Input_build_bam.png> <./Figure/Grafici_Finali/
-IO_Output_build_bam.png> <./Figure/Grafici_Finali/IO_Input_realigner.png> <./Fi
-gure/Grafici_Finali/IO_Output_realigner.png>]
-<./Figure/Grafici_Finali/IO_I_realigner_dieci.png, id=527, 452.69125pt x 430.60
-875pt>
-File: ./Figure/Grafici_Finali/IO_I_realigner_dieci.png Graphic file (type png)
- <use ./Figure/Grafici_Finali/IO_I_realigner_dieci.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_I_realigner_dieci.png used 
-on input line 314.
-(pdftex.def)             Requested size: 179.40262pt x 170.65036pt.
-
-<./Figure/Grafici_Finali/IO_O_realigner_dieci.png, id=528, 462.72874pt x 430.60
-875pt>
-File: ./Figure/Grafici_Finali/IO_O_realigner_dieci.png Graphic file (type png)
- <use ./Figure/Grafici_Finali/IO_O_realigner_dieci.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_O_realigner_dieci.png used 
-on input line 318.
-(pdftex.def)             Requested size: 179.40262pt x 166.95114pt.
-
-<./Figure/Grafici_Finali/IO_I_map_cento.png, id=529, 453.695pt x 430.60875pt>
-File: ./Figure/Grafici_Finali/IO_I_map_cento.png Graphic file (type png)
-
-<use ./Figure/Grafici_Finali/IO_I_map_cento.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_I_map_cento.png used on inp
-ut line 326.
-(pdftex.def)             Requested size: 179.40262pt x 170.27585pt.
-
-<./Figure/Grafici_Finali/IO_O_map_cento.png, id=530, 465.74pt x 430.60875pt>
-File: ./Figure/Grafici_Finali/IO_O_map_cento.png Graphic file (type png)
-
-<use ./Figure/Grafici_Finali/IO_O_map_cento.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/IO_O_map_cento.png used on inp
-ut line 331.
-(pdftex.def)             Requested size: 179.40262pt x 165.867pt.
- [45 <./Figure/Grafici_Finali/IO_I_realigner_dieci.png> <./Figure/Grafici_Final
-i/IO_O_realigner_dieci.png>])
-[46 <./Figure/Grafici_Finali/IO_I_map_cento.png> <./Figure/Grafici_Finali/IO_O_
-map_cento.png>]
+ng>]) [41]
 \openout2 = `C4.aux'.
 
  (./C4.tex
 Capitolo 4.
 
-LaTeX Warning: Reference `cap: 3' on page 47 undefined on input line 2.
+LaTeX Warning: Reference `cap: 3' on page 42 undefined on input line 2.
 
-[47
+[42
 
 
 
-]) [48] (./Tesi.bbl
+]) [43] (./Tesi.bbl
 Underfull \hbox (badness 1142) in paragraph at lines 27--30
 []\OT1/cmr/m/n/12 Johannes K^^?oster and Sven Rah-mann.  Snakemake-a sca-la-ble
  bio-
@@ -1572,50 +1527,50 @@ Underfull \hbox (badness 5036) in paragraph at lines 27--30
 -ma-tics\OT1/cmr/m/n/12 , 28(19):2520--2522,
  []
 
-[49
+[44
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 70.
- [50]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 70.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
+ [45]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
  (./Tesi.aux (./C1.aux) (./C2.aux) (./C3.aux) (./C4.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 70.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 70.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 76.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 76.
 Package rerunfilecheck Info: File `Tesi.out' has not changed.
-(rerunfilecheck)             Checksum: DAFDCF0EEEDCB071CE56CFEEFF3241C1;2108.
+(rerunfilecheck)             Checksum: 27371D49FAD09510FCE67CEEC6BF7C62;1879.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 20170 strings out of 493013
- 372070 string characters out of 6135683
- 422132 words of memory out of 5000000
- 23293 multiletter control sequences out of 15000+600000
- 14539 words of font info for 54 fonts, out of 8000000 for 9000
+ 20332 strings out of 493013
+ 371569 string characters out of 6135683
+ 427648 words of memory out of 5000000
+ 23487 multiletter control sequences out of 15000+600000
+ 15468 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,10n,51p,10375b,1252s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,14n,51p,10375b,1252s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/eurosym/feymr10.pf
-b>
-Output written on Tesi.pdf (50 pages, 1377515 bytes).
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb>
+Output written on Tesi.pdf (45 pages, 893945 bytes).
 PDF statistics:
- 652 PDF objects out of 1000 (max. 8388607)
- 513 compressed objects within 6 object streams
- 175 named destinations out of 1000 (max. 500000)
- 416 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 558 PDF objects out of 1000 (max. 8388607)
+ 453 compressed objects within 5 object streams
+ 141 named destinations out of 1000 (max. 500000)
+ 304 words of extra memory for PDF output out of 10000 (max. 10000000)
 
