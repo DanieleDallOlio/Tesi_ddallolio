@@ -1,2 +1,21 @@
 \chapter{Conclusioni}
-I risultati esposti nel capitolo \ref{cap: 3} permettono di delineare l'organizzazione per il futuro sviluppo di una tecnica per la parallelizzazione dei processi.
+I risultati esposti nel capitolo \ref{cap: 3} sono le informazioni basilari per lo sviluppo futuro di una tecnica adeguata per la parallelizzazione dei processi.
+Ciascuna caratteristica studiata mostra le potenzialità di un singolo nodo di un cluster definendone il singolo andamento e confrontandolo con gli altri presenti.
+
+Tutte le analisi svolte sono state conseguite selezionando solamente una piccola frazione delle letture in possesso, spingendosi al massimo intorno al $6.7\%$. 
+Infatti il numero di letture complessivo era ben oltre i 45 milioni e la massima grandezza di un subset condivisa tra tutti i dispositivi è stata di 3 milioni.
+
+Solamente per il nodo più performante, con cpu Xeon, è stato deciso di spingersi oltre arrivando ai 9 milioni di letture contenute in un subset, che equivale a circa il $20\%$. 
+
+Le conclusioni..
+
+Questa tesi ha avuto lo scopo di riunire tutti gli elementi che hanno partecipato allo studio dell'analisi computazionale biofisica su nodi di macchine a basso consumo energetico, per preparare le basi ad un importante sviluppo futuro.  
+Le prossime fasi che saranno coinvolte nella ricerca infatti, necessitano di un'iniziale analisi sui componenti computazionali più fondamentali perchè vengano fornite le informazioni per programmare una tecnologia efficace, fruibile ed economica.
+
+Il percorso di studio futuro avrà come primo step il confronto dei dati con un modello di macchina tradizionale, non low power, tra quelle utilizzate quotidianamente.
+In seguito saranno adattate le simulazioni all'utilizzo contemporaneo di tutti i core previsti dalle macchine, visto che solo uno step del procedimento è stato trattato con un core aggiuntivo(il mapping).
+Infine le analisi verranno svolte, dopo un'opportuna progettazione, su un gruppo di cluster low power per verificare concretamente che l'utilizzo di un insieme cooperante di apparecchi a basso consumo energetico è effettivamente performante almeno quanto una macchina tradizionale.
+
+L'esito positivo della ricerca consentirebbe agli enti accademici e ospedialieri di adottare una tecnologia più accessibile, meno costosa e soprattutto più veloce, che sostenga la ricerca in medicina e in biologia, oltre che il generale progresso scientifico.
+
+

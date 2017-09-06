@@ -80,7 +80,7 @@ La creazione di un unico programma anche per l'estrazione dei subsets conferma l
 \subsubsection{Algoritmo di ricostruzione genetica}
 Una volta creati i subsets, può avere inizio l'applicazione dell'algoritmo di ricostruzione genetica, il quale è interamento contenuto nell'apposito Snakefile.
 E' importante notare che la procedura seguita è ripresa dal metodo GATK-LOD\ped{n} solamente in alcuni passaggi.
-Tali passaggi, in particolare, sono concretizzati nello Snakefile da regole che si susseguono l'un l'altra in base alle dipendenze di ciascuna(\textbf{Sezione Snakemake Cap1}).
+Tali passaggi, in particolare, sono concretizzati nello Snakefile da regole che si susseguono l'un l'altra in base alle dipendenze di ciascuna(sezione \ref{sec:SM}).
 
 L'algoritmo GATK-LOD\ped{n} è stato integrato solo fino al riallineamento di GATK, escludendo quindi i passaggi di riallineamento Indel e di ricalibrazione dei punteggi di qualità.
 Allo stesso tempo non sono state considerate le fasi fondamentali di chiamata alle varianti e l'implementazione del classificatore LOD\ped{n} di MuTect, vera novità del metodo GATK-LOD\ped{n}.
@@ -112,7 +112,7 @@ Per riassumere l'intero processo è possibile osservare la raffigurazione seguen
 
 \subsubsection{Organizzazione dei prodotti}
 Il materiale su cui sono condotte le analisi statistiche sono i particolari tecnici e tempistici di ognuna delle regole completate.
-Tali dati sono procurati, come già spiegato nel \textbf{capitolo Snakemake}, dalla direttiva benchmark in ogni passaggio.
+Tali dati sono procurati, come già spiegato nella sezione \ref{subsubsec: SMb}, dalla direttiva benchmark in ogni passaggio.
 Ciò significa che al termine dell'algoritmo sono prodotti tanti singoli file di benchmarking quante regole sono state completate, contando pure il caso in cui esse venissero ripetute ricorsivamente.
 Per controllare la quantità di file e agevolare il futuro studio statistico, è stato scritto uno script in Python, denominato \verb!script_benchmark!.
 
@@ -125,7 +125,7 @@ Gli attributi contenuti nel nome indicano ordinatamente: il nome della regola co
 Mentre i primi due sono ricavati in automatico, gli altri fanno riferimento al file di configurazione dello Snakefile, come sarà spiegato nel paragrafo seguente.
 
 Il lavoro svolto dallo script consiste quindi nel leggere ognuno dei file benchmark generati, considerare le etichette delle simulazioni e trasferire i dati incolonnati in un'unica tabella.
-La tabella risultante non è dotata, quindi, solo delle colonne predefinite da \textit{Snakemake} nell'operazione di benchmarking(presentate nella sezione \textbf{benchmark} della sezione 1.2), bensì è arricchita dai dettagli contenuti nell'etichettatura.
+La tabella risultante non è dotata, quindi, solo delle colonne predefinite da \textit{Snakemake} nell'operazione di benchmarking(\ref{subsubsec: SMb}), bensì è arricchita dai dettagli contenuti nell'etichettatura.
 In particolare, i dati sono organizzati nella tabella in ordine crescente rispetto al numero di simulazione.
 
 All'avvio di questo script è controllato se è presente una tabella con lo stesso nome: in caso affermativo, i nuovi dati sono accodati ai precedenti; al contrario, ne è inizializzata un'altra.
@@ -240,7 +240,7 @@ Tutti le macchine hanno processato gli stessi subset di dati con un range di ini
 In questo modo è stato possibile studiare l'attitudine delle macchine a processare dati identici con larghezza crescente e come questo incremento condiziona l'uso della cpu. 
 In dettaglio, queste simulazioni sono state ripetute dieci volte per il dispositivo {Xeon D-1540}, che è il più performante, e cinque volte per gli altri nodi, dato che i tempi di esaurimento del processo coprivano già per tali piccoli gruppi di dati un arco di tempo considerevole.
 
-Solo sulla macchina montane Xeon sono stati portati avanti i subset fino ad un range di 9 milioni, sempre con un intervallo di 1 milioni tra due subset consecutivi, e ciò per confermare gli andamenti tratti dalle analisi precedenti.
+Solo sulla macchina montante Xeon sono stati portati avanti i subset fino ad un range di 9 milioni, sempre con un intervallo di 1 milioni tra due subset consecutivi, e ciò per confermare gli andamenti tratti dalle analisi precedenti.
 Non sono stati fatti proseguire anche gli altri apparecchi perchè, oltre i prolungati tempi di esecuzione, lo scopo della tesi è valutare il comportamento dei nodi su piccoli subset di dati e quali indicazioni questo possa dare per sviluppare un'esecuzione parallelizzata efficace. 
 Visto che per tale valutazione sono sufficienti i dati fino a 3 milioni, solo la macchina più performante è andata oltre per affermare le stime ottenute.
 
