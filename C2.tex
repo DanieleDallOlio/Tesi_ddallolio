@@ -79,7 +79,7 @@ La creazione di un unico programma anche per l'estrazione dei subsets conferma l
 
 \subsubsection{Algoritmo di ricostruzione genetica}
 Una volta creati i subsets, può avere inizio l'applicazione dell'algoritmo di ricostruzione genetica, il quale è interamento contenuto nell'apposito Snakefile.
-E' importante notare che la procedura seguita è ripresa dal metodo GATK-LOD\ped{n} solamente in alcuni passaggi.
+\'E importante notare che la procedura seguita è ripresa dal metodo GATK-LOD\ped{n} solamente in alcuni passaggi.
 Tali passaggi, in particolare, sono concretizzati nello Snakefile da regole che si susseguono l'un l'altra in base alle dipendenze di ciascuna(sezione \ref{sec:SM}).
 
 L'algoritmo GATK-LOD\ped{n} è stato integrato solo fino al riallineamento di GATK, escludendo quindi i passaggi di riallineamento Indel e di ricalibrazione dei punteggi di qualità.
@@ -103,7 +103,7 @@ Per riassumere l'intero processo è possibile osservare la raffigurazione seguen
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Workflow.jpg}
-\caption{Workflow}
+\caption{Schematizzazione del procedimento implementato nella pipeline.}
 \label{fig:workflow}
 \end{figure}
 
@@ -118,7 +118,7 @@ Per controllare la quantità di file e agevolare il futuro studio statistico, è
 
 
 Ogni file benchmark è dotato di un nome avente funzione di etichetta; in particolare, la forma è la seguente.
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\tiny]
 benchmark_{name}_subset_{sample}_n_sim_{n_sim}_cputype_{cpu_type}_thrs_{thrs}_ncpu{n_cpu}.txt
 \end{lstlisting}
 Gli attributi contenuti nel nome indicano ordinatamente: il nome della regola completata, il tipo di campione analizzato, il numero della simulazione, il tipo di cpu utilizzata e il numero di threads e di cpu adoperati.
@@ -147,7 +147,7 @@ Le informazioni necessarie allo Snakefile sono procurate dal file \textit{config
 Gli attributi della simulazione completano semplicemente l'etichettatura dei file di benchmarking e, pur rivestendo uno ruolo marginale, tali etichette permettono allo script di organizzazione dei dati una lettura rapida e quindi un'istanza immediata della tabella.
 Come già citato precedentemente, i dettagli trascritti nel file di configurazione sono il tipo di cpu sfruttata, il numero della simulazione, il numero di threads adoperati e il numero di cpu coinvolte.
 
-E' stato scelto di gestire queste informazioni come parametri per non irrigidire il programma, visto che gli apparecchi e i meccanismi usati possono essere innumerevoli.
+\'E stato scelto di gestire queste informazioni come parametri per non irrigidire il programma, visto che gli apparecchi e i meccanismi usati possono essere innumerevoli.
 Nello specifico, per modificare questi dettagli nelle etichette è sufficiente agire da linea di comando, come indicato nel paragrafo 1.2.1.
 
 Sempre nello stesso file di configurazione sono presenti alcune chiavi che rappresentato le dipendenze non implementabili automaticamente negli ambienti di \textit{Conda} per \textit{Snakemake}.
@@ -205,30 +205,31 @@ Così operando, è possibile osservare se la durata di completamento dei lavori 
 
 Il tempo impiegato per concludere ogni regola non è l'unico fattore da prendere in considerazione, visto che per promuovere l'uso della parallelizzazione è indispensabile analizzare le modalità di utilizzo della cpu. 
 
-\subsection{Analisi sul max rss}
-La rss o \textit{Resident Set Size} è la memoria fisica, non estesa, che un singolo processo sfrutta e in Snakemake questa grandezza è espressa, nel file di benchmarking, in ordine di megabytes(MB). 
-In realtà, Snakemake non fa altro che ottenere le informazioni sulla memoria dal tool psutil e successivamente converte talune in MB, dato che psutil le dispone in bytes.
+\subsection{Analisi sulla memoria fisica}
+La memoria fisica studiata è ottenuta grazie a Snakemake dal tool psutil sottoforma di una memoria detta rss o \textit{Resident Set Size}. 
+In realtà, l'unica operazione conseguita da Snakemake è prelevare l'informazioni in bytes su questo tipo di memoria e convertirlo in MB per l'utente.
 
-I dettagli su rss è di fondamentale importantanza per un corretto sviluppo di un sistema parallelizzato.
+I dettagli sulla memoria che viene impiegati nei singoli processi è di fondamentale importantanza per un corretto sviluppo di un futuro sistema parallelizzato.
 Infatti, lo studio sull'andamento di tale memoria consente di verificare fino a che livello di scalabilità la cpu è proficua e quando il suo uso comincia a saturare.
-Questi comportamenti indicano fino a che punto è possibile ottimizzare l'utilizzo dei core della cpu in modo da realizzare una parallelizzazione efficiente.
+Questi comportamenti indicano fino a che punto è possibile ottimizzare l'utilizzo dei core della cpu e identificano le memorie richieste dai vari lavori.
+Distinguere quali sono i processi che necessitano maggiormente di memoria e quelli che ne utilizzano una scarsa percentuale, permette di conoscere quali sono i nodi per le varie regole che ottimizzano l'esecuzione.
 
-Lo studio statistico condotto è stato interessato, come per le tempistiche, ad osservare il comportamento della memoria rss in base alle regole, ai subsets e ai diversi apparecchi.
+Lo studio statistico condotto è stato interessato, come per le tempistiche, ad osservare il comportamento della memoria in base alle regole, ai subsets e ai diversi apparecchi.
 Perciò sono stati elaborati i grafici per ogni regola in funzione del range del subset, quelli relativi alle regole indipendenti dai dati e il comportamento per lo stesso range ma diverso intervallo, sempre considerando tutti i dispositivi coinvolti.
-Non è stato descritto l'utilizzo complessivo della cpu per ogni simulazione, ovvero la somma tra gli rss, perchè le informazioni essenziali per la parallelizzazione provengono dagli specifici utilizzi per i singoli lavori. 
+Non è stato descritto, invece, l'utilizzo complessivo della cpu per ogni simulazione, cioè la somma tra le memorie, perchè non sono ritenute informazioni da cui trarre beneficio. 
     
 
-\subsection{Analisi sui processi di input ed output} 
-Due ulteriori dati che Snakemake trascrive nel benchmark sono ottenuti da psutil, specificatamente dalla funzione \verb!disk_io_counters!, e sono il numero di bytes letti e quelli scritti dal processo.
-In particolare, questi sono rispettivamente nominati \verb!io_in! e \verb!io_out! e, come per la memoria rss, sono convertiti in megabytes da Snakemake. 
-
-Queste due proprietà garantiscono una conoscenza più approfondita di come la cpu partecipa alla computazione, evidenziando con quale intensità, espressa in MB, essa è coinvolta nelle distinte operazioni.
-Così come l'analisi di rss, la statistica sulle fasi di input ed output delinea gli effetti che i lavori causano sull'apparecchio.
-Da queste informazioni si può trarre una valutazione su quanto al massimo è possibile servirsi della cpu e fino a che punto l'utilizzo di essa è efficace.
-
-Le analisi realizzate sono state le stesse che per la memoria rss e quindi sono stati studiati gli andamenti dell'input e dell'output per le regole dipendenti dai subset e pure quelle indipendenti.
-Ugualmente ai casi precedenti sono state valutate anche le dipendenze per il tipo di cpu e sono stati confrontati intervalli diversi aventi identico range.
-Non è stato presa in esame il valore complessivo per l'input e output nell'intero arco dell'esecuzione perchè da tale dato totale non è possibile ricavare alcuna informazione proficua.
+%\subsection{Analisi sui processi di input ed output} 
+%Due ulteriori dati che Snakemake trascrive nel benchmark sono ottenuti da psutil, specificatamente dalla funzione \verb!disk_io_counters!, e sono il numero di bytes letti e quelli scritti dal processo.
+%In particolare, questi sono rispettivamente nominati \verb!io_in! e \verb!io_out! e, come per la memoria rss, sono convertiti in megabytes da Snakemake. 
+%
+%Queste due proprietà garantiscono una conoscenza più approfondita di come la cpu partecipa alla computazione, evidenziando con quale intensità, espressa in MB, essa è coinvolta nelle distinte operazioni.
+%Così come l'analisi di rss, la statistica sulle fasi di input ed output delinea gli effetti che i lavori causano sull'apparecchio.
+%Da queste informazioni si può trarre una valutazione su quanto al massimo è possibile servirsi della cpu e fino a che punto l'utilizzo di essa è efficace.
+%
+%Le analisi realizzate sono state le stesse che per la memoria rss e quindi sono stati studiati gli andamenti dell'input e dell'output per le regole dipendenti dai subset e pure quelle indipendenti.
+%Ugualmente ai casi precedenti sono state valutate anche le dipendenze per il tipo di cpu e sono stati confrontati intervalli diversi aventi identico range.
+%Non è stato presa in esame il valore complessivo per l'input e output nell'intero arco dell'esecuzione perchè da tale dato totale non è possibile ricavare alcuna informazione proficua.
  
 \subsection{Le simulazioni completate} 
 \label{subsec:simc}
