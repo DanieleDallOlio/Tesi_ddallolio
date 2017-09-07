@@ -1,70 +1,78 @@
 \chapter{Introduzione}
-Questo capitolo introduce le componenti principali del progetto ed ha il compito di spiegare in maniera approfondita le operazioni svolte da esse.
-Tali componenti sono state raggruppate nei tre campi su cui è stato condotto il lavoro: bioinformatica, sviluppo informatico e i dispositivi low power.
+Questo capitolo introduce i componenti principali del progetto ed ha il compito di spiegarne le operazioni svolte in maniera approfondita.
+Tali componenti sono stati raggruppati nei tre campi su cui è stato condotto il lavoro: la bioinformatica, lo sviluppo informatico e i dispositivi low power.
 
-Il primo di questi è il campo bioinformatico e, quindi, un approfondimento del metodo GATK-LOD\ped{n} riguardante la ricerca sull'origine dei tumori attraverso procedure di natura bioinformatica.
-Inoltre, sarà sottolineata l'importanza della fisica nell'ambiente di lavoro e nella creazione degli algoritmi.
+La prima sezione, relativa al campo bioinformatico, approfondisce il metodo GATK-LOD\ped{n} riguardante la ricerca sull'origine dei tumori attraverso procedure di natura bioinformatica.
+Inoltre, è descritto il ruolo dei fisici in questo ambiente di lavoro e nella creazione degli algoritmi.
 
-Il secondo è il campo di sviluppo informatico, ovvero la spiegazione del programma Snakemake, le cui funzionalità concendono ampie possibilità sulla gestione delle risorse offerte dalle macchine.
+La seconda sezione, inerente allo sviluppo informatico, spiega come le funzionalità del programma Snakemake concedino ampie possibilità sulla gestione delle risorse offerte dai nodi delle macchine server.
 
-Il terzo è il campo dei dispositivi low power, accompagnati dalla descrizione di coloro che sono stati adoperati per la computazione.
+La terza sezione descrive l'importanza dei dispositivi low power e specifica quali tipi di nodi sono stati adoperati nelle analisi.
 
-La combinazione tra tali differenti ambiti ha quindi fornito i sufficienti elementi per proseguire con la costruzione e la seguente attuazione del programma; i quali saranno affrontati nel prossimo capitolo.
+La combinazione tra tali differenti ambiti ha fornito i sufficienti elementi per proseguire con la costruzione e attuazione del programma affrontati nel prossimo capitolo.
 
 
 \section{La ricerca delle mutazioni genetiche}
-Questa sezione si occuperà di dare un'idea generale su un ramo degli studi riguardanti le mutazioni genetiche che sviluppano e alimentano i tumori.
+Questa sezione si occupa di dare un'idea generale sugli studi che riguardano le mutazioni genetiche che causano e alimentano i tumori.
 
 Negli ultimi anni l'indagine sulle forme cancerogene basata sulle variazioni che avvengono nel codice genetico ha suscitato sempre più interesse e ciò ha portato allo sviluppo di un discreto numero di programmmi, algoritmi e metodi atti all'analisi del DNA.
-Ognuna di queste applicazioni ha come fine la determinazione di quelle mutazioni nei geni che comportano l'insorgere delle malattie tumorali ora conosciute.
+Ognuna di queste applicazioni ha come fine la determinazione di quelle mutazioni nei geni che comportano l'insorgere delle malattie tumorali oggi conosciute.
 La conoscenza di una tale correlazione è di vitale importanza per la pianificazione di un piano di cura adeguato e, in altri casi, per un intervento anticipato in grado di prevenire il presentarsi della malattia.
 
-Un altro aspetto delicato è la risposta del cancro alle cure a cui è sottoposto il paziente e che, in taluni casi, si concretizza in una forma di resistenza a questi interventi, come ad esempio la resistenza alla chemioterapia.
+Un altro aspetto delicato è la risposta del cancro alle cure a cui è sottoposto il paziente e che, in taluni casi, si concretizza in una forma di resistenza a questi interventi.
 La gestione di una tale conseguenza può essere aiutata dalla piena comprensione dell'origine genetica del tumore, la quale agevolerebbe la scelta tra i percorsi di guarigione più opportuni.
 
-Seppur avendo lo stesso obiettivo, gli innumerevoli algoritmi utilizzati spesso si ritrovano in contrasto tra di loro e queste discrepanze sono rilevate quando si procede con il confronto dei risultati finali, che solitamente o non concordano o sono proprio differenti.
-Questi algoritmi elaborano i dati sperimentali grezzi attraverso vari processi che, generalmente, sfruttano svariati metodi di statistica le cui radici provengono dai campi di matematica e fisica applicata.
-La netta differenza di prestazioni, insieme alle diverse metodologie operate, lascia ai gruppi di ricerca un arduo compito nella scelta del metodo più idoneo da applicare.
+Seppur avendo lo stesso obiettivo, gli innumerevoli algoritmi utilizzati spesso si ritrovano in contrasto tra di loro e queste discrepanze sono rilevate quando si procede con il confronto dei risultati finali, che solitamente o non concordano in parte o sono proprio differenti.
+Questi algoritmi elaborano i dati sperimentali grezzi attraverso vari processi che generalmente adoperano svariati metodi di statistica, le cui radici provengono dai campi di matematica e fisica applicata.
+La netta differenza di prestazioni, insieme alle diverse metodologie operate, lascia ai ricercatori un arduo compito nella scelta del metodo più idoneo da applicare.
 
 In questa tesi il metodo considerato prende il nome di GATK-LOD\ped{n} ed è ideato dalla combinazione di due tra i tools più comuni nel panorama bioinformatico: GATK e MuTect.
-Prima di esporre questo algoritmo e le sue fondamenta, è necessario definire il percorso storico che ha determinato le moderne tecniche con cui è analizzato attualmente il materiale genetico e le caratteristiche generali di questi procedimenti.
-Inoltre, sarà sottolineato l'impatto della fisica nei campi della biologia e della medicina.
+Prima di esporre questo algoritmo e le sue fondamenta, è necessario definire il percorso storico che ha determinato le tecniche moderne con cui è analizzato attualmente il materiale genetico e le caratteristiche generali di questi procedimenti.
+Inoltre, sarà sottolineato il ruolo degli studi fisici durante il progresso nei campi di biologia e medicina.
 
 \subsection{L'analisi del DNA}
-Lo studio sull'eredità genetica ha inizio con gli studi di Gregory Mendel nella seconda metà del diciannovesimo secolo e, nella prima metà del secolo seguente, un serie di contributi, tra cui la fotografia della doppia elica da parte di Roselind Franklin, pongono le basi alla moderna ricerca genetica.
-Il contributo essenziale è la determinazione della struttura del DNA a cui contribuirono James Watson e Francis Crick, la quale permise di cominciare la decifrazione del codice genetico.
-I tentativi di decodifica hanno subito una svolta significativa nel 
-977 grazie alla tecnica di sequenziamento genetico proposta dal biochimico Frederick Sanger, conosciuta ora come metodo Sanger.
+Le ricerche sull'eredità genetica iniziarono dagli studi di Gregory Mendel nella seconda metà del diciannovesimo secolo riguardo all'ibridizzazione tra le piante. 
+Nella prima metà del secolo seguente, un serie di contributi, tra cui la fotografia della doppia elica da parte di Roselind Franklin, posero le basi alla moderna ricerca genetica.
+
+Il contributo essenziale fu la determinazione della struttura del DNA a cui contribuirono James Watson e Francis Crick, la quale permise di cominciare la decifrazione del codice genetico.
+I tentativi di decodifica subirono una svolta significativa nel 
+1977 grazie alla tecnica di sequenziamento genetico proposta dal biochimico Frederick Sanger, conosciuta ora come metodo Sanger.
+
 Tale procedimento determina l'ordine delle basi in un filamento breve di DNA utilizzando la tecnica dell'elettroforesi e il supporto di alcuni marcatori radioattivi.
 Questo metodo è considerato rivoluzionario ed è stato utilizzato come capostipite del sequenziamento del genoma umano per più di 40 anni.
 
-Nel 1984 il Department of Energy (DOE) e il National Institutes of Health (NIH) degli Stati Uniti hanno avviato un programma per lo sviluppo di tecnologie e metodi per il sequenziamento genetico e la mappatura del codice genetico umano: lo Human Genome Project(HGP).
-L'obiettivo essenziale del programma è la decodifica del DNA umano che comprende principalemente la determinazioni delle sequenze, cioè l'ordine delle basi, e la mappatura dei geni, ovvero la localizzazione dei geni per la maggior parte dei cromosomi e le connessioni con le caratteristiche fisiche e germinali.
-Oltre a ciò, il progetto ha cercato di analizzare anche i genomi di esseri viventi valutati più semplici, come ad esempio le mosche.
+Nel 1984 il Department of Energy (DOE) e il National Institutes of Health (NIH) degli Stati Uniti avviarono un programma per lo sviluppo di tecnologie e metodi per il sequenziamento genetico e la mappatura del codice genetico umano: lo Human Genome Project(HGP).
+L'obiettivo essenziale del programma fu la decodifica del DNA umano che comprese principalemente la determinazione delle sequenze, cioè l'ordine delle basi, e la mappatura dei geni, ovvero la localizzazione dei geni per la maggior parte dei cromosomi e le connessioni con le caratteristiche fisiche e germinali.
+Oltre a ciò, il progetto cercò di analizzare anche i genomi di esseri viventi considerati più semplici come ad esempio le mosche.
 
-Molte tecniche per la trattazione del materiale genetico hanno partecipato alla ricerca, ma il primo procedimento attuato dall'HGP fu il BAC, Bacterial Artificial Chromosome, che sfruttava la clonazione apportata da certi batteri per ottenere un numero elevato di filamenti.
+Molte tecniche per la trattazione del materiale genetico parteciparono alla ricerca, ma il primo procedimento attuato dall'HGP fu il BAC, Bacterial Artificial Chromosome, che sfruttava la clonazione apportata da certi batteri per ottenere un numero elevato di filamenti.
 Quest'ultimi subivano un ulteriore frammentazione, per poi essere sequenziati con il metodo Sanger ed infine essere riuniti per formare l'unica stringa di DNA.
 
-Dopo oltre un decennio, nell'Aprile del 2003, l'HGP si è concluso con successo, essendo stato decodificato il 99\verb!%! del genoma umano e visto che gli studi erano stati allargati prematuramente ad altri interessi, soprattutto nelle ricerche sulle malattie.
+Dopo oltre un decennio, nell'Aprile del 2003, l'HGP si concluse con successo, essendo stato decodificato il 99\verb!%! del genoma umano e visto che gli studi furono allargati prematuramente ad altri interessi soprattutto nelle ricerche sulle malattie.
+
 Da quel momento in poi, il termine comune affiliato alle nuove tecniche sul genoma umano è Next-Generation Sequencing(NGS), di cui fanno parte gli algoritmi coinvolti in questa presentazione.
 
 \subsubsection{NGS}
 La necessità di garantire una maggior rapidità, e anche di ridurre le spese, ha aperto un altro capitolo nella ricerca sul genoma umano: il Next-Generation Sequecing\cite{Behjati2013}.
-Tale necessità deriva dal fatto che il metodo Sanger, per via di un esaminazione estremamente precisa, ha ottenuto l'intero genoma umano in circa tredici anni sostenuto da un investimento che si aggira attorno ai $\$\,2.7$ miliardi. 
+Tale necessità deriva dal fatto che il metodo Sanger, per via di un esaminazione estremamente precisa, ha ottenuto l'intero genoma umano in circa tredici anni con un investimento che si aggirava attorno ai $\$\,2.7$ miliardi.
+ 
 Questa nuova generazione di tecnologie, che sfrutta la parallelizzazione di processi su scale microscopiche \cite{Shendure2008}, concede ai ricercatori strumenti estremamente più veloci, tali da stimare il genoma di un individuo in meno di un giorno, e molto meno costosi.
-In aggiunta, i numerosi metodi sviluppati all'interno del NGS sono fortemente radicati sulla teoria dei network, la quale è una branca della fisica che ha subito nell'ultimo ventennio un notevole progresso e che ha acquistato un significato oramai fondamentale nella ricerca medica e biologica. 
+In aggiunta, i numerosi metodi sviluppati all'interno del NGS sono fortemente radicati sulla teoria dei network. 
+Questa branca della fisica e della matematica ha subito nell'ultimo ventennio un notevole progresso e ha acquistato un significato oramai fondamentale nella ricerca medica e biologica. 
 
-Un fattore importante che supporta lo sviluppo di tecnologie più veloci è l'esistenza del genoma di riferimento prodotto dal HGP, che permette il confronto di sole certe regioni senza quindi dover estrarre l'intero codice genetico.
-Un ulteriore contributo è dato anche dalla contemporanea crescita delle aree che cooperano con la biologia, come ad esempio le tecniche di computazione.
+Un altro fattore importante che supporta lo sviluppo di tecnologie più veloci è l'esistenza del genoma di riferimento prodotto dal HGP, che permette in certi casi il confronto solamente frazioni di DNA senza dover estrarre l'intero codice genetico.
 
-Questi strumenti sono più conveniente del metodo Sanger, il quale rimane comunque artefice di un eccellente connubio tra qualità e quantità di letture(read-lenght), ma devono trovare l'idoneo compromesso tra l'accuratezza dei risultati e la diminuzione delle spese temporali ed economiche.
-Infatti, nello studio di sequenze a piccola scala la tecnologia di Sanger resta tuttora una tra le più affidabili, mentre su letture ad ordini superiori è atteso che le applicazioni del NGS possano vantare in futuro la miglior proficuità.
+Un ulteriore contributo è dato anche dalla contemporanea crescita delle aree che cooperano con la biologia, tra cui l'evoluzione delle tecniche di computazione.
 
-Pur adoperando tipi di tecnologia diversi, il funzionamento di un generale algoritmo del NGS prevede sempre alcuni passaggi, tra cui l'allineamento delle letture con un riferimento e l'investigazione sulle possibili variazioni.
-La difficoltà nello scegliere quale tra le diverse opzioni disponibili usare può è superata dal confronto tra i diversi risultati finali dei procedimenti, ovviamente in relazione agli scopi preposti. 
-Essi includono la qualità dei risultati, le tempistiche previste e altre caratteristiche come l'assemblaggio e gli allineamenti.
+Le tecniche della NGS sono più conveniente del metodo Sanger, dati i tempi richiesti, ma è ancora da trovare il giusto compromesso tra accuratezza dei risultati e diminuzione delle tempistiche e delle spese economiche.
+Infatti, nello studio di sequenze a piccola scala la tecnologia di Sanger resta tuttora una tra le più affidabili, mentre su letture ad ordini superiori le applicazioni del NGS possono vantare la miglior efficacia.
 
-Negli ultimi anni si sono aggiunti alle ricerche del NGS due software chiamati GATK e MuTect, i cui metodi hanno condotto allo sviluppo dell'algoritmo coinvolto nella ricerca presentatata in questa tesi: il GATK-LOD\ped{n}.
+Pur adoperando tipi di tecnologia diversi, il funzionamento di un qualsiasi algoritmo del NGS prevede solitamente gli stessi passaggi tra cui l'allineamento delle letture con un riferimento e l'investigazione sulle possibili variazioni.
+
+La difficoltà nello scegliere quale usare tra le diverse opzioni disponibili può essere superata dal confronto tra i risultati finali dei procedimenti, in relazione agli scopi preposti. 
+Tali risultati includono la qualità delle informazioni ricavate, le tempistiche previste e altre caratteristiche come l'assemblaggio e gli allineamenti.
+
+Negli ultimi anni si sono aggiunti alle ricerche del NGS due software chiamati GATK e MuTect, i cui metodi hanno condotto allo sviluppo dell'algoritmo coinvolto nel progetto presentato in questa tesi: il GATK-LOD\ped{n}.
 
 
 \subsection{Il metodo GATK-LOD\ped{n} e le sue radici}
