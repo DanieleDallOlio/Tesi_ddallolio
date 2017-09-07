@@ -219,8 +219,9 @@ Snakemake è un sistema di gestione del flusso di lavoro che semplifica l'esecuz
 In più, questo software è specializzato nella scalabilità dei lavori, da singoli core fino all'uso di cluster, le cui transizioni non implicano pesanti modifiche al procedimento del sistema.
 
 Questo programma è basato sul linguaggio di programmazione Python e la sua formazione è fortemente influenzata dal noto tool Make del sistema operativo Linux.
-\textbf{Ciò significa che Snakemake è modellato su una strategia di tipo \textit{pull} proprio come Make.a monte a valle}
-La strategia \textit{pull} procede completando una sequenza di step distinti, basata sulle necessità che ciascuno di questi passaggi richiede, ed è opposta al modello \textit{push}, dove invece il procedimento è racchiuso in un'unica struttura. 
+Ciò significa che Snakemake è modellato su una strategia di tipo \textit{pull} proprio come Make.
+In un procedimento che segue la strategia \textit{pull}, ogni lavoro coinvolto comunica le proprie condizioni e la sequenza di esecuzione è determinata a partire dal richieste finali(modello \textit{"a valle"}).
+Al contrario, la strategia \textit{push} esegue un procedimento a partire dai contenuti iniziali, attivando i compito successivi una volta svolte le operazioni(modello \textit{"a monte"}). 
 
 Il contenitore del codice Python in Snakemake è chiamato di default \textit{Snakefile} e l'ordine di esecuzione predefinito da linea di comando è:
 \begin{lstlisting}

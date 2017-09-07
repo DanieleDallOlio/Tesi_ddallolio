@@ -56,6 +56,7 @@ La terza racchiude un'operazione di riordinamento e di semplificazione di tali u
 
 
 \subsubsection{Estrazione}
+\label{subsubsec: ext}
 Gli oggetti delle analisi sono i subset genetici che si sceglie di estrarre dall'intero genoma del soggetto e per questo è lecito accennare a come avviene l'estrazione.
 
 Il genoma del soggetto è solitamente contenuto in un file in formato di testo \textit{fastq} che contiene le sequenze di nucleotidi rilevate durante le analisi in laboratorio.
@@ -197,23 +198,26 @@ Un tale grafico consente di osservare come cresce il tempo di esecuzione comples
 Terminato lo studio sui lavori dipendenti dalla grandezza dei subset, sono state brevemente considerate anche le regole indipendenti.
 Anche in questo caso è stata tracciata su un grafico la dipendenza del tempo di esecuzione rispetto ad ogni regola, distinguendo il comportamento tra i differenti nodi.  
 
-Infine, sono stati messi in relazione le durate delle singole regole rispetto a frazioni di DNA differenti con stesso numero di letture.
+Infine, sono stati estratti subset di ugual grandezza ma con letture differenti, che sono stati messi in relazione con le durate delle singole regole rispetto.
 Così operando, è possibile osservare se il tempo di completamento dei lavori è influenzato dal contenuto del subset processato e con quale entità ciò influisce.
 
 Il tempo impiegato per concludere ogni regola non è però l'unico fattore da prendere in considerazione, visto che per promuovere l'uso della parallelizzazione è indispensabile analizzare le modalità di utilizzo della memoria. 
 
 \subsection{Analisi sulla memoria fisica}
-La memoria fisica studiata è ottenuta grazie a Snakemake dal tool psutil sottoforma di una memoria detta rss o \textit{Resident Set Size}. 
-In realtà, l'unica operazione conseguita da Snakemake è prelevare l'informazioni in bytes su questo tipo di memoria e convertirlo in MB per l'utente.
+\label{subsec:Mf}
+La memoria fisica studiata è ottenuta grazie a Snakemake dal tool psutil sottoforma di una memoria detta RSS o \textit{Resident Set Size}(paragrafo \ref{subsubsec: SMb}). 
+In realtà, l'unica operazione conseguita da Snakemake è prelevare le informazioni in bytes su questo tipo di memoria e convertirlo in MB per l'utente.
+Perciò nel corso della spiegazione, la memoria trattata si riferisce proprio a questa informazione trasmessa da Snakemake.  
 
-I dettagli sulla memoria che viene impiegati nei singoli processi è di fondamentale importanza per un corretto sviluppo di un futuro sistema parallelizzato.
+I dettagli sulla memoria che viene impiegata nei singoli processi è di fondamentale importanza per un corretto sviluppo di un futuro sistema parallelizzato.
 Infatti, lo studio sull'andamento di tale memoria consente di verificare fino a che livello di scalabilità la cpu è proficua e quando il suo uso comincia a saturare.
 Questi comportamenti indicano fino a che punto è possibile ottimizzare l'utilizzo dei core della cpu e identificano le memorie richieste dai vari lavori.
 Distinguere quali sono i processi che necessitano maggiormente di memoria e quelli che ne utilizzano una scarsa percentuale, permette di conoscere quali sono i nodi per le varie regole che ottimizzano l'esecuzione.
 
-Lo studio statistico condotto è stato interessato, come per le tempistiche, ad osservare il comportamento della memoria in base alle regole, ai subsets e ai diversi apparecchi.
-Perciò sono stati elaborati i grafici per ogni regola in funzione del range del subset, quelli relativi alle regole indipendenti dai dati e il comportamento per lo stesso range ma diverso intervallo, sempre considerando tutti i dispositivi coinvolti.
-Non è stato descritto, invece, l'utilizzo complessivo della cpu per ogni simulazione, cioè la somma tra le memorie, perchè non sono ritenute informazioni da cui trarre beneficio. 
+Lo studio statistico condotto è stato interessato, come per le tempistiche, ad osservare il comportamento della memoria in base alle regole, ai subsets e ai diversi nodi.
+Perciò, è stata inizialmente posta in relazione la memoria occupata da ogni regola con il range del subset, distinguendo le macchine.
+Successivamente è stata eseguita la stessa operazione per le regole indipendenti dai dati ed infine, è stato studiato il comportamento della memoria lasciando invariato il numero di letture ma considerandone diverse.
+È stato trascurata, invece, la somma delle memoria in ogni passaggio perchè non sono ritenute informazioni da cui trarre beneficio. 
     
 
 %\subsection{Analisi sui processi di input ed output} 
@@ -232,18 +236,20 @@ Non è stato descritto, invece, l'utilizzo complessivo della cpu per ogni simula
 \label{subsec:simc}
 Le simulazioni che sono state eseguite ai fini di questa tesi sono state scelte per valutare le performance sui nodi dei cluster a disposizione, in modo da evidenziarne la potenziale scalabilità.
 
-I dispositivi low power adoperati, che sono stati mostrati nel paragrafo \ref{sec:LP} , sono stati impiegati in base alle loro diverse potenze computazionali e di seguito sono sono esposti i tipi di subset su cui hanno operato.
+I nodi low power adoperati, che sono stati illustrati nel paragrafo \ref{sec:LP}, sono stati impiegati in base alle loro diverse potenze computazionali e sono stati confrontati con un nodo del cluster bio8, utilizzato come riferimento per le macchine tradizionali.  
 
-Tutti le macchine hanno processato gli stessi subset di dati con un range di iniziale 5000 fino a 3 milioni, passando per i multipli di diecimila, di centomila e di un milione.
+Tutti i nodi hanno processato gli stessi subset di dati con un range di iniziale pari a 5000 fino a 3 milioni, passando per i multipli di diecimila, di centomila e di un milione.
 In questo modo è stato possibile studiare l'attitudine delle macchine a processare dati identici con larghezza crescente e come questo incremento condiziona l'uso della cpu. 
-In dettaglio, queste simulazioni sono state ripetute dieci volte per il dispositivo {Xeon D-1540}, che è il più performante, e cinque volte per gli altri nodi, dato che i tempi di esaurimento del processo coprivano già per tali piccoli gruppi di dati un arco di tempo considerevole.
 
-Solo sulla macchina montante Xeon sono stati portati avanti i subset fino ad un range di 9 milioni, sempre con un intervallo di 1 milioni tra due subset consecutivi, e ciò per confermare gli andamenti tratti dalle analisi precedenti.
-Non sono stati fatti proseguire anche gli altri apparecchi perchè, oltre i prolungati tempi di esecuzione, lo scopo della tesi è valutare il comportamento dei nodi su piccoli subset di dati e quali indicazioni questo possa dare per sviluppare un'esecuzione parallelizzata efficace. 
-Visto che per tale valutazione sono sufficienti i dati fino a 3 milioni, solo la macchina più performante è andata oltre per affermare le stime ottenute.
+Solamente sui nodi xeond e bio8 sono state portate avanti le simulazioni fino a subset con un numero di letture pari a 9 milioni, continuando da 3 milioni a scalare progressivamente di 1 milione.
 
-Infine, sono stati estratti vari intervalli con lo stesso range per verificare se il contenuto dei dati influenza significativamente le computazioni.
-I due range trattati sono stati diecimila e centomila, e per ricavare intervalli diversi sono stati estratti i relativi subsets in posizioni differenti nel materiale genetico grezzo a disposizione.
+Non sono stati fatti proseguire anche gli altri nodi perchè lo scopo della tesi è valutare il comportamento dei nodi su piccoli subset di dati e quali indicazioni questo possa dare per sviluppare un'esecuzione parallelizzata efficace.
+Visto che per tale valutazione sono stati sufficienti i dati citati, solo le due macchine più performanti sono andati oltre per confermare le stime ottenute.
+
+In dettaglio, queste simulazioni sono state ripetute dieci volte per i nodi xeond e bio8 mentre sono bastate cinque volte per gli altri nodi, dato che i tempi di esaurimento del processo arrivavano già a coprire un arco di tempo considerevole.
+
+Infine utilizzando lo script \verb!split.py! descritto nella sezione \ref{subsubsec: ext}, sono stati estratti subsets contenenti letture diverse, ma dello stesso numero, che sono stati studiati in una fase delle analisi presentata precedentemente.
+I due range di lettura considerati sono stati diecimila e centomila, che sono stati ricavati solo per i nodi dei cluster low power e non da bio8.
 
 Nel capitolo seguente saranno esposti gli esiti più rilevanti, selezionati dai prodotti finali dell'analisi statistica effettuata sui dati delle simulazioni.  
 

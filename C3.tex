@@ -1,8 +1,8 @@
 \chapter{Risultati}
 \label{cap:3}
-I risultati finali sono suddivisi nelle due caratteristiche su cui è stata sviluppata l'analisi dei dati.
-Saranno presentate quindi una sezione relativa ai tempi di esecuzione e una sulla memoria fisica sfruttata. 
-La descrizione delle relazioni più interessanti sarà, inoltre, accompagnata dall'utilizzo di alcuni tra i grafici elaborati durante lo studio statistico.
+I risultati finali sono stati suddivisi nelle due caratteristiche su cui è stata sviluppata l'analisi dei dati.
+Sono quindi presenti una sezione relativa ai tempi di esecuzione e una sulla memoria fisica sfruttata. 
+La descrizione delle relazioni più interessanti è, inoltre, accompagnata dall'utilizzo di alcuni tra i grafici elaborati durante lo studio statistico.
 
 \section{Tempi di esecuzione}
 L'indagine sui tempi di esecuzione, come spiegato nel paragrafo \ref{sbsec:Te}, è stata condotta approfondendo le seguenti relazioni: i tempi di esecuzione per le regole, la durata complessiva del processo e i tempi impiegati per intervalli differenti con lo stesso range. 
@@ -20,7 +20,7 @@ In più, la differenza tra le potenze computazionali è netta già da questa fig
 \end{figure}
 Nonostante la durata per l'indicizzazione sia già notevole, il vantaggio di questa fase  è che può essere riprodotta una sola volta per tutti i successivi lavori, visto che è riferita solamente al genoma umano di riferimento.
 
-Passando alle regole dipendenti, i grafici riportati nella figura \ref{fig:Tdip} mostrano i vari andamenti per quei subset citati in precedenza con letture di range massimo 3 milioni.
+Passando alle regole dipendenti, i grafici riportati nella figura \ref{fig:Tdip} mostrano i vari andamenti per la grandezza dei subset.
 Le fasi del procedimento che esauriscono più tempo sono la mappatura, che incrementa velocemente, e il riallineamento, che al contrario cresce lentamente; mentre le altre regole aumentano impiegando tempi sempre inferiori a 5 minuti.
 \begin{table}[H]
   \begin{minipage}[b]{0.4\linewidth}
@@ -162,13 +162,10 @@ Le fasi del procedimento che esauriscono più tempo sono la mappatura, che incre
 \end{table}
 
 
-Ciascun gruppo di dati è stato sottoposto a regressione lineare e sono stati pure calcolati i coefficienti di correlazione, i quali hanno evidenziato come il tempo di esecuzione di ogni regola cresce linearmente rispetto al range del subset.
-L'unica regola che mostra una particolarità è la fase di riallineamento(Figura\ref{subfig:Rlg}), dove soprattutto per la cpu Avoton i tempi oscillano quando i subset sono piccoli. 
-In dettaglio, i coefficienti di correlazione in questo lavoro sono per le cpu Xeon, Atom(avoton) e Pentium n3700, rispettivamente: $0.812$, $0.656$ e $0.923$. 
+Ciascun gruppo di dati è stato sottoposto a regressione lineare, la quale ha evidenziato come il tempo di esecuzione di ogni regola cresce linearmente rispetto al range del subset.
+L'unica regola che mostra una particolarità è la fase di riallineamento(Figura \ref{subfig:Rlg}), dove soprattutto per la cpu Avoton i tempi oscillano quando i subset sono piccoli. 
 Tale conseguenza è data da due fattori: l'oscillazione dei tempi per piccole variazioni del range e una caduta di performance dovute ad agenti scionosciuti, presumibilmente di natura tecnica.
 Quest'ultimo effetto è rilevabile visibilmente per avoton nel grafico \ref{subfig:Rlg}, dove il fenomeno di oscillazione iniziale è ben nitido.
-Nonostante ciò, visto che il numero di dati è abbondantemente superiore al centinaio, il coefficiente di Pearson determina che sia comunque altamente probabile una disposizione lineare per i dati.
-
 
 
 %\'E possibile visualizzare grazie al grafico () l'andamento della macchina più performante, nominata xeond, rispetto ad un esempio di macchina tradizionale, classical, sull'intero range da 0 a 9 milioni.
@@ -176,7 +173,6 @@ Nonostante ciò, visto che il numero di dati è abbondantemente superiore al cen
 
 \subsection{Durata complessiva}
 Un altro aspetto rilevato è stato il tempo complessivo richiesto per svolgere tutti i passaggi che dipendono dal subset, quindi escludendo soprattuto l'indicizzazione per bwa.
-Il grafico \ref{fig:Ttot} è riferito ai subset con massimo range di 3 milioni e, anche in questo caso, la regressione lineare è confermata dai coefficienti di correlazione che superano abbondantemente lo $0.95$, per ciascuna macchina.
 
 \begin{table}[H]
   \begin{minipage}[b]{0.4\linewidth}
@@ -191,13 +187,13 @@ Il grafico \ref{fig:Ttot} è riferito ai subset con massimo range di 3 milioni e
     \resizebox{1.0\textwidth}{!}{%
 	\begin{tabular}{lrrrr}
 	\toprule
-	{} &         slope & intercetta &     min slope &     max slope \\
+	{} &         slope &    intercetta &     min slope &     max slope \\
 	cpu\_type & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\
 	\midrule
-	avoton   & \num{0.00076} &    \num{1.2e+03} & \num{0.00073} & \num{0.00079} \\
-	bio8     & \num{0.00044} &    \num{4.7e+02} & \num{0.00044} & \num{0.00044} \\
-	n3700    &  \num{0.0008} &    \num{1.3e+03} & \num{0.00077} & \num{0.00083} \\
-	xeond    & \num{0.00039} &    \num{6.8e+02} & \num{0.00039} &  \num{0.0004} \\
+	avoton   & \num{0.00076} & \num{1.2e+03} & \num{0.00073} & \num{0.00079} \\
+	bio8     & \num{0.00044} & \num{4.7e+02} & \num{0.00044} & \num{0.00044} \\
+	n3700    &  \num{0.0008} & \num{1.3e+03} & \num{0.00077} & \num{0.00083} \\
+	xeond    & \num{0.00039} & \num{6.8e+02} & \num{0.00039} &  \num{0.0004} \\
 	\bottomrule
 	\end{tabular}
 	}
@@ -232,10 +228,9 @@ Dalla seconda figura si vede proprio l'effetto di allontanamento dalla retta di 
 \'E possibile ipotizzare che per le regole che elaborano nello specifico le misure nei subset (la mappatura e il riallineamento), i lavori si adattino al tipo di dati e che ciò comporti un'oscillazione del tempo non ben prestabilita.
 
 \section{Memoria utilizzata}
-\textbf{rss-psutil}
 La memoria occupata dai singoli processi è stata studiata analogamente al tempo, eccetto che per lo studio di una memoria complessiva per tutti i passaggi. 
 Ciò implica che sono state analizzate in un primo momento le occupazioni della memoria per ognuna delle regole e che poi è stato tentato di definire l'andamento per diversi intervalli con stessa grandezza.
-\'E indispensabile sottolineare che la memoria intesa in questo capitolo si riferisce alla memoria definita nel paragrafo \ref{subsubsec: SMb} "Resident Set Size", ricavata dal tool psutil e riportata da Snakemake. 
+\'E indispensabile sottolineare nuovamente che la memoria intesa in questo capitolo si riferisce alla memoria "Resident Set Size" ricavata dal tool psutil e riportata da Snakemake, come già indicato nel paragrafo \ref{subsec:Mf}. 
 
 \subsection{Consumo di memoria per le regole}
 Le informazioni sui vari comportamenti sono tratte dai grafici in figura \ref{fig:RSSr}, per i quali sono necessarie delle descrizioni specifiche, dato che non si ha un andamento generale. 

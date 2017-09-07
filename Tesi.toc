@@ -30,8 +30,8 @@
 \contentsline {section}{\numberline {3.1}Tempi di esecuzione}{32}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Tempi e regole}{32}{subsection.3.1.1}
 \contentsline {subsection}{\numberline {3.1.2}Durata complessiva}{36}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Tempi per stessi range}{37}{subsection.3.1.3}
-\contentsline {section}{\numberline {3.2}Memoria utilizzata}{38}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Consumo di memoria per le regole}{39}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Memoria utilizzata per intervalli con stesso range}{41}{subsection.3.2.2}
-\contentsline {chapter}{\numberline {4}Conclusioni}{43}{chapter.4}
+\contentsline {subsection}{\numberline {3.1.3}Tempi per stessi range}{36}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Memoria utilizzata}{37}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Consumo di memoria per le regole}{38}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Memoria utilizzata per intervalli con stesso range}{40}{subsection.3.2.2}
+\contentsline {chapter}{\numberline {4}Conclusioni}{42}{chapter.4}
