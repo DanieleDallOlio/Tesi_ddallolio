@@ -167,43 +167,40 @@ Ora che la natura del sistema è stata argomentata e sono stati approfonditi pur
 Questa sezione si occupa di descrivere quale tipologia di studio statistico è stato compiuto e quali sono state le simulazioni sostenute. 
 In particolare, saranno indicate quali caratteristiche sono state considerate e quali relazioni sono state oggetto di studio.     
 
-L'analisi dei dati è stata condotta utilizzando il linguaggio di Python \cite{Python}, sulla piattaforma iPython \cite{IPython}, e dotandosi delle librerie: pandas \cite{pandas}, matplotlib \cite{Matplotlib}, seaborn \cite{seaborn}, numpy \cite{Numpy} e SciPy \cite{Scipy}.
+L'analisi dei dati è stata condotta utilizzando il linguaggio di Python \cite{Python}, sulla piattaforma iPython \cite{IPython}, e dotandosi delle librerie: Pandas \cite{pandas}, Matplotlib \cite{Matplotlib}, Seaborn \cite{seaborn}, NumPy \cite{Numpy} e SciPy \cite{Scipy}.
 
-Il trattamento dei dati ha coinvolto inizialmente le funzioni sui dataframe, procurate da pandas, per l'estrazione e la modifica delle tabelle finali, ricavate al termine del procedimento.
+Il trattamento dei dati ha coinvolto inizialmente le funzioni sui dataframe di pandas per l'estrazione e la modifica delle tabelle finali ricavate al termine del procedimento.
 Tali tabelle sono state ridotte ad un unico dataframe a cui sono state aggiunte quattro colonne per facilitare l'analisi. 
 Le prime due contengono gli estremi del subset, ovvero la posizione della lettura iniziale e la posizione di quella finale, la terza contiene il range di ogni subset e la quarta il logaritmo del tempo di esecuzione.
-Da questo unico contenitore sono state estratte progressivamente le tabelle utili ai vari studi.
+Da questo unico contenitore sono state estratte progressivamente le tabelle utili alle varie analisi.
 
-Il capitolo è suddiviso in quattro sezione, dove le prime tre corrispondono alle caratteristiche principali su cui è stata condotta l'indagine statistica: il tempo di esecuzione, il max\verb!_!rss e i processi di input ed output. 
+Il capitolo è suddiviso in tre sezioni, dove le prime due corrispondono alle caratteristiche principali su cui è stata condotta l'indagine statistica: il tempo di esecuzione e la memoria impiegata. 
 L'ultima sezione include una semplice presentazione sul tipo di simulazioni che sono state completate.
 
 
 \subsection{Analisi sul tempo di esecuzione}
 \label{sbsec:Te}
-Lo studio sul tempo di esecuzione è stato eseguito con lo scopo di delineare un andamento preciso di esso per ogni regola e per ognuna delle cpu adoperata.  
+Lo studio sul tempo di esecuzione è stato eseguito con lo scopo di delineare un andamento preciso di esso per ogni regola e per ognuna dei nodi adoperati.  
 
-Inizialmente è stata derivata dal dataframe generale una tabella in cui ogni lavoro svolto corrispondesse a un subset e che, quindi, non fossero presenti quelle regole indipendenti dal tipo di dati analizzati.
-I lavori che dipendono dai dati sono, in sequenza, la mappatura, l'ordinamento tramite picard, la rilevazione dei duplicati, la creazione dei file bam e il riallineamento.
-Al contrario, i processi indipendenti sono le indicizzazioni dello human reference per bwa, per picard e per samtools. 
+Inizialmente è stata derivata dal dataframe generale una tabella in cui ogni lavoro svolto corrispondesse a un subset e che quindi, non fossero presenti quelle regole indipendenti dal tipo di dati analizzati.
+I lavori che dipendono dai dati sono, in ordine di esecuzione: la mappatura(mapping), l'ordinamento tramite picard(sort picard), la rilevazione dei duplicati(mark duplicates), la creazione dei file bam(build bam) e il riallineamento(realigner).
+Al contrario, i processi indipendenti sono le indicizzazioni dello human reference per bwa, per picard e per samtools(index bwa, index picard e index samtools). 
 
-In seguito è stata graficata la dipendenza del tempo di esecuzione di ogni regola rispetto al range del subset, portando sullo stesso grafico anche l'andamento relativo al tipo di dispositivo impiegato. 
-In questa maniera è stato possibile verificare le differenze di prestazione tra i dispositivi e adattare la relazione matematica più idonea tra il tempo e il range per ciascuno di essi.
+In seguito è stata rappresentata su di un grafico la dipendenza del tempo di esecuzione di ogni regola rispetto alla grandezza del subset, identificando sullo questo stesso grafico un andamento per ogni nodo. 
+In questa maniera è stato possibile verificare le differenze di prestazione tra le macchine server, adattando a ciascuna di esse la relazione matematica più idonea tra il tempo e il range del subset.
 
-La funzione usata per i grafici è stata lmplot di seaborn, i cui attributi hanno fornito le opzioni migliori sia per la visualizzazione del grafico che per la ricerca della curva di fitting più adeguata.
+Una volta osservato l'andamento del tempo per ogni singola regola, l'attenzione è stata rivolta al tempo totale impiegato dalle regole dipendenti dal subset.
+Per calcolare il tempo totale è stata creata una nuova tabella che contenesse tali regole, il tipo di cpu, il numero della simulazione e il tempo totale di esecuzione.
 
-Una volta osservato l'andamento del tempo per ogni singola regola, l'attenzione è stata rivolta al tempo totale impiegato sempre dalle stesse regole.
-Per calcolare il tempo totale sono state sfruttate le proprietà della funzione groupby proveniente dalla libreria numpy, la quale ha consentito la creazione di una nuova tabella avente la colonna per il tempo complessivo.
+Un tale grafico consente di osservare come cresce il tempo di esecuzione complessivo all'aumentare del range e come ciò è influenzato dal tipo di macchina adoperata.
 
-Un tale grafico consente di osservare come cresce il tempo di esecuzione all'aumentare del range e come ciò è influenzato dal tipo di macchina adoperata.
+Terminato lo studio sui lavori dipendenti dalla grandezza dei subset, sono state brevemente considerate anche le regole indipendenti.
+Anche in questo caso è stata tracciata su un grafico la dipendenza del tempo di esecuzione rispetto ad ogni regola, distinguendo il comportamento tra i differenti nodi.  
 
-Terminato lo studio sui lavori dipendenti dall'intervallo dei dati, sono state brevemente considerate anche le regole indipendenti.
-L'unica elaborazione effettuata è stata tracciare su un grafico i tempi impiegati per il completamento di ogni regola e ciò è stato descritto, sulla stessa figura, per ogni tipo di cpu.
+Infine, sono stati messi in relazione le durate delle singole regole rispetto a frazioni di DNA differenti con stesso numero di letture.
+Così operando, è possibile osservare se il tempo di completamento dei lavori è influenzato dal contenuto del subset processato e con quale entità ciò influisce.
 
-L'ultima analisi conseguita, relativa alle tempistiche, è stata esaminare il comportamento dei tempi di esecuzione tra diversi intervalli di lettura con diversi estremi ma con lo stesso range.
-Ciò è stato fatto per ognuna delle regole e per ciascuna delle macchine.
-Così operando, è possibile osservare se la durata di completamento dei lavori è influenzata dal contenuto del subset processato e con quale entità ciò influisce.
-
-Il tempo impiegato per concludere ogni regola non è l'unico fattore da prendere in considerazione, visto che per promuovere l'uso della parallelizzazione è indispensabile analizzare le modalità di utilizzo della cpu. 
+Il tempo impiegato per concludere ogni regola non è però l'unico fattore da prendere in considerazione, visto che per promuovere l'uso della parallelizzazione è indispensabile analizzare le modalità di utilizzo della memoria. 
 
 \subsection{Analisi sulla memoria fisica}
 La memoria fisica studiata è ottenuta grazie a Snakemake dal tool psutil sottoforma di una memoria detta rss o \textit{Resident Set Size}. 
