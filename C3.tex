@@ -34,7 +34,7 @@ Le fasi del procedimento che esauriscono più tempo sono la mappatura, che incre
     \centering
 	$\begin{array}{*{2}{c}}
 		\toprule
-			Nodo & Pendenza(\frac{s}{subset})\\
+			Nodo & Pendenza(\frac{s}{subset}) \\
 		\midrule
 			\text{n3700} & 0.000010 \\
 			\text{avoton} & 0.000009 \\
@@ -256,6 +256,24 @@ Le informazioni sui vari comportamenti sono tratte dai grafici in figura \ref{fi
 \label{fig:RSSr}
 \end{figure}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+rule &  build\_bam &  mapping &  mark\_duplicates &  realigner &  sort\_picard \\
+cpu\_type &            &          &                  &            &              \\
+\midrule
+avoton   &        429 &     5305 &             1019 &       1626 &         1150 \\
+bio8     &        527 &     5295 &             1042 &      10362 &         1232 \\
+n3700    &        419 &     5306 &              988 &        859 &         1115 \\
+xeond    &        435 &     5305 &             1004 &       1582 &         1138 \\
+\bottomrule
+\end{tabular}
+\caption{Tabella dei massimi valori di memoria impiegati, espressi in MB.}
+\label{Tab:maxmem}
+\end{table}
+
+
 \'E evidente che regole di marcamento dei duplicati, di riordimento per picard e di formazione del file BAM, sono pressochè adattabili ad un logaritmo. 
 Ciò indica una saturazione della memoria per un certo range di subset raggiunto e ciò è un fattore rilevante per la determinazione di un'uso efficace della parallelizzazione.
 
@@ -289,7 +307,8 @@ Lo studio sulla memoria impiegata per intervalli diversi con stessi range ha pro
 
 Nella prima figura i dati oscillano leggermente intorno a valori fissi diversi per ciascuna cpu; mentre nella seconda, la linea su cui i dati si adattano è la stessa per tutti gli apparecchi.
 Ciò indica come per alcuni lavori i dispositivi si comportino allo stesso modo e per altri invece la distinzione sia netta. 
-In generale però, diversamente dai tempi di esecuzione, l'occupazione della memoria rss  per tutte le regole tende a non dipendere dal contenuto dei subset di ugual grandezza.
+In generale però, diversamente dai tempi di esecuzione, l'occupazione della memoria per tutte le regole tende a non dipendere dal contenuto dei subset di ugual grandezza.
+
 
 %\section{Processi di I-O} 
 %Gli ultimi risultati sono stati ottenuti dall'indagine sui processi di input e output coinvolti nel completamento di ogni lavoro.
