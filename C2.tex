@@ -209,7 +209,7 @@ Il tempo impiegato per concludere ogni regola non è l'unico fattore da prendere
 La memoria fisica studiata è ottenuta grazie a Snakemake dal tool psutil sottoforma di una memoria detta rss o \textit{Resident Set Size}. 
 In realtà, l'unica operazione conseguita da Snakemake è prelevare l'informazioni in bytes su questo tipo di memoria e convertirlo in MB per l'utente.
 
-I dettagli sulla memoria che viene impiegati nei singoli processi è di fondamentale importantanza per un corretto sviluppo di un futuro sistema parallelizzato.
+I dettagli sulla memoria che viene impiegati nei singoli processi è di fondamentale importanza per un corretto sviluppo di un futuro sistema parallelizzato.
 Infatti, lo studio sull'andamento di tale memoria consente di verificare fino a che livello di scalabilità la cpu è proficua e quando il suo uso comincia a saturare.
 Questi comportamenti indicano fino a che punto è possibile ottimizzare l'utilizzo dei core della cpu e identificano le memorie richieste dai vari lavori.
 Distinguere quali sono i processi che necessitano maggiormente di memoria e quelli che ne utilizzano una scarsa percentuale, permette di conoscere quali sono i nodi per le varie regole che ottimizzano l'esecuzione.
