@@ -11,45 +11,49 @@ A level-1 auxiliary file: C2.aux
 A level-1 auxiliary file: C3.aux
 A level-1 auxiliary file: C4.aux
 Database file #1: Bib_Tesi.bib
-You've used 9 entries,
+Repeated entry---line 141 of file Bib_Tesi.bib
+ : @article{2058-7058-12-9-22
+ :                           ,
+I'm skipping whatever remains of this entry
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            574 strings with 6022 characters,
-and the built_in function-call counts, 3691 in all, are:
-= -- 341
-> -- 250
-< -- 0
-+ -- 99
-- -- 90
-* -- 326
-:= -- 644
-add.period$ -- 26
-call.type$ -- 9
-change.case$ -- 72
+            613 strings with 7164 characters,
+and the built_in function-call counts, 6507 in all, are:
+= -- 585
+> -- 451
+< -- 1
++ -- 179
+- -- 162
+* -- 562
+:= -- 1126
+add.period$ -- 45
+call.type$ -- 16
+change.case$ -- 127
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 95
-empty$ -- 236
-format.name$ -- 90
-if$ -- 716
+cite$ -- 16
+duplicate$ -- 176
+empty$ -- 422
+format.name$ -- 162
+if$ -- 1284
 int.to.chr$ -- 0
-int.to.str$ -- 9
-missing$ -- 8
-newline$ -- 47
-num.names$ -- 18
-pop$ -- 61
+int.to.str$ -- 16
+missing$ -- 13
+newline$ -- 80
+num.names$ -- 34
+pop$ -- 121
 preamble$ -- 1
-purify$ -- 63
+purify$ -- 111
 quote$ -- 0
-skip$ -- 68
+skip$ -- 134
 stack$ -- 0
-substring$ -- 228
-swap$ -- 9
-text.length$ -- 0
+substring$ -- 352
+swap$ -- 26
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 64
 warning$ -- 0
-while$ -- 32
-width$ -- 10
-write$ -- 98
-(There was 1 error message)
+while$ -- 53
+width$ -- 18
+write$ -- 169
+(There were 2 error messages)
