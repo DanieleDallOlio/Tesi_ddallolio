@@ -29,20 +29,23 @@ Le fasi del procedimento che esauriscono più tempo sono la mappatura, che incre
 	\captionof{figure}{Tempi per Build BAM.}
 	\label{subfig:BB}
   \end{minipage}
-  \hfill  
+  \hfill 
   \begin{varwidth}[b]{0.4\linewidth}
     \centering
-	$\begin{array}{*{2}{c}}
-		\toprule
-			Nodo & Pendenza(\frac{s}{subset}) \\
-		\midrule
-			\text{n3700} & 0.000010 \\
-			\text{avoton} & 0.000009 \\
-			\text{xeond} & 0.000006 \\
-			\text{bio8} & 0.000005 \\
-		\bottomrule
-	\end{array}$
-    \caption{Pendenze per i tempi di Build Bam.}
+   	\resizebox{1.0\textwidth}{!}{%
+	\begin{tabular}{lrrrr}
+	\toprule
+	{} &         slope & intercetta &     min slope &     max slope \\
+	cpu\_type & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\
+	\midrule
+	avoton   & \num{9.2e-06} &        6.4 &   \num{9e-06} & \num{9.5e-06} \\
+	bio8     & \num{4.4e-06} &        3.1 & \num{4.4e-06} & \num{4.4e-06} \\
+	n3700    & \num{9.4e-06} &        7.4 & \num{9.3e-06} & \num{9.5e-06} \\
+	xeond    & \num{5.3e-06} &          3 & \num{5.3e-06} & \num{5.3e-06} \\
+	\bottomrule
+	\end{tabular}
+	}
+    \caption{Dettagli retta di fit per Build BAM.}
     \label{tab:Bb}
   \end{varwidth}%
 \end{table}
@@ -57,17 +60,20 @@ Le fasi del procedimento che esauriscono più tempo sono la mappatura, che incre
   \hfill  
   \begin{varwidth}[b]{0.4\linewidth}
     \centering
-	$\begin{array}{*{2}{c}}
-		\toprule
-			Nodo & Pendenza(\frac{s}{subset})\\
-		\midrule
-			\text{n3700} & 0.000480 \\
-			\text{avoton} & 0.000434 \\
-			\text{xeond} & 0.000243 \\
-			\text{bio8} & 0.000310 \\
-		\bottomrule
-	\end{array}$
-    \caption{Pendenze per i tempi di Mapping.}
+    \resizebox{1.0\textwidth}{!}{%
+	\begin{tabular}{lrrrr}
+	\toprule
+	{} &         slope & intercetta &     min slope &     max slope \\
+	cpu\_type & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\
+	\midrule
+	avoton   & \num{0.00044} &        6.8 & \num{0.00043} & \num{0.00045} \\
+	bio8     & \num{0.00031} &        7.9 & \num{0.00031} & \num{0.00031} \\
+	n3700    & \num{0.00047} &         24 & \num{0.00047} & \num{0.00048} \\
+	xeond    & \num{0.00025} &       -3.3 & \num{0.00025} & \num{0.00025} \\
+	\bottomrule
+	\end{tabular}
+	}
+    \caption{Dettagli retta di fit per Mapping.}
     \label{tab:Mp}
   \end{varwidth}%
 \end{table}
@@ -82,17 +88,20 @@ Le fasi del procedimento che esauriscono più tempo sono la mappatura, che incre
   \hfill  
   \begin{varwidth}[b]{0.4\linewidth}
     \centering
-	$\begin{array}{*{2}{c}}
-		\toprule
-			Nodo & Pendenza(\frac{s}{subset})\\
-		\midrule
-			\text{n3700} &  0.000088  \\
-			\text{avoton} &  0.000082 \\
-			\text{xeond} &  0.000042 \\
-			\text{bio8} &  0.000040 \\
-		\bottomrule
-	\end{array}$
-    \caption{Pendenze per i tempi di Mark Duplicates.}
+	\resizebox{1.0\textwidth}{!}{%    
+	\begin{tabular}{lrrrr}
+	\toprule
+	{} &         slope & intercetta &     min slope &     max slope \\
+	cpu\_type & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\
+	\midrule
+	avoton   & \num{8.1e-05} &        7.9 & \num{8.1e-05} & \num{8.2e-05} \\
+	bio8     & \num{3.8e-05} &        4.7 & \num{3.8e-05} & \num{3.8e-05} \\
+	n3700    & \num{8.6e-05} &        8.9 & \num{8.5e-05} & \num{8.7e-05} \\
+	xeond    & \num{4.4e-05} &        2.4 & \num{4.3e-05} & \num{4.4e-05} \\
+	\bottomrule
+	\end{tabular}
+	}
+    \caption{Dettagli retta di fit per Mark Duplicates.}
 	\label{tab:Md}
   \end{varwidth}%
 \end{table}
@@ -107,17 +116,20 @@ Le fasi del procedimento che esauriscono più tempo sono la mappatura, che incre
   \hfill  
   \begin{varwidth}[b]{0.4\linewidth}
 	\centering
-	$\begin{array}{*{2}{c}}
-		\toprule
-			Nodo & Pendenza(\frac{s}{subset})\\
-		\midrule
-			\text{n3700} &  0.000202 \\
-			\text{avoton} &  0.000182 \\
-			\text{xeond} & 0.000075 \\
-			\text{bio8} & 0.000084 \\
-		\bottomrule
-	\end{array}$
-    \caption{Pendenze per i tempi di Realigner.}
+ 	\resizebox{1.0\textwidth}{!}{%
+	\begin{tabular}{lrrrr}
+	\toprule
+	{} &         slope & intercetta &     min slope &     max slope \\
+	cpu\_type & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\
+	\midrule
+	avoton   & \num{0.00013} &    1.2e+03 & \num{0.00011} & \num{0.00016} \\
+	bio8     & \num{3.8e-05} &    4.5e+02 & \num{3.6e-05} & \num{3.9e-05} \\
+	n3700    & \num{0.00015} &    1.3e+03 & \num{0.00012} & \num{0.00017} \\
+	xeond    & \num{3.8e-05} &    6.8e+02 & \num{3.6e-05} &   \num{4e-05} \\
+	\bottomrule
+	\end{tabular}
+	}
+    \caption{Dettagli retta di fit per Realigner.}
 	\label{tab:Rlg}
   \end{varwidth}%
 \end{table}
@@ -126,23 +138,25 @@ Le fasi del procedimento che esauriscono più tempo sono la mappatura, che incre
   \begin{minipage}[b]{0.4\linewidth}
 	\centering
 	\includegraphics[width=1.33\textwidth]{sort_picard.png}
-	\captionof{figure}{Tempi per i tempi di Sort Picard.}
+	\captionof{figure}{Tempi per Sort Picard.}
 	\label{subfig:SP}
   \end{minipage}
   \hfill  
   \begin{varwidth}[b]{0.4\linewidth}
     \centering
-    	$\begin{array}{*{2}{c}}
-		\toprule
-			Nodo & Pendenza(\frac{s}{subset})\\
-		\midrule
-			\text{n3700} &   0.000089 \\
-			\text{avoton} &  0.000080 \\
-			\text{xeond} &  0.000052 \\
-			\text{bio8} &  0.000048 \\
-		\bottomrule
-	\end{array}$
-    \caption{Pendenze per i tempi di Sort Picard.}
+    \resizebox{1.0\textwidth}{!}{%
+	\begin{tabular}{lrrrr}
+	\toprule
+	{} &         slope & intercetta &     min slope &     max slope \\
+	cpu\_type & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\			\midrule
+	avoton   &   \num{8e-05} &        6.5 & \num{7.9e-05} & \num{8.3e-05} \\
+	bio8     & \num{4.3e-05} &        7.9 & \num{4.3e-05} & \num{4.3e-05} \\
+	n3700    & \num{8.4e-05} &         12 & \num{8.3e-05} & \num{8.6e-05} \\
+	xeond    & \num{5.1e-05} &        2.9 & \num{5.1e-05} & \num{5.1e-05} \\
+	\bottomrule
+	\end{tabular}
+	}
+    \caption{Dettagli retta di fit per Sort Picard.}
     \label{tab:Sp}
   \end{varwidth}%
 \end{table}
@@ -174,16 +188,19 @@ Il grafico \ref{fig:Ttot} è riferito ai subset con massimo range di 3 milioni e
   \hfill  
   \begin{varwidth}[b]{0.4\linewidth}
     \centering
-	$\begin{array}{*{2}{c}}
-		\toprule
-			Nodo & Pendenza(\frac{s}{subset})\\
-		\midrule
-			\text{n3700} & 0.000869 \\
-			\text{avoton} & 0.000803 \\
-			\text{xeond} & 0.000424 \\
-			\text{bio8} & 0.000492 \\
-		\bottomrule
-	\end{array}$
+    \resizebox{1.0\textwidth}{!}{%
+	\begin{tabular}{lrrrr}
+	\toprule
+	{} &         slope & intercetta &     min slope &     max slope \\
+	cpu\_type & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\
+	\midrule
+	avoton   & \num{0.00076} &    \num{1.2e+03} & \num{0.00073} & \num{0.00079} \\
+	bio8     & \num{0.00044} &    \num{4.7e+02} & \num{0.00044} & \num{0.00044} \\
+	n3700    &  \num{0.0008} &    \num{1.3e+03} & \num{0.00077} & \num{0.00083} \\
+	xeond    & \num{0.00039} &    \num{6.8e+02} & \num{0.00039} &  \num{0.0004} \\
+	\bottomrule
+	\end{tabular}
+	}
     \caption{Pendenze per i tempi complessivi.}
     \label{tab:Ttot}
   \end{varwidth}%
