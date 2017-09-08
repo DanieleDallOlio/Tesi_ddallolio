@@ -195,7 +195,7 @@ Nel secondo, invece, la fisica coopera con i bioinformatici sia nell'individuazi
 
 Nello specifico, la maggioranza dei modelli utilizzati e studiati sono basati sulla teoria dei network, la quale è stata ha acquisito uno spessore essenziale negli studi di biologia e di medicina.
 
-\subsubsection{Teoria sui network}
+\subsubsection{Teoria dei network}
 La teoria dei network è materia prevalentemente dei fisici, dove per network si intende uno schema a base matematica che mira a rappresentare un sistema complesso, cercando di modellizzare le caratteristiche collettive. 
 Un network è composto da elementi chiamati nodi, i quali sono collegati tramite percorsi, detti path, e tra cui sono presenti relazioni, denominate link. 
 La teoria dei network è stata adottata e sviluppata per spiegare quelle leggi della natura di carattere generico e che hanno origine da manifestazioni stocastiche.
@@ -218,10 +218,11 @@ In conclusione, la teoria dei network unita all'utilizzo di macchine server perf
 Snakemake è un sistema di gestione del flusso di lavoro che semplifica l'esecuzione di algoritmi particolarmente complessi grazie all'utilizzo di un ambiente di sviluppo nitido ed intuitivo \cite{Koster2012}.
 In più, questo software è specializzato nella scalabilità dei lavori, da singoli core fino all'uso di cluster, le cui transizioni non implicano pesanti modifiche al procedimento del sistema.
 
-Questo programma è basato sul linguaggio di programmazione Python e la sua formazione è fortemente influenzata dal noto tool Make del sistema operativo Linux.
+Questo programma è basato sul linguaggio di programmazione Python \cite{Python} e la sua formazione è fortemente influenzata dal noto tool Make del sistema operativo Linux.
 Ciò significa che Snakemake è modellato su una strategia di tipo \textit{pull} proprio come Make.
-In un procedimento che segue la strategia \textit{pull}, ogni lavoro coinvolto comunica le proprie condizioni e la sequenza di esecuzione è determinata a partire dal richieste finali(modello \textit{"a valle"}).
-Al contrario, la strategia \textit{push} esegue un procedimento a partire dai contenuti iniziali, attivando i compiti successivi una volta terminate le operazioni(modello \textit{"a monte"}). 
+In un procedimento che segue la strategia \textit{pull}, ogni lavoro coinvolto specifica ciò di cui ha bisogno per essere eseguito ed il programma esegue automaticamente altri lavoro che posso soddisfare queste richieste; la sequenza di esecuzione è quindi determinata a partire dal lavoro finale.
+Al contrario, in un procedimento che segua la strategia \textit{push} ogni lavoro determina quale sarà il lavoro eseguito successivamente.
+La strategia \textit{pull} richiede una maggior pianificazione per la scrittura ma fornisce diversi vantaggi fra cui una maggior semplicità di parallelizzazione e la possibilità di riprendere l'esecuzione del procedimento dopo un fallimento critico senza dover ripetere tutti i passi precedenti.
 
 Il contenitore del codice Python in Snakemake è chiamato di default \textit{Snakefile} e l'ordine di esecuzione predefinito da linea di comando è:
 \begin{lstlisting}
@@ -241,9 +242,9 @@ Come si può vedere dal codice riportato, l'operazione avviene etichettando la r
 Rispettivamente le tre chiavi implicano l'utilizzo di comandi da terminale, l'esecuzione di un codice Python e l'avvio di uno script esterno.
 La dichiarazione dei file di input e di output esprime le condizioni iniziali per la regola e il risultato atteso, così permettendo al programma di riconoscere le relative dipendenze e stabilire l'ordine di successione dei singoli lavori.
 Per facilitare la comprensione del codice, è possibile creare, grazie al comando \textit{dot} della libreria Graphviz, un diagramma che schematizzi la sequenza delle regole.
-Infatti questa sequenza, che ha il nome di \textit{DAG} (Directed Acyclic Graph), è visualizzata da \textit{dot} in una struttura ramificata dove i lavori sono rappresentati da nodi e dove le dipendenze sono semplicemente descritte da linee congiungenti. 
-Dalla forma assunta da tale struttura è facile osservare che il lavoro degli sviluppatori del DAG è stato basato sulla teoria dei network e che l'applicazione di questa consente una descrizione semplice e compatta del sistema. 
-L'utilità della schematizzazione consente anche di studiare quali dei lavori da eseguire sono parallelizzabili e quali, invece, devono mantenere una prestabilita sequenzialità. 
+Infatti questa sequenza, che ha il nome di \textit{DAG} (Directed Acyclic Graph), è visualizzata da \textit{dot} in una struttura ramificata, in cui i lavori sono rappresentati da nodi e le dipendenze sono semplicemente descritte da linee congiungenti. 
+Dalla forma assunta da tale struttura si può osservare che il lavoro degli sviluppatori del DAG è stato basato sulla teoria dei network e che l'applicazione di questa consente una descrizione semplice e compatta del sistema. 
+Questa schematizzazione consente anche di visualizzare quali dei lavori sono parallelizzabili e quali, invece, devono mantenere una prestabilita sequenzialità. 
 Ciò è possibile proprio dal fatto che il comando \textit{dot} rappresenta la successione delle regole solo e unicamente in base alle dipendenze reciproche, mantenendo quindi, ad esempio, la ripetizione di alcune regole sullo stesso livello di operatività.
 Questo sistema di riconoscimento dei lavori potenzialmente simultanei da un contributo importante per impostare meccanismi di parallelizzazione. 
 
@@ -264,11 +265,7 @@ In presenza di una wildcard nell'input di una regola, i valori in essa contenuti
 Così agendo, le ripetizioni delle regole su diversi valori della wildcard sono sullo stesso piano di esecuzione, favorendo la parallelizzazione dei lavori.   
   
 
-Una peculiarietà particolarmente utile di Snakemake è la capacità di riprendere l'esecuzione di una pipeline interrotta, esattamente dalla regola in cui si trovava al momento dell'interruzione.
-Ciò è garantito dal fatto che il sistema attiva una regola solo se è assente il relativo output e, quindi, solo coloro che non sono state ultimate , o rimaste intoccate, prendono parte alla nuova esecuzione senza ripartire dall'inizio.
-Chiaramente, questo approccio è modificabile richiendo esplicitamente che alla richiesta di una nuova istanza vengano sovrascritti i file di output e quindi acconsentita una diversa realizzazione.
-
-Nella pipeline creata nell'ambito di questa ricerca, sono stati implementati altri attributi forniti da Snakemake.
+Nel corso di questa tesi sono stati implementati alla pipeline altri attributi forniti da Snakemake.
 Infatti, eccetto le chiavi di base, esistono diverse funzionalità che arrischiscono l'impostazione e la realizzazione delle regole, tra cui \textit{params}, \textit{threads}, \textit{benchmark} e \textit{conda}.
 I primi due contengono rispettivamente i parametri indispensabili introdotti nell'azione e il numero di threads su cui l'azione può essere eseguita.
 Quest'ultima proprietà richiama ad uno tra gli aspetti più importanti che hanno determinato la scelta di Snakemake, ovvero la capacità di gestire l'esecuzione della pipeline sulle risorse tecniche dei nodi di calcolo adoperati.
@@ -335,34 +332,27 @@ Il contenuto dei file di configurazione è, in conclusione, determinante per il 
 
 \section{Le macchine low power e i nodi utilizzati}
 \label{sec:LP}
-I gruppi di ricerca che insistono nel proporre metodi avanzati per l'analisi dei big data in campo biomedico, non si limitano ad ottimizzare la sola componente software, bensì affrontano pure la scelta del tipo di componente hardware da adoperare.
-Lo sviluppo di applicazioni sempre più raffinate ha richiesto infatti, nel corso del tempo, un progresso tecnologico che procedesse di pari passo e che permettesse di soddisfare in maniera esaustiva le richieste dei ricercatori.
-Normalmente, i macchinari prediletti sono quelli più potenti e performanti che, pur essendo abili nel terminare i lavori previsti, hanno il difetto principale di consumare massicce quantità di energia.
 
-Il dispendio di energia di uno strumento elettrico avviene, in particolare, alla conversione da corrente analogica (AC) a corrente digitale (DC): questo passaggio implica un'innalzamento della temperatura che causa lo sprigionamento di calore nell'ambiente circostante, da cui si ha una perdita di lavoro.
-Tale effetto equivale ad uno spreco di energia ed esso si riproduce in ogni macchinario elettrico.
-Il contenimento del calore, e quindi in generale una diminuzione dello spreco energetico, consente non solo una diminuzione dei costi per il sostentamento delle macchine, che può penalizzare le grandi aziende, ma anche il miglioramento della resa del nodo.
-Difatti, il contenimento del calore implica la presenza di sistemi di raffreddamento che consumano grandi quantità di energia.
-Un dato significativo relativo alle spese di raffreddamento è ad esempio sostenuto dal data center del INFN-CNAF(Centro nazionale delle tecnologie informatiche dell'INFN) a Bologna, dove il costo annuale per l'energia elettrica è dell'ordine del milione di euro.
+I gruppi di ricerca impegnati per l'analisi dei big data in campo biomedico, hanno a disposizione server sempre piu' sofisticati e veloci. Purtroppo le migliori prestazioni e funzionalità hanno comportato costi e consumi elettrici sempre piu' elevati (anche se negli ultimi anni sono state introdotte anche per i server tecnologie avanzate per il power-saving e il power-monitoring). 
+D'altra parte processori low-power normalmente utilizzati in ambito low-end o embedded/mobile stanno acquisendo un ruolo sempre piu' importante.
 
-L'altro difetto predominante è il costo che le macchine server tradizionali richiedono, che è dell'ordine delle migliaia di euro.
+Si è quindi creato nel mondo computazionale scientifico un inedito scenario: accanto ai tradizionali server high-end, costosi ed energivori, si iniziano a intravedere soluzioni ibride con processori low-power o acceleratori che stanno progressivamente riducendo il divario prestazionale rispetto ai server high-end. 
 
-In aggiunta, un altro fattore penalizzante è dato dalla mancanza di scalabilità per aggiornare queste macchine, visto che ciò consisterebbe nell'acquisto di un'altra macchina più evoluta. 
-Per i nodi low power invece, l'aggiornamento è facilmente accessibile.
+I laboratori di calcolo e i data center scientifici e commerciali seguono con interesse l'evoluzione delle tecnologie di calcolo low-power per un duplice motivo: costo elevato delle macchine server attuali e costi dell'energia elettrica per il consumo dei server e raffreddamento. Il costo medio per macchine server high-end raggiungono ormai cifre molto elevate, dell'ordine delle migliaia di euro. I costi energetici per il mantenimento in servizio dei server high-end e quello per il raffreddamento hanno raggiunto ormai livelli proibitivi. Un esempio è il data center di medie dimensioni a Bologna del INFN-CNAF (Centro Nazionale delle Tecnologie Informatiche dell'INFN) dove sono ospitati migliaia di server il cui costo annuale d'esercizio per l'energia elettrica è dell'ordine delle centinaia di migliaia di euro.
 
-Tali aspetti negativi hanno spinto vari team di studiosi ad interessarsi a differenti risorse computazionali, tra cui quella relativa alle macchine low power.
-I macchinari low power sono strumenti che mirano ad abbassare il consumo energetico e soprattutto ad incrementare l'efficienza.
+Un altro fattore penalizzante è dato dalla mancanza di scalabilità e flessibilità per aggiornare l'hardware dei server, visto il notevole investimento per l'acquisto giustificato da un utilizzo almeno triennale dell'hardware prima di essere sostituito. D'altro canto schedine low-power, grazie a costi particolarmente contenuti, consentono una notevole flessibilità nell'acquisto di nuovo hardware non appena viene rilasciato dal produttore.
 
-Questi strumenti, però, non sono una vera novità nel campo tecnologico, dato che alcuni oggetti, come gli orologi, possono essere già considerati tali.
-La vera innovazione è l'impiego di strumenti di questo calibro nei processi computazionali sui big data.
-Ovviamente, la differenza di performance tra i nodi low power e i macchinari utilizzati normalmente è netta, poichè tipicamente le prime hanno una potenza inferiore ai 45\,W(TDP).
-Nonostante ciò, la cooperazione fra diversi nodi di tale genere, il cluster, potrebbe ambire a sostituire le macchine server moderne.
-Questa tesi descrive proprio una ricerca introduttiva ad una questione così rilevante, che, difatti, considera la computazione non sul cluster ma solo su alcuni dei nodi a disposizione.
+La tecnologia di calcolo low-power utilizza prevalentemente Systems-on-Chip (SoCs) spesso di derivazione embedded o mobile che sono stati disegnati per garantire le massime prestazioni computazionali coi minimi consumi elettrici. L'ottimo rapporto prestazioni/consumi dei SoC è dovuto all'impegno dei costruttori per soddisfare la domanda di schede e dispositivi sempre più sensibili alle performance e alla riduzione dei consumi elettrici da parte dell'emergente industria mobile ed embedded. 
+Perciò, visti i notevoli miglioramenti degli ultimi anni, i SoC stanno seriamente diventando un'interessante alternativa per le applicazioni scientifiche senza sacrificare troppo performance e funzionalità dei server tradizionali. Inoltre la cooperazione fra diversi nodi low-power, configurati in cluster, potrebbe ambire confrontarsi con i cluster tradizionali di server high-end.
 
-Le macchine server low power coinvolte in questa tesi sono state scelte con caratteristiche tecniche differenti, in modo da evidenziare fra talune una progressiva crescita delle prestazioni.
-In più, è stata considerata anche una macchina tradizionale per poter comparare le diverse esecuzioni.
+Questa tesi descrive una ricerca introduttiva per valutare prestazioni e funzionalità su hardware low-power di un'applicazione scientifica che gira normalmente su macchine server.
 
-In accordo con il centro nazionale per la ricerca e lo sviluppo sulle tecnologie per l'informazione e la comunicazione (CNAF) dell'Istituto Nazionale di Fisica Nucleare, avente sede a Bologna, sono state utilizzate alcuni server ospitati al dipartimento di Fisica(figura \ref{fig:Cluster}).
+Le macchine low-power coinvolte in questa tesi sono state scelte con caratteristiche tecniche differenti pur mantenendo la stessa architettura X86\_64. In più, è stato considerato anche un server tradizionale X86\_64 per poter comparare le diverse esecuzioni.
+
+Le macchine low-power sono state scelte, installate e configurate grazie alla collaborazione con il CNAF (Centro Nazionale per la Ricerca e lo Sviluppo sulle Tecnologie per l'Informazione e la Comunicazione) dell'Istituto Nazionale di Fisica Nucleare
+
+La tabella della \ref{fig:Cluster} mostra le macchine utilizzate per i test.
+
 
 \begin{figure}[H]
 \centering
@@ -391,7 +381,7 @@ $\begin{array}{*{6}{c}}
 		xeond & \text{1x Xeon D-1540} & 16\,GB & 8 TB(HDD) & \text{\euro 1000} & 60W\\
 		avoton & \text{1x Atom C2750}  & 16\,GB & 5 TB(HDD) & \text{\euro 600} & 30W\\
 		n3700 & \text{1x Pentium N3700}  & 8\,GB & 0.5 TB(SSD) & \text{\euro 130} & 8W \\
-		bio8 & \text{2x Xeon E5-2620v4} & 12\,GB & 2 TB(HDD) & \text{\euro 10000} & 180W\\		
+		bio8 & \text{2x Xeon E5-2620v4} & 128\,GB & 2 TB(HDD) & \text{\euro 10000} & 180W\\		
 	\bottomrule
 \end{array}$%
 }
@@ -399,7 +389,7 @@ $\begin{array}{*{6}{c}}
 \item[*] I valori di costo e consumo energetico sono stimati.
 \end{tablenotes}
 \end{threeparttable}
-\caption{Caratteristiche dei nodi usati.}
+\caption{Caratteristiche dei nodi.}
 \label{tab:cluster_generali}
 \end{table}
 
@@ -411,18 +401,16 @@ $\begin{array}{*{6}{c}}
 		CPU & Microarchitecture(Platform)/litho & Freq(GHz) & Cores & Cache & TDP\\
 	\midrule
 		\text{Xeon D-1540} & Broadwell/14nm & 2.0(2.60) & 8(16) & 12MB & 45W \\
-		\text{Atom C2750} & Silvermont(Avoton)/22nm & 2.40(2.60) & 8 & 4MB & 20W \\
+		\text{Atom C2750} & Silvermont(Avoton)/22nm & 2.40(2.60) & 8 & 4MB & 25W \\
 		\text{Pentium N3700} & Airmont(Braswell)/14nm & 1.60(2.40) & 4 & 2MB & 6W \\
 		\text{Xeon E5-2620v4} & Broadwell-EP/14nm & 2.10(3.00) & 8(16) & 20MB & 85W \\
 	\bottomrule
 \end{array}$%
 }
-\caption{Caratteristiche delle CPU dei nodi.}
+\caption{Caratteristiche delle CPU.}
 \label{tab:cpu}
 \end{table}
 
-Si sottolinea che, in realtà, il nodo xeond appartiene ad un macchina con TDP pari a 45W e quindi è considerato al limite come macchina low power.
-
-%Figura di GATK-LODn ?
-%Figura che rappresenta gli step di GATK e MuTect?
+Si sottolinea che, in realtà, il nodo xeond ha una cpu con TDP pari a 45W e quindi è considerato al limite come macchina low power.
+Inoltre il tipo di processore è classificato come tipologia server, esattamente come quello di bio8.
 

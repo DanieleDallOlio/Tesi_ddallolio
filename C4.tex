@@ -19,13 +19,9 @@ In entrambi i casi la memoria occupata dalle singole regole è sempre stata infe
 In luce di questi risultati questa pipeline di calcolo bioinformatico sembra essere realisticamente eseguibile anche su nodi a bassa potenza.
 Questo, combinato con la possibilità di suddividere il calcolo in maniera \textit{embarassingly parallel} rende i nodi di calcolo low power un'alternativa possibile a quelli tradizionali. 
 
-Il percorso di studio futuro avrà come primo step il completamento della pipeline di GATK-LOD\ped{n} con l'inserimento dei passaggi di riallineamento Indel, di chiamata alle varianti e con l'implementazione del classificatore LOD\ped{n} di MuTect.
+Il percorso di studio futuro avrà come primo step il completamento della pipeline di GATK-LOD\ped{n}.
 Una volta completata la struttura della pipeline, saranno svolte nuove simulazioni per confermare i risultati ottenuti in precedenza.
-Questa fase rimane necessaria pur avendo considerato in questa tesi la parte della pipeline che richiede più potenza di calcolo.
-
-In seguito saranno ripetute le simulazioni sui nodi sfruttando il multicore, visto che tutti gli step del procedimento sono stati trattati con un solo core.
-
-Infine, le analisi verranno svolte, dopo un'opportuna progettazione, sui cluster low power per verificare definitivamente che l'utilizzo alternato di nodi a basso consumo energetico è effettivamente performante almeno quanto una macchina tradizionale, a fronte di un consumo energetico e di un costo nettamente inferiori.
+In seguito saranno ripetute le simulazioni sui nodi sfruttando il multicore e successivamente sugli interi cluster, sia low power che tradizionali.
 
 L'esito positivo della ricerca consentirebbe agli enti accademici e ospedialieri di adottare una tecnologia più accessibile, meno costosa e soprattutto più veloce, che sostenga la ricerca in medicina e in biologia.
 

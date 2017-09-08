@@ -34,7 +34,7 @@ Ciò perchè l'installer aggiunge al bash script \textit{.bashrc} il percorso de
 Le due prerogative più importanti coinvolgono l'installazione di \textit{Conda}, che è inevitabile per l'attivazione degli ambienti, e ovviamente quella di \textit{Snakemake} per l'avvio del programma.
 
 
-In seguito, sono richieste alcune librerie per Python, pandas e matplotlib, che sono necessarie per una fase di semplificazione dei benchmark e per le future analisi statistiche.
+In seguito, sono richieste alcune librerie per Python, Pandas \cite{pandas} e Matplotlib \cite{Matplotlib}, che sono necessarie per una fase di semplificazione dei benchmark e per le future analisi statistiche.
 In più, pur non avendo uno spessore di primo piano, sono essenziali i tool PyYAML e psutil, che colmano alcune lacune dei contenuti principali installati.
 
 
@@ -60,9 +60,8 @@ La terza racchiude un'operazione di riordinamento e di semplificazione di tali u
 Gli oggetti delle analisi sono i subset genetici che si sceglie di estrarre dall'intero genoma del soggetto e per questo è lecito accennare a come avviene l'estrazione.
 
 Il genoma del soggetto è solitamente contenuto in un file in formato di testo \textit{fastq} che contiene le sequenze di nucleotidi rilevate durante le analisi in laboratorio.
-Spesso però, la rilevazione non è singola ma, come nel caso di questo progetto, duplice e, quindi, i dati del paziente sono suddivisi in due file fastq accoppiati.
-
-Brevemente, ogni singola lettura contenuta nel fastq è descritta da quattro linee aventi i seguenti ruoli: la prima linea marca la sequenza, la seconda mostra la sequenza, la terza identifica il punteggio di qualità e la quarta riporta tale punteggio.
+In questo progetto però, la rilevazione non è singola ma duplice e quindi i dati del paziente sono suddivisi in due file fastq accoppiati.
+Ogni singola lettura contenuta nel \textit{fastq} è descritta da quattro linee che rappresentano: la marcatura della sequenza, la sequenza, l'identificazione del punteggio di qualità e il punteggio di qualità.
 
 
 Nel lavoro inerente a questa tesi, è stato scritto uno script in Python(\textit{split.py}) che svolge l'operazione di estrazione e per il quale, senza entrare in dettagli tecnici, è sufficiente trasmettere da linea di comando gli estremi della sezione che si vuole ricavare; come indicato di seguito.
@@ -164,11 +163,11 @@ I requisiti richiesti per l'ambiente sono soddisfatti istruendo espressamente \t
 
 Ora che la natura del sistema è stata argomentata e sono stati approfonditi pure le procedure configurative, è possibile illustrare il percorso di studio statistico effettuato, accompagnato da una presentazione del genere di simulazioni conseguite.
 
-\section{Studio statistico}
+\section{Analisi statistiche}
 Questa sezione si occupa di descrivere quale tipologia di studio statistico è stato compiuto e quali sono state le simulazioni sostenute. 
 In particolare, saranno indicate quali caratteristiche sono state considerate e quali relazioni sono state oggetto di studio.     
 
-L'analisi dei dati è stata condotta utilizzando il linguaggio di Python \cite{Python}, sulla piattaforma iPython \cite{IPython}, e dotandosi delle librerie: Pandas \cite{pandas}, Matplotlib \cite{Matplotlib}, Seaborn \cite{seaborn}, NumPy \cite{Numpy} e SciPy \cite{Scipy}.
+L'analisi dei dati è stata condotta utilizzando il linguaggio di Python, sulla piattaforma iPython \cite{IPython}, e dotandosi delle librerie: Pandas, Matplotlib, Seaborn \cite{seaborn}, NumPy \cite{Numpy} e SciPy \cite{Scipy}.
 
 Il trattamento dei dati ha coinvolto inizialmente le funzioni sui dataframe di pandas per l'estrazione e la modifica delle tabelle finali ricavate al termine del procedimento.
 Tali tabelle sono state ridotte ad un unico dataframe a cui sono state aggiunte quattro colonne per facilitare l'analisi. 
@@ -203,7 +202,7 @@ Così operando, è possibile osservare se il tempo di completamento dei lavori �
 
 Il tempo impiegato per concludere ogni regola non è però l'unico fattore da prendere in considerazione, visto che per promuovere l'uso della parallelizzazione è indispensabile analizzare le modalità di utilizzo della memoria. 
 
-\subsection{Analisi sulla memoria fisica}
+\subsection{Analisi della memoria occupata}
 \label{subsec:Mf}
 La memoria fisica studiata è ottenuta grazie a Snakemake dal tool psutil sottoforma di una memoria detta RSS o \textit{Resident Set Size}(paragrafo \ref{subsubsec: SMb}). 
 In realtà, l'unica operazione conseguita da Snakemake è prelevare le informazioni in bytes su questo tipo di memoria e convertirlo in MB per l'utente.
@@ -240,7 +239,7 @@ I nodi low power adoperati, che sono stati illustrati nel paragrafo \ref{sec:LP}
 È stato utilizzato un solo core per ognuno dei nodi in tutto l'arco del procedimento, rimandando ad un futuro sviluppo l'utilizzo del multicore.  
 
 
-Tutti i nodi hanno processato gli stessi subset di dati con un numero di letture iniziale pari a 5000 fino a 3 milioni, passando per i multipli di diecimila, di centomila e di un milione.
+Tutti i nodi hanno processato gli stessi subset di dati con un numero di letture iniziale pari a centomila fino a 3 milioni, passando per i multipli di centomila e di un milione.
 In questo modo è stato possibile studiare le potenzialità delle macchine a processare dati identici con larghezza crescente e come questo incremento condiziona l'uso della cpu. 
 
 Solamente sui nodi xeond e bio8 sono state portate avanti le simulazioni fino a subset con un numero di letture pari a 9 milioni, continuando da 3 milioni a scalare progressivamente di 1 milione.
@@ -249,8 +248,28 @@ Non sono stati fatti proseguire anche gli altri nodi perchè lo scopo della tesi
 Visto che per tale valutazione sono stati sufficienti i dati citati, solo le due macchine più performanti sono andati oltre per confermare le stime ottenute.
 
 Ciò significa che tutte le simulazioni sono state svolte solamente su una piccola frazione delle letture in possesso. 
-Infatti il numero di letture complessivo del paziente era ben oltre i 45 milioni e la massima grandezza di un subset condivisa tra tutti i dispositivi è stata di 3 milioni, che equivale circa al $6.7\%$.
-Per xeond e bio8 invece, i subset sono stati allargati in prossimità del $20\%$.
+Infatti il numero di letture complessivo del paziente è 45 milioni e la massima grandezza di un subset condivisa tra tutti i dispositivi è stata di 3 milioni, che equivale circa al $6.7\%$.
+Per xeond e bio8 invece, i subset sono stati allargati a 9 milioni, ovvero circa il $20\%$.
+La tabella \ref{tab:sub_dim} mostra la dimensione occupata su disco dal numero di letture contenute nei subset. 
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lr}
+		\toprule
+			\text{\num{e6} letture} & \text{dimensione su disco} \\
+		\midrule
+			0.1   & \text{2x 28.4\,MB} \\
+			1     & \text{2x 284.9\,MB} \\
+			3     & \text{2x 854.9\,MB} \\
+			9     & \text{2x 2.6\,GB} \\
+			45    & \text{2x 12.8\,GB} \\
+		\bottomrule
+	\end{tabular}
+	\caption{Stima della dimensione dei subset in relazione al numero di letture. L'ultimo valore si riferisce all'intero paziente.}
+	\label{tab:sub_dim}
+\end{table}
+
+Per ogni numero di letture la dimensione occupata su disco è il doppio perchè, come citato nel paragrafo \ref{subsubsec: ext}, sono generati in fase di estrazione due file \textit{.fastq} per ogni subset.
 
 In dettaglio, queste simulazioni sono state ripetute dieci volte per i nodi xeond e bio8 mentre sono bastate cinque volte per gli altri nodi, dato che i tempi di completamento del processo arrivavano già a coprire un arco di tempo considerevole.
 
