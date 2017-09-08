@@ -1,6 +1,6 @@
 \chapter{Conclusioni}
-Il lavoro effettuato durante lo svolgimento di questa tesi ha lo scopo di esplorare la possibilità di sostituire i nodi di calcolo tradizionalmente usati per calcoli ad alta performance, con server a basso consumo energetico.
-Questo è motivato dalla possibilità di avere a parità di spesa una maggior potenza di calcolo grazie al minor costo per unità dei server low power, a fronte di una capacità di calcolo comparabile.
+Il lavoro effettuato durante lo svolgimento di questa tesi ha lo scopo di esplorare la possibilità di sostituire i nodi di calcolo tradizionalmente usati per calcoli ad alta performance, con nodi a basso consumo energetico.
+Questo è motivato dalla possibilità di avere una maggior potenza di calcolo a parità di spesa, grazie al minor costo per unità dei server low power, a fronte di una capacità di calcolo comparabile.
 Per testare questi nodi di calcolo è stata sfruttata una pipeline di calcolo bioinformatico, che ha requisiti molto elevati in termini di potenza di calcolo, di occupazione di memoria e di spazio d'archiviazione.
 
 Questa pipeline è stata testata su quattro nodi dai requisiti di potenza progressivamente più elevati, partendo da una macchina a consumi molto ridotti (6W per n3700) fino ad un nodo di calcolo tradizionale (180W per bio8).
@@ -12,16 +12,16 @@ I due nodi a potenza più ridotta (n3700 e avoton) hanno dei tempi d'esecuzione 
 Il terzo nodo(xeond), sempre low power, ha dei tempi di esecuzione confrontabili con il nodo di calcolo tradizionale(bio8) a fronte di un consumo energetico di circa un terzo e di un costo dieci volte inferiore.
 
 L'analisi della memoria occupata dalle varie regole mostra due diversi comportamenti.
-In un caso, si ha una saturazione a una quantità di memoria occupata fissata che varia poco tra i diversi nodi.
+In un caso, si ha una saturazione della una quantità di memoria occupata ad un valore fisso, che varia poco tra i diversi nodi.
 Nell'altro caso le regole si adattano dinamicamente alla quantità di memoria libera disponibile.
-In entrambi i casi la memoria occupata dalle singole regole è sempre stata inferiore alla memoria disponibile a tutti i nodi, al massimo occupandone 5\,GB a fronte di una memoria complessiva di 8\,GB.
+In entrambi i casi la memoria occupata dalle singole regole è sempre risultata inferiore alla memoria disponibile in tutti i nodi, occupando al massimo 5\,GB a fronte di una memoria complessiva di almeno 8\,GB.
 
-In luce di questi risultati questa pipeline di calcolo bioinformatico sembra essere realisticamente eseguibile anche su nodi a bassa potenza.
-Questo, combinato con la possibilità di suddividere il calcolo in maniera \textit{embarassingly parallel} rende i nodi di calcolo low power un'alternativa possibile a quelli tradizionali. 
+In base a questi risultati questa pipeline di calcolo bioinformatico sembra essere realisticamente eseguibile anche su nodi a bassa potenza senza una perdita considerevole di prestazioni.
+Questo, combinato con la possibilità di suddividere il calcolo in maniera \textit{embarassingly parallel} rende i nodi di calcolo low power un'alternativa concreta a quelli tradizionali. 
 
 Il percorso di studio futuro avrà come primo step il completamento della pipeline di GATK-LOD\ped{n}.
 Una volta completata la struttura della pipeline, saranno svolte nuove simulazioni per confermare i risultati ottenuti in precedenza.
-In seguito saranno ripetute le simulazioni sui nodi sfruttando il multicore e successivamente sugli interi cluster, sia low power che tradizionali.
+In seguito saranno ripetute le simulazioni sui nodi sfruttando più core e successivamente interi cluster, sia low power che tradizionali che cloud.
 
 L'esito positivo della ricerca consentirebbe agli enti accademici e ospedialieri di adottare una tecnologia più accessibile, meno costosa e soprattutto più veloce, che sostenga la ricerca in medicina e in biologia.
 

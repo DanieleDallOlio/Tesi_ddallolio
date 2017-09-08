@@ -1,6 +1,6 @@
 \chapter{Introduzione}
 Questo capitolo introduce i componenti principali del progetto ed ha il compito di spiegarne le operazioni svolte in maniera approfondita.
-Tali componenti sono stati raggruppati nei tre campi su cui è stato condotto il lavoro: la bioinformatica, lo sviluppo informatico e i nodi low power.
+Tali componenti sono raggruppati nei tre campi su cui è stato condotto il lavoro: la bioinformatica, lo sviluppo informatico e i nodi low power.
 
 La prima sezione, relativa al campo bioinformatico, approfondisce il metodo GATK-LOD\ped{n} riguardante la ricerca sull'origine dei tumori attraverso procedure di natura bioinformatica.
 Inoltre, è descritto il ruolo dei fisici in questo ambiente di lavoro e nella creazione degli algoritmi.
@@ -8,8 +8,6 @@ Inoltre, è descritto il ruolo dei fisici in questo ambiente di lavoro e nella c
 La seconda sezione, inerente allo sviluppo informatico, spiega come le funzionalità del programma Snakemake concedano ampie possibilità sulla gestione delle risorse offerte dai nodi delle macchine server.
 
 La terza sezione descrive l'importanza delle macchine low power e specifica quali tipi di nodi sono stati adoperati nelle analisi.
-
-La combinazione tra tali differenti ambiti ha fornito i sufficienti elementi per proseguire con la costruzione e attuazione del programma affrontati nel prossimo capitolo.
 
 
 \section{La ricerca delle mutazioni genetiche}
@@ -32,7 +30,7 @@ Inoltre, sarà sottolineato il ruolo degli studi fisici durante il progresso nei
 
 \subsection{L'analisi del DNA}
 Le ricerche sull'eredità genetica iniziarono dagli studi di Gregory Mendel nella seconda metà del diciannovesimo secolo riguardo all'ibridizzazione tra le piante. 
-Nella prima metà del secolo seguente, un serie di contributi, tra cui la fotografia della doppia elica da parte di Roselind Franklin, posero le basi alla moderna ricerca genetica.
+Nella prima metà del secolo seguente, un serie di contributi, tra cui l'immagine della diffrazione a raggi X della doppia elica da parte di Roselind Franklin, posero le basi alla moderna ricerca genetica.
 
 Il contributo essenziale fu la determinazione della struttura del DNA a cui contribuirono James Watson e Francis Crick, la quale permise di cominciare la decifrazione del codice genetico.
 I tentativi di decodifica subirono una svolta significativa nel 
@@ -54,7 +52,7 @@ Da quel momento in poi, il termine comune affiliato alle nuove tecniche sul geno
 
 \subsubsection{NGS}
 La necessità di garantire una maggior rapidità, e anche di ridurre le spese, ha aperto un altro capitolo nella ricerca sul genoma umano: il Next-Generation Sequecing\cite{Behjati2013}.
-Tale necessità deriva dal fatto che il metodo Sanger, per via di un esaminazione estremamente precisa, ha ottenuto l'intero genoma umano in circa tredici anni con un investimento che si aggirava attorno ai $\$\,2.7$ miliardi.
+Tale necessità deriva dal fatto che il metodo Sanger, per via della precisione necessaria, ha richiesto circa tredici anni per ottenere l'intero genoma umano con un investimento di circa $\$\,2.7$ miliardi.
  
 Questa nuova generazione di tecnologie, che sfrutta la parallelizzazione di processi su scale microscopiche \cite{Shendure2008}, concede ai ricercatori strumenti estremamente più veloci, tali da stimare il genoma di un individuo in meno di un giorno, e molto meno costosi.
 In aggiunta, i numerosi metodi sviluppati all'interno del NGS sono fortemente radicati sulla teoria dei network. 
@@ -64,23 +62,23 @@ Un altro fattore importante che supporta lo sviluppo di tecnologie più veloci �
 
 Un ulteriore contributo è dato anche dalla contemporanea crescita delle aree che cooperano con la biologia, tra cui l'evoluzione delle tecniche di computazione.
 
-Le tecniche della NGS sono più conveniente del metodo Sanger, dati i tempi richiesti, ma è ancora da trovare il giusto compromesso tra accuratezza dei risultati e diminuzione delle tempistiche e delle spese economiche.
-Infatti, nello studio di sequenze a piccola scala la tecnologia di Sanger resta tuttora una tra le più affidabili, mentre su letture ad ordini superiori le applicazioni del NGS possono vantare la miglior efficacia.
+Le tecniche della NGS sono più convenienti del metodo Sanger, dati i tempi richiesti, ma è ancora da trovare il giusto compromesso tra accuratezza dei risultati e diminuzione delle tempistiche e delle spese economiche.
+Infatti, nello studio di sequenze a piccola scala la tecnologia Sanger resta tuttora una tra le più affidabili, mentre su letture ad ordini superiori le applicazioni del NGS possono vantare la miglior efficacia.
 
-Pur adoperando tipi di tecnologia diversi, il funzionamento di un qualsiasi algoritmo del NGS prevede solitamente gli stessi passaggi tra cui l'allineamento delle letture con un riferimento e l'investigazione sulle possibili variazioni.
+Pur adoperando diverse tecnologie, gli algoritmi per NGS prevedono solitamente gli stessi passaggi, tra cui l'allineamento delle letture con un riferimento e l'investigazione sulle possibili variazioni.
 
-La difficoltà nello scegliere quale usare tra le diverse opzioni disponibili può essere superata dal confronto tra i risultati finali dei procedimenti, in relazione agli scopi preposti. 
+La difficoltà nello scegliere quale usare tra le diverse opzioni disponibili può essere superata confrontando i risultati finali dei procedimenti, in relazione agli scopi preposti. 
 Tali risultati includono la qualità delle informazioni ricavate, le tempistiche previste e altre caratteristiche come l'assemblaggio e gli allineamenti.
 
 Negli ultimi anni si sono aggiunti alle ricerche del NGS due software chiamati GATK e MuTect, i cui metodi hanno condotto allo sviluppo dell'algoritmo coinvolto nel progetto presentato in questa tesi: il GATK-LOD\ped{n}.
 
 
 \subsection{Il metodo GATK-LOD\ped{n} e le sue radici}
-L'ideazione di questo algoritmo é dovuta ad un gruppo di ricercatori del Dipartimento di Fisica e Astronomia dell'Università di Bologna nell'ambito dello studio sulla scoperta di polimorfismi somatici del singolo nucleotide nel sequenziamento dell'esoma \cite{DoValle2016}.
+L'ideazione di questo algoritmo é dovuta ad un gruppo di ricercatori del Dipartimento di Fisica e Astronomia dell'Università di Bologna nell'ambito dello studio sulla scoperta di polimorfismi somatici del singolo nucleotide nel sequenziamento dell'esoma.
 Precisamente, questo genere di polimorfismo è denonimato con la sigla SNP, single nucleotide polymorphism, e indica quelle variazioni nei singoli nucleotidi che si verificano con frequenza significativa in una specifica posizione del genoma.
 In particolare, l'esoma comprende quelle regioni del genoma in cui sono codificate le istruzioni per l'RNA e per la sintesi delle proteine.
 
-Le mutazioni genetiche si distinguono in due tipologie: germinali e somatiche. Le prime identificano le variazioni nei cromosomi determinanti il sesso dell'individuo e che si trasmettono di generazione in generazione. Le seconde, invece, rappresentano le variazioni negli altri cromosomi contenenti le caratteristiche del singolo soggetto. 
+Le mutazioni genetiche si distinguono in due tipologie: germinali e somatiche. Le prime identificano le variazioni che avvengono nello zigote sono condivise in tutte le cellule dell'organismo. Le seconde, invece, sono mutazioni avvenute successivamente allo sviluppo e possono presentarsi a livello di singola cellula o tessuti. 
 L'algoritmo GATK-LOD\ped{n} si focalizza sulle mutazioni somatiche perchè esse hanno un ruolo chiave nella progressione della malattia e nella resistenza alla chemioterapia.
 
 L'interesse nel proporre questo metodo nasce dal desiderio di poter predisporre di uno strumento che non si aggiunga al gruppo di software già esistenti, bensì che ottimizzi e potenzi alcuni tra questi.
@@ -93,7 +91,7 @@ A questo punto, sono state applicati in successione i tools BWA-MEM e Picard, do
 Una volta completata una nuova fase di riallineamento locale e di ricalibrazione sulla qualità delle letture, grazie all'utilizzo di alcuni strumenti del Genome Analysis Toolkit, sono stati eseguiti GATK e MuTect per la ricerca delle varianti sui singoli nucleotidi(SNV).
 
 La differenza procedurale tra queste due applicazioni è che, mentre MuTect ritrova le mutazioni contemporaneamente tra i campioni normali e tumorali, GATK le chiama indipendentemente.
-Un'osservazione da sottolineare è che i due metodi scovano pure varianti che non sono condivise da entrambi, indicando la natura incompleta dei sistemi utilizzati.
+Si sottolinea che i due metodi scovano varianti che non sono condivise da entrambi, indicando la natura incompleta dei sistemi utilizzati.
 Un ulteriore distinzione tra GATK e MuTect è data dal tipo di risultati raccolti poichè, se il primo è dotato di una maggiore sensibilità alle mutazioni, dalle 3 alle 20 volte superiore al secondo, quest'ultimo possiede una maggiore specificità degli SNVs.
 Avendo GATK un elevato numero di falsi positivi nella chiamata alle varianti, è stato aggiunto in fondo all'algoritmo il classificatore Bayesiano di MuTect per cercare di ridurre questo errore.
 Il compito del LOD\ped{n} consiste nel calcolare il rapporto tra i due seguenti eventi probabilistici.
@@ -102,17 +100,17 @@ Il secondo, invece, considera il caso in cui la mutazione esista davvero nel cam
 A questo punto, se il rapporto tra le probabilità (il Log Odds, da cui la sigla LOD) eccede un valore di soglia fissato, il classificatore definisce la variante come somatica.
 
 Nella ricerca sono stati confrontati i prodotti finali dei tre algoritmi ed è stato verificato che l'uso di GATK-LOD\ped{n} riduce notevolmente il numero di chiamate degli SNVs di GATK, mantenendo una sensibilità nettamente superiore a MuTect.
-Questa riduzione è dovuta ovviamente all'eliminazione di un sostanziale numero di falsi positivi, la cui entità dipende dalla tipologia di tumore esaminato.
+Questa riduzione è dovuta all'eliminazione di un sostanziale numero di falsi positivi, la cui entità dipende dalla tipologia di tumore esaminato.
 
 Il miglioramento dei precedenti metodi, però, non si limita solo alla filtrazione dei falsi positivi ma anche al mantenimento della sensibilità di GATK e ad un aumento della specificità.
 Quest'ultimo è indicato dal fatto che GATK-LOD\ped{n} abbia presentato frequenze di validità superiori e un miglior PPV(Positive Predictive Value) rispetto a GATK su vari numeri di reads di VAF(Variant Allelic Frequency).
 Le metodologie adoperate per confrontare la sensibilità e la specificità non sono state ritenuti utili allo scopo della presentazione e per questo non verranno trattate.
 
-A posteriori delle indagini sperimentali, GATK-LOD\ped{n} si è rivelato uno strumento utile ad allargare le capacità di GATK e a scovare varianti non trovate da MuTect senza dover rinunciare alla specificità e sensibilità.
+A posteriori delle indagini sperimentali, GATK-LOD\ped{n} si è rivelato uno strumento utile ad allargare le capacità di GATK e a individuare varianti non trovate da MuTect senza dover rinunciare alla specificità e sensibilità.
 
-Visti i risultati positivi ricavati dall'algoritmo, la ricerca sostiene con un fiducia che un metodo di questo tipo possa aiutare a definire con maggior dettaglio le mutazioni somatiche di genomi cancerogeni, favorendo le valutazioni mediche e gli approcci sui percorsi di cura.
+Visti i risultati positivi ricavati dall'algoritmo, l'articolo originale sostiene che un metodo di questo tipo possa aiutare a definire con maggior dettaglio le mutazioni somatiche di genomi cancerogeni, favorendo le valutazioni mediche e gli approcci sui percorsi di cura.
 
-In modo da fornire una conoscenza più approndita delle operazioni che avvengono nel sequenziamento, saranno esposti %brevemente il meccanismo statistico e 
+Per fornire una conoscenza più approndita delle operazioni che avvengono nel sequenziamento, saranno esposti %brevemente il meccanismo statistico e 
 i passaggi fondamentali alla base delle applicazioni utilizzate nel metodo GATK-LOD\ped{n}: GATK e MuTect.
 \begin{figure}[H]
 \centering
@@ -137,10 +135,10 @@ Siccome solo in certi casi, come la ricerca degli SNPs, vi è un adattamento nat
 Le traversals sono schemi che provvedono alla preparazione e divisione dei dati; mentre le walkers consistono nei differenti moduli di analisi che computano i dati provenienti dalle prime.
 Anche se GATK ha un numero ridotto di traversals, questo basta per soddisfare le esigenze della maggior parte della comunità di ricerca.
 I due trasversal standard sono il "by each sequencer read" e il "by every read covering single base position in a genome", il cui uso è sfruttato per operazioni standard come la chiamata agli SNPs.
-Il meccanismo di questi schemi non è riportato poichè non è stato ritenuto necessario per la comprensione di questo scritto.
+Il meccanismo di questi schemi non è riportato in quanto non rilevante per il lavoro di tesi.
 
 Uno dei punti di forza dell'algoritmo è la capacità di gestire l'enorme quantità di materiale ricavato dal sequenziamento.
-In particolare, GATK divide il tutto in pezzi chiamati "shard" che, al contrario della maggior parte dei sistemi di suddivisione, sono di una dimensione del multikilobase.
+In particolare, GATK divide il tutto in pezzi chiamati "shard" che, al contrario della maggior parte dei sistemi di suddivisione, sono di una dimensione di poche migliaia di basi.
 In questo modo non sono limitate le capacità della memoria e le prestazioni nel caso di parallelismo.
 Questi shards contengono tutte le informazioni della regione genomica associata e sono trasmesse al trasversal prescelto.
 
@@ -155,7 +153,7 @@ Il Genome Analysis Toolkit è quindi un framework che, grazie al suo nuovo appro
 Il metodo MuTect è un algoritmo per la rilevazione delle mutazioni genomiche, che è stato creato per superare le scarse prestazioni dei meccanismi fino ad allora presenti \cite{Cibulskis2013}.
 Infatti, quest'ultimi fornivano livelli di sensibilità e specificità considerati insoddisfacenti per una sufficiente comprensione delle anomalie.
 
-Il sistema focalizza gli sforzi soprattutto sull'individuazione delle varianti a bassa frazione allelica, ovvero quelle regioni del DNA che originano e nutrono il tumore.
+Il sistema si focalizza soprattutto sull'individuazione delle varianti a bassa frazione allelica, ovvero quelle regioni del DNA che originano e nutrono il tumore.
 Queste frazioni sono tanto importanti quanto difficili da scovare poichè, mentre il meccanismo al loro interno determina il tipo di alterazione genomica, sia le regioni in cui si manifestano che la frequenza di occorrenza sono basse.
 
 La conoscenza di questi tratti specifici favorisce lo studio sulle evoluzioni delle forme cancerogene e aiuta a proporre terapie di cura più affidabili.
@@ -166,8 +164,8 @@ Questo strumento si è dimostrato sensibile e specifico nella scoperta degli eve
 Nessuno dei modelli precedenti supporta tutti gli errori dei processi di sequenziamento ed è per questo che MuTect sfrutta due approcci di benchmarking per migliorare la performance: il downsampling e  i 'virtual tumors'.
 Il primo misura la sensibilità con cui le mutazioni vengono chiamate, grazie a subset di dati con mutazioni già riconosciute.
 Questo approccio è però limitato da alcuni aspetti che comprendono: il basso numero di eventi verificati, la sovrastima della sensibilità e l'impossibilità alla misurazione della specificità.
-A causa dei limiti del downsampling è presente pure un secondo approccio, 'virtual tumors', che genera dei tumori virtuali conosciuti in ogni dettaglio.
-I questa maniera i due metodi sono complementari e mentre il primo usa dati reali ma è limitato, il secondo è libero ma consuma materiale virtuale generato non perfettamente.
+A causa dei limiti del downsampling è presente anche un secondo approccio, 'virtual tumors', che genera dei tumori virtuali conosciuti in ogni dettaglio.
+I questa maniera i due metodi sono complementari e mentre il primo usa dati reali ma è limitato, il secondo è libero ma consuma materiale virtuale generato.
 La sintesi dei due approcci permette di ricavare valori più veritieri della  sensibilità, misurare la specificità e colmare la maggior parte delle lacune derivate dal downsampling.
 
 Previo allineamento ed esecuzione dei processi standard preanalisi, MuTect riceve i dati sequenziati sia dei campioni normali che dei cancerogeni, per poi eseguire quattro operazioni principali: la rimozione di dati a bassa qualità, la ricerca delle varianti, il filtraggio dei falsi positivi e la classificazione delle varianti.
@@ -196,26 +194,26 @@ Nel secondo, invece, la fisica coopera con i bioinformatici sia nell'individuazi
 Nello specifico, la maggioranza dei modelli utilizzati e studiati sono basati sulla teoria dei network, la quale è stata ha acquisito uno spessore essenziale negli studi di biologia e di medicina.
 
 \subsubsection{Teoria dei network}
-La teoria dei network è materia prevalentemente dei fisici, dove per network si intende uno schema a base matematica che mira a rappresentare un sistema complesso, cercando di modellizzare le caratteristiche collettive. 
+Per network si intende un modello che mira a rappresentare un sistema complesso, cercando di modellizzare le caratteristiche collettive. 
 Un network è composto da elementi chiamati nodi, i quali sono collegati tramite percorsi, detti path, e tra cui sono presenti relazioni, denominate link. 
 La teoria dei network è stata adottata e sviluppata per spiegare quelle leggi della natura di carattere generico e che hanno origine da manifestazioni stocastiche.
 Gli strumenti matematici adoperati in questa teoria sono prevalentemente le matrici e i grafi, le cui proprietà garantiscono la massima espressione di connettività e di evoluzione che contraddinguono i sistemi complessi. 
 
 I sistemi presenti in biologia sono generalmente un insieme di oggetti fortemente interagenti di cui si conoscono le proprietà; come possono essere ad esempio le reti geniche o il sistema nervoso umano.
-Sono proprio i meccanismi dei network infatti la causa per cui non è più indispensabile ricostruire il codice genetico puntualmente, dato che risulta conveniente ricombinare tante stringhe casuali dello stesso filamento di DNA(shotgun sequencing).
-Questa novità è ciò che contraddistingue il metodo Sanger dalle nuove tecniche del NGS e che permette a quest'ultime di ricavare i genomi di un individuo in tempi decisamente più ristretti.
+Grazie alle tecniche provenienti dalla teoria dei network non è più indispensabile ricostruire il codice genetico puntualmente, dato che risulta possibile ricombinare tante stringhe casuali dello stesso filamento di DNA(shotgun sequencing).
+Questa novità è ciò che contraddistingue le nuove tecniche del NGS dal metodo Sanger e che permette a queste di ricavare i genomi di un individuo in tempi decisamente più ristretti.
 
-La ricostruzione del genoma avviene, in particolare, a partire dal tutte le possibili sovrapposizioni dei frammenti sperimentali estratti. 
-La scelta riguardo al ruolo dei frammenti e delle sovrapposizioni, ovvero stabilire chi è nodo e chi è link, è ciò che determina la teoria dei network da perseguire.
-Il caso in cui i primi fossero i nodi e le seconde i link condurrebbe all'utilizzo di un path Hamiltoniano, cioè un percorso dove tutti i nodi vengono usati una volta sola.
+La ricostruzione del genoma avviene, in particolare, a partire da tutte le possibili sovrapposizioni dei frammenti sperimentali estratti. 
+La scelta riguardo al ruolo dei frammenti e delle sovrapposizioni, ovvero stabilire chi è nodo e chi è link, è ciò che determina il modello dei network da perseguire.
+Nel caso in cui i primi fossero i nodi e le seconde i link condurrebbe all'utilizzo di un path Hamiltoniano, cioè un percorso dove tutti i nodi vengono usati una volta sola.
 All'opposto si avrebbe un path Euleriano, dove ogni link deve essere processato una singola volta e dove il problema è identificato dal grafo di De Brujin.
 La differenza più netta tra i due path è la crescita di complessità, visto che il primo ha andamento non polinomiale mentre il secondo lineare, ed è da ciò che si valutano le capacità computazionali.
 
-In conclusione, la teoria dei network unita all'utilizzo di macchine server performanti ha accelerato lo sviluppo di meccanismi sempre più raffinati per la ricostruzione del DNA, superando l'esaminazione prolungata in laboratorio con l'applicazione di congetture di fisica statistica.    
+In conclusione, la teoria dei network, unita all'utilizzo di macchine server performanti, ha accelerato lo sviluppo di meccanismi sempre più raffinati per la ricostruzione del DNA, superando l'esaminazione prolungata in laboratorio con l'applicazione di congetture di fisica statistica.    
 
 \section{Lo strumento di sviluppo: Snakemake}
 \label{sec:SM}
-Snakemake è un sistema di gestione del flusso di lavoro che semplifica l'esecuzione di algoritmi particolarmente complessi grazie all'utilizzo di un ambiente di sviluppo nitido ed intuitivo \cite{Koster2012}.
+Snakemake è un sistema di gestione dei flussi di lavoro che semplifica l'esecuzione di algoritmi particolarmente complessi grazie all'utilizzo di un ambiente di sviluppo nitido ed intuitivo \cite{Koster2012}.
 In più, questo software è specializzato nella scalabilità dei lavori, da singoli core fino all'uso di cluster, le cui transizioni non implicano pesanti modifiche al procedimento del sistema.
 
 Questo programma è basato sul linguaggio di programmazione Python \cite{Python} e la sua formazione è fortemente influenzata dal noto tool Make del sistema operativo Linux.
@@ -243,12 +241,11 @@ Rispettivamente le tre chiavi implicano l'utilizzo di comandi da terminale, l'es
 La dichiarazione dei file di input e di output esprime le condizioni iniziali per la regola e il risultato atteso, così permettendo al programma di riconoscere le relative dipendenze e stabilire l'ordine di successione dei singoli lavori.
 Per facilitare la comprensione del codice, è possibile creare, grazie al comando \textit{dot} della libreria Graphviz, un diagramma che schematizzi la sequenza delle regole.
 Infatti questa sequenza, che ha il nome di \textit{DAG} (Directed Acyclic Graph), è visualizzata da \textit{dot} in una struttura ramificata, in cui i lavori sono rappresentati da nodi e le dipendenze sono semplicemente descritte da linee congiungenti. 
-Dalla forma assunta da tale struttura si può osservare che il lavoro degli sviluppatori del DAG è stato basato sulla teoria dei network e che l'applicazione di questa consente una descrizione semplice e compatta del sistema. 
-Questa schematizzazione consente anche di visualizzare quali dei lavori sono parallelizzabili e quali, invece, devono mantenere una prestabilita sequenzialità. 
+Questa schematizzazione consente anche di identificare quali dei lavori sono parallelizzabili e quali, invece, devono mantenere una prestabilita sequenzialità. 
 Ciò è possibile proprio dal fatto che il comando \textit{dot} rappresenta la successione delle regole solo e unicamente in base alle dipendenze reciproche, mantenendo quindi, ad esempio, la ripetizione di alcune regole sullo stesso livello di operatività.
 Questo sistema di riconoscimento dei lavori potenzialmente simultanei da un contributo importante per impostare meccanismi di parallelizzazione. 
 
-A proposito della gestione tecnica dei lavori, Snakemake ha un certo numero di proprietà che consentono di selezionare le caratteristiche computazionali desiderati. 
+A proposito della gestione tecnica dei lavori, Snakemake ha un certo numero di proprietà che consentono di selezionare le caratteristiche computazionali desiderate. 
 Due tra le funzionalità più rilevanti sono \textit{resources} e \textit{cores} che stabiliscono, da linea di comando, rispettivamente quali risorse delle macchine sono a disposizione e quanti core sono fruibili.
 Le risorse possono includere ad esempio delle direzioni sulla gpu o sulla memoria accessibile (opzione \textit{mem}), mentre il numero di cores è essenziale per gestire i threads.
 
@@ -256,7 +253,7 @@ I threads sono fondamentali per un'esecuzione simultanea e il loro utilizzo avvi
 L'assegnazione di un determinato numero di threads è comunque influenzato da un'eventuale opzione sui cores, dato che il numero di threads non può eccedere il numero di cores utilizzabili.
 In particolare, oltre ai threads, è possibile specificare singolarmente per ogni regola anche le risorse disponibili, aggiungendo la voce \textit{resources} nel dominio. 
 
-Altre due notevoli proprietà di Snakemake sono la portabilità e un innovativo meccanismo di inferenza.
+Altre due proprietà di Snakemake sono la portabilità e un innovativo meccanismo di inferenza.
 La prima manifesta le poche dipendenze di installazione, dato che è in generale sufficiente dotarsi di Python; mentre la seconda rappresenta un moderno supporto all'inferenza per nome che si compie grazie a wildcards nominate nelle regole.
 
 Le wildcards consistono in nomi che agiscono come parametri e che servono ad automatizzare le operazioni di riconoscimento delle dipendenze tra regole. 
@@ -284,7 +281,7 @@ Per primi sono riportati il tempo impiegato dal nodo per completare la regola si
 A seguire, dal terzo al sesto sono mostrate le informazioni sull'uso della memoria.
 In particolare:
 \begin{itemize}
-\item max\verb!_!rss è la massima memoria fisica non scambiata, che il processo usa(Resident Set Size);
+\item max\verb!_!rss è la massima memoria fisica \textit{non swapped}, che il processo usa(Resident Set Size);
 \item max\verb!_!vms è la massima quantità totale di memoria virtuale utilizzata(Virtual Memory Size);
 \item max\verb!_!uss è il massimo di memoria affidata unicamente al singolo lavoro, che esso impiega(Unique Set Size);
 \item max\verb!_!pss è il massimo della quantità condivisa tra tutti i processi, che la regola sfrutta(Proportional Set Size).
@@ -333,7 +330,7 @@ Il contenuto dei file di configurazione è, in conclusione, determinante per il 
 \section{Le macchine low power e i nodi utilizzati}
 \label{sec:LP}
 
-I gruppi di ricerca impegnati per l'analisi dei big data in campo biomedico, hanno a disposizione server sempre piu' sofisticati e veloci. Purtroppo le migliori prestazioni e funzionalità hanno comportato costi e consumi elettrici sempre piu' elevati (anche se negli ultimi anni sono state introdotte anche per i server tecnologie avanzate per il power-saving e il power-monitoring). 
+I gruppi di ricerca impegnati per l'analisi dei big data in campo biomedico, hanno a disposizione server sempre più sofisticati e veloci. Purtroppo le migliori prestazioni e funzionalità hanno comportato costi e consumi elettrici sempre piu' elevati (anche se negli ultimi anni sono state introdotte anche per i server tecnologie avanzate per il power-saving e il power-monitoring). 
 D'altra parte processori low-power normalmente utilizzati in ambito low-end o embedded/mobile stanno acquisendo un ruolo sempre piu' importante.
 
 Si è quindi creato nel mondo computazionale scientifico un inedito scenario: accanto ai tradizionali server high-end, costosi ed energivori, si iniziano a intravedere soluzioni ibride con processori low-power o acceleratori che stanno progressivamente riducendo il divario prestazionale rispetto ai server high-end. 

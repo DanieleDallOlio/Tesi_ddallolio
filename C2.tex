@@ -1,4 +1,4 @@
-\chapter{Procedimento}
+\chapter{Materiali e Metodi}
 Questo capitolo ha lo scopo di presentare il procedimento seguito per valutare l'ottimizzazione di una pipeline per l'analisi computazionale biofisica su nodi di cluster a basso consumo energetico.
 
 
@@ -34,7 +34,7 @@ Ciò perchè l'installer aggiunge al bash script \textit{.bashrc} il percorso de
 Le due prerogative più importanti coinvolgono l'installazione di \textit{Conda}, che è inevitabile per l'attivazione degli ambienti, e ovviamente quella di \textit{Snakemake} per l'avvio del programma.
 
 
-In seguito, sono richieste alcune librerie per Python, Pandas \cite{pandas} e Matplotlib \cite{Matplotlib}, che sono necessarie per una fase di semplificazione dei benchmark e per le future analisi statistiche.
+In seguito, sono richieste alcune librerie per Python, Pandas \cite{pandas} e Matplotlib \cite{Matplotlib}, che sono necessarie per una fase di sintesi dei file di benchmark e per le analisi statistiche.
 In più, pur non avendo uno spessore di primo piano, sono essenziali i tool PyYAML e psutil, che colmano alcune lacune dei contenuti principali installati.
 
 
@@ -64,7 +64,7 @@ In questo progetto però, la rilevazione non è singola ma duplice e quindi i da
 Ogni singola lettura contenuta nel \textit{fastq} è descritta da quattro linee che rappresentano: la marcatura della sequenza, la sequenza, l'identificazione del punteggio di qualità e il punteggio di qualità.
 
 
-Nel lavoro inerente a questa tesi, è stato scritto uno script in Python(\textit{split.py}) che svolge l'operazione di estrazione e per il quale, senza entrare in dettagli tecnici, è sufficiente trasmettere da linea di comando gli estremi della sezione che si vuole ricavare; come indicato di seguito.
+Nel lavoro inerente a questa tesi, è stato scritto uno script in Python(\textit{split.py}) che svolge l'operazione di estrazione e per il quale è sufficiente trasmettere da linea di comando gli estremi della sezione che si vuole ricavare; come indicato di seguito.
 \begin{lstlisting}[language=Python]
 $ python split.py {inizio} {fine}
 \end{lstlisting}
@@ -86,10 +86,10 @@ L'algoritmo GATK-LOD\ped{n} è stato integrato solo fino al riallineamento di GA
 Allo stesso tempo non sono state considerate le fasi fondamentali di chiamata alle varianti e l'implementazione del classificatore LOD\ped{n} di MuTect, vera novità del metodo GATK-LOD\ped{n}.
 
 Questa forte selezione degli step è stata voluta appositamente per non appesantire lo studio sull'ottimizzazione computazionale e, quindi, è stato scelto di concentrare le analisi solo su quelle operazioni che formano le basi dell'algoritmo per l'indagine del DNA.
-In tale maniera, è facilitato sia l'indagine sulla scalabilità che il confronto tra i diversi nodi adoperati, così da poter trarre rapidamente le prime conclusioni.
+In tale maniera, è facilitata sia l'indagine sulla scalabilità che il confronto tra i diversi nodi adoperati, così da poter trarre rapidamente le prime conclusioni.
 
-I primi step consistono nell'indicizzazione del genoma umano di riferimento per i software che partecipano al sequenziamento.
-Questi coinvolgono il software di allineamento BWA, il tool di manipolazione Picard, il gestore di strumenti Samtools e i programmi affini a GATK.
+Le prime regole consistono nell'indicizzazione del genoma umano di riferimento per i software che partecipano al sequenziamento.
+Queste coinvolgono il software di allineamento BWA, il tool di manipolazione Picard, il gestore di strumenti Samtools e i programmi affini a GATK.
 Per le prime tre  applicazioni, questa operazione è portata avanti da una specifica opzione delle stesse, mentre per l'ultimo essa è inclusa già nell'uso di Samtools.
 
 Terminate le indicizzazioni, è sfruttato BWA MEM per la mappatura del DNA del soggetto sul genoma di riferimento che, inoltre, produce un file di etichetta, in formato \textit{SAM}, che è sottoposto ad un riordinamento da parte Picard con l'assistenza della modalità SortSam.
@@ -99,12 +99,12 @@ Elaborando quest'ultimo, la regola successiva crea un indice(in un file \textit{
 
 Per concludere, supportati dalla direttiva RealignerTargetCreator, propria del pacchetto GATK, il contenuto del file \textit{bam} è riallineato localmente in modo da diminuire ed evidenzire il numero di variazioni presenti.
 
-Per riassumere l'intero processo è possibile osservare la raffigurazione seguente.
+Per riassumere l'intero processo è possibile osservare la raffigurazione seguente \ref{fig:w}.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Workflow.jpg}
 \caption{Schematizzazione del procedimento implementato nella pipeline.}
-\label{fig:workflow}
+\label{fig:w}
 \end{figure}
 
 
@@ -169,12 +169,12 @@ In particolare, saranno indicate quali caratteristiche sono state considerate e 
 
 L'analisi dei dati è stata condotta utilizzando il linguaggio di Python, sulla piattaforma iPython \cite{IPython}, e dotandosi delle librerie: Pandas, Matplotlib, Seaborn \cite{seaborn}, NumPy \cite{Numpy} e SciPy \cite{Scipy}.
 
-Il trattamento dei dati ha coinvolto inizialmente le funzioni sui dataframe di pandas per l'estrazione e la modifica delle tabelle finali ricavate al termine del procedimento.
+Il trattamento dei dati ha coinvolto inizialmente le funzioni sui dataframe di Pandas per l'estrazione e la modifica delle tabelle finali ricavate al termine del procedimento.
 Tali tabelle sono state ridotte ad un unico dataframe a cui sono state aggiunte quattro colonne per facilitare l'analisi. 
 Le prime due contengono gli estremi del subset, ovvero la posizione della lettura iniziale e la posizione di quella finale, la terza contiene il numero di letture di ogni subset e la quarta il logaritmo del tempo di esecuzione.
 Da questo unico contenitore sono state estratte progressivamente le tabelle utili alle varie analisi.
 
-Il capitolo è suddiviso in tre sezioni, dove le prime due corrispondono alle caratteristiche principali su cui è stata condotta l'indagine statistica: il tempo di esecuzione e la memoria impiegata. 
+La sezione è divisa in tre sottosezioni, dove le prime due corrispondono alle caratteristiche principali su cui è stata condotta l'indagine statistica: il tempo di esecuzione e la memoria impiegata. 
 L'ultima sezione include una semplice presentazione sul tipo di simulazioni che sono state completate.
 
 
@@ -182,41 +182,37 @@ L'ultima sezione include una semplice presentazione sul tipo di simulazioni che 
 \label{sbsec:Te}
 Lo studio sul tempo di esecuzione è stato eseguito con lo scopo di delineare un andamento preciso di esso per ogni regola e per ognuna dei nodi adoperati.  
 
-Inizialmente è stata derivata dal dataframe generale una tabella in cui ogni lavoro svolto corrispondesse a un subset e che quindi, non fossero presenti quelle regole indipendenti dal tipo di dati analizzati.
+Inizialmente è stata derivata dal dataframe generale una tabella in cui ogni regola svolta corrispondesse a un subset e che quindi, non fossero presenti quelle regole indipendenti dal tipo di dati analizzati.
 I lavori che dipendono dai dati sono, in ordine di esecuzione: la mappatura(mapping), l'ordinamento tramite picard(sort picard), la rilevazione dei duplicati(mark duplicates), la creazione dei file bam(build bam) e il riallineamento(realigner).
 Al contrario, i processi indipendenti sono le indicizzazioni dello human reference per bwa, per picard e per samtools(index bwa, index picard e index samtools). 
 
 In seguito è stata rappresentata su di un grafico la dipendenza del tempo di esecuzione di ogni regola rispetto alla grandezza del subset, identificando sullo questo stesso grafico un andamento per ogni nodo. 
-In questa maniera è stato possibile verificare le differenze di prestazione tra le macchine server, adattando a ciascuna di esse la relazione matematica più idonea tra il tempo e il numero di sequenze del subset.
+In questa maniera è stato possibile verificare le differenze di prestazione tra le macchine server, adattando a ciascuna di esse una regressione lineare tra il tempo e il numero di sequenze del subset.
 
 Una volta osservato l'andamento del tempo per ogni singola regola, l'attenzione è stata rivolta al tempo totale impiegato dalle regole dipendenti dal subset.
 Per calcolare il tempo totale è stata creata una nuova tabella che contenesse tali regole, il tipo di cpu, il numero della simulazione e il tempo totale di esecuzione.
 
 Un tale grafico consente di osservare come cresce il tempo di esecuzione complessivo all'aumentare del numero di letture e come ciò è influenzato dal tipo di macchina adoperata.
 
-Terminato lo studio sui lavori dipendenti dalla grandezza dei subset, sono state brevemente considerate anche le regole indipendenti.
+Terminato lo studio sulle regole dipendenti dalla grandezza dei subset, sono state brevemente considerate anche le regole indipendenti.
 Anche in questo caso è stata tracciata su un grafico la dipendenza del tempo di esecuzione rispetto ad ogni regola, distinguendo il comportamento tra i differenti nodi.  
 
-Infine, sono stati estratti subset di ugual grandezza ma con letture differenti, che sono stati messi in relazione con le durate delle singole regole rispetto.
-Così operando, è possibile osservare se il tempo di completamento dei lavori è influenzato dal contenuto del subset processato e con quale entità ciò influisce.
+Infine, sono stati estratti subset di ugual grandezza ma con punti di partenza differenti, che hanno permesso di stimare la variabilità dei tempi di esecuzione in base alla posizione di partenza.
 
 Il tempo impiegato per concludere ogni regola non è però l'unico fattore da prendere in considerazione, visto che per promuovere l'uso della parallelizzazione è indispensabile analizzare le modalità di utilizzo della memoria. 
 
 \subsection{Analisi della memoria occupata}
 \label{subsec:Mf}
 La memoria fisica studiata è ottenuta grazie a Snakemake dal tool psutil sottoforma di una memoria detta RSS o \textit{Resident Set Size}(paragrafo \ref{subsubsec: SMb}). 
-In realtà, l'unica operazione conseguita da Snakemake è prelevare le informazioni in bytes su questo tipo di memoria e convertirlo in MB per l'utente.
-Perciò nel corso della spiegazione, la memoria trattata si riferisce proprio a questa informazione trasmessa da Snakemake.  
 
 I dettagli sulla memoria che viene impiegata nei singoli processi è di fondamentale importanza per un corretto sviluppo di un futuro sistema parallelizzato.
 Infatti, lo studio sull'andamento di tale memoria consente di verificare fino a che livello di scalabilità la cpu è proficua e quando il suo uso comincia a saturare.
-Questi comportamenti indicano fino a che punto è possibile ottimizzare l'utilizzo dei core della cpu e identificano le memorie richieste dai vari lavori.
+Questi comportamenti indicano fino a che punto è possibile ottimizzare l'utilizzo dei core della cpu e identificano le memorie richieste dalle varie regole.
 Distinguere quali sono i processi che necessitano maggiormente di memoria e quelli che ne utilizzano una scarsa percentuale, permette di conoscere quali sono i nodi per le varie regole che ottimizzano l'esecuzione.
 
 Lo studio statistico condotto è stato interessato, come per le tempistiche, ad osservare il comportamento della memoria in base alle regole, ai subsets e ai diversi nodi.
 Perciò, è stata inizialmente posta in relazione la memoria occupata da ogni regola con il numero di sequenze del subset, distinguendo le macchine.
-Successivamente è stata eseguita la stessa operazione per le regole indipendenti dai dati ed infine, è stato studiato il comportamento della memoria lasciando invariato il numero di letture ma considerandone diverse.
-È stato trascurata, invece, la somma delle memoria in ogni passaggio perchè non sono ritenute informazioni da cui trarre beneficio. 
+Successivamente è stata eseguita la stessa operazione per le regole indipendenti dai dati ed infine, è stato studiato il comportamento della memoria lasciando invariato il numero di letture ma considerando diversi punti di partenza.
     
 
 %\subsection{Analisi sui processi di input ed output} 
@@ -236,7 +232,7 @@ Successivamente è stata eseguita la stessa operazione per le regole indipendent
 Le simulazioni che sono state eseguite ai fini di questa tesi sono state scelte per valutare le performance sui nodi dei cluster a disposizione, in modo da evidenziarne la potenziale scalabilità.
 
 I nodi low power adoperati, che sono stati illustrati nel paragrafo \ref{sec:LP}, sono stati impiegati in base alle loro diverse potenze computazionali e sono stati confrontati con un nodo del cluster bio8, utilizzato come riferimento per le macchine tradizionali.
-È stato utilizzato un solo core per ognuno dei nodi in tutto l'arco del procedimento, rimandando ad un futuro sviluppo l'utilizzo del multicore.  
+È stato utilizzato un solo core per ognuno dei nodi in tutto l'arco del procedimento, rimandando ad un futuro sviluppo l'utilizzo di core multipli.  
 
 
 Tutti i nodi hanno processato gli stessi subset di dati con un numero di letture iniziale pari a centomila fino a 3 milioni, passando per i multipli di centomila e di un milione.
@@ -271,9 +267,9 @@ La tabella \ref{tab:sub_dim} mostra la dimensione occupata su disco dal numero d
 
 Per ogni numero di letture la dimensione occupata su disco è il doppio perchè, come citato nel paragrafo \ref{subsubsec: ext}, sono generati in fase di estrazione due file \textit{.fastq} per ogni subset.
 
-In dettaglio, queste simulazioni sono state ripetute dieci volte per i nodi xeond e bio8 mentre sono bastate cinque volte per gli altri nodi, dato che i tempi di completamento del processo arrivavano già a coprire un arco di tempo considerevole.
+In dettaglio, queste simulazioni sono state ripetute dieci volte per i nodi xeond e bio8 mentre sono stata ripetute cinque volte per gli altri nodi.
 
-Infine utilizzando lo script \verb!split.py! descritto nella sezione \ref{subsubsec: ext}, sono stati estratti subsets contenenti letture diverse, ma dello stesso numero, che sono stati studiati in una fasie delle analisi.
+Infine utilizzando lo script \verb!split.py! descritto nella sezione \ref{subsubsec: ext}, sono stati estratti subsets contenenti letture diverse, ma dello stesso numero, che sono stati studiati in una fase delle analisi.
 L'unico numero di letture considerato è stato centomila e ciò è stato eseguito solo per i nodi dei cluster low power, e quindi non da bio8.
 
 Nel capitolo seguente saranno esposti gli esiti più rilevanti, selezionati dai prodotti finali dell'analisi statistica effettuata sui dati delle simulazioni.  

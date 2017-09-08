@@ -1,6 +1,6 @@
 \chapter{Risultati}
 \label{cap:3}
-I risultati finali sono stati suddivisi nelle due caratteristiche su cui è stata sviluppata l'analisi dei dati.
+I risultati finali sono suddivisi nelle due caratteristiche su cui è stata sviluppata l'analisi dei dati.
 Sono quindi presenti una sezione relativa ai tempi di esecuzione e una sulla memoria fisica sfruttata. 
 La descrizione delle relazioni più interessanti è, inoltre, accompagnata dall'utilizzo di alcuni tra i grafici elaborati durante lo studio statistico.
 
@@ -12,7 +12,7 @@ Questa sezione si occuperà di presentare gli esiti finali più rilevanti di ogn
 
 \subsection{Tempi e regole}
 Le regole previste dal procedimento hanno concentrato l'analisi su due campi, una relativo a quei processi che non dipendono dal tipo di dati considerato e uno relativo a quelli che invece dipendono. 
-Considerando le prime, è evidente dalla figura \ref{fig:Tind} come l'unico processo significativo sia l'indicizzazione dello human reference per BWA, mentre le rimanenti non influiscano in alcun modo. 
+Considerando le prime, si può notare dalla figura \ref{fig:Tind} come l'unico processo significativo sia l'indicizzazione dello human reference per BWA, mentre le rimanenti non influiscano in alcun modo. 
 In più, la differenza tra le potenze computazionali è netta già da questa figura, dato che tra il nodo migliore e il peggiore vi è uno scarto di più di un'ora.
 \begin{figure}[H]
 \centering
@@ -20,16 +20,16 @@ In più, la differenza tra le potenze computazionali è netta già da questa fig
 \caption{Tempi di esecuzione per le regole indipendenti dal subset.}
 \label{fig:Tind}
 \end{figure}
-Nonostante la durata per l'indicizzazione sia notevole, questa fase è riprodotta una sola volta per tutti i successivi lavori, visto che è riferita solamente al genoma umano di riferimento.
+Nonostante la durata per l'indicizzazione sia notevole, questa fase è riprodotta una sola volta per tutte le successive simulazioni, visto che è riferita solamente al genoma umano di riferimento.
 
 Passando alle regole dipendenti, i grafici riportati nelle figure \ref{subfig:BB}, \ref{subfig:Map}, \ref{subfig:MD}, \ref{subfig:Rlg} e \ref{subfig:SP} mostrano i vari andamenti per la grandezza dei subset.
 
-Per ciascuna figura viene anche riportata una tabella con i dettagli delle rigressioni lineari effetuate per descrivere il tempo di esecuzione in funzione del numero di sequenze lette.
+Per ciascuna figura è anche riportata una tabella con i dettagli delle rigressioni lineari effetuate per descrivere il tempo di esecuzione in funzione del numero di sequenze lette.
 La regressione è stata effettuata con il metodo di Theil-Sen.
-Questo metodo implica una regressione lineare robusta, ovvero che non risente della presenza di outlayer nei dati.
+Questo metodo implica una regressione lineare robusta, ovvero che non risente della presenza di \textit{outlier} nei dati.
 
-Nelle tabelle viene riportato l'intervallo di confidenza della pendenza della retta.
-Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte le regole c'è una dipendenza significativa fra il numero di sequenze ed il tempo impiegato.
+Nelle tabelle è riportato l'intervallo di confidenza della pendenza della retta.
+Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte le regole vi è una dipendenza significativa fra il numero di sequenze ed il tempo impiegato.
 
 \begin{figure}[H]
 \centering
@@ -150,9 +150,9 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
     \label{tab:Sp}
 \end{table}
 
-L'unica regola che mostra una particolarità è la fase di riallineamento(realigner Figura \ref{subfig:Rlg}), in cui il tempo di avvio della regola, rappresentato dall'intercetta, costituisce una parte importante del tempo complessivo di esecuzione della regola stessa. 
+La fase di riallineamento ha un comportamento differente dalle altre(realigner figura \ref{subfig:Rlg}), in quanto il tempo di avvio della regola, rappresentato dall'intercetta, costituisce una parte importante del tempo complessivo di esecuzione della regola stessa. 
 
-Nei grafici sono distinguibili due gruppi di nodi significativamente confrontabili: avoton e n3700, xeond e bio8.
+Nei grafici sono distinguibili due gruppi di nodi significativamente diversi: avoton e n3700 contro xeond e bio8.
 Questa distinzione è confermata dai valori delle pendenze riportate nelle tabelle \ref{tab:Bb}, \ref{tab:Md}, \ref{tab:Mp}, \ref{tab:Rlg} e \ref{tab:Sp}.
 In particolare, il fatto che xeond e bio8 condividano lo stesso genere di architettura(tabella \ref{tab:cluster_generali}) indica come questa caratteristica possa influenzare l'esecuzione.
 
@@ -161,7 +161,7 @@ Riguardo a mark duplicates e sort picard, si nota che queste regole condividono 
 
 
 \subsection{Durata complessiva}
-Un altro aspetto rilevato è stato il tempo complessivo richiesto per svolgere tutti i passaggi che esclusivamente dipendono dal numero di reads nel subset, escludendo tutti i passaggi non dipendenti (come l'indicizzazione del reference umano fatto da BWA).
+Un altro aspetto rilevato è stato il tempo complessivo richiesto per svolgere tutti i passaggi che esclusivamente dipendono dal numero di letture nel subset, escludendo tutti i passaggi non dipendenti (come l'indicizzazione del reference umano fatto da BWA).
 Questi tempi sono rappresentativi del tempo richiesto per la pipeline per ciascun paziente. 
 
 \begin{figure}[H]
@@ -210,17 +210,17 @@ xeond    &  $3.27\pm0.07$ & $30\pm11$ &  $8.1\pm0.6$ &   $610\pm30$ &    $7.2\pm
 \bottomrule
 \end{tabular}
 }
-\caption{Media e deviazione standard, espresse in secondi(s), dei tempi di esecuzione delle regole su diversi subset da centomila reads.}
+\caption{Media e deviazione standard, espresse in secondi(s), dei tempi di esecuzione delle regole su diversi subset da centomila letture.}
 \label{varT}
 \end{table}
 
 I dati associati a ciascuna regola indicano che i nodi tendenzialmente si stabilizzano su valori fissati.
-Infatti, eccetto il mapping che mostra l'andamento meno stabile, i nodi impiegano la stessa quantità di tempo senza dipendere dal contenuto delle reads. 
+Infatti, eccetto il mapping che mostra l'andamento meno stabile, i nodi impiegano la stessa quantità di tempo senza dipendere dal contenuto delle letture. 
 
 
 \section{Memoria utilizzata}
 La memoria occupata dai singoli processi è stata studiata analogamente al tempo trascurando però lo studio di una memoria complessiva per tutti i passaggi. 
-Ciò implica che sono state analizzate in un primo momento le occupazioni della memoria per ognuna delle regole e poi è stato tentato di definire l'andamento per diversi intervalli con stesso numero di letture.
+È analizzato in un primo momento l' occupazione della memoria per ognuna delle regole e si è poi stimata la variabilità di queste misure a partire da diverse posizioni iniziali.
 La memoria intesa in questo capitolo si riferisce alla memoria "Resident Set Size" ricavata dal tool psutil e riportata da Snakemake, come già indicato nel paragrafo \ref{subsec:Mf}. 
 
 \subsection{Consumo di memoria per le regole}
@@ -277,7 +277,7 @@ xeond    &        435 &     5305 &             1004 &       1582 &         1138 
 \end{table}
 
 
-Si può vedere che nelle regole di marcamento dei duplicati(figura \ref{subfig:MD_rss}), di formazione del file BAM(figura \ref{subfig:BB_rss}) e di riordimento per picard(figura \ref{subfig:SP_rss}), la memoria satura superando il milione di reads. 
+Si può vedere che nelle regole di marcamento dei duplicati(figura \ref{subfig:MD_rss}), di formazione del file BAM(figura \ref{subfig:BB_rss}) e di riordimento per picard(figura \ref{subfig:SP_rss}), la memoria satura una volta superato il milione di letture. 
 
 Le altre regole che analizzano specificatamente i dati, la mappatura(figura \ref{subfig:Map_rss}) e il riallineamento(figura \ref{subfig:Rlg_rss}), hanno entrambe un'occupazione fissa della memoria.
 Nel caso del mapping, infatti, tutte le macchine occupano la stessa quantità di memoria, indicando una saturazione generale, mentre nel riallineamento ciascuna cpu utilizza una quantità fissata di memoria che sembra essere una frazione della memoria totale disponibile. 
@@ -294,7 +294,7 @@ Per le regole che non dipendono dal paziente, riportate in figura \ref{fig:RSSin
 \subsection{Variabilità della memoria occupata}
 Lo studio sulla memoria impiegata per intervalli diversi con ugual numero di sequenze è stato compiuto solo sui nodi dei cluster low power. 
 La tabella \ref{varM} riporta la media e la deviazione standard per ciascuna regola, su ogni nodo.
-In particolare il numero di reads considerato è stato di centomila.
+In particolare il numero di letture considerato è stato di centomila.
 
 \begin{table}[H]
 \centering
@@ -310,7 +310,7 @@ xeond    &  $230\pm12$ &  $5280\pm16$ &  $703\pm6$ &  $1430\pm30$ & $576\pm3$ \\
 \bottomrule
 \end{tabular}
 }
-\caption{Media e deviazione standard, espresse in MB, della memoria occupata dalle regole su diversi subset da centomila reads.}
+\caption{Media e deviazione standard, espresse in MB, della memoria occupata dalle regole su diversi subset da centomila letture.}
 \label{varM}
 \end{table}
 
