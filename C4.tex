@@ -1,21 +1,38 @@
 \chapter{Conclusioni}
+Il lavoro effettuato durante lo svolgimento di questa tesi ha lo scopo di esplorare la possibilità di sostituire i nodi di calcolo tradizionalmente usati per calcoli ad alta performance, con server a basso consumo energetico.
+Questo è motivato dalla possibilità di avere a parità di spesa una maggior potenza di calcolo grazie al minor costo per unità dei server low power a fronte di una capacità di calcolo comparabile.
+Per testare questi nodi di calcolo è stata sfruttata una pipeline di calcolo bionformatico, che ha requisiti molto elevati in termini di potenza di calcolo, occupazione di memoria e spazio di archiviazione.
+
+Questa pipeline è stata testata su quattro nodi dai requisiti di potenza progressivamente più elevati, partendo da una macchina a consumi molto ridotti (6W per n3700) fino ad un nodo di calcolo tradizionale (180W per bio8).
+Le analisi delle simulazioni effettuate, riportate nel capitolo \ref{cap:3}, hanno approfondito il tempo di esecuzione e la quantità di memoria occupata.
+Questi due parametri sono fondamentali per la progettazione dei cluster di calcolo in quanto determinano la dimensione minima necessaria dei nodi.
+
+L'analisi dei tempi di esecuzione mostra come vi siano due gruppi di nodi di calcolo distinguibili in base all'architettura del processore.
+I due nodi a potenza più ridotta hanno dei tempi esecuzione generalmente doppi rispetto a quelli a potenza più elevata.
+Il terzo nodo, sempre low power, ha dei tempi di esecuzione confrontabili con il nodo di calcolo tradizionale a fronte di un consumo energetico di circa un terzo e di un costo dieci volte inferiore.
+
+L'analisi della memoria occupata dalle varie regole mostra due diversi comportamenti.
+In un caso, si ha una saturazione a una quantità di memoria occupata fissata che varia poco tra i diversi nodi.
+In un altro caso le regole si adattano dinamicamente alla quantità di memoria libera disponibile.
+In entrambi i casi la memoria occupata dalle singole regole è sempre stata inferiore alla memoria disponibile a tutti i nodi al massimo occupandone 5 GB a fronte di una memoria complessiva di 8 GB.
+
+In luce di questi risultati questa pipeline di calcolo bioinformatico sembra essere realisticamente eseguibile anche su nodi a bassa potenza.
+Questo combinato con la possibilità di suddividere il calcolo in maniera \textit{embarassingly parallel} rende i nodi di calcolo low power un'alternativa possibile a quelli tradizionali. 
+
+
 I risultati esposti nel capitolo \ref{cap:3} sono le informazioni basilari per lo sviluppo futuro di una tecnica adeguata per la parallelizzazione dei processi.
 Ciascuna caratteristica studiata mostra le potenzialità di un singolo nodo di un cluster definendone il singolo andamento e confrontandolo con gli altri presenti.
 
 Tutte le analisi svolte sono state conseguite selezionando solamente una piccola frazione delle letture in possesso, spingendosi al massimo intorno al $6.7\%$. 
 Infatti il numero di letture complessivo era ben oltre i 45 milioni e la massima grandezza di un subset condivisa tra tutti i dispositivi è stata di 3 milioni.
 
-Solamente per il nodo più performante, con cpu Xeon, è stato deciso di spingersi oltre arrivando ai 9 milioni di letture contenute in un subset, che equivale a circa il $20\%$. 
-
-Le conclusioni..
-
-Questa tesi ha avuto lo scopo di riunire tutti gli elementi che hanno partecipato allo studio dell'analisi computazionale biofisica su nodi di macchine a basso consumo energetico, per preparare le basi ad un importante sviluppo futuro.  
+Questa tesi ha avuto lo scopo di riunire tutti gli elementi che hanno partecipato allo studio dell'analisi computazionale biofisica su nodi di macchine a basso consumo energetico.  
 Le prossime fasi che saranno coinvolte nella ricerca infatti, necessitano di un'iniziale analisi sui componenti computazionali più fondamentali perchè vengano fornite le informazioni per programmare una tecnologia efficace, fruibile ed economica.
-
+completamente pipeline
 Il percorso di studio futuro avrà come primo step il confronto dei dati con un modello di macchina tradizionale, non low power, tra quelle utilizzate quotidianamente.
 In seguito saranno adattate le simulazioni all'utilizzo contemporaneo di tutti i core previsti dalle macchine, visto che solo uno step del procedimento è stato trattato con un core aggiuntivo(il mapping).
 Infine le analisi verranno svolte, dopo un'opportuna progettazione, su un gruppo di cluster low power per verificare concretamente che l'utilizzo di un insieme cooperante di apparecchi a basso consumo energetico è effettivamente performante almeno quanto una macchina tradizionale.
 
-L'esito positivo della ricerca consentirebbe agli enti accademici e ospedialieri di adottare una tecnologia più accessibile, meno costosa e soprattutto più veloce, che sostenga la ricerca in medicina e in biologia, oltre che il generale progresso scientifico.
+L'esito positivo della ricerca consentirebbe agli enti accademici e ospedialieri di adottare una tecnologia più accessibile, meno costosa e soprattutto più veloce, che sostenga la ricerca in medicina e in biologia.
 
 
