@@ -33,41 +33,44 @@
 \includeonly{C1,C2,C3,C4}
 \begin{document}
 \includepdf[pages={1}]{frontespizio.pdf}
-
+\pagenumbering{roman}
 \section*{Prefazione}
-Questa tesi presenta l'inizio di un progetto dedito allo studio dell'efficienza computazionale di cluster a basso consumo energetico per l'analisi biofisica.
-In particolare, la ricerca esamina come l'utilizzo di macchine a minor dispendio energetico possano essere più convenienti e potenzialemente più potenti rispetto alle macchine tradizionali sfruttate nel ramo della ricerca biomedica e sanitaria.
+Questa tesi è l'inizio di un progetto dedito allo studio dell'efficienza computazionale di cluster a basso consumo energetico per l'analisi biofisica.
+Lo scopo della ricerca è provare che l'utilizzo di un insieme di macchine(cluster) a minor dispendio energetico(low power) possano presentare potenze di calcolo confrontabili con le macchine tradizionali, consumando una minor quantità di energia e contenendo la spesa economica.  
 
-
-Il sistema su cui sono stati concentrati gli sforzi è uno tra i più recenti sviluppati nella ricerca sulle mutazioni genetiche che causano vari tipi di tumori: il sistema GATK-LOD\ped{n}.
-L'implementazione di una componente di questo metodo nel programma Snakemake, e quindi la creazione di un nuovo eseguibile, ha permesso una gestione più specifica dei singoli step nel tentativo di ottimizzare l'esecuzione complessiva. 
+Il sistema su cui sono stati concentrati gli sforzi è uno tra i più recenti sviluppati nella ricerca sulle mutazioni genetiche che nutrono vari tipi di tumori: il sistema GATK-LOD\ped{n}.
+L'implementazione di una componente di questo metodo in un pipeline nel programma Snakemake ha permesso una gestione più specifica delle operazioni previste, dette regole, nel tentativo di ottimizzare l'esecuzione complessiva. 
 
 Questo programma inoltre fornisce gli strumenti per parallelizzare i diversi compiti del metodo, conservandone l'esatta sequenzialità.
-Una maggior padronanza di questa caratteristica consente di verificare la fruibilità di insiemi di computer che collaborino come un solo apparato: i cluster.
+Una maggior padronanza di questa caratteristica consente di verificare la fruibilità di insiemi di computer che collaborano come un solo apparato, ovvero i cluster.
 
-La formazione di gruppi di computer nasce dalla necessità dei moderni organi di ricerca di potenziare le capacità computazionali, a cui deve essere anche alternato un contenimento dei costi economici ed energetici.
-In questi tempi difatti, gli studi nel campo biomedico prevedono la collaborazione di professionisti in statistica dotati di computer ad alta potenza che hanno il compito di fornire risultati proficuamente ed in tempi sufficientemente ristretti.
-Lo sviluppo e il progresso in questi vari settori ha dipeso, e dipende tuttora, da un incremento della potenza di computazione che ha alcuni risvolti problematici.
-La crescita delle prestazioni dei computer ha come conseguenza di base un'inevitabile innalzamento dei costi che implica una minor accessibilità alla maggioranza dei gruppi di ricerca.
+La scelta di adoperare i cluster low power nasce dalla necessità dei moderni organi di ricerca di potenziare le capacità computazionali, ottimizzando l'investimento sulle macchine server.
+In questi tempi difatti, gli studi nel campo biomedico prevedono la collaborazione di professionisti in statistica che utilizzano server ad alta potenza e ad alto consumo, con il compito di fornire risultati proficuamente ed in tempi sufficientemente ristretti.
+Lo sviluppo e il progresso in questi vari settori ha dipeso, e dipende tuttora, da un incremento delle potenze di calcolo di queste macchine tradizionali che ha alcuni risvolti problematici.
+Il miglioramento delle prestazioni degli strumenti comporta un'inevitabile innalzamento dei costi, che induce ad una minor accessibilità alla maggioranza dei gruppi di ricerca.
 
-Questo però non è l'unico effetto negativo, visto che all'aumento della potenza equivale un aumento del consumo energico che occupa una percentuale rilevante delle spese complessive.
+Questo però non è l'unico effetto negativo.
+Infatti, all'aumento delle capacità di calcolo equivale un aumento del consumo energico per la gestione delle macchine, che occupa una percentuale rilevante nelle spese complessive.
 
-Negli ultimi anni, tali ragioni hanno portato alcuni studiosi ad interessarsi a metodi alternativi per la computazione e in questa tesi è introdotto il tema riguardante le simulazioni su nodi di cluster a basso consumo energetico.
-L'idea di fondo è poter garantire ai ricercatori un risultato in qualità di tempi almeno pari a quello ottenuto con la strumentazione tradizionale, consumando meno energia e investendo meno fondi.
+Nell'ultimo decennio, tali ragioni hanno portato quindi ad interessarsi a metodi alternativi per la computazione e in questa tesi è introdotto il tema riguardante l'utilizzo di nodi su cluster a basso consumo energetico.
+L'idea di fondo è poter garantire ai ricercatori, a parità di investimento, un risultato in qualità di tempi e di consumo di memoria almeno comparabile a quello ottenuto con la strumentazione tradizionale.
+
+Questa tesi prende in esame un algoritmo di bioinformatica che richiede alte prestazioni computazionali (GATK-LOD\ped{n}) per valutare se è realmente possibile confrontare le capacità dei nodi low power con quelle usate quotidianamente.  
 
 Nel primo capitolo saranno introdotti e approfonditi gli elementi cardine del progetto, a partire dall'esposizione del metodo GATK-LOD\ped{n} sia nel funzionamento che nei risultati.
 Successivamente sarà evidenziata la componente del metodo che è stata implementata nell'ambiente di sviluppo del tool Snakemake e, quindi, saranno approfondite le capacità di questo strumento.
 Infine, sarà specificato il significato di low power e saranno mostrati i nodi delle macchine server adoperati nelle analisi.
 
-Nel secondo capitolo sarà spiegato dettagliatamente il funzionamento del programma, con alcuni approfondimenti sui parametri utilizzati, e verranno evidenziati i passaggi per un corretto uso del metodo dall'installazione ai dati ottenuti.
-In più, sarà specificato quale tipo di analisi è stata svolta su tali valori a disposizione.
+Nel secondo capitolo sarà spiegato dettagliatamente il funzionamento del programma, con alcuni approfondimenti sui parametri utilizzati, e verranno evidenziati i passaggi per un corretto uso del metodo, dall'installazione ai dati ottenuti.
+In più, saranno mostrate le fasi che hanno partecipato allo studio statistico indicando infine la tipologia di simulazioni completate.
 
 Nel terzo capitolo verrano illustrati i risultati finali più rilevanti con l'aggiunta di tabelle e grafici utili ad impreziosire le analisi e ad accompagnare l'esposizione.
 
-Per terminare saranno delineate le conclusioni, le considerazioni finali e gli sviluppi futuri del progetto, in base agli esiti più interessanti delle indagini completate.
+Per terminare saranno delineate le conclusioni, le considerazioni finali e gli sviluppi futuri del progetto, in base agli esiti più interessanti.
 
 \tableofcontents
 
+\pagenumbering{arabic}
 \include{C1}
 \include{C2}
 \include{C3}
