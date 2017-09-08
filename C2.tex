@@ -8,7 +8,7 @@ A seguire, saranno specificate quali computazioni sono state svolte, spiegando i
 
 
 
-\section{Il corpo delle analisi}
+\section{Struttura delle simulazioni}
 Il procedimento seguito dal sistema è suddivisibile in tre fasi: installazione, esecuzione e configurazione.
 
 
@@ -50,8 +50,8 @@ Conclusi gli interventi preparatori, può essere avviata l'esecuzione del proced
 \subsection{Esecuzione}
 La fase esecutiva comprende una serie di processi che si possono raggruppare in tre macro sezioni ben definite.
 La prima di esse descrive il processo di estrazione dei sottogruppi, o subset, di sequenze di DNA che si sceglie analizzare.
-La seconda contiene il fulcro del procedimento, quindi illustra il tipo di operazioni svolte dal metodo per lo studio del genoma e dichiara quali sono i prodotti attesi.
-La terza racchiude un'operazione di riordinamento e di semplificazione di tali ultimi prodotti per agevolare le successive analisi statistiche.
+La seconda presenta la pipeline per l'analisi del genoma e dichiara quali sono i prodotti attesi.
+La terza racchiude un'operazione di riordinamento e di semplificazione di tali ultimi prodotti per agevolare le successive indagini statistiche.
 
 
 
@@ -79,7 +79,7 @@ La creazione di un unico programma anche per l'estrazione dei subsets conferma l
 
 
 \subsubsection{Algoritmo di ricostruzione genetica}
-Una volta creati i subsets, può avere inizio l'applicazione dell'algoritmo di ricostruzione genetica, il quale è interamento contenuto nell'apposito Snakefile.
+Una volta creati i subsets, può essere applicata la pipeline di ricostruzione genetica, che è interamente contenuta nell'apposito Snakefile.
 \'E importante notare che la procedura seguita è ripresa dal metodo GATK-LOD\ped{n} solamente in alcuni passaggi.
 Tali passaggi, in particolare, sono concretizzati nello Snakefile da regole che si susseguono l'un l'altra in base alle dipendenze di ciascuna(sezione \ref{sec:SM}).
 
@@ -118,8 +118,8 @@ Ciò significa che al termine dell'algoritmo sono prodotti tanti singoli file di
 Per controllare la quantità di file e agevolare il futuro studio statistico, è stato scritto uno script in Python, denominato \verb!script_benchmark!.
 
 
-Ogni file benchmark è dotato di un nome avente funzione di etichetta; in particolare, la forma è la seguente.
-\begin{lstlisting}[basicstyle=\tiny]
+Ogni file benchmark è dotato di un nome con funzione di etichetta; in particolare, la forma è la seguente.
+\begin{lstlisting}[basicstyle=\fontsize{9}{6}\selectfont,breaklines=true]
 benchmark_{name}_subset_{sample}_n_sim_{n_sim}_cputype_{cpu_type}_thrs_{thrs}_ncpu{n_cpu}.txt
 \end{lstlisting}
 Gli attributi contenuti nel nome indicano ordinatamente: il nome della regola completata, il tipo di campione analizzato, il numero della simulazione, il tipo di cpu utilizzata e il numero di threads e di cpu adoperati.
@@ -236,17 +236,23 @@ Successivamente è stata eseguita la stessa operazione per le regole indipendent
 \label{subsec:simc}
 Le simulazioni che sono state eseguite ai fini di questa tesi sono state scelte per valutare le performance sui nodi dei cluster a disposizione, in modo da evidenziarne la potenziale scalabilità.
 
-I nodi low power adoperati, che sono stati illustrati nel paragrafo \ref{sec:LP}, sono stati impiegati in base alle loro diverse potenze computazionali e sono stati confrontati con un nodo del cluster bio8, utilizzato come riferimento per le macchine tradizionali.  
+I nodi low power adoperati, che sono stati illustrati nel paragrafo \ref{sec:LP}, sono stati impiegati in base alle loro diverse potenze computazionali e sono stati confrontati con un nodo del cluster bio8, utilizzato come riferimento per le macchine tradizionali.
+È stato utilizzato un solo core per ognuno dei nodi in tutto l'arco del procedimento, rimandando ad un futuro sviluppo l'utilizzo del multicore.  
+
 
 Tutti i nodi hanno processato gli stessi subset di dati con un numero di letture iniziale pari a 5000 fino a 3 milioni, passando per i multipli di diecimila, di centomila e di un milione.
-In questo modo è stato possibile studiare l'attitudine delle macchine a processare dati identici con larghezza crescente e come questo incremento condiziona l'uso della cpu. 
+In questo modo è stato possibile studiare le potenzialità delle macchine a processare dati identici con larghezza crescente e come questo incremento condiziona l'uso della cpu. 
 
 Solamente sui nodi xeond e bio8 sono state portate avanti le simulazioni fino a subset con un numero di letture pari a 9 milioni, continuando da 3 milioni a scalare progressivamente di 1 milione.
 
 Non sono stati fatti proseguire anche gli altri nodi perchè lo scopo della tesi è valutare il comportamento dei nodi su piccoli subset di dati e quali indicazioni questo possa dare per sviluppare un'esecuzione parallelizzata efficace.
 Visto che per tale valutazione sono stati sufficienti i dati citati, solo le due macchine più performanti sono andati oltre per confermare le stime ottenute.
 
-In dettaglio, queste simulazioni sono state ripetute dieci volte per i nodi xeond e bio8 mentre sono bastate cinque volte per gli altri nodi, dato che i tempi di esaurimento del processo arrivavano già a coprire un arco di tempo considerevole.
+Ciò significa che tutte le simulazioni sono state svolte solamente su una piccola frazione delle letture in possesso. 
+Infatti il numero di letture complessivo del paziente era ben oltre i 45 milioni e la massima grandezza di un subset condivisa tra tutti i dispositivi è stata di 3 milioni, che equivale circa al $6.7\%$.
+Per xeond e bio8 invece, i subset sono stati allargati in prossimità del $20\%$.
+
+In dettaglio, queste simulazioni sono state ripetute dieci volte per i nodi xeond e bio8 mentre sono bastate cinque volte per gli altri nodi, dato che i tempi di completamento del processo arrivavano già a coprire un arco di tempo considerevole.
 
 Infine utilizzando lo script \verb!split.py! descritto nella sezione \ref{subsubsec: ext}, sono stati estratti subsets contenenti letture diverse, ma dello stesso numero, che sono stati studiati in una fasie delle analisi.
 L'unico numero di letture considerato è stato centomila e ciò è stato eseguito solo per i nodi dei cluster low power, e quindi non da bio8.
