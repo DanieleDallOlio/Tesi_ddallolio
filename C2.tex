@@ -1,5 +1,5 @@
 \chapter{Procedimento}
-Questo capitolo ha lo scopo di presentare il procedimento seguito per valutare l'ottimizzazione di una pipeline per l'analisi computazionale biofisica su apparecchi a basso consumo energetico.
+Questo capitolo ha lo scopo di presentare il procedimento seguito per valutare l'ottimizzazione di una pipeline per l'analisi computazionale biofisica su nodi di cluster a basso consumo energetico.
 
 
 In primo luogo sarà spiegato la componente principale creata per l'elaborazione, che implementa una parte del metodo GATK-LOD\ped{n}, e ne saranno approfonditi i singoli passaggi.
@@ -25,7 +25,7 @@ Infine, sono esposte, nella fase di configurazione, le modalità di impostazione
 Il passaggio iniziale consiste nel predisporre l'ambiente di lavoro soddisfacendo i requisiti indispensabili per una valida esecuzione.
 
 Nella preparazione di questa tesi, è stato scritto uno script apposito per questa fase preliminare, denominato \textit{installer.sh}, in modo da rendere questo procedimento compatto e più rapido.
-Infatti, aver a disposizione un unico file da eseguire consente di automatizzare l'installazione e di garantire una gestione semplificato nel caso si parallelizzasse l'esecuzione su diversi dispositivi.
+Infatti, aver a disposizione un unico file da eseguire consente di automatizzare l'installazione e di garantire una gestione semplificato nel caso si parallelizzasse l'esecuzione su diversi nodi.
 
 Questo eseguibile, in più, può risultare utile per coloro che sono già in possesso dei requisiti ma che preferiscono evitare di mischiare diversi ambienti di lavoro.
 Ciò perchè l'installer aggiunge al bash script \textit{.bashrc} il percorso della directory Miniconda prodotta nell'installazione, così da indurre l'utilizzo di quei tool, tra cui \textit{Conda} e \textit{Snakemake}, inclusi nella medesima cartella.
@@ -41,7 +41,7 @@ In più, pur non avendo uno spessore di primo piano, sono essenziali i tool PyYA
 Dopo aver superato tali punti, è fondamentale equipaggiarsi del genoma umano di riferimento e dei dati genetici che si desiderano sequenziare.
 
 
-In relazione al progetto ivi presentato, il genoma umano di riferimento è stato ottenuto via web dal sito ufficiale del IGSR(International Genome Sample Resource); mentre il campione di DNA esaminato è stato condiviso dall'Azienda Ospedaliero-Universitaria Sant'Orsola-Malpighi(Bologna, Italia), in accordo con i canoni dettati dalla dichiarazione di Helsinki.
+In relazione al progetto ivi presentato, il genoma umano di riferimento è stato ottenuto via web dal sito ufficiale del IGSR(International Genome Sample Resource); mentre il campione di DNA esaminato è stato scaricato dal database pubblico DDBJ(DNA Data Bank of Japan).
 
 
 Conclusi gli interventi preparatori, può essere avviata l'esecuzione del procedimento senza dover curare altri aspetti.
@@ -71,7 +71,7 @@ $ python split.py {inizio} {fine}
 \end{lstlisting}
 Grazie all'inserimento degli estremi, il programma calcola il numero di reads desiderate, seleziona le linee corrispondenti(il quadruplo del numero di letture) e le trascrive in un nuovo file fastq.
 
-Ai fini dello studio finale, la disposizione di sottogruppi sia con diversi range che in diverse regioni consente di analizzare nei particolari le proprietà di scalabilità delle computazioni.
+Ai fini dello studio finale, la disposizione di sottogruppi sia con diversi numero di sequenze che in diverse regioni consente di analizzare nei particolari le proprietà di scalabilità delle computazioni.
 
 Siccome il numero di letture contenute è enorme, ed essendo che ad ognuna corrispondono quattro linee, la dimensione del file fastq è di conseguenza molto grande; per questo risulta funzionale dotarsi di un meccanismo per l'estrazione di sottogruppi.
 
@@ -87,7 +87,7 @@ L'algoritmo GATK-LOD\ped{n} è stato integrato solo fino al riallineamento di GA
 Allo stesso tempo non sono state considerate le fasi fondamentali di chiamata alle varianti e l'implementazione del classificatore LOD\ped{n} di MuTect, vera novità del metodo GATK-LOD\ped{n}.
 
 Questa forte selezione degli step è stata voluta appositamente per non appesantire lo studio sull'ottimizzazione computazionale e, quindi, è stato scelto di concentrare le analisi solo su quelle operazioni che formano le basi dell'algoritmo per l'indagine del DNA.
-In tale maniera, è facilitato sia l'indagine sulla scalabilità che il confronto tra i diversi apparecchi adoperati, così da poter trarre rapidamente le prime conclusioni.
+In tale maniera, è facilitato sia l'indagine sulla scalabilità che il confronto tra i diversi nodi adoperati, così da poter trarre rapidamente le prime conclusioni.
 
 I primi step consistono nell'indicizzazione del genoma umano di riferimento per i software che partecipano al sequenziamento.
 Questi coinvolgono il software di allineamento BWA, il tool di manipolazione Picard, il gestore di strumenti Samtools e i programmi affini a GATK.
@@ -148,7 +148,7 @@ Le informazioni necessarie allo Snakefile sono procurate dal file \textit{config
 Gli attributi della simulazione completano semplicemente l'etichettatura dei file di benchmarking e, pur rivestendo uno ruolo marginale, tali etichette permettono allo script di organizzazione dei dati una lettura rapida e quindi un'istanza immediata della tabella.
 Come già citato precedentemente, i dettagli trascritti nel file di configurazione sono il tipo di cpu sfruttata, il numero della simulazione, il numero di threads adoperati e il numero di cpu coinvolte.
 
-\'E stato scelto di gestire queste informazioni come parametri per non irrigidire il programma, visto che gli apparecchi e i meccanismi usati possono essere innumerevoli.
+\'E stato scelto di gestire queste informazioni come parametri per non irrigidire il programma, visto che le macchine e i meccanismi usati possono essere innumerevoli.
 Nello specifico, per modificare questi dettagli nelle etichette è sufficiente agire da linea di comando, come indicato nel paragrafo 1.2.1.
 
 Sempre nello stesso file di configurazione sono presenti alcune chiavi che rappresentato le dipendenze non implementabili automaticamente negli ambienti di \textit{Conda} per \textit{Snakemake}.
@@ -172,7 +172,7 @@ L'analisi dei dati è stata condotta utilizzando il linguaggio di Python \cite{P
 
 Il trattamento dei dati ha coinvolto inizialmente le funzioni sui dataframe di pandas per l'estrazione e la modifica delle tabelle finali ricavate al termine del procedimento.
 Tali tabelle sono state ridotte ad un unico dataframe a cui sono state aggiunte quattro colonne per facilitare l'analisi. 
-Le prime due contengono gli estremi del subset, ovvero la posizione della lettura iniziale e la posizione di quella finale, la terza contiene il range di ogni subset e la quarta il logaritmo del tempo di esecuzione.
+Le prime due contengono gli estremi del subset, ovvero la posizione della lettura iniziale e la posizione di quella finale, la terza contiene il numero di letture di ogni subset e la quarta il logaritmo del tempo di esecuzione.
 Da questo unico contenitore sono state estratte progressivamente le tabelle utili alle varie analisi.
 
 Il capitolo è suddiviso in tre sezioni, dove le prime due corrispondono alle caratteristiche principali su cui è stata condotta l'indagine statistica: il tempo di esecuzione e la memoria impiegata. 
@@ -188,12 +188,12 @@ I lavori che dipendono dai dati sono, in ordine di esecuzione: la mappatura(mapp
 Al contrario, i processi indipendenti sono le indicizzazioni dello human reference per bwa, per picard e per samtools(index bwa, index picard e index samtools). 
 
 In seguito è stata rappresentata su di un grafico la dipendenza del tempo di esecuzione di ogni regola rispetto alla grandezza del subset, identificando sullo questo stesso grafico un andamento per ogni nodo. 
-In questa maniera è stato possibile verificare le differenze di prestazione tra le macchine server, adattando a ciascuna di esse la relazione matematica più idonea tra il tempo e il range del subset.
+In questa maniera è stato possibile verificare le differenze di prestazione tra le macchine server, adattando a ciascuna di esse la relazione matematica più idonea tra il tempo e il numero di sequenze del subset.
 
 Una volta osservato l'andamento del tempo per ogni singola regola, l'attenzione è stata rivolta al tempo totale impiegato dalle regole dipendenti dal subset.
 Per calcolare il tempo totale è stata creata una nuova tabella che contenesse tali regole, il tipo di cpu, il numero della simulazione e il tempo totale di esecuzione.
 
-Un tale grafico consente di osservare come cresce il tempo di esecuzione complessivo all'aumentare del range e come ciò è influenzato dal tipo di macchina adoperata.
+Un tale grafico consente di osservare come cresce il tempo di esecuzione complessivo all'aumentare del numero di letture e come ciò è influenzato dal tipo di macchina adoperata.
 
 Terminato lo studio sui lavori dipendenti dalla grandezza dei subset, sono state brevemente considerate anche le regole indipendenti.
 Anche in questo caso è stata tracciata su un grafico la dipendenza del tempo di esecuzione rispetto ad ogni regola, distinguendo il comportamento tra i differenti nodi.  
@@ -215,7 +215,7 @@ Questi comportamenti indicano fino a che punto è possibile ottimizzare l'utiliz
 Distinguere quali sono i processi che necessitano maggiormente di memoria e quelli che ne utilizzano una scarsa percentuale, permette di conoscere quali sono i nodi per le varie regole che ottimizzano l'esecuzione.
 
 Lo studio statistico condotto è stato interessato, come per le tempistiche, ad osservare il comportamento della memoria in base alle regole, ai subsets e ai diversi nodi.
-Perciò, è stata inizialmente posta in relazione la memoria occupata da ogni regola con il range del subset, distinguendo le macchine.
+Perciò, è stata inizialmente posta in relazione la memoria occupata da ogni regola con il numero di sequenze del subset, distinguendo le macchine.
 Successivamente è stata eseguita la stessa operazione per le regole indipendenti dai dati ed infine, è stato studiato il comportamento della memoria lasciando invariato il numero di letture ma considerandone diverse.
 È stato trascurata, invece, la somma delle memoria in ogni passaggio perchè non sono ritenute informazioni da cui trarre beneficio. 
     
@@ -225,11 +225,11 @@ Successivamente è stata eseguita la stessa operazione per le regole indipendent
 %In particolare, questi sono rispettivamente nominati \verb!io_in! e \verb!io_out! e, come per la memoria rss, sono convertiti in megabytes da Snakemake. 
 %
 %Queste due proprietà garantiscono una conoscenza più approfondita di come la cpu partecipa alla computazione, evidenziando con quale intensità, espressa in MB, essa è coinvolta nelle distinte operazioni.
-%Così come l'analisi di rss, la statistica sulle fasi di input ed output delinea gli effetti che i lavori causano sull'apparecchio.
+%Così come l'analisi di rss, la statistica sulle fasi di input ed output delinea gli effetti che i lavori causano sul nodo.
 %Da queste informazioni si può trarre una valutazione su quanto al massimo è possibile servirsi della cpu e fino a che punto l'utilizzo di essa è efficace.
 %
 %Le analisi realizzate sono state le stesse che per la memoria rss e quindi sono stati studiati gli andamenti dell'input e dell'output per le regole dipendenti dai subset e pure quelle indipendenti.
-%Ugualmente ai casi precedenti sono state valutate anche le dipendenze per il tipo di cpu e sono stati confrontati intervalli diversi aventi identico range.
+%Ugualmente ai casi precedenti sono state valutate anche le dipendenze per il tipo di cpu e sono stati confrontati intervalli diversi aventi identico numero di letture.
 %Non è stato presa in esame il valore complessivo per l'input e output nell'intero arco dell'esecuzione perchè da tale dato totale non è possibile ricavare alcuna informazione proficua.
  
 \subsection{Le simulazioni completate} 
@@ -238,7 +238,7 @@ Le simulazioni che sono state eseguite ai fini di questa tesi sono state scelte 
 
 I nodi low power adoperati, che sono stati illustrati nel paragrafo \ref{sec:LP}, sono stati impiegati in base alle loro diverse potenze computazionali e sono stati confrontati con un nodo del cluster bio8, utilizzato come riferimento per le macchine tradizionali.  
 
-Tutti i nodi hanno processato gli stessi subset di dati con un range di iniziale pari a 5000 fino a 3 milioni, passando per i multipli di diecimila, di centomila e di un milione.
+Tutti i nodi hanno processato gli stessi subset di dati con un numero di letture iniziale pari a 5000 fino a 3 milioni, passando per i multipli di diecimila, di centomila e di un milione.
 In questo modo è stato possibile studiare l'attitudine delle macchine a processare dati identici con larghezza crescente e come questo incremento condiziona l'uso della cpu. 
 
 Solamente sui nodi xeond e bio8 sono state portate avanti le simulazioni fino a subset con un numero di letture pari a 9 milioni, continuando da 3 milioni a scalare progressivamente di 1 milione.
@@ -248,8 +248,8 @@ Visto che per tale valutazione sono stati sufficienti i dati citati, solo le due
 
 In dettaglio, queste simulazioni sono state ripetute dieci volte per i nodi xeond e bio8 mentre sono bastate cinque volte per gli altri nodi, dato che i tempi di esaurimento del processo arrivavano già a coprire un arco di tempo considerevole.
 
-Infine utilizzando lo script \verb!split.py! descritto nella sezione \ref{subsubsec: ext}, sono stati estratti subsets contenenti letture diverse, ma dello stesso numero, che sono stati studiati in una fase delle analisi presentata precedentemente.
-I due range di lettura considerati sono stati diecimila e centomila, che sono stati ricavati solo per i nodi dei cluster low power e non da bio8.
+Infine utilizzando lo script \verb!split.py! descritto nella sezione \ref{subsubsec: ext}, sono stati estratti subsets contenenti letture diverse, ma dello stesso numero, che sono stati studiati in una fasie delle analisi.
+L'unico numero di letture considerato è stato centomila e ciò è stato eseguito solo per i nodi dei cluster low power, e quindi non da bio8.
 
 Nel capitolo seguente saranno esposti gli esiti più rilevanti, selezionati dai prodotti finali dell'analisi statistica effettuata sui dati delle simulazioni.  
 
