@@ -35,36 +35,37 @@
 \includepdf[pages={1}]{frontespizio.pdf}
 \pagenumbering{roman}
 \section*{Prefazione}
-In questa tesi si è studiata l'efficienza computazione di nodi di calcolo a basso consumo energetico per l'analisi biofisica, confrontati con nodi tradizionali.
+In questa tesi si è studiata l'efficienza computazionale di nodi di calcolo a basso consumo energetico per l'analisi biofisica, confrontati con nodi tradizionali.
 Questo lavoro è parte di un progetto per valutare la fattibilità dell'utilizzo di macchine a basso consumo energetico per calcolo ad alta performance.
-Lo scopo della ricerca è provare che l'utilizzo di un insieme di macchine(cluster) a minor dispendio energetico(low power) possano presentare potenze di calcolo confrontabili con le macchine tradizionali, consumando una minor quantità di energia e contenendo la spesa economica.  
+Lo scopo della ricerca è provare che l'utilizzo di un insieme di macchine(cluster) a minor dispendio energetico(low power) possano fornire una potenza di calcolo confrontabile con quella delle macchine tradizionali, consumando una minor quantità di energia e contenendo la spesa economica.  
 
-Il sistema su cui si è concentrato il lavoro di tesi è una parte di uno dei più recenti metodi sviluppati nella ricerca sulle mutazioni genetiche che nutrono vari tipi di tumori: il sistema GATK-LOD\ped{n}.
-Nel corso della tesi è stata reimplementata una componente di questo metodo in una pipeline nel programma Snakemake che ha permesso una gestione più specifica delle operazioni previste nel tentativo di ottimizzare l'esecuzione complessiva. 
-Questa tesi prende in esame questo algoritmo di bioinformatica(GATK-LOD\ped{n}) per valutare se è realmente possibile confrontare le capacità dei nodi low power con quelle usate quotidianamente, in quanto questo richiede alte prestazioni computazionali, di memoria e capacità di storage.
+Il sistema su cui si è concentrato il lavoro di tesi è uno dei metodi più recenti nella ricerca sulle mutazioni genetiche che sono cause di vari tipi di tumori: il sistema GATK-LOD\ped{n}.
+Nel corso della tesi è stata reimplementata una componente di questo metodo in una pipeline nel programma Snakemake, che ha permesso una gestione più accurata delle operazioni previste per ottimizzare l'esecuzione complessiva. 
+Questa tesi prende in esame questo algoritmo di bioinformatica(GATK-LOD\ped{n}) per valutare se è realmente possibile confrontare le capacità dei nodi low power con quelli tradizionali, in quanto questo richiede alte prestazioni computazionali, di memoria e capacità di storage.
 
 %Questo programma inoltre fornisce gli strumenti per parallelizzare i diversi compiti del metodo, conservandone l'esatta sequenzialità.
 %Una maggior padronanza di questa caratteristica consente di verificare la fruibilità di insiemi di computer che collaborano come un solo apparato, ovvero i cluster.
 
 La scelta di adoperare i cluster low power nasce dalla necessità dei moderni organi di ricerca di potenziare le capacità computazionali, ottimizzando l'investimento sulle macchine server.
-In questi tempi difatti, gli studi nel campo biomedico prevedono la collaborazione di professionisti in statistica che utilizzano server ad alta potenza e ad alto consumo, con il compito di fornire risultati proficuamente ed in tempi sufficientemente ristretti.
-Lo sviluppo e il progresso in questi vari settori ha necessitato, e necessita tuttora, di un costante incremento delle potenze di calcolo di queste macchine tradizionali.
-Il miglioramento delle prestazioni degli strumenti comporta un'inevitabile innalzamento dei costi, che induce ad una minor accessibilità alla maggioranza dei gruppi di ricerca.
-Il grande investimento necessario per l'acquisto di una singola macchina limita inoltre la frequenza con cui si possono acquistare macchine nuove, rendendo quindi impossibile sfruttare i più moderni avanzamenti della tecnologia in quanto si è spesso costretti a lavorare con macchine di generazioni precedenti.
+Gli studi nel campo biomedico prevedono infatti la collaborazione di professionisti in analisi dati che utilizzano server ad alta potenza e ad alto consumo, con il compito di fornire analisi su grandi mole di dati ed in tempi ristretti.
+
+Lo sviluppo e il progresso in questi vari settori necessita di un costante incremento della potenza di calcolo delle macchine impiegate.
+Questo comporta un inevitabile innalzamento dei costi, che induce ad una minor accessibilità alla maggioranza dei gruppi di ricerca.
+Il grande investimento necessario per l'acquisto di una singola macchina limita inoltre la frequenza con cui si possono acquistare nuove macchine, rendendo quindi difficile sfruttare gli avanzamenti della tecnologia in quanto si è spesso costretti a lavorare con macchine di generazioni precedenti.
 
 L'aumento delle capacità di calcolo comporta inoltre un aumento del consumo energico per la gestione delle macchine, che occupa una percentuale rilevante nelle spese complessive.
 
-Nell'ultimo decennio, tali ragioni hanno portato quindi ad interessarsi a metodi alternativi per la computazione e in questa tesi è introdotto il tema riguardante l'utilizzo di nodi su cluster a basso consumo energetico.
-L'idea di fondo è poter garantire ai ricercatori, a parità di investimento, un risultato in qualità di tempi e di consumo di memoria almeno comparabile a quello ottenuto con la strumentazione tradizionale.
+Nell'ultimo decennio, tali ragioni hanno portato quindi ad interessarsi a metodi alternativi per la computazione, come l'utilizzo di nodi su cluster a basso consumo energetico, argomento di questa tesi.
+L'idea di fondo è permettere ai ricercatori, a parità di investimento, di ottenere risultati comparabili a quelli ottenuti con i nodi tradizionali.
 
 Nel primo capitolo saranno introdotti e approfonditi gli elementi cardine del progetto. Sarà esposto il metodo GATK-LOD\ped{n} sia nel funzionamento che nei risultati. 
-Successivamente sarà descritta la componente del metodo che è stata reimplementata tramite il tool Snakemake e saranno approfondite le capacità di questo strumento.
-Infine, sarà spiegato il significato di "nodo low power" e saranno descritte le caratterstiche dei nodi adoperati nelle analisi.
+Successivamente sarà descritta la componente del metodo che è stata reimplementata tramite Snakemake e saranno approfondite le capacità di questo strumento.
+Infine, sarà spiegato il significato di "nodo low power" e saranno descritte le caratteristiche dei nodi adoperati nelle analisi.
 
-Nel secondo capitolo sarà spiegato dettagliatamente il funzionamento del programma, con alcuni approfondimenti sui parametri utilizzati, e verranno evidenziati i passaggi per un corretto uso del metodo, dall'installazione ai dati ottenuti.
-In più, saranno descritte le fasi dello studio statistico e spiegata la tipologia di simulazioni effettuate.
+Nel secondo capitolo sarà spiegato dettagliatamente il funzionamento del programma, approfondendo i parametri utilizzati, e verranno evidenziati i passaggi necessari per un corretto uso del metodo, dall'installazione alla produzione dei dati.
+In più, saranno descritte le fasi dello studio statistico e sarà spiegata la tipologia di simulazioni effettuate.
 
-Nel terzo capitolo verrano discussi i risultati finali più rilevanti per ciascun lavoro della pipeline in termini di tempi di esecuzioni e memoria occupata. 
+Nel terzo capitolo verrano discussi i risultati finali più rilevanti per ciascuna regola della pipeline in termini di tempi di esecuzioni e memoria occupata. 
 
 Per terminare saranno delineate le conclusioni, le considerazioni finali e gli sviluppi futuri del progetto, in base ai risultati ottenuti.
 
