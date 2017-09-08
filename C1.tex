@@ -1,13 +1,13 @@
 \chapter{Introduzione}
 Questo capitolo introduce i componenti principali del progetto ed ha il compito di spiegarne le operazioni svolte in maniera approfondita.
-Tali componenti sono stati raggruppati nei tre campi su cui è stato condotto il lavoro: la bioinformatica, lo sviluppo informatico e i dispositivi low power.
+Tali componenti sono stati raggruppati nei tre campi su cui è stato condotto il lavoro: la bioinformatica, lo sviluppo informatico e i nodi low power.
 
 La prima sezione, relativa al campo bioinformatico, approfondisce il metodo GATK-LOD\ped{n} riguardante la ricerca sull'origine dei tumori attraverso procedure di natura bioinformatica.
 Inoltre, è descritto il ruolo dei fisici in questo ambiente di lavoro e nella creazione degli algoritmi.
 
 La seconda sezione, inerente allo sviluppo informatico, spiega come le funzionalità del programma Snakemake concedino ampie possibilità sulla gestione delle risorse offerte dai nodi delle macchine server.
 
-La terza sezione descrive l'importanza dei dispositivi low power e specifica quali tipi di nodi sono stati adoperati nelle analisi.
+La terza sezione descrive l'importanza dei nodi low power e specifica quali tipi di nodi sono stati adoperati nelle analisi.
 
 La combinazione tra tali differenti ambiti ha fornito i sufficienti elementi per proseguire con la costruzione e attuazione del programma affrontati nel prossimo capitolo.
 
@@ -105,7 +105,7 @@ Nella ricerca sono stati confrontati i prodotti finali dei tre algoritmi ed è s
 Questa riduzione è dovuta ovviamente all'eliminazione di un sostanziale numero di falsi positivi, la cui entità dipende dalla tipologia di tumore esaminato.
 
 Il miglioramento dei precedenti metodi, però, non si limita solo alla filtrazione dei falsi positivi ma anche al mantenimento della sensibilità di GATK e ad un aumento della specificità.
-Quest'ultimo è indicato dal fatto che GATK-LOD\ped{n} abbia presentato frequenze di validità superiori e un miglior PPV(Positive Predictive Value) rispetto a GATK su vari range di VAF(Variant Allelic Frequency).
+Quest'ultimo è indicato dal fatto che GATK-LOD\ped{n} abbia presentato frequenze di validità superiori e un miglior PPV(Positive Predictive Value) rispetto a GATK su vari numeri di reads di VAF(Variant Allelic Frequency).
 Le metodologie adoperate per confrontare la sensibilità e la specificità non sono state ritenuti utili allo scopo della presentazione e per questo non verranno trattate.
 
 A posteriori delle indagini sperimentali, GATK-LOD\ped{n} si è rivelato uno strumento utile ad allargare le capacità di GATK e a scovare varianti non trovate da MuTect senza dover rinunciare alla specificità e sensibilità.
@@ -211,7 +211,7 @@ Il caso in cui i primi fossero i nodi e le seconde i link condurrebbe all'utiliz
 All'opposto si avrebbe un path Euleriano, dove ogni link deve essere processato una singola volta e dove il problema è identificato dal grafo di De Brujin.
 La differenza più netta tra i due path è la crescita di complessità, visto che il primo ha andamento non polinomiale mentre il secondo lineare, ed è da ciò che si valutano le capacità computazionali.
 
-In conclusione, la teoria dei network unita all'utilizzo di dispositivi performanti ha accelerato lo sviluppo di meccanismi sempre più raffinati per la ricostruzione del DNA, superando l'esaminazione prolungata in laboratorio con l'applicazione di congetture di fisica statistica.    
+In conclusione, la teoria dei network unita all'utilizzo di macchine server performanti ha accelerato lo sviluppo di meccanismi sempre più raffinati per la ricostruzione del DNA, superando l'esaminazione prolungata in laboratorio con l'applicazione di congetture di fisica statistica.    
 
 \section{Lo strumento di sviluppo: Snakemake}
 \label{sec:SM}
@@ -271,7 +271,7 @@ Chiaramente, questo approccio è modificabile richiendo esplicitamente che alla 
 Nella pipeline creata nell'ambito di questa ricerca, sono stati implementati altri attributi forniti da Snakemake.
 Infatti, eccetto le chiavi di base, esistono diverse funzionalità che arrischiscono l'impostazione e la realizzazione delle regole, tra cui \textit{params}, \textit{threads}, \textit{benchmark} e \textit{conda}.
 I primi due contengono rispettivamente i parametri indispensabili introdotti nell'azione e il numero di threads su cui l'azione può essere eseguita.
-Quest'ultima proprietà richiama ad uno tra gli aspetti più importanti che hanno determinato la scelta di Snakemake, che è  l'eccezionale capacità di gestire l'esecuzione della pipeline sulle risorse tecniche dei dispositivi adoperati.
+Quest'ultima proprietà richiama ad uno tra gli aspetti più importanti che hanno determinato la scelta di Snakemake, ovvero la capacità di gestire l'esecuzione della pipeline sulle risorse tecniche dei nodi di calcolo adoperati.
 Le istruzioni sul numero di core da utilizzare, il numero di threads e la quantità di memoria da mettere a disposizione consentono di ricavare le configurazioni più efficienti, il tutto a beneficio dello sviluppo di metodi più potenti e ottimizzati.
 
 A differenza delle prime due direttive, \textit{benchmark} e \textit{conda} richiedono una trattatazione più ampia.
@@ -282,7 +282,7 @@ In seguito alla spiegazioni di questi, è necessario dedicare un breve accenno a
 \label{subsubsec: SMb}
 Quando è utilizzata la direttiva \textit{benchmark} in una regola, Snakemake trascrive su un file di testo i dettagli tecnici dell'operazione svolta.
 
-Per primi sono riportati il tempo impiegato dall'apparecchio per completare la regola sia in secondi che in ore, minuti e secondi.
+Per primi sono riportati il tempo impiegato dal nodo per completare la regola sia in secondi che in ore, minuti e secondi.
 
 A seguire, dal terzo al sesto sono mostrate le informazioni sull'uso della memoria.
 In particolare:
@@ -333,7 +333,7 @@ In questo modo, dopo che Conda è chiamato da Snakemake per l'attivazione del pa
 
 Il contenuto dei file di configurazione è, in conclusione, determinante per il corretto, oltre che miglior, funzionamento del sistema.
 
-\section{I dispositivi low power}
+\section{I nodi low power}
 \label{sec:LP}
 I gruppi di ricerca che insistono nel proporre metodi avanzati per l'analisi dei big data in campo biomedico, non si limitano ad ottimizzare la sola componente software, bensì affrontano pure la scelta del tipo di componente hardware da adoperare.
 Lo sviluppo di applicazioni sempre più raffinate ha richiesto infatti, nel corso del tempo, un progresso tecnologico che procedesse di pari passo e che permettesse di soddisfare in maniera esaustiva le richieste dei ricercatori.
@@ -341,22 +341,22 @@ Normalmente, i macchinari prediletti sono quelli più potenti e performanti che,
 
 Il dispendio di energia di uno strumento elettrico avviene, in particolare, alla conversione da corrente analogica (AC) a corrente digitale (DC): questo passaggio implica un'innalzamento della temperatura che causa lo sprigionamento di calore nell'ambiente circostante, da cui si ha una perdita di lavoro.
 Tale effetto equivale ad uno spreco di energia ed esso si riproduce in ogni macchinario elettrico.
-Il contenimento del calore, e quindi in generale una diminuzione dello spreco energetico, consente non solo una diminuzione dei costi per il sostentamento dell'apparecchio, che può penalizzare le grandi aziende, ma anche il miglioramento della resa del dispositivo.
+Il contenimento del calore, e quindi in generale una diminuzione dello spreco energetico, consente non solo una diminuzione dei costi per il sostentamento delle macchine, che può penalizzare le grandi aziende, ma anche il miglioramento della resa del nodo.
 Difatti, il contenimento del calore implica la presenza di sistemi di raffreddamento che consumano grandi quantità di energia.
 Un dato significativo relativo alle spese di raffreddamento è ad esempio sostenuto dal data center del INFN-CNAF(Centro nazionale delle tecnologie informatiche dell'INFN) a Bologna, dove il costo annuale per l'energia elettrica è dell'ordine del milione di euro.
 
 L'altro difetto predominante è il costo che le macchine server tradizionali richiedono, che è dell'ordine delle migliaia di euro.
 
-In aggiunta, un altro fattore penalizzante è dato dalla mancanza di scalabilità per aggiornare questi dispositivi, visto che ciò consisterebbe nell'acquisto di un'altra macchina più evoluta. 
+In aggiunta, un altro fattore penalizzante è dato dalla mancanza di scalabilità per aggiornare queste macchine, visto che ciò consisterebbe nell'acquisto di un'altra macchina più evoluta. 
 Per i nodi low power invece, l'aggiornamento è facilmente accessibile.
 
-Tali aspetti negativi hanno spinto vari team di studiosi ad interessarsi a differenti risorse computazionali, tra cui quella relativa ai dispositivi low power.
+Tali aspetti negativi hanno spinto vari team di studiosi ad interessarsi a differenti risorse computazionali, tra cui quella relativa alle macchine low power.
 I macchinari low power sono strumenti che mirano ad abbassare il consumo energetico e soprattutto ad incrementare l'efficienza.
 
 Questi strumenti, però, non sono una vera novità nel campo tecnologico, dato che alcuni oggetti, come gli orologi, possono essere già considerati tali.
 La vera innovazione è l'impiego di strumenti di questo calibro nei processi computazionali sui big data.
 Ovviamente, la differenza di performance tra i nodi low power e i macchinari utilizzati normalmente è netta, poichè tipicamente le prime hanno una potenza inferiore ai 45\,W.
-Nonostante ciò, la cooperazione fra diversi dispositivi di tale genere, il cluster, potrebbe ambire a sostituire gli apparecchi moderni.
+Nonostante ciò, la cooperazione fra diversi nodi di tale genere, il cluster, potrebbe ambire a sostituire le macchine server moderne.
 Questa tesi descrive proprio una ricerca introduttiva ad una questione così rilevante, che, difatti, considera la computazione non sul cluster ma sulle singole macchine: i nodi low power.
 
 Le macchine server coinvolte in questa tesi sono state scelte con caratteristiche tecniche differenti, in modo da evidenziare fra talune una crescita delle prestazioni.
