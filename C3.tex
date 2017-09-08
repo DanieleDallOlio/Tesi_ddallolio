@@ -4,6 +4,9 @@ I risultati finali sono stati suddivisi nelle due caratteristiche su cui è stat
 Sono quindi presenti una sezione relativa ai tempi di esecuzione e una sulla memoria fisica sfruttata. 
 La descrizione delle relazioni più interessanti è, inoltre, accompagnata dall'utilizzo di alcuni tra i grafici elaborati durante lo studio statistico.
 
+Si sottolinea che in sede di analisi sono stati trascurati i subset con un numero di sequenze minore di centomila reads, a causa delle significative fluttuazioni che tali dati presentavano.
+Queste fluttuazioni influenzavano pesantemente lo studio dei subset più grandi e per questo motivo è stato scelto di non considerarle. 
+
 \section{Tempi di esecuzione}
 L'indagine sui tempi di esecuzione, come spiegato nel paragrafo \ref{sbsec:Te}, è stata condotta approfondendo le seguenti relazioni: i tempi di esecuzione per le regole, la durata complessiva del processo e i tempi impiegati per intervalli differenti con lo stesso numero di sequenze. 
 Questa sezione si occuperà di presentare gli esiti finali più rilevanti di ognuno di tali aspetti.
@@ -18,14 +21,13 @@ In più, la differenza tra le potenze computazionali è netta già da questa fig
 \caption{Tempi di esecuzione per le regole indipendenti dal subset.}
 \label{fig:Tind}
 \end{figure}
-Nonostante la durata per l'indicizzazione sia già notevole, questa fase  è  può essere riprodotta una sola volta per tutti i successivi lavori, visto che è riferita solamente al genoma umano di riferimento.
+Nonostante la durata per l'indicizzazione sia notevole, questa fase è riprodotta una sola volta per tutti i successivi lavori, visto che è riferita solamente al genoma umano di riferimento.
 
-Passando alle regole dipendenti, i grafici riportati nella figura \textbf{\ref{fig:Tdip}} mostrano i vari andamenti per la grandezza dei subset.
-\textbf{Le fasi del procedimento che richiedono più tempo sono la mappatura, che incrementa velocemente, e il riallineamento, che al contrario cresce lentamente; mentre le altre regole aumentano impiegando tempi sempre inferiori a 5 minuti.riferirsi alla tabella}
+Passando alle regole dipendenti, i grafici riportati nelle figure \ref{subfig:BB}, \ref{subfig:Map}, \ref{subfig:MD}, \ref{subfig:Rlg} e \ref{subfig:SP} mostrano i vari andamenti per la grandezza dei subset.
 
-Per ciascuna figura viene anche riportata una tabella con i dettagli delle rigressioni lineari effetuati per descrivere il tempo di esecuzione in funzione del numero di sequenze lette.
+Per ciascuna figura viene anche riportata una tabella con i dettagli delle rigressioni lineari effetuate per descrivere il tempo di esecuzione in funzione del numero di sequenze lette.
 La regressione è stata effettuata con il metodo di Theil-Sen.
-Questo metodo è un metodi di regressione lineare robusto, ovvero che non risente della presenza di outlayer nei dati.
+Questo metodo implica una regressione lineare robusta, ovvero che non risente della presenza di outlayer nei dati.
 
 Nelle tabelle viene riportato l'intervallo di confidenza della pendenza della retta.
 Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte le regole c'è una dipendenza significativa fra il numero di sequenze ed il tempo impiegato.
@@ -44,7 +46,7 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza & intercetta &     min pendenza &     max pendenza \\
-	\text{tipo di cpu} & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\
+	\text{tipo di cpu} & $\frac{s}{\text{\# di letture}}$ & $s$ & $\frac{s}{\text{\# di letture}}$ & $\frac{s}{\text{\# di letture}}$ \\
 	\midrule
 	avoton   & \num{9.2e-06} &        6.4 &   \num{9e-06} & \num{9.5e-06} \\
 	bio8     & \num{4.4e-06} &        3.1 & \num{4.4e-06} & \num{4.4e-06} \\
@@ -72,7 +74,7 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza & intercetta &     min pendenza &     max pendenza \\
-	\text{tipo di cpu} & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\
+	\text{tipo di cpu} & $\frac{s}{\text{\# di letture}}$ & $s$ & $\frac{s}{\text{\# di letture}}$ & $\frac{s}{\text{\# di letture}}$ \\
 	\midrule
 	avoton   & \num{0.00044} &        6.8 & \num{0.00043} & \num{0.00045} \\
 	bio8     & \num{0.00031} &        7.9 & \num{0.00031} & \num{0.00031} \\
@@ -100,7 +102,7 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza & intercetta &     min pendenza &     max pendenza \\
-	\text{tipo di cpu} & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\
+	\text{tipo di cpu} & $\frac{s}{\text{\# di letture}}$ & $s$ & $\frac{s}{\text{\# di letture}}$ & $\frac{s}{\text{\# di letture}}$ \\
 	\midrule
 	avoton   & \num{8.1e-05} &        7.9 & \num{8.1e-05} & \num{8.2e-05} \\
 	bio8     & \num{3.8e-05} &        4.7 & \num{3.8e-05} & \num{3.8e-05} \\
@@ -128,7 +130,7 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza & intercetta &     min pendenza &     max pendenza \\
-	\text{tipo di cpu} & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\
+	\text{tipo di cpu} & $\frac{s}{\text{\# di letture}}$ & $s$ & $\frac{s}{\text{\# di letture}}$ & $\frac{s}{\text{\# di letture}}$ \\
 	\midrule
 	avoton   & \num{0.00013} &    1.2e+03 & \num{0.00011} & \num{0.00016} \\
 	bio8     & \num{3.8e-05} &    4.5e+02 & \num{3.6e-05} & \num{3.9e-05} \\
@@ -156,7 +158,7 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza & intercetta &     min pendenza &     max pendenza \\
-	\text{tipo di cpu} & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\			\midrule
+	\text{tipo di cpu} & $\frac{s}{\text{\text{\# di letture}}}$ & $s$ & $\frac{s}{\text{\# di letture}}$ & $\frac{s}{\text{\# di letture}}$ \\			\midrule
 	avoton   &   \num{8e-05} &        6.5 & \num{7.9e-05} & \num{8.3e-05} \\
 	bio8     & \num{4.3e-05} &        7.9 & \num{4.3e-05} & \num{4.3e-05} \\
 	n3700    & \num{8.4e-05} &         12 & \num{8.3e-05} & \num{8.6e-05} \\
@@ -171,9 +173,16 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 
 L'unica regola che mostra una particolarità è la fase di riallineamento(realigner Figura \ref{subfig:Rlg}), in cui il tempo di avvio della regola, rappresentato dall'intercetta, costituisce una parte importante del tempo complessivo di esecuzione della regola stessa. 
 
+Nei grafici sono distinguibili due gruppi di nodi significativamente confrontabili: avoton e n3700, xeond e bio8.
+Questa distinzione è confermata dai valori delle pendenze riportate nelle tabelle \ref{tab:Bb}, \ref{tab:Md}, \ref{tab:Mp}, \ref{tab:Rlg} e \ref{tab:Sp}.
+In particolare, il fatto che xeond e bio8 condividano lo stesso genere di architettura(tabella \ref{tab:cluster_generali}) indica come questa caratteristica possa influenzare l'esecuzione.
+
+Infine, dai grafici si può notare che le regole di lunga durata sono il mapping e il realigner, mentre quella che impiega il minor tempo è il build bam.
+Riguardo a mark duplicates e sort picard, si nota che queste regole condividono la stessa durata e la stessa crescita(tabelle \ref{tab:Md} e \ref{tab:Sp}).    
+
 
 \subsection{Durata complessiva}
-Un altro aspetto rilevato è stato il tempo complessivo richiesto per svolgere tutti i passaggi che esclusivamente dal numero di reads nel subset, escludendo tutti i passaggi non dipendenti dal paziente (come l'indicizzazione del reference umano fatto da BWA).
+Un altro aspetto rilevato è stato il tempo complessivo richiesto per svolgere tutti i passaggi che esclusivamente dipendono dal numero di reads nel subset, escludendo tutti i passaggi non dipendenti (come l'indicizzazione del reference umano fatto da BWA).
 Questi tempi sono rappresentativi del tempo richiesto per la pipeline per ciascun paziente. 
 
 \begin{table}[H]
@@ -190,7 +199,7 @@ Questi tempi sono rappresentativi del tempo richiesto per la pipeline per ciascu
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza &    intercetta &     min pendenza &     max pendenza \\
-	\text{tipo di cpu} & $\frac{s}{subset}$ & $s$ & $\frac{s}{subset}$ & $\frac{s}{subset}$ \\
+	\text{tipo di cpu} & $\frac{s}{\text{\# di letture}}$ & $s$ & $\frac{s}{\text{\# di letture}}$ & $\frac{s}{\text{\# di letture}}$ \\
 	\midrule
 	avoton   & \num{0.00076} & \num{1.2e+03} & \num{0.00073} & \num{0.00079} \\
 	bio8     & \num{0.00044} & \num{4.7e+02} & \num{0.00044} & \num{0.00044} \\
@@ -203,6 +212,9 @@ Questi tempi sono rappresentativi del tempo richiesto per la pipeline per ciascu
     \label{tab:Ttot}
   \end{varwidth}%
 \end{table}
+
+I grafici in figura \ref{fig:Ttot} e i valori in tabella \ref{tab:Ttot} confermano che i nodi sono separati in due coppie comparabili: avoton e n3700, xeond e bio8.
+
 
 \subsection{Variabilità dei tempi di esecuzione}
 Tutti i subset utilizzati nella sezione precedente condividono la stessa posizione iniziale di estrazione.
@@ -238,7 +250,7 @@ Ciò implica che sono state analizzate in un primo momento le occupazioni della 
 La memoria intesa in questo capitolo si riferisce alla memoria "Resident Set Size" ricavata dal tool psutil e riportata da Snakemake, come già indicato nel paragrafo \ref{subsec:Mf}. 
 
 \subsection{Consumo di memoria per le regole}
-Le informazioni sui vari comportamenti sono tratte dai grafici in figura \ref{fig:RSSr}.
+Le informazioni sui vari comportamenti sono tratte dai grafici in figura \ref{fig:RSSr} e dalla tabella \ref{Tab:maxmem}.
 \begin{figure}[H]
 \centering
 \subfloat[][\emph{Memoria utilizzata da Build BAM.}]
@@ -329,8 +341,8 @@ xeond    &  230 &  12 &  5280 &  16 &  703 &   6 &  1430 &  30 & 576 &  3 \\
 \label{varM}
 \end{table}
 
-I valori ottenuti evidenziano che la memoria è fortemente stabile in ogni regola per ciascun nodo.
-Ciò conferma che i lavori sfruttano la stessa quantità di memoria indipendentemente dal contenuto dei subset e, eccetto il caso del realigner, ne occupano pressochè lo stesso valore. 
+I valori ottenuti evidenziano che la memoria è fortemente stabile in ogni regola, per ogni macchina.
+Ciò conferma che le operazioni sfruttano la stessa quantità di memoria indipendentemente dal contenuto dei subset e, eccetto il caso del realigner, ne occupano pressochè lo stesso valore. 
 
 
 %\section{Processi di I-O} 
