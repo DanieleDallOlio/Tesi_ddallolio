@@ -4,8 +4,7 @@ I risultati finali sono stati suddivisi nelle due caratteristiche su cui è stat
 Sono quindi presenti una sezione relativa ai tempi di esecuzione e una sulla memoria fisica sfruttata. 
 La descrizione delle relazioni più interessanti è, inoltre, accompagnata dall'utilizzo di alcuni tra i grafici elaborati durante lo studio statistico.
 
-Si sottolinea che in sede di analisi sono stati trascurati i subset con un numero di sequenze minore di centomila reads, a causa delle significative fluttuazioni che tali dati presentavano.
-Queste fluttuazioni influenzavano pesantemente lo studio dei subset più grandi e per questo motivo è stato scelto di non considerarle. 
+In sede di analisi sono stati usati subset con dimensione minima di centomila.
 
 \section{Tempi di esecuzione}
 L'indagine sui tempi di esecuzione, come spiegato nel paragrafo \ref{sbsec:Te}, è stata condotta approfondendo le seguenti relazioni: i tempi di esecuzione per le regole, la durata complessiva del processo e i tempi impiegati per intervalli differenti con lo stesso numero di sequenze. 
@@ -32,17 +31,15 @@ Questo metodo implica una regressione lineare robusta, ovvero che non risente de
 Nelle tabelle viene riportato l'intervallo di confidenza della pendenza della retta.
 Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte le regole c'è una dipendenza significativa fra il numero di sequenze ed il tempo impiegato.
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{build_bam.png}
+\captionof{figure}{Tempi per Build BAM.}
+\label{subfig:BB}
+\end{figure}
+
 \begin{table}[H]
-  \begin{minipage}[b]{0.4\linewidth}
-	\centering
-	\includegraphics[width=1.33\textwidth]{build_bam.png}
-	\captionof{figure}{Tempi per Build BAM.}
-	\label{subfig:BB}
-  \end{minipage}
-  \hfill 
-  \begin{varwidth}[b]{0.4\linewidth}
     \centering
-   	\resizebox{1.0\textwidth}{!}{%
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza & intercetta &     min pendenza &     max pendenza \\
@@ -54,23 +51,19 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 	xeond    & \num{5.3e-06} &          3 & \num{5.3e-06} & \num{5.3e-06} \\
 	\bottomrule
 	\end{tabular}
-	}
-    \caption{Dettagli retta di fit per Build BAM.}
-    \label{tab:Bb}
-  \end{varwidth}%
+	\caption{Dettagli retta di fit per Build BAM.}
+	\label{tab:Bb}
 \end{table}
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{mapping.png}	
+\captionof{figure}{Tempi per Mapping.}
+\label{subfig:Map}
+\end{figure}
+
 \begin{table}[H]
-  \begin{minipage}[b]{0.4\linewidth}
 	\centering
-	\includegraphics[width=1.33\textwidth]{mapping.png}	
-	\captionof{figure}{Tempi per Mapping.}
-	\label{subfig:Map}
-  \end{minipage}
-  \hfill  
-  \begin{varwidth}[b]{0.4\linewidth}
-    \centering
-    \resizebox{1.0\textwidth}{!}{%
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza & intercetta &     min pendenza &     max pendenza \\
@@ -82,23 +75,19 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 	xeond    & \num{0.00025} &       -3.3 & \num{0.00025} & \num{0.00025} \\
 	\bottomrule
 	\end{tabular}
-	}
     \caption{Dettagli retta di fit per Mapping.}
     \label{tab:Mp}
-  \end{varwidth}%
 \end{table}
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{mark_duplicates.png}
+\captionof{figure}{Tempi per Mark Duplicates.}
+\label{subfig:MD}
+\end{figure}
+
 \begin{table}[H]
-  \begin{minipage}[b]{0.4\linewidth}
-	\centering
-	\includegraphics[width=1.33\textwidth]{mark_duplicates.png}
-	\captionof{figure}{Tempi per Mark Duplicates.}
-	\label{subfig:MD}
-  \end{minipage}
-  \hfill  
-  \begin{varwidth}[b]{0.4\linewidth}
-    \centering
-	\resizebox{1.0\textwidth}{!}{%    
+    \centering    
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza & intercetta &     min pendenza &     max pendenza \\
@@ -110,23 +99,19 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 	xeond    & \num{4.4e-05} &        2.4 & \num{4.3e-05} & \num{4.4e-05} \\
 	\bottomrule
 	\end{tabular}
-	}
     \caption{Dettagli retta di fit per Mark Duplicates.}
 	\label{tab:Md}
-  \end{varwidth}%
 \end{table}
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{realigner.png}
+\captionof{figure}{Tempi per i tempi di Realigner.}
+\label{subfig:Rlg}
+\end{figure}
+
 \begin{table}[H]
-  \begin{minipage}[b]{0.4\linewidth}
 	\centering
-	\includegraphics[width=1.33\textwidth]{realigner.png}
-	\captionof{figure}{Tempi per i tempi di Realigner.}
-	\label{subfig:Rlg}
-  \end{minipage}
-  \hfill  
-  \begin{varwidth}[b]{0.4\linewidth}
-	\centering
- 	\resizebox{1.0\textwidth}{!}{%
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza & intercetta &     min pendenza &     max pendenza \\
@@ -138,23 +123,19 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 	xeond    & \num{3.8e-05} &    6.8e+02 & \num{3.6e-05} &   \num{4e-05} \\
 	\bottomrule
 	\end{tabular}
-	}
     \caption{Dettagli retta di fit per Realigner.}
 	\label{tab:Rlg}
-  \end{varwidth}%
 \end{table}
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{sort_picard.png}
+\captionof{figure}{Tempi per Sort Picard.}
+\label{subfig:SP}
+\end{figure}
+
 \begin{table}[H]
-  \begin{minipage}[b]{0.4\linewidth}
-	\centering
-	\includegraphics[width=1.33\textwidth]{sort_picard.png}
-	\captionof{figure}{Tempi per Sort Picard.}
-	\label{subfig:SP}
-  \end{minipage}
-  \hfill  
-  \begin{varwidth}[b]{0.4\linewidth}
     \centering
-    \resizebox{1.0\textwidth}{!}{%
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza & intercetta &     min pendenza &     max pendenza \\
@@ -165,10 +146,8 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 	xeond    & \num{5.1e-05} &        2.9 & \num{5.1e-05} & \num{5.1e-05} \\
 	\bottomrule
 	\end{tabular}
-	}
     \caption{Dettagli retta di fit per Sort Picard.}
     \label{tab:Sp}
-  \end{varwidth}%
 \end{table}
 
 L'unica regola che mostra una particolarità è la fase di riallineamento(realigner Figura \ref{subfig:Rlg}), in cui il tempo di avvio della regola, rappresentato dall'intercetta, costituisce una parte importante del tempo complessivo di esecuzione della regola stessa. 
@@ -185,17 +164,15 @@ Riguardo a mark duplicates e sort picard, si nota che queste regole condividono 
 Un altro aspetto rilevato è stato il tempo complessivo richiesto per svolgere tutti i passaggi che esclusivamente dipendono dal numero di reads nel subset, escludendo tutti i passaggi non dipendenti (come l'indicizzazione del reference umano fatto da BWA).
 Questi tempi sono rappresentativi del tempo richiesto per la pipeline per ciascun paziente. 
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Tempi_complessivi.png}	
+\captionof{figure}{Tempi complessivo di esecuzione.}
+\label{fig:Ttot}
+\end{figure}
+
 \begin{table}[H]
-  \begin{minipage}[b]{0.4\linewidth}
-	\centering
-	\includegraphics[width=1.33\textwidth]{Tempi_complessivi.png}	
-	\captionof{figure}{Tempi complessivo di esecuzione.}
-	\label{fig:Ttot}
-  \end{minipage}
-  \hfill  
-  \begin{varwidth}[b]{0.4\linewidth}
     \centering
-    \resizebox{1.0\textwidth}{!}{%
 	\begin{tabular}{lrrrr}
 	\toprule
 	{} &         pendenza &    intercetta &     min pendenza &     max pendenza \\
@@ -207,10 +184,8 @@ Questi tempi sono rappresentativi del tempo richiesto per la pipeline per ciascu
 	xeond    & \num{0.00039} & \num{6.8e+02} & \num{0.00039} &  \num{0.0004} \\
 	\bottomrule
 	\end{tabular}
-	}
     \caption{Pendenze per i tempi complessivi.}
     \label{tab:Ttot}
-  \end{varwidth}%
 \end{table}
 
 I grafici in figura \ref{fig:Ttot} e i valori in tabella \ref{tab:Ttot} confermano che i nodi sono separati in due coppie comparabili: avoton e n3700, xeond e bio8.
