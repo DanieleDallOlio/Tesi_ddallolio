@@ -5,9 +5,9 @@ Tali componenti sono stati raggruppati nei tre campi su cui è stato condotto il
 La prima sezione, relativa al campo bioinformatico, approfondisce il metodo GATK-LOD\ped{n} riguardante la ricerca sull'origine dei tumori attraverso procedure di natura bioinformatica.
 Inoltre, è descritto il ruolo dei fisici in questo ambiente di lavoro e nella creazione degli algoritmi.
 
-La seconda sezione, inerente allo sviluppo informatico, spiega come le funzionalità del programma Snakemake concedino ampie possibilità sulla gestione delle risorse offerte dai nodi delle macchine server.
+La seconda sezione, inerente allo sviluppo informatico, spiega come le funzionalità del programma Snakemake concedano ampie possibilità sulla gestione delle risorse offerte dai nodi delle macchine server.
 
-La terza sezione descrive l'importanza dei nodi low power e specifica quali tipi di nodi sono stati adoperati nelle analisi.
+La terza sezione descrive l'importanza delle macchine low power e specifica quali tipi di nodi sono stati adoperati nelle analisi.
 
 La combinazione tra tali differenti ambiti ha fornito i sufficienti elementi per proseguire con la costruzione e attuazione del programma affrontati nel prossimo capitolo.
 
@@ -221,7 +221,7 @@ In più, questo software è specializzato nella scalabilità dei lavori, da sing
 Questo programma è basato sul linguaggio di programmazione Python e la sua formazione è fortemente influenzata dal noto tool Make del sistema operativo Linux.
 Ciò significa che Snakemake è modellato su una strategia di tipo \textit{pull} proprio come Make.
 In un procedimento che segue la strategia \textit{pull}, ogni lavoro coinvolto comunica le proprie condizioni e la sequenza di esecuzione è determinata a partire dal richieste finali(modello \textit{"a valle"}).
-Al contrario, la strategia \textit{push} esegue un procedimento a partire dai contenuti iniziali, attivando i compito successivi una volta svolte le operazioni(modello \textit{"a monte"}). 
+Al contrario, la strategia \textit{push} esegue un procedimento a partire dai contenuti iniziali, attivando i compiti successivi una volta terminate le operazioni(modello \textit{"a monte"}). 
 
 Il contenitore del codice Python in Snakemake è chiamato di default \textit{Snakefile} e l'ordine di esecuzione predefinito da linea di comando è:
 \begin{lstlisting}
@@ -333,7 +333,7 @@ In questo modo, dopo che Conda è chiamato da Snakemake per l'attivazione del pa
 
 Il contenuto dei file di configurazione è, in conclusione, determinante per il corretto, oltre che miglior, funzionamento del sistema.
 
-\section{I nodi low power}
+\section{Le macchine low power e i nodi utilizzati}
 \label{sec:LP}
 I gruppi di ricerca che insistono nel proporre metodi avanzati per l'analisi dei big data in campo biomedico, non si limitano ad ottimizzare la sola componente software, bensì affrontano pure la scelta del tipo di componente hardware da adoperare.
 Lo sviluppo di applicazioni sempre più raffinate ha richiesto infatti, nel corso del tempo, un progresso tecnologico che procedesse di pari passo e che permettesse di soddisfare in maniera esaustiva le richieste dei ricercatori.
@@ -355,11 +355,13 @@ I macchinari low power sono strumenti che mirano ad abbassare il consumo energet
 
 Questi strumenti, però, non sono una vera novità nel campo tecnologico, dato che alcuni oggetti, come gli orologi, possono essere già considerati tali.
 La vera innovazione è l'impiego di strumenti di questo calibro nei processi computazionali sui big data.
-Ovviamente, la differenza di performance tra i nodi low power e i macchinari utilizzati normalmente è netta, poichè tipicamente le prime hanno una potenza inferiore ai 45\,W.
+Ovviamente, la differenza di performance tra i nodi low power e i macchinari utilizzati normalmente è netta, poichè tipicamente le prime hanno una potenza inferiore ai 45\,W(TDP).
 Nonostante ciò, la cooperazione fra diversi nodi di tale genere, il cluster, potrebbe ambire a sostituire le macchine server moderne.
-Questa tesi descrive proprio una ricerca introduttiva ad una questione così rilevante, che, difatti, considera la computazione non sul cluster ma sulle singole macchine: i nodi low power.
+Questa tesi descrive proprio una ricerca introduttiva ad una questione così rilevante, che, difatti, considera la computazione non sul cluster ma solo su alcuni dei nodi a disposizione.
 
-Le macchine server coinvolte in questa tesi sono state scelte con caratteristiche tecniche differenti, in modo da evidenziare fra talune una crescita delle prestazioni.
+Le macchine server low power coinvolte in questa tesi sono state scelte con caratteristiche tecniche differenti, in modo da evidenziare fra talune una progressiva crescita delle prestazioni.
+In più, è stata considerata anche una macchina tradizionale per poter comparare le diverse esecuzioni.
+
 In accordo con il centro nazionale per la ricerca e lo sviluppo sulle tecnologie per l'informazione e la comunicazione (CNAF) dell'Istituto Nazionale di Fisica Nucleare, avente sede a Bologna, sono state utilizzate alcuni server ospitati al dipartimento di Fisica(figura \ref{fig:Cluster}).
 
 \begin{figure}[H]
@@ -419,6 +421,7 @@ $\begin{array}{*{6}{c}}
 \label{tab:cpu}
 \end{table}
 
+Si sottolinea che, in realtà, il nodo xeond appartiene ad un macchina con TDP pari a 45W e quindi è considerato al limite come macchina low power.
 
 %Figura di GATK-LODn ?
 %Figura che rappresenta gli step di GATK e MuTect?
