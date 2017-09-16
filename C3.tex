@@ -11,7 +11,7 @@ L'indagine sui tempi di esecuzione, come spiegato nel paragrafo \ref{sbsec:Te}, 
 Questa sezione si occuperà di presentare gli esiti finali più rilevanti di ognuno di tali aspetti.
 
 \subsection{Tempi e regole}
-Le regole previste dal procedimento hanno concentrato l'analisi su due campi, una relativo a quei processi che non dipendono dal tipo di dati considerato e uno relativo a quelli che invece dipendono. 
+Le regole previste dal procedimento hanno concentrato l'analisi su due campi, uno relativo a quei processi che non dipendono dal tipo di dati considerato e uno relativo a quelli che invece dipendono. 
 Considerando le prime, si può notare dalla figura \ref{fig:Tind} come l'unico processo significativo sia l'indicizzazione dello human reference per BWA, mentre le rimanenti non influiscano in alcun modo. 
 In più, la differenza tra le potenze computazionali è netta già da questa figura, dato che tra il nodo migliore e il peggiore vi è uno scarto di più di un'ora.
 \begin{figure}[H]
@@ -153,7 +153,7 @@ Visto che nessuno di questi intervalli di confidenza contiene lo zero, per tutte
 La fase di riallineamento ha un comportamento differente dalle altre(realigner figura \ref{subfig:Rlg}), in quanto il tempo di avvio della regola, rappresentato dall'intercetta, costituisce una parte importante del tempo complessivo di esecuzione della regola stessa. 
 
 Nei grafici sono distinguibili due gruppi di nodi significativamente diversi: avoton e n3700 contro xeond e bio8.
-Questa distinzione è confermata dai valori delle pendenze riportate nelle tabelle \ref{tab:Bb}, \ref{tab:Md}, \ref{tab:Mp}, \ref{tab:Rlg} e \ref{tab:Sp}.
+Questa distinzione è confermata dai valori delle pendenze riportate nelle tabelle \ref{tab:Bb}, \ref{tab:Mp}, \ref{tab:Md}, \ref{tab:Rlg} e \ref{tab:Sp}.
 In particolare, il fatto che xeond e bio8 condividano lo stesso genere di architettura(tabella \ref{tab:cluster_generali}) indica come questa caratteristica possa influenzare l'esecuzione.
 
 Infine, dai grafici si può notare che le regole di lunga durata sono il mapping e il realigner, mentre quella che impiega il minor tempo è il build bam.
@@ -167,7 +167,7 @@ Questi tempi sono rappresentativi del tempo richiesto per la pipeline per ciascu
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.62]{Tempi_complessivi.png}	
-\captionof{figure}{Tempi complessivo di esecuzione.}
+\captionof{figure}{Tempi complessivi di esecuzione.}
 \label{fig:Ttot}
 \end{figure}
 
@@ -193,8 +193,8 @@ I grafici in figura \ref{fig:Ttot} e i valori in tabella \ref{tab:Ttot} conferma
 
 \subsection{Variabilità dei tempi di esecuzione}
 Tutti i subset utilizzati nella sezione precedente condividono la stessa posizione iniziale di estrazione.
-Per valutare la variabilità del tempo di esecuzione dalla posizione iniziale di estrazione, sono state ripetute le analisi con subset di stessa lunghezza ma con diversi punti di estrazione.
-Questi punti di estrazione sono stati scelti in modo da non aver sovrapposizione fra questi subset e il numero di letture stabilito è stato centomila
+Per valutare la variabilità del tempo di esecuzione dalla posizione iniziale di estrazione, sono state ripetute le analisi con subset di stessa lunghezza ma con diversi punti di estrazione, tabella \ref{varT}.
+Questi punti di estrazione sono stati scelti in modo da non aver sovrapposizione fra questi subset e il numero di letture stabilito è stato centomila.
 
 \begin{table}[H]
 \centering
@@ -219,45 +219,52 @@ Infatti, eccetto il mapping che mostra l'andamento meno stabile, i nodi impiegan
 
 
 \section{Memoria utilizzata}
-La memoria occupata dai singoli processi è stata studiata analogamente al tempo trascurando però lo studio di una memoria complessiva per tutti i passaggi. 
-È analizzato in un primo momento l' occupazione della memoria per ognuna delle regole e si è poi stimata la variabilità di queste misure a partire da diverse posizioni iniziali.
+La memoria occupata dai singoli processi è stata studiata analogamente al tempo, trascurando però lo studio di una memoria complessiva per tutti i passaggi. 
+È stato analizzato in un primo momento l' occupazione della memoria per ognuna delle regole ed è poi stata stimata la variabilità di queste misure a partire da diverse posizioni iniziali.
 La memoria intesa in questo capitolo si riferisce alla memoria "Resident Set Size" ricavata dal tool psutil e riportata da Snakemake, come già indicato nel paragrafo \ref{subsec:Mf}. 
 
 \subsection{Consumo di memoria per le regole}
-Le informazioni sui vari comportamenti sono tratte dai grafici in figura \ref{fig:RSSr} e dalla tabella \ref{Tab:maxmem}.
+Le informazioni sui vari comportamenti sono tratte dai grafici nelle figure \ref{fig:BB_rss}, \ref{fig:Map_rss}, \ref{fig:MD_rss}, \ref{fig:Rlg_rss}, \ref{fig:SP_rss} e dalla tabella \ref{Tab:maxmem}.
+\begin{figure}[H]
+\begin{minipage}[b]{.5\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{Max_rss_build_bam.png}
+\caption{Build BAM.}
+\label{fig:BB_rss}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{.5\textwidth}
+\includegraphics[width=0.9\textwidth]{Max_rss_mapping.png}
+\caption{Mapping.}
+\label{fig:Map_rss}	
+\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+\begin{minipage}[b]{.5\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{Max_rss_mark_duplicates.png}
+\caption{Mark Duplicates.}
+\label{fig:MD_rss}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{.5\textwidth}
+\includegraphics[width=0.9\textwidth]{Max_rss_realigner.png}
+\caption{Realigner.}
+\label{fig:Rlg_rss}	
+\end{minipage}
+\end{figure}
+
 \begin{figure}[H]
 \centering
-\subfloat[][\emph{Memoria utilizzata da Build BAM.}]
-	{\label{subfig:BB_rss}
-	\includegraphics[width=.46\textwidth]{Max_rss_build_bam.png}
-	} \quad
-\subfloat[][\emph{Memoria utilizzata da Mapping.}]
-	{\label{subfig:Map_rss}
-	\includegraphics[width=.46\textwidth]{Max_rss_mapping.png}
-	} \\
-\end{figure}
-\begin{figure}[H]
-\ContinuedFloat
+\begin{minipage}[b]{.5\textwidth}
 \centering
-\subfloat[][\emph{Memoria utilizzata da Mark Duplicates.}]
-	{\label{subfig:MD_rss}
-	\includegraphics[width=.46\textwidth]{Max_rss_mark_duplicates.png}
-	} \quad
-\subfloat[][\emph{Memoria utilizzata da Realigner.}]
-	{\label{subfig:Rlg_rss}
-	\includegraphics[width=.46\textwidth]{Max_rss_realigner.png}
-	} \\
+\includegraphics[width=0.9\textwidth]{Max_rss_sort_picard.png}
+\caption{Sort Picard.}
+\label{fig:SP_rss}
+\end{minipage}
 \end{figure}
-\begin{figure}[H]
-\ContinuedFloat
-\centering
-\subfloat[][\emph{Memoria utilizzata da Sort Picard.}]
-	{\label{subfig:SP_rss}
-	\includegraphics[width=.46\textwidth]{Max_rss_sort_picard.png}
-	} 
-\caption{}
-\label{fig:RSSr}
-\end{figure}
+
 
 \begin{table}[H]
 \centering
@@ -277,9 +284,9 @@ xeond    &        435 &     5305 &             1004 &       1582 &         1138 
 \end{table}
 
 
-Si può vedere che nelle regole di marcamento dei duplicati(figura \ref{subfig:MD_rss}), di formazione del file BAM(figura \ref{subfig:BB_rss}) e di riordimento per picard(figura \ref{subfig:SP_rss}), la memoria satura una volta superato il milione di letture. 
+Si può vedere che nelle regole di marcamento dei duplicati(figura \ref{fig:MD_rss}), di formazione del file BAM(figura \ref{fig:BB_rss}) e di riordimento per picard(figura \ref{fig:SP_rss}), la memoria satura una volta superato il milione di letture. 
 
-Le altre regole che analizzano specificatamente i dati, la mappatura(figura \ref{subfig:Map_rss}) e il riallineamento(figura \ref{subfig:Rlg_rss}), hanno entrambe un'occupazione fissa della memoria.
+Le altre regole che analizzano specificatamente i dati, la mappatura(figura \ref{fig:Map_rss}) e il riallineamento(figura \ref{fig:Rlg_rss}), hanno entrambe un'occupazione fissa della memoria.
 Nel caso del mapping, infatti, tutte le macchine occupano la stessa quantità di memoria, indicando una saturazione generale, mentre nel riallineamento ciascuna cpu utilizza una quantità fissata di memoria che sembra essere una frazione della memoria totale disponibile. 
 
 Per le regole che non dipendono dal paziente, riportate in figura \ref{fig:RSSind}, la richiesta di memoria non sembra invece dipendere significativamente dal nodo.
@@ -293,7 +300,7 @@ Per le regole che non dipendono dal paziente, riportate in figura \ref{fig:RSSin
 
 \subsection{Variabilità della memoria occupata}
 Lo studio sulla memoria impiegata per intervalli diversi con ugual numero di sequenze è stato compiuto solo sui nodi dei cluster low power. 
-La tabella \ref{varM} riporta la media e la deviazione standard per ciascuna regola, su ogni nodo.
+La tabella \ref{fig:varM} riporta la media e la deviazione standard per ciascuna regola, su ogni nodo.
 In particolare il numero di letture considerato è stato di centomila.
 
 \begin{table}[H]
@@ -311,7 +318,7 @@ xeond    &  $230\pm12$ &  $5280\pm16$ &  $703\pm6$ &  $1430\pm30$ & $576\pm3$ \\
 \end{tabular}
 }
 \caption{Media e deviazione standard, espresse in MB, della memoria occupata dalle regole su diversi subset da centomila letture.}
-\label{varM}
+\label{fig:varM}
 \end{table}
 
 I valori ottenuti evidenziano che la memoria è fortemente stabile in ogni regola, per ogni macchina.

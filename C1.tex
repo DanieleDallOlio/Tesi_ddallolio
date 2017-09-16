@@ -58,7 +58,7 @@ Questa nuova generazione di tecnologie, che sfrutta la parallelizzazione di proc
 In aggiunta, i numerosi metodi sviluppati all'interno del NGS sono fortemente radicati sulla teoria dei network. 
 Questa branca della fisica e della matematica ha subito nell'ultimo ventennio un notevole progresso e ha acquistato un significato oramai fondamentale nella ricerca medica e biologica. 
 
-Un altro fattore importante che supporta lo sviluppo di tecnologie più veloci è l'esistenza del genoma di riferimento prodotto dal HGP, che permette in certi casi il confronto solamente frazioni di DNA senza dover estrarre l'intero codice genetico.
+Un altro fattore importante che supporta lo sviluppo di tecnologie più veloci è l'esistenza del genoma di riferimento prodotto dal HGP, che permette in certi casi solamente il confronto di frazioni di DNA senza dover estrarre l'intero codice genetico.
 
 Un ulteriore contributo è dato anche dalla contemporanea crescita delle aree che cooperano con la biologia, tra cui l'evoluzione delle tecniche di computazione.
 
@@ -78,7 +78,7 @@ L'ideazione di questo algoritmo é dovuta ad un gruppo di ricercatori del Dipart
 Precisamente, questo genere di polimorfismo è denonimato con la sigla SNP, single nucleotide polymorphism, e indica quelle variazioni nei singoli nucleotidi che si verificano con frequenza significativa in una specifica posizione del genoma.
 In particolare, l'esoma comprende quelle regioni del genoma in cui sono codificate le istruzioni per l'RNA e per la sintesi delle proteine.
 
-Le mutazioni genetiche si distinguono in due tipologie: germinali e somatiche. Le prime identificano le variazioni che avvengono nello zigote sono condivise in tutte le cellule dell'organismo. Le seconde, invece, sono mutazioni avvenute successivamente allo sviluppo e possono presentarsi a livello di singola cellula o tessuti. 
+Le mutazioni genetiche si distinguono in due tipologie: germinali e somatiche. Le prime identificano le variazioni che avvengono nello zigote e sono condivise in tutte le cellule dell'organismo. Le seconde, invece, sono mutazioni avvenute successivamente allo sviluppo e possono presentarsi a livello di singola cellula o tessuti. 
 L'algoritmo GATK-LOD\ped{n} si focalizza sulle mutazioni somatiche perchè esse hanno un ruolo chiave nella progressione della malattia e nella resistenza alla chemioterapia.
 
 L'interesse nel proporre questo metodo nasce dal desiderio di poter predisporre di uno strumento che non si aggiunga al gruppo di software già esistenti, bensì che ottimizzi e potenzi alcuni tra questi.
@@ -126,7 +126,7 @@ Il Genome Analysis Toolkit è un framework di programmazione creato da un gruppo
 Infatti, l'utilizzo di questo sistema permette di sviluppare tools più solidi e performanti per il sequenziamento genetico.
 
 La mancanza di strumenti flessibili e sofisticati dediti alla manipolazione dei dati di sequenziamento in maniera programmatica ha portato alla creazione di GATK.
-Infatti, la maggior parte dei software che supportano l'analisi del DNA concedono alte prestazioni sono nella specifica area di interesse, senza mantenerle su differenti ambiti.
+Infatti, la maggior parte dei software che supportano l'analisi del DNA concedono alte prestazioni solo nella specifica area di interesse, senza mantenerle su differenti ambiti.
 Questo deficit e l'emergere di un formato specifico per i prodotti del sequenziamento (SAM), hanno dato l'opportunità di ideare un software per la semplificazione delle analisi sui set di dati.
 
 L'architettura di base per GATK è il MapReduce, il cui funzionamento implica la separazione delle computazioni in due passaggi.
@@ -188,10 +188,10 @@ In seguito, numerosi fisici hanno contributo alla nascita della biologia molecol
 Difatti, la richezza della fisica nel saper gestire tali sistemi, l'elasticità nell'ampliare le proprie conoscenze a differenti campi di studio, insieme ad un approccio critico ma propositivo, si è rivelata un ingriedente necessario per il progresso della materia \cite{Pooley2005}.
 
 Al passare del tempo e con il crescere delle ricerche, soprattutto nel campo biomedico, la presenza della fisica ha acquistato importanza sia nel ramo sperimentale che in quello teorico.
-Nel primo, difatti, per anni le tecniche della cristallografia e della risonanza magnetica sono stati essenziali per i biologi molecolari, e, tuttora, le innovative tecniche della NGS concentrano gli sforzi su scovare quelle differenze proprietà fisiche che permettono di stabilire più velocemente i nucleotidi \cite{Zwolak2008}.
+Nel primo, difatti, per anni le tecniche della cristallografia e della risonanza magnetica sono stati essenziali per i biologi molecolari, e, tuttora, le innovative tecniche della NGS concentrano gli sforzi su scovare quelle differenti proprietà fisiche che permettono di stabilire più velocemente i nucleotidi \cite{Zwolak2008}.
 Nel secondo, invece, la fisica coopera con i bioinformatici sia nell'individuazione di modelli efficaci con cui affrontare i big data provenienti dai laboratori, che per l'analisi delle sequenze di DNA, sfruttando metodi provenienti esattamente dalla fisica statistica.
 
-Nello specifico, la maggioranza dei modelli utilizzati e studiati sono basati sulla teoria dei network, la quale è stata ha acquisito uno spessore essenziale negli studi di biologia e di medicina.
+Nello specifico, la maggioranza dei modelli utilizzati e studiati sono basati sulla teoria dei network, la quale ha acquisito uno spessore essenziale negli studi di biologia e di medicina.
 
 \subsubsection{Teoria dei network}
 Per network si intende un modello che mira a rappresentare un sistema complesso, cercando di modellizzare le caratteristiche collettive. 
@@ -263,12 +263,8 @@ Così agendo, le ripetizioni delle regole su diversi valori della wildcard sono 
   
 
 Nel corso di questa tesi sono stati implementati alla pipeline altri attributi forniti da Snakemake.
-Infatti, eccetto le chiavi di base, esistono diverse funzionalità che arrischiscono l'impostazione e la realizzazione delle regole, tra cui \textit{params}, \textit{threads}, \textit{benchmark} e \textit{conda}.
-I primi due contengono rispettivamente i parametri indispensabili introdotti nell'azione e il numero di threads su cui l'azione può essere eseguita.
-Quest'ultima proprietà richiama ad uno tra gli aspetti più importanti che hanno determinato la scelta di Snakemake, ovvero la capacità di gestire l'esecuzione della pipeline sulle risorse tecniche dei nodi di calcolo adoperati.
-Le istruzioni sul numero di core da utilizzare, il numero di threads e la quantità di memoria da mettere a disposizione consentono di ricavare le configurazioni più efficienti, il tutto a beneficio dello sviluppo di metodi più potenti e ottimizzati.
-
-A differenza delle prime due direttive, \textit{benchmark} e \textit{conda} richiedono una trattatazione più ampia.
+Infatti, eccetto le chiavi di base, esistono diverse funzionalità che arrischiscono l'impostazione e la realizzazione delle regole, tra cui \textit{params}, \textit{benchmark} e \textit{conda}.
+Il primo indica i parametri indispensabili introdotti nella regola mentre \textit{benchmark} e \textit{conda} richiedono una trattatazione più ampia.
 
 In seguito alla spiegazioni di questi, è necessario dedicare un breve accenno ai file di configurazione spesso affiancati agli Snakefile.
 
@@ -305,7 +301,7 @@ In aggiunta, questo meccanismo rende plastica la realizzazione del codice, vista
 
 
 \subsection{I file di configurazione in Snakemake}
-I file di configurazione sono oggetti, solitamente in formato yaml, dedicati alle istruzioni sui parametri contenuti nei codici principali.
+I file di configurazione sono oggetti, solitamente in formato \textit{yaml}, dedicati alle istruzioni sui parametri contenuti nei codici principali.
 Il ruolo di tali file è stabilire il valore delle chiavi che rappresentano i parametri.
 Ad esempio, nel caso di Snakemake, un tipico file di configurazione ha forma: \verb! chiave: 'valore'!.
 Il valore può essere un numero, una parola, un percorso o un file, ed esso rimane costante se non modificato direttamente nel codice sorgente o da linea di comando.
@@ -331,7 +327,7 @@ Il contenuto dei file di configurazione è, in conclusione, determinante per il 
 \label{sec:LP}
 
 I gruppi di ricerca impegnati per l'analisi dei big data in campo biomedico, hanno a disposizione server sempre più sofisticati e veloci. Purtroppo le migliori prestazioni e funzionalità hanno comportato costi e consumi elettrici sempre piu' elevati (anche se negli ultimi anni sono state introdotte anche per i server tecnologie avanzate per il power-saving e il power-monitoring). 
-D'altra parte processori low-power normalmente utilizzati in ambito low-end o embedded/mobile stanno acquisendo un ruolo sempre piu' importante.
+D'altra parte i processori low-power normalmente utilizzati in ambito low-end o embedded/mobile stanno acquisendo un ruolo sempre piu' importante.
 
 Si è quindi creato nel mondo computazionale scientifico un inedito scenario: accanto ai tradizionali server high-end, costosi ed energivori, si iniziano a intravedere soluzioni ibride con processori low-power o acceleratori che stanno progressivamente riducendo il divario prestazionale rispetto ai server high-end. 
 
@@ -346,9 +342,10 @@ Questa tesi descrive una ricerca introduttiva per valutare prestazioni e funzion
 
 Le macchine low-power coinvolte in questa tesi sono state scelte con caratteristiche tecniche differenti pur mantenendo la stessa architettura X86\_64. In più, è stato considerato anche un server tradizionale X86\_64 per poter comparare le diverse esecuzioni.
 
-Le macchine low-power sono state scelte, installate e configurate grazie alla collaborazione con il CNAF (Centro Nazionale per la Ricerca e lo Sviluppo sulle Tecnologie per l'Informazione e la Comunicazione) dell'Istituto Nazionale di Fisica Nucleare
+Le macchine low-power sono state scelte, installate e configurate grazie alla collaborazione con il CNAF (Centro Nazionale per la Ricerca e lo Sviluppo sulle Tecnologie per l'Informazione e la Comunicazione) dell'Istituto Nazionale di Fisica Nucleare.
 
-La tabella della \ref{fig:Cluster} mostra le macchine utilizzate per i test.
+\pagebreak
+La figura \ref{fig:Cluster} mostra le macchine utilizzate per i test.
 
 
 \begin{figure}[H]
@@ -378,6 +375,7 @@ $\begin{array}{*{6}{c}}
 		xeond & \text{1x Xeon D-1540} & 16\,GB & 8\,TB(HDD) & \text{\euro 1000} & 60\,W\\
 		avoton & \text{1x Atom C2750}  & 16\,GB & 5\,TB(HDD) & \text{\euro 600} & 30\,W\\
 		n3700 & \text{1x Pentium N3700}  & 8\,GB & 0.5\,TB(SSD) & \text{\euro 130} & 8\,W \\
+	\midrule
 		bio8 & \text{2x Xeon E5-2620v4} & 128\,GB & 2\,TB(HDD) & \text{\euro 10000} & 180\,W\\		
 	\bottomrule
 \end{array}$%
@@ -400,6 +398,7 @@ $\begin{array}{*{6}{c}}
 		\text{Xeon D-1540} & Broadwell/14nm & 2.0(2.60) & 8(16) & 12\,MB & 45\,W \\
 		\text{Atom C2750} & Silvermont(Avoton)/22nm & 2.40(2.60) & 8 & 4\,MB & 25\,W \\
 		\text{Pentium N3700} & Airmont(Braswell)/14nm & 1.60(2.40) & 4 & 2\,MB & 6\,W \\
+	\midrule
 		\text{Xeon E5-2620v4} & Broadwell-EP/14nm & 2.10(3.00) & 8(16) & 20\,MB & 85\,W \\
 	\bottomrule
 \end{array}$%

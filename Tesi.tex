@@ -32,12 +32,18 @@
 
 \includeonly{C1,C2,C3,C4}
 \begin{document}
+\pagenumbering{gobble}
 \includepdf[pages={1}]{frontespizio.pdf}
+
+\newpage
+\
+\newpage
+
 \pagenumbering{roman}
 \section*{Prefazione}
 In questa tesi si è studiata l'efficienza computazionale di nodi di calcolo a basso consumo energetico per l'analisi biofisica, confrontati con nodi tradizionali.
 Questo lavoro è parte di un progetto per valutare la fattibilità dell'utilizzo di macchine a basso consumo energetico per calcolo ad alta performance.
-Lo scopo della ricerca è provare che l'utilizzo di un insieme di macchine(cluster) a minor dispendio energetico(low power) possano fornire una potenza di calcolo confrontabile con quella delle macchine tradizionali, consumando una minor quantità di energia e contenendo la spesa economica.  
+Lo scopo del progetto è provare che l'utilizzo di un insieme di macchine(cluster) a minor dispendio energetico(low power) possano fornire una potenza di calcolo maggiore a quella delle macchine tradizionali, consumando una minor quantità di energia e contenendo la spesa economica.  
 
 Il sistema su cui si è concentrato il lavoro di tesi è uno dei metodi più recenti nella ricerca sulle mutazioni genetiche che sono cause di vari tipi di tumori: il sistema GATK-LOD\ped{n}.
 Nel corso della tesi è stata reimplementata una componente di questo metodo in una pipeline nel programma Snakemake, che ha permesso una gestione più accurata delle operazioni previste per ottimizzare l'esecuzione complessiva. 
@@ -55,8 +61,9 @@ Il grande investimento necessario per l'acquisto di una singola macchina limita 
 
 L'aumento delle capacità di calcolo comporta inoltre un aumento del consumo energico per la gestione delle macchine, che occupa una percentuale rilevante nelle spese complessive.
 
-Nell'ultimo decennio, tali ragioni hanno portato quindi ad interessarsi a metodi alternativi per la computazione, come l'utilizzo di nodi su cluster a basso consumo energetico, argomento di questa tesi.
-L'idea di fondo è permettere ai ricercatori, a parità di investimento, di ottenere risultati comparabili a quelli ottenuti con i nodi tradizionali.
+Nell'ultimo decennio, tali ragioni hanno portato quindi ad interessarsi a metodi alternativi per la computazione, come l'utilizzo di nodi su cluster a basso consumo energetico.
+L'idea di fondo è permettere ai ricercatori, a parità di investimento, di ottenere una potenza di calcolo superiore a quella ottenuta con le macchine tradizionali.
+Per verificare se ciò sia possibile è prima necessario valutare se i nodi low power producono risultati comparabili a quelli dei nodi tradizionali, argomento di questa tesi.
 
 Nel primo capitolo saranno introdotti e approfonditi gli elementi cardine del progetto. Sarà esposto il metodo GATK-LOD\ped{n} sia nel funzionamento che nei risultati. 
 Successivamente sarà descritta la componente del metodo che è stata reimplementata tramite Snakemake e saranno approfondite le capacità di questo strumento.
@@ -69,9 +76,14 @@ Nel terzo capitolo verrano discussi i risultati finali più rilevanti per ciascu
 
 Per terminare saranno delineate le conclusioni, le considerazioni finali e gli sviluppi futuri del progetto, in base ai risultati ottenuti.
 
-\tableofcontents
 
+\tableofcontents
 \pagenumbering{arabic}
+
+\newpage
+\
+\newpage
+
 \include{C1}
 \include{C2}
 \include{C3}

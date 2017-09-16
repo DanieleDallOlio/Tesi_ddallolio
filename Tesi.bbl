@@ -1,0 +1,96 @@
+\begin{thebibliography}{10}
+
+\bibitem{Behjati2013}
+Sam Behjati and Patrick~S Tarpey.
+\newblock {What is next generation sequencing?}
+\newblock {\em Archives of disease in childhood - Education {\&} practice
+  edition}, 98(6):236--238, 2013.
+
+\bibitem{Shendure2008}
+Jay Shendure and Hanlee Ji.
+\newblock {Next-generation DNA sequencing}.
+\newblock {\em Nature Biotechnology}, 26(10):1135--1145, 2008.
+
+\bibitem{DoValle2016}
+{\'{I}}talo~Faria do~Valle, Enrico Giampieri, Giorgia Simonetti, Antonella
+  Padella, Marco Manfrini, Anna Ferrari, Cristina Papayannidis, Isabella
+  Zironi, Marianna Garonzi, Simona Bernardi, Massimo Delledonne, Giovanni
+  Martinelli, Daniel Remondini, and Gastone Castellani.
+\newblock {Optimized pipeline of MuTect and GATK tools to improve the detection
+  of somatic single nucleotide polymorphisms in whole-exome sequencing data}.
+\newblock {\em BMC Bioinformatics}, 17(S12):341, 2016.
+
+\bibitem{McKenna2010}
+Aaron McKenna, Matthew Hanna, Eric Banks, Andrey Sivachenko, Kristian
+  Cibulskis, Andrew Kernytsky, Kiran Garimella, David Altshuler, Stacey
+  Gabriel, Mark Daly, and Mark~A. DePristo.
+\newblock {The genome analysis toolkit: A MapReduce framework for analyzing
+  next-generation DNA sequencing data}.
+\newblock {\em Genome Research}, 20(9):1297--1303, 2010.
+
+\bibitem{Cibulskis2013}
+Kristian Cibulskis, Michael~S Lawrence, Scott~L Carter, Andrey Sivachenko,
+  David Jaffe, Carrie Sougnez, Stacey Gabriel, Matthew Meyerson, Eric~S Lander,
+  and Gad Getz.
+\newblock {Sensitive detection of somatic point mutations in impure and
+  heterogeneous cancer samples}.
+\newblock {\em Nature Biotechnology}, 31(3):213--219, 2013.
+
+\bibitem{2058-7058-12-9-22}
+Harold Varmus.
+\newblock {The Impact of Physics on Biology and Medicine}.
+\newblock {\em Physics World}, 12(9):27, 1999.
+
+\bibitem{Pooley2005}
+Richard Pooley.
+\newblock {Bridging the culture gap}, 2005.
+
+\bibitem{Zwolak2008}
+Michael Zwolak and Massimiliano {Di Ventra}.
+\newblock {Colloquium: Physical approaches to DNA sequencing and detection}.
+\newblock {\em Reviews of Modern Physics}, 80(1):141--165, 2008.
+
+\bibitem{Koster2012}
+Johannes K{\"{o}}ster and Sven Rahmann.
+\newblock {Snakemake-a scalable bioinformatics workflow engine}.
+\newblock {\em Bioinformatics}, 28(19):2520--2522, 2012.
+
+\bibitem{Python}
+T.~E. Oliphant.
+\newblock Python for scientific computing.
+\newblock {\em Computing in Science Engineering}, 9(3):10--20, May 2007.
+
+\bibitem{pandas}
+Wes McKinney.
+\newblock Data structures for statistical computing in python.
+\newblock In St\'efan van~der Walt and Jarrod Millman, editors, {\em
+  Proceedings of the 9th Python in Science Conference}, pages 51 -- 56, 2010.
+
+\bibitem{Matplotlib}
+J.~D. Hunter.
+\newblock Matplotlib: A 2d graphics environment.
+\newblock {\em Computing in Science Engineering}, 9(3):90--95, May 2007.
+
+\bibitem{IPython}
+F.~Perez and B.~E. Granger.
+\newblock Ipython: A system for interactive scientific computing.
+\newblock {\em Computing in Science Engineering}, 9(3):21--29, May 2007.
+
+\bibitem{seaborn}
+Michael Waskom, Olga Botvinnik, Paul Hobson, John~B. Cole, Yaroslav Halchenko,
+  Stephan Hoyer, Alistair Miles, Tom Augspurger, Tal Yarkoni, Tobias Megies,
+  Luis~Pedro Coelho, Daniel Wehner, cynddl, Erik Ziegler, diego0020, Yury~V.
+  Zaytsev, Travis Hoppe, Skipper Seabold, Phillip Cloud, Miikka Koskinen, Kyle
+  Meyer, Adel Qalieh, and Dan Allan.
+\newblock seaborn: v0.5.0 (november 2014), November 2014.
+
+\bibitem{Numpy}
+S.~van~der Walt, S.~C. Colbert, and G.~Varoquaux.
+\newblock The numpy array: A structure for efficient numerical computation.
+\newblock {\em Computing in Science Engineering}, 13(2):22--30, March 2011.
+
+\bibitem{Scipy}
+Eric Jones, Travis Oliphant, Pearu Peterson, et~al.
+\newblock {SciPy}: Open source scientific tools for {Python}, 2001--.
+
+\end{thebibliography}

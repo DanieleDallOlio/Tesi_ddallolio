@@ -25,7 +25,7 @@ Infine, sono esposte, nella fase di configurazione, le modalità di impostazione
 Il passaggio iniziale consiste nel predisporre l'ambiente di lavoro soddisfacendo i requisiti indispensabili per una valida esecuzione.
 
 Nella preparazione di questa tesi, è stato scritto uno script apposito per questa fase preliminare, denominato \textit{installer.sh}, in modo da rendere questo procedimento compatto e più rapido.
-Infatti, aver a disposizione un unico file da eseguire consente di automatizzare l'installazione e di garantire una gestione semplificato nel caso si parallelizzasse l'esecuzione su diversi nodi.
+Infatti, aver a disposizione un unico file da eseguire consente di automatizzare l'installazione e di garantire una gestione semplificata nel caso si parallelizzasse l'esecuzione su diversi nodi.
 
 Questo eseguibile, in più, può risultare utile per coloro che sono già in possesso dei requisiti ma che preferiscono evitare di mischiare diversi ambienti di lavoro.
 Ciò perchè l'installer aggiunge al bash script \textit{.bashrc} il percorso della directory Miniconda prodotta nell'installazione, così da indurre l'utilizzo di quei tool, tra cui \textit{Conda} e \textit{Snakemake}, inclusi nella medesima cartella.
@@ -49,7 +49,7 @@ Conclusi gli interventi preparatori, può essere avviata l'esecuzione del proced
 
 \subsection{Esecuzione}
 La fase esecutiva comprende una serie di processi che si possono raggruppare in tre macro sezioni ben definite.
-La prima di esse descrive il processo di estrazione dei sottogruppi, o subset, di sequenze di DNA che si sceglie analizzare.
+La prima di esse descrive il processo di estrazione dei subset di sequenze di DNA che si sceglie analizzare.
 La seconda presenta la pipeline per l'analisi del genoma e dichiara quali sono i prodotti attesi.
 La terza racchiude un'operazione di riordinamento e di semplificazione di tali ultimi prodotti per agevolare le successive indagini statistiche.
 
@@ -60,7 +60,7 @@ La terza racchiude un'operazione di riordinamento e di semplificazione di tali u
 Gli oggetti delle analisi sono i subset genetici che si sceglie di estrarre dall'intero genoma del soggetto e per questo è lecito accennare a come avviene l'estrazione.
 
 Il genoma del soggetto è solitamente contenuto in un file in formato di testo \textit{fastq} che contiene le sequenze di nucleotidi rilevate durante le analisi in laboratorio.
-In questo progetto però, la rilevazione non è singola ma duplice e quindi i dati del paziente sono suddivisi in due file fastq accoppiati.
+In questo progetto però, la rilevazione non è singola ma duplice e quindi i dati del paziente sono suddivisi in due file \textit{fastq} accoppiati.
 Ogni singola lettura contenuta nel \textit{fastq} è descritta da quattro linee che rappresentano: la marcatura della sequenza, la sequenza, l'identificazione del punteggio di qualità e il punteggio di qualità.
 
 
@@ -97,7 +97,7 @@ Terminate le indicizzazioni, è sfruttato BWA MEM per la mappatura del DNA del s
 Dopo essersi procurati i file \verb!sorted_bam!, è eseguito il comando MarkDuplicates di Picard per identificare le letture doppie ed è generato un nuovo file \verb!dedup_bam!.
 Elaborando quest'ultimo, la regola successiva crea un indice(in un file \textit{bai}) per il file \textit{bam} in modo da velocizzare l'analisi dei dati nel \textit{bam}; ciò è realizzato da un'altra funzionalità di Picard chiamata BuildBamIndex.
 
-Per concludere, supportati dalla direttiva RealignerTargetCreator, propria del pacchetto GATK, il contenuto del file \textit{bam} è riallineato localmente in modo da diminuire ed evidenzire il numero di variazioni presenti.
+Per concludere, supportati dalla direttiva RealignerTargetCreator, propria del pacchetto GATK, il contenuto del file \textit{bam} è riallineato localmente in modo da diminuire ed evidenziare il numero di variazioni presenti.
 
 Per riassumere l'intero processo è possibile osservare la raffigurazione seguente \ref{fig:w}.
 \begin{figure}[H]
@@ -159,7 +159,7 @@ Altre istruzioni sulla configurazione del procedimento sono richieste da \textit
 Sempre nell'ambito di questa tesi, è stato scritto solo un documento di configurazione relativo a \textit{Conda}, dato che la maggior parte dei processi necessita di un ambiente con le stesse caratteristiche.
 Nello specifico, quest'unico file di riferimento è contenuto nella directory \textit{envs} ed è chiamato \verb!config_conda.yaml!.
 
-I requisiti richiesti per l'ambiente sono soddisfatti istruendo espressamente \textit{Conda} all'utilizzo del canale \textit{bioconda} per procedere con l'installazione di tre software coinvolti nel sequenziamento: \textit{BWA}, \textit{Picard} e \textit{Samtools}.
+I requisiti richiesti per l'ambiente sono soddisfatti istruendo espressamente \textit{Conda} all'utilizzo del canale \textit{bioconda} per procedere con l'installazione di Java e di tre software coinvolti nel sequenziamento: \textit{BWA}, \textit{Picard} e \textit{Samtools}.
 
 Ora che la natura del sistema è stata argomentata e sono stati approfonditi pure le procedure configurative, è possibile illustrare il percorso di studio statistico effettuato, accompagnato da una presentazione del genere di simulazioni conseguite.
 
@@ -180,7 +180,7 @@ L'ultima sezione include una semplice presentazione sul tipo di simulazioni che 
 
 \subsection{Analisi sul tempo di esecuzione}
 \label{sbsec:Te}
-Lo studio sul tempo di esecuzione è stato eseguito con lo scopo di delineare un andamento preciso di esso per ogni regola e per ognuna dei nodi adoperati.  
+Lo studio sul tempo di esecuzione è stato eseguito con lo scopo di delineare un andamento preciso di esso per ogni regola e per ognuno dei nodi adoperati.  
 
 Inizialmente è stata derivata dal dataframe generale una tabella in cui ogni regola svolta corrispondesse a un subset e che quindi, non fossero presenti quelle regole indipendenti dal tipo di dati analizzati.
 I lavori che dipendono dai dati sono, in ordine di esecuzione: la mappatura(mapping), l'ordinamento tramite picard(sort picard), la rilevazione dei duplicati(mark duplicates), la creazione dei file bam(build bam) e il riallineamento(realigner).
@@ -258,6 +258,7 @@ La tabella \ref{tab:sub_dim} mostra la dimensione occupata su disco dal numero d
 			\num{1e6}     & \text{2x 284.9\,MB} \\
 			\num{3e6}     & \text{2x 854.9\,MB} \\
 			\num{9e6}     & \text{2x 2.6\,GB} \\
+		\midrule
 			\num{4.5e7}    & \text{2x 12.8\,GB} \\
 		\bottomrule
 	\end{tabular}
@@ -267,7 +268,7 @@ La tabella \ref{tab:sub_dim} mostra la dimensione occupata su disco dal numero d
 
 Per ogni numero di letture la dimensione occupata su disco è il doppio perchè, come citato nel paragrafo \ref{subsubsec: ext}, sono generati in fase di estrazione due file \textit{.fastq} per ogni subset.
 
-In dettaglio, queste simulazioni sono state ripetute dieci volte per i nodi xeond e bio8 mentre sono stata ripetute cinque volte per gli altri nodi.
+In dettaglio, queste simulazioni sono state ripetute dieci volte per i nodi xeond e bio8 mentre sono state ripetute cinque volte per gli altri nodi.
 
 Infine utilizzando lo script \verb!split.py! descritto nella sezione \ref{subsubsec: ext}, sono stati estratti subsets contenenti letture diverse, ma dello stesso numero, che sono stati studiati in una fase delle analisi.
 L'unico numero di letture considerato è stato centomila e ciò è stato eseguito solo per i nodi dei cluster low power, e quindi non da bio8.
