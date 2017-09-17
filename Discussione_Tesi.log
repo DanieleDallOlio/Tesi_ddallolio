@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.4)  16 SEP 2017 13:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.4)  17 SEP 2017 16:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1810,7 +1810,7 @@ Overfull \vbox (0.83334pt too high) detected at line 164
 
 [4
 
-] <./Figure/GATK-LODn.png, id=202, 512.91624pt x 521.95pt>
+] <./Figure/GATK-LODn.png, id=211, 512.91624pt x 521.95pt>
 File: ./Figure/GATK-LODn.png Graphic file (type png)
 
 <use ./Figure/GATK-LODn.png>
@@ -1818,108 +1818,112 @@ Package pdftex.def Info: ./Figure/GATK-LODn.png used on input line 179.
 (pdftex.def)             Requested size: 153.87605pt x 156.5862pt.
  [5
 
- <./Figure/GATK-LODn.png>]
-<./Figure/Workflow.jpg, id=232, 304.88907pt x 478.03593pt>
+ <./Figure/GATK-LODn.png>] [6
+
+]
+<./Figure/Workflow.jpg, id=269, 304.88907pt x 478.03593pt>
 File: ./Figure/Workflow.jpg Graphic file (type jpg)
 
 <use ./Figure/Workflow.jpg>
-Package pdftex.def Info: ./Figure/Workflow.jpg used on input line 197.
+Package pdftex.def Info: ./Figure/Workflow.jpg used on input line 211.
 (pdftex.def)             Requested size: 91.46742pt x 143.41188pt.
- [6
+ [7
 
- <./Figure/Workflow.jpg>] [7
+ <./Figure/Workflow.jpg>] [8
+
+] [9
 
 ]
-<./Figure/Grafici_Finali/mapping.png, id=291, 456.70625pt x 436.63126pt>
+<./Figure/Grafici_Finali/mapping.png, id=355, 456.70625pt x 436.63126pt>
 File: ./Figure/Grafici_Finali/mapping.png Graphic file (type png)
 
 <use ./Figure/Grafici_Finali/mapping.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/mapping.png used on input line
- 245.
+ 289.
 (pdftex.def)             Requested size: 228.35255pt x 218.3151pt.
 
-Overfull \vbox (8.9017pt too high) detected at line 245
+Overfull \vbox (8.9017pt too high) detected at line 289
  []
 
-[8
+[10
 
  <./Figure/Grafici_Finali/mapping.png>]
-<./Figure/Grafici_Finali/sort_picard.png, id=326, 461.725pt x 436.63126pt>
+<./Figure/Grafici_Finali/sort_picard.png, id=391, 461.725pt x 436.63126pt>
 File: ./Figure/Grafici_Finali/sort_picard.png Graphic file (type png)
 
 <use ./Figure/Grafici_Finali/sort_picard.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/sort_picard.png used on input 
-line 258.
+line 302.
 (pdftex.def)             Requested size: 230.86194pt x 218.3151pt.
 
-Overfull \vbox (8.9017pt too high) detected at line 258
+Overfull \vbox (8.9017pt too high) detected at line 302
  []
 
-[9
+[11
 
  <./Figure/Grafici_Finali/sort_picard.png>]
-<./Figure/Grafici_Finali/Tempi_complessivi.png, id=356, 527.9725pt x 508.90125p
+<./Figure/Grafici_Finali/Tempi_complessivi.png, id=421, 527.9725pt x 508.90125p
 t>
 File: ./Figure/Grafici_Finali/Tempi_complessivi.png Graphic file (type png)
  <use ./Figure/Grafici_Finali/Tempi_complessivi.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Tempi_complessivi.png used on 
-input line 271.
+input line 315.
 (pdftex.def)             Requested size: 227.02374pt x 218.82327pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfig:SP}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.271 \end{frame}
+l.315 \end{frame}
                  
-Overfull \vbox (9.40988pt too high) detected at line 271
+Overfull \vbox (9.40988pt too high) detected at line 315
  []
 
-[10
+[12
 
  <./Figure/Grafici_Finali/Tempi_complessivi.png>]
-<./Figure/Grafici_Finali/Max_rss_mapping.png, id=386, 443.6575pt x 429.605pt>
+<./Figure/Grafici_Finali/Max_rss_mapping.png, id=450, 443.6575pt x 429.605pt>
 File: ./Figure/Grafici_Finali/Max_rss_mapping.png Graphic file (type png)
 
 <use ./Figure/Grafici_Finali/Max_rss_mapping.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_mapping.png used on in
-put line 286.
+put line 330.
 (pdftex.def)             Requested size: 204.08492pt x 197.6207pt.
- [11
+ [13
 
  <./Figure/Grafici_Finali/Max_rss_mapping.png>]
-<./Figure/Grafici_Finali/Max_rss_sort_picard.png, id=417, 453.695pt x 428.60126
+<./Figure/Grafici_Finali/Max_rss_sort_picard.png, id=483, 453.695pt x 428.60126
 pt>
 File: ./Figure/Grafici_Finali/Max_rss_sort_picard.png Graphic file (type png)
  <use ./Figure/Grafici_Finali/Max_rss_sort_picard.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_sort_picard.png used o
-n input line 299.
+n input line 343.
 (pdftex.def)             Requested size: 208.70222pt x 197.15897pt.
 pdfTeX warning (ext4): destination with the same identifier (name{fig:RSSind}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.299 \end{frame}
-                  [12
+l.343 \end{frame}
+                  [14
 
  <./Figure/Grafici_Finali/Max_rss_sort_picard.png>]
-<./Figure/Grafici_Finali/Max_rss_realigner.png, id=446, 440.64626pt x 428.60126
+<./Figure/Grafici_Finali/Max_rss_realigner.png, id=512, 440.64626pt x 428.60126
 pt>
 File: ./Figure/Grafici_Finali/Max_rss_realigner.png Graphic file (type png)
  <use ./Figure/Grafici_Finali/Max_rss_realigner.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_realigner.png used on 
-input line 312.
+input line 356.
 (pdftex.def)             Requested size: 202.69974pt x 197.15897pt.
 pdfTeX warning (ext4): destination with the same identifier (name{fig:RSSind}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.312 \end{frame}
-                  [13
+l.356 \end{frame}
+                  [15
 
- <./Figure/Grafici_Finali/Max_rss_realigner.png>] [14
+ <./Figure/Grafici_Finali/Max_rss_realigner.png>] [16
 
 ]
-[15
+[17
 
 ]
 \tf@nav=\write6
@@ -1931,13 +1935,13 @@ l.312 \end{frame}
 \tf@snm=\write8
 \openout8 = `Discussione_Tesi.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 358.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 358.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 402.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 402.
  (./Discussione_Tesi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 358.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 358.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 402.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 402.
 Package rerunfilecheck Info: File `Discussione_Tesi.out' has not changed.
-(rerunfilecheck)             Checksum: 2C312884E7C98AD7B5E626DF4036341F;839.
+(rerunfilecheck)             Checksum: F86C35036E001CE7F9B8CD1D236897EB;963.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1948,13 +1952,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 31257 strings out of 493013
- 611354 string characters out of 6135683
- 659023 words of memory out of 5000000
- 34183 multiletter control sequences out of 15000+600000
+ 31273 strings out of 493013
+ 611518 string characters out of 6135683
+ 659024 words of memory out of 5000000
+ 34193 multiletter control sequences out of 15000+600000
  15760 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,18n,57p,10387b,1094s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,18n,57p,10387b,1337s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texli
@@ -1964,10 +1968,10 @@ st/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/eurosym/feymr10.pfb>
-Output written on Discussione_Tesi.pdf (15 pages, 317456 bytes).
+Output written on Discussione_Tesi.pdf (17 pages, 326034 bytes).
 PDF statistics:
- 575 PDF objects out of 1000 (max. 8388607)
- 516 compressed objects within 6 object streams
- 49 named destinations out of 1000 (max. 500000)
- 217 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 640 PDF objects out of 1000 (max. 8388607)
+ 579 compressed objects within 6 object streams
+ 55 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

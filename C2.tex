@@ -92,12 +92,15 @@ Le prime regole consistono nell'indicizzazione del genoma umano di riferimento p
 Queste coinvolgono il software di allineamento BWA, il tool di manipolazione Picard, il gestore di strumenti Samtools e i programmi affini a GATK.
 Per le prime tre  applicazioni, questa operazione è portata avanti da una specifica opzione delle stesse, mentre per l'ultimo essa è inclusa già nell'uso di Samtools.
 
-Terminate le indicizzazioni, è sfruttato BWA MEM per la mappatura del DNA del soggetto sul genoma di riferimento che, inoltre, produce un file di etichetta, in formato \textit{SAM}, che è sottoposto ad un riordinamento da parte Picard con l'assistenza della modalità SortSam.
+Terminate le indicizzazioni, è sfruttato BWA MEM per la mappatura del DNA del soggetto sul genoma di riferimento. Questo inoltre, produce un file di etichetta in formato \textit{SAM}, che è sottoposto ad un riordinamento da parte di Picard tramite la modalità SortSam.
+Il riordinamento produce i file \verb!sorted_bam!. 
 
-Dopo essersi procurati i file \verb!sorted_bam!, è eseguito il comando MarkDuplicates di Picard per identificare le letture doppie ed è generato un nuovo file \verb!dedup_bam!.
-Elaborando quest'ultimo, la regola successiva crea un indice(in un file \textit{bai}) per il file \textit{bam} in modo da velocizzare l'analisi dei dati nel \textit{bam}; ciò è realizzato da un'altra funzionalità di Picard chiamata BuildBamIndex.
+In seguito è eseguito il comando MarkDuplicates di Picard per identificare le letture doppie ed è generato un nuovo file \verb!dedup_bam!.
+Elaborando quest'ultimo, la regola successiva crea un indice(in un file \textit{bai}) per il file \textit{bam} in modo da velocizzare l'analisi dei dati nel \textit{bam}. Ciò è realizzato da un'altra funzionalità di Picard chiamata BuildBamIndex.
 
-Per concludere, supportati dalla direttiva RealignerTargetCreator, propria del pacchetto GATK, il contenuto del file \textit{bam} è riallineato localmente in modo da diminuire ed evidenziare il numero di variazioni presenti.
+Per concludere, supportati dalla direttiva RealignerTargetCreator, propria del pacchetto GATK, sono determinati gli intervalli nei file \textit{bam} che probabilmente devono essere sottoposti a riallineamento Indel.
+Questo è effettuato perchè le possibili inserzioni e cancellazioni delle basi del paziente causano un'errata corrispondenza con le basi del riferimento.
+Non considerando questo passaggio, nelle fasi successive, gli abbinamenti sbagliati possono essere rilevati come varianti, falsificando i risultati.  
 
 Per riassumere l'intero processo è possibile osservare la raffigurazione seguente \ref{fig:w}.
 \begin{figure}[H]

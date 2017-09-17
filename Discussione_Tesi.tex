@@ -178,6 +178,20 @@ Requisiti molto elevati in termini di potenza di calcolo, di occupazione di memo
 \end{columns}
 \end{frame}
 
+\subsection{NGS}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}
+\begin{block}{NGS}
+
+\end{block}
+\begin{block}
+
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
 
 \section{Materiali e Metodi}
 
@@ -195,6 +209,36 @@ Una parte di GATK-LOD\ped{n} è stata reimplementata nel tool Snakemake.
 \end{column}
 \end{columns}
 \end{frame}
+
+\subsection{La parte considerata}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}
+\begin{block}{Regole}
+\begin{block}{Indipendenti dal paziente}
+\begin{itemize}
+\small
+\item Indicizzazione per BWA
+\item Indicizzazione per Picard
+\item Indicizzazione per Samtools(e GATK) 
+\end{itemize}
+\begin{block}{Dipendenti dal paziente}
+\small
+\begin{itemize}
+\small
+\item \textbf{Mapping}: mappatura delle sequenze del paziente sul riferimento(in SAM).
+\item \textbf{Sort Picard}: riordinamento dei file SAM(in BAM). 
+\item \textbf{Mark Duplicates}: identificazione dei duplicati.
+\item \textbf{Build BAM}: indicizza il file BAM per velocizzare l'analisi.
+\item \textbf{Realigner}: determina gli intervalli che necessitano probabilmente del riallineamento Indel.
+\end{itemize}
+\end{block}
+\end{block}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
 
 \subsection{Analisi statistiche}
 \begin{frame}

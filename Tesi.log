@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.4)  17 SEP 2017 01:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.4)  17 SEP 2017 16:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1356,13 +1356,13 @@ Overfull \hbox (13.62294pt too wide) in paragraph at lines 67--68
 File: ./Figure/Workflow.jpg Graphic file (type jpg)
 
 <use ./Figure/Workflow.jpg>
-Package pdftex.def Info: ./Figure/Workflow.jpg used on input line 105.
+Package pdftex.def Info: ./Figure/Workflow.jpg used on input line 108.
 (pdftex.def)             Requested size: 152.44415pt x 239.01738pt.
  [24]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 122.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 125.
  [25 <./Figure/Workflow.jpg>]
-Overfull \hbox (4.48734pt too wide) in paragraph at lines 144--145
+Overfull \hbox (4.48734pt too wide) in paragraph at lines 147--148
 []\OT1/cmr/m/n/12 Le in-for-ma-zio-ni ne-ces-sa-rie al-lo Sna-ke-fi-le so-no pr
 o-cu-ra-te dal fi-le \OT1/cmr/m/it/12 con-fig.yaml\OT1/cmr/m/n/12 ,
  []
@@ -1556,7 +1556,7 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/eurosym/feymr10.pfb>
-Output written on Tesi.pdf (50 pages, 888145 bytes).
+Output written on Tesi.pdf (50 pages, 888390 bytes).
 PDF statistics:
  652 PDF objects out of 1000 (max. 8388607)
  540 compressed objects within 6 object streams
