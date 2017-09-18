@@ -103,10 +103,170 @@
 \end{block}
 \end{itemize}
 \end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Obiettivo}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}		
 \begin{block}{Obiettivo della tesi}
 \small
 \textbf{Ottenere risultati con i nodi low power
 comparabili a quelli ottenuti con i nodi tradizionali.}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\subsection{Pipeline di calcolo bioinformatico}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}
+\begin{block}{GATK-LODn}
+Requisiti molto elevati in termini di potenza di calcolo, di occupazione di memoria e di spazio d’archiviazione.
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{GATK-LODn.png}
+\end{figure}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{NGS}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}
+\begin{block}{NGS}
+\begin{itemize}
+\item Comprende le nuove tecniche per il sequenziamento del 
+DNA.
+%\item Succede al Human Genome Project.
+\item Tecniche più rapide e meno costose dei metodi precedenti.
+\item Shotgun Sequencing.
+\item Necessitano di metodi computazionali basati sulla teoria dei network.
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Interesse}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}
+\begin{block}{Studio sulle varianti}
+\begin{itemize}
+\item Confronto con il genoma di riferimento.
+\item Individuazione delle mutazioni somatiche sia nel paziente che nel tumore.
+\item Ricerca di quelle mutazioni che sono presenti solo nel tumore.
+\item Confronto tumori simili tra diversi soggetti.
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{Materiali e Metodi}
+
+\subsection{Struttura delle simulazioni}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}	
+\begin{block}{Struttura delle simulazioni}
+Una parte di GATK-LOD\ped{n} è stata reimplementata nel tool Snakemake.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{Workflow.jpg}
+\end{figure}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{La parte considerata}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}
+\begin{block}{Regole indipendenti dal paziente}
+Indicizzazione del genoma di riferimento per:
+\begin{itemize}
+\item BWA
+\item Picard
+\item Samtools(e GATK) 
+\end{itemize}
+\end{block}
+\begin{block}{Regole dipendenti dal paziente}
+\begin{itemize}
+\item \textbf{Mapping}: mappatura delle sequenze del paziente sul riferimento.
+\item \textbf{Sort Picard}: riordinamento dei file. 
+\item \textbf{Mark Duplicates}: identificazione dei duplicati.
+\item \textbf{Build BAM}: indicizza i file per velocizzare l'analisi.
+\item \textbf{Realigner}: determina gli intervalli che necessitano del riallineamento.
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Utilizzo delle risorse}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}
+\begin{block}{Procedura tradizionale}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{concurrency2.png}
+\end{figure}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}
+\begin{block}{Procedura ricercata}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{concurrency1.png}
+\end{figure}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Analisi statistiche}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}	
+\begin{block}{Analisi effettuate}
+\begin{itemize}
+\item Tempo di esecuzione
+\item Memoria utilizzata
+\end{itemize}
+\end{block}
+\begin{block}{Simulazioni effettuate}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lr}
+		\toprule
+			\text{numero di letture} & \text{dimensione su disco} \\
+		\midrule
+			\num{1e5}   & \text{2x 28.4\,MB} \\
+			\num{1e6}     & \text{2x 284.9\,MB} \\
+			\num{3e6}     & \text{2x 854.9\,MB} \\
+			\num{9e6}     & \text{2x 2.6\,GB} \\
+		\midrule
+		\rowcolor{yellow}		
+			\num{4.5e7}    & \text{2x 12.8\,GB} \\
+		\bottomrule
+	\end{tabular}
+	\caption{Stima della dimensione dei subset in relazione al numero di letture. L'ultimo valore si riferisce all'intero paziente.}
+\end{table}
 \end{block}
 \end{column}
 \end{columns}
@@ -163,135 +323,21 @@ $\begin{array}{*{6}{c}}
 \end{columns}
 \end{frame}
 
-\subsection{Pipeline di calcolo bioinformatico}
-\begin{frame}
-\begin{columns}
-\begin{column}{0.8\linewidth}
-\begin{block}{GATK-LODn}
-Requisiti molto elevati in termini di potenza di calcolo, di occupazione di memoria e di spazio d’archiviazione.
-\begin{figure}
-\centering
-\includegraphics[scale=0.3]{GATK-LODn.png}
-\end{figure}
-\end{block}
-\end{column}
-\end{columns}
-\end{frame}
-
-\subsection{NGS}
-\begin{frame}
-\begin{columns}
-\begin{column}{0.8\linewidth}
-\begin{block}{NGS}
-\begin{itemize}
-\small
-\item Comprende le nuove tecniche per il sequenziamento del 
-DNA.
-\item Succede al Human Genome Project.
-\item Tecniche più rapide e meno costose, che superano il metodo Sanger.
-\item Utilizzo della Teoria dei Network.
-\item \textbf{Shotgun Sequencing}.
-\end{itemize}
-\end{block}
-\end{column}
-\end{columns}
-\end{frame}
-
-
-\section{Materiali e Metodi}
-
-\subsection{Struttura delle simulazioni}
-\begin{frame}
-\begin{columns}
-\begin{column}{0.8\linewidth}	
-\begin{block}{Struttura delle simulazioni}
-Una parte di GATK-LOD\ped{n} è stata reimplementata nel tool Snakemake.
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.3]{Workflow.jpg}
-\end{figure}
-\end{block}
-\end{column}
-\end{columns}
-\end{frame}
-
-\subsection{La parte considerata}
-\begin{frame}
-\begin{columns}
-\begin{column}{0.8\linewidth}
-\begin{block}{Regole}
-\begin{block}{Indipendenti dal paziente}
-\begin{itemize}
-\small
-\item Indicizzazione per BWA
-\item Indicizzazione per Picard
-\item Indicizzazione per Samtools(e GATK) 
-\end{itemize}
-\begin{block}{Dipendenti dal paziente}
-\small
-\begin{itemize}
-\small
-\item \textbf{Mapping}: mappatura delle sequenze del paziente sul riferimento(in SAM).
-\item \textbf{Sort Picard}: riordinamento dei file SAM(in BAM). 
-\item \textbf{Mark Duplicates}: identificazione dei duplicati.
-\item \textbf{Build BAM}: indicizza il file BAM per velocizzare l'analisi.
-\item \textbf{Realigner}: determina gli intervalli che necessitano probabilmente del riallineamento Indel.
-\end{itemize}
-\end{block}
-\end{block}
-\end{block}
-\end{column}
-\end{columns}
-\end{frame}
-
-
-\subsection{Analisi statistiche}
-\begin{frame}
-\begin{columns}
-\begin{column}{0.8\linewidth}	
-\begin{block}{Analisi effettuate}
-\begin{itemize}
-\item Tempo di esecuzione
-\item Memoria utilizzata
-\end{itemize}
-\end{block}
-\begin{block}{Simulazioni effettuate}
-\begin{table}[H]
-	\centering
-	\begin{tabular}{lr}
-		\toprule
-			\text{numero di letture} & \text{dimensione su disco} \\
-		\midrule
-			\num{1e5}   & \text{2x 28.4\,MB} \\
-			\num{1e6}     & \text{2x 284.9\,MB} \\
-			\num{3e6}     & \text{2x 854.9\,MB} \\
-			\num{9e6}     & \text{2x 2.6\,GB} \\
-		\midrule
-		\rowcolor{yellow}		
-			\num{4.5e7}    & \text{2x 12.8\,GB} \\
-		\bottomrule
-	\end{tabular}
-	\caption{Stima della dimensione dei subset in relazione al numero di letture. L'ultimo valore si riferisce all'intero paziente.}
-\end{table}
-\end{block}
-\end{column}
-\end{columns}
-\end{frame}
 
 \section{Risultati}
 \subsection{Tempo di esecuzione}
-\begin{frame}
-\begin{columns}
-\begin{column}{0.8\linewidth}	
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.5]{mapping.png}	
-\captionof{figure}{Tempi per Mapping.}
-\label{subfig:Map}
-\end{figure}
-\end{column}
-\end{columns}
-\end{frame}
+%\begin{frame}
+%\begin{columns}
+%\begin{column}{0.8\linewidth}	
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.5]{mapping.png}	
+%\captionof{figure}{Tempi per Mapping.}
+%\label{subfig:Map}
+%\end{figure}
+%\end{column}
+%\end{columns}
+%\end{frame}
 
 \begin{frame}
 \begin{columns}
@@ -321,31 +367,31 @@ Una parte di GATK-LOD\ped{n} è stata reimplementata nel tool Snakemake.
 
 
 \subsection{Memoria utilizzata}
-\begin{frame}
-\begin{columns}
-\begin{column}{0.8\linewidth}	
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.46]{Max_rss_mapping.png}
-\caption{Mapping.}
-\label{fig:RSSind}
-\end{figure}
-\end{column}
-\end{columns}
-\end{frame}
+%\begin{frame}
+%\begin{columns}
+%\begin{column}{0.8\linewidth}	
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.46]{Max_rss_mapping.png}
+%\caption{Mapping.}
+%\label{fig:RSSind}
+%\end{figure}
+%\end{column}
+%\end{columns}
+%\end{frame}
 
-\begin{frame}
-\begin{columns}
-\begin{column}{0.8\linewidth}	
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.46]{Max_rss_realigner.png}
-\caption{Realigner.}
-\label{fig:RSSind}
-\end{figure}
-\end{column}
-\end{columns}
-\end{frame}
+%\begin{frame}
+%\begin{columns}
+%\begin{column}{0.8\linewidth}	
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.46]{Max_rss_realigner.png}
+%\caption{Realigner.}
+%\label{fig:RSSind}
+%\end{figure}
+%\end{column}
+%\end{columns}
+%\end{frame}
 
 
 \begin{frame}
@@ -374,10 +420,18 @@ Una parte di GATK-LOD\ped{n} è stata reimplementata nel tool Snakemake.
 \begin{block}{Memoria utilizzata}
 \begin{itemize}
 \item Saturazione
-\item Adattamento dinamico
+\item Valori di saturazioni consistenti
 \item Sempre inferiore al massimo di memoria accessibile
 \end{itemize}
 \end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Conclusione}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}	
 \begin{block}{Conclusione}
 \textbf{In base a questi risultati questa pipeline di calcolo bioinformatico sembra
 essere realisticamente eseguibile anche su nodi a bassa potenza senza una
@@ -398,8 +452,8 @@ perdita considerevole di prestazioni.}
 \item Simulazioni su cluster
 \end{itemize}
 \end{block}
-\begin{block}{Pubblicazione}
-Cercheremo di completare il progetto e infine di pubblicarlo.
+\begin{block}{}
+Una volta terminati questi passi intendiamo pubblicarli.
 \end{block}
 \end{column}
 \end{columns}

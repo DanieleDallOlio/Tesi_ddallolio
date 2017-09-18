@@ -3,15 +3,19 @@
 \beamer@sectionintoc {1}{Introduzione}{2}{0}{1}
 \beamer@subsectionintoc {1}{1}{Difetti delle macchine tradizionali}{2}{0}{1}
 \beamer@subsectionintoc {1}{2}{Metodo Alternativo}{3}{0}{1}
-\beamer@subsectionintoc {1}{3}{I nodi utilizzati}{4}{0}{1}
+\beamer@subsectionintoc {1}{3}{Obiettivo}{4}{0}{1}
 \beamer@subsectionintoc {1}{4}{Pipeline di calcolo bioinformatico}{5}{0}{1}
 \beamer@subsectionintoc {1}{5}{NGS}{6}{0}{1}
-\beamer@sectionintoc {2}{Materiali e Metodi}{7}{0}{2}
-\beamer@subsectionintoc {2}{1}{Struttura delle simulazioni}{7}{0}{2}
-\beamer@subsectionintoc {2}{2}{La parte considerata}{8}{0}{2}
-\beamer@subsectionintoc {2}{3}{Analisi statistiche}{9}{0}{2}
-\beamer@sectionintoc {3}{Risultati}{10}{0}{3}
-\beamer@subsectionintoc {3}{1}{Tempo di esecuzione}{10}{0}{3}
-\beamer@subsectionintoc {3}{2}{Memoria utilizzata}{13}{0}{3}
-\beamer@sectionintoc {4}{Conclusioni}{16}{0}{4}
-\beamer@subsectionintoc {4}{1}{Sviluppo futuro}{17}{0}{4}
+\beamer@subsectionintoc {1}{6}{Interesse}{7}{0}{1}
+\beamer@sectionintoc {2}{Materiali e Metodi}{8}{0}{2}
+\beamer@subsectionintoc {2}{1}{Struttura delle simulazioni}{8}{0}{2}
+\beamer@subsectionintoc {2}{2}{La parte considerata}{9}{0}{2}
+\beamer@subsectionintoc {2}{3}{Utilizzo delle risorse}{10}{0}{2}
+\beamer@subsectionintoc {2}{4}{Analisi statistiche}{12}{0}{2}
+\beamer@subsectionintoc {2}{5}{I nodi utilizzati}{13}{0}{2}
+\beamer@sectionintoc {3}{Risultati}{14}{0}{3}
+\beamer@subsectionintoc {3}{1}{Tempo di esecuzione}{14}{0}{3}
+\beamer@subsectionintoc {3}{2}{Memoria utilizzata}{16}{0}{3}
+\beamer@sectionintoc {4}{Conclusioni}{17}{0}{4}
+\beamer@subsectionintoc {4}{1}{Conclusione}{18}{0}{4}
+\beamer@subsectionintoc {4}{2}{Sviluppo futuro}{19}{0}{4}

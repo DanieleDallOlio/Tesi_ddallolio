@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.4)  17 SEP 2017 19:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.5.4)  18 SEP 2017 14:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1485,12 +1485,6 @@ aver.sty)) (./Discussione_Tesi.aux
 
 LaTeX Warning: Label `subfig:SP' multiply defined.
 
-
-LaTeX Warning: Label `fig:RSSind' multiply defined.
-
-
-LaTeX Warning: Label `fig:RSSind' multiply defined.
-
 )
 \openout1 = `Discussione_Tesi.aux'.
 
@@ -1804,126 +1798,106 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 
 ] [3
 
+] [4
+
 ]
-Overfull \vbox (0.83334pt too high) detected at line 164
- []
-
-[4
-
-] <./Figure/GATK-LODn.png, id=211, 512.91624pt x 521.95pt>
+<./Figure/GATK-LODn.png, id=212, 512.91624pt x 521.95pt>
 File: ./Figure/GATK-LODn.png Graphic file (type png)
 
 <use ./Figure/GATK-LODn.png>
-Package pdftex.def Info: ./Figure/GATK-LODn.png used on input line 179.
+Package pdftex.def Info: ./Figure/GATK-LODn.png used on input line 137.
 (pdftex.def)             Requested size: 153.87605pt x 156.5862pt.
  [5
 
  <./Figure/GATK-LODn.png>] [6
 
+] [7
+
 ]
-<./Figure/Workflow.jpg, id=269, 304.88907pt x 478.03593pt>
+<./Figure/Workflow.jpg, id=299, 304.88907pt x 478.03593pt>
 File: ./Figure/Workflow.jpg Graphic file (type jpg)
 
 <use ./Figure/Workflow.jpg>
-Package pdftex.def Info: ./Figure/Workflow.jpg used on input line 216.
+Package pdftex.def Info: ./Figure/Workflow.jpg used on input line 188.
 (pdftex.def)             Requested size: 91.46742pt x 143.41188pt.
- [7
+ [8
 
- <./Figure/Workflow.jpg>] [8
-
-] [9
+ <./Figure/Workflow.jpg>] [9
 
 ]
-<./Figure/Grafici_Finali/mapping.png, id=355, 456.70625pt x 436.63126pt>
-File: ./Figure/Grafici_Finali/mapping.png Graphic file (type png)
+<./Figure/concurrency2.png, id=358, 304.7385pt x 431.211pt>
+File: ./Figure/concurrency2.png Graphic file (type png)
 
-<use ./Figure/Grafici_Finali/mapping.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/mapping.png used on input line
- 294.
-(pdftex.def)             Requested size: 228.35255pt x 218.3151pt.
+<use ./Figure/concurrency2.png>
+Package pdftex.def Info: ./Figure/concurrency2.png used on input line 227.
+(pdftex.def)             Requested size: 91.42224pt x 129.36429pt.
+ [10
 
-Overfull \vbox (8.9017pt too high) detected at line 294
+ <./Figure/concurrency2.png>]
+<./Figure/concurrency1.png, id=388, 426.1521pt x 430.4883pt>
+File: ./Figure/concurrency1.png Graphic file (type png)
+
+<use ./Figure/concurrency1.png>
+Package pdftex.def Info: ./Figure/concurrency1.png used on input line 240.
+(pdftex.def)             Requested size: 127.8466pt x 129.14748pt.
+ [11
+
+ <./Figure/concurrency1.png>] [12
+
+]
+Overfull \vbox (0.83334pt too high) detected at line 324
  []
 
-[10
+[13
 
- <./Figure/Grafici_Finali/mapping.png>]
-<./Figure/Grafici_Finali/sort_picard.png, id=391, 461.725pt x 436.63126pt>
+]
+<./Figure/Grafici_Finali/sort_picard.png, id=485, 461.725pt x 436.63126pt>
 File: ./Figure/Grafici_Finali/sort_picard.png Graphic file (type png)
 
 <use ./Figure/Grafici_Finali/sort_picard.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/sort_picard.png used on input 
-line 307.
+line 353.
 (pdftex.def)             Requested size: 230.86194pt x 218.3151pt.
 
-Overfull \vbox (8.9017pt too high) detected at line 307
+Overfull \vbox (8.9017pt too high) detected at line 353
  []
 
-[11
+[14
 
  <./Figure/Grafici_Finali/sort_picard.png>]
-<./Figure/Grafici_Finali/Tempi_complessivi.png, id=421, 527.9725pt x 508.90125p
+<./Figure/Grafici_Finali/Tempi_complessivi.png, id=516, 527.9725pt x 508.90125p
 t>
 File: ./Figure/Grafici_Finali/Tempi_complessivi.png Graphic file (type png)
  <use ./Figure/Grafici_Finali/Tempi_complessivi.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Tempi_complessivi.png used on 
-input line 320.
+input line 366.
 (pdftex.def)             Requested size: 227.02374pt x 218.82327pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfig:SP}) h
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.320 \end{frame}
+l.366 \end{frame}
                  
-Overfull \vbox (9.40988pt too high) detected at line 320
+Overfull \vbox (9.40988pt too high) detected at line 366
  []
 
-[12
+[15
 
  <./Figure/Grafici_Finali/Tempi_complessivi.png>]
-<./Figure/Grafici_Finali/Max_rss_mapping.png, id=450, 443.6575pt x 429.605pt>
-File: ./Figure/Grafici_Finali/Max_rss_mapping.png Graphic file (type png)
-
-<use ./Figure/Grafici_Finali/Max_rss_mapping.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_mapping.png used on in
-put line 335.
-(pdftex.def)             Requested size: 204.08492pt x 197.6207pt.
- [13
-
- <./Figure/Grafici_Finali/Max_rss_mapping.png>]
-<./Figure/Grafici_Finali/Max_rss_realigner.png, id=483, 440.64626pt x 428.60126
-pt>
-File: ./Figure/Grafici_Finali/Max_rss_realigner.png Graphic file (type png)
- <use ./Figure/Grafici_Finali/Max_rss_realigner.png>
-Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_realigner.png used on 
-input line 348.
-(pdftex.def)             Requested size: 202.69974pt x 197.15897pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:RSSind}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.348 \end{frame}
-                  [14
-
- <./Figure/Grafici_Finali/Max_rss_realigner.png>]
-<./Figure/Grafici_Finali/Max_rss_sort_picard.png, id=512, 453.695pt x 428.60126
+<./Figure/Grafici_Finali/Max_rss_sort_picard.png, id=546, 453.695pt x 428.60126
 pt>
 File: ./Figure/Grafici_Finali/Max_rss_sort_picard.png Graphic file (type png)
  <use ./Figure/Grafici_Finali/Max_rss_sort_picard.png>
 Package pdftex.def Info: ./Figure/Grafici_Finali/Max_rss_sort_picard.png used o
-n input line 362.
+n input line 408.
 (pdftex.def)             Requested size: 208.70222pt x 197.15897pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:RSSind}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.362 \end{frame}
-                  [15
+ [16
 
- <./Figure/Grafici_Finali/Max_rss_sort_picard.png>]
-[16
+ <./Figure/Grafici_Finali/Max_rss_sort_picard.png>] [17
 
-] [17
+] [18
+
+] [19
 
 ]
 \tf@nav=\write6
@@ -1935,14 +1909,20 @@ l.362 \end{frame}
 \tf@snm=\write8
 \openout8 = `Discussione_Tesi.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 408.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 408.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 462.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 462.
  (./Discussione_Tesi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 408.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 408.
-Package rerunfilecheck Info: File `Discussione_Tesi.out' has not changed.
-(rerunfilecheck)             Checksum: F86C35036E001CE7F9B8CD1D236897EB;963.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 462.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 462.
 
+
+Package rerunfilecheck Warning: File `Discussione_Tesi.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Discussione_Tesi.out':
+(rerunfilecheck)             Before: F79E315919DB80D56B7C57A8A24BFA8D;1096
+(rerunfilecheck)             After:  234090CAB7D88CAB7B8C49B48C2DCCA3;1218.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -1952,26 +1932,38 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 31274 strings out of 493013
- 611526 string characters out of 6135683
- 659026 words of memory out of 5000000
- 34194 multiletter control sequences out of 15000+600000
+ 31285 strings out of 493013
+ 611398 string characters out of 6135683
+ 657986 words of memory out of 5000000
+ 34195 multiletter control sequences out of 15000+600000
  15760 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,18n,57p,10387b,1337s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/eurosym/feymr10.pfb>
-Output written on Discussione_Tesi.pdf (17 pages, 329229 bytes).
+ 56i,18n,57p,10387b,1094s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Outline0.4.1.17} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.3.2.14} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.3.1.12} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.2.4.11} has been referenced but does not e
+xist, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/eurosym/feymr10.pfb>
+Output written on Discussione_Tesi.pdf (19 pages, 422132 bytes).
 PDF statistics:
- 640 PDF objects out of 1000 (max. 8388607)
- 579 compressed objects within 6 object streams
- 55 named destinations out of 1000 (max. 500000)
- 233 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 710 PDF objects out of 1000 (max. 8388607)
+ 648 compressed objects within 7 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 244 words of extra memory for PDF output out of 10000 (max. 10000000)
 
