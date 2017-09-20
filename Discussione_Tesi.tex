@@ -113,8 +113,7 @@
 \begin{column}{0.8\linewidth}		
 \begin{block}{Obiettivo della tesi}
 \small
-\textbf{Verificare che si ottengano dei risultati con i nodi low power
-comparabili a quelli ottenuti con i nodi tradizionali.}
+\textbf{Verificare se sia possibile ottenere delle prestazioni comparabili fra i nodi low power e quelli tradizionali.}
 \end{block}
 \end{column}
 \end{columns}
@@ -150,7 +149,7 @@ DNA.
 \end{itemize}
 \end{block}
 \begin{block}{}
-Gli algoritmi di analisi sui dati di NGS sono basati anche sulla teoria dei network.
+L'analisi di dati NGS richiede algoritmi dedicati, derivati anche da metodi fisici come la teoria dei network.
 \end{block}
 \end{column}
 \end{columns}
@@ -240,10 +239,11 @@ Indicizzazione del genoma di riferimento per:
 \begin{column}{0.8\linewidth}
 \begin{block}{Snakemake}
 \begin{itemize}
-\item Sistema di gestione dei flussi di lavoro
+\item Sistema di gestione dell'esecuzione di pipeline
 \item Pochi requisiti 
-\item Gestione specifica delle risorse
-\item Permette di eseguire su cluster
+\item Ottimizzabile per l'uso di risorse limitate
+\item Permette l'esecuzione in parallelo e su cluster
+\item Permette l'installazione automatica di tutti i requisiti
 \end{itemize}
 \end{block}
 \end{column}
