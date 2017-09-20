@@ -18,53 +18,56 @@
 \headcommand {\beamer@subsectionentry {0}{1}{5}{6}{NGS}}\headcommand {\beamer@subsectionpages {5}{5}}
 \headcommand {\slideentry {1}{5}{1}{6/6}{NGS}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\beamer@subsectionentry {0}{1}{6}{7}{Interesse}}\headcommand {\beamer@subsectionpages {6}{6}}
-\headcommand {\slideentry {1}{6}{1}{7/7}{Interesse}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{6}{7}{Interesse di GATK-LODn}}\headcommand {\beamer@subsectionpages {6}{6}}
+\headcommand {\slideentry {1}{6}{1}{7/7}{Interesse di GATK-LODn}{0}}
 \headcommand {\beamer@framepages {7}{7}}
 \headcommand {\sectionentry {2}{Materiali e Metodi}{8}{Materiali e Metodi}{0}}
 \headcommand {\beamer@sectionpages {2}{7}}
 \headcommand {\beamer@subsectionpages {7}{7}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{8}{Struttura delle simulazioni}}\headcommand {\beamer@subsectionpages {8}{7}}
-\headcommand {\slideentry {2}{1}{1}{8/8}{Struttura delle simulazioni}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{8}{Lavoro}}\headcommand {\beamer@subsectionpages {8}{7}}
+\headcommand {\slideentry {2}{1}{1}{8/8}{Lavoro}{0}}
 \headcommand {\beamer@framepages {8}{8}}
 \headcommand {\beamer@subsectionentry {0}{2}{2}{9}{La parte considerata}}\headcommand {\beamer@subsectionpages {8}{8}}
 \headcommand {\slideentry {2}{2}{1}{9/9}{La parte considerata}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{10}{Utilizzo delle risorse}}\headcommand {\beamer@subsectionpages {9}{9}}
-\headcommand {\slideentry {2}{3}{1}{10/10}{Utilizzo delle risorse}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{10}{Snakemake}}\headcommand {\beamer@subsectionpages {9}{9}}
+\headcommand {\slideentry {2}{3}{1}{10/10}{Snakemake}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\slideentry {2}{3}{2}{11/11}{Utilizzo delle risorse}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{11}{Utilizzo delle risorse}}\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\slideentry {2}{4}{1}{11/11}{Utilizzo delle risorse}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@subsectionentry {0}{2}{4}{12}{Analisi statistiche}}\headcommand {\beamer@subsectionpages {10}{11}}
-\headcommand {\slideentry {2}{4}{1}{12/12}{Analisi statistiche}{0}}
+\headcommand {\slideentry {2}{4}{2}{12/12}{Utilizzo delle risorse}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@subsectionentry {0}{2}{5}{13}{I nodi utilizzati}}\headcommand {\beamer@subsectionpages {12}{12}}
-\headcommand {\slideentry {2}{5}{1}{13/13}{I nodi utilizzati}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{5}{13}{Analisi statistiche}}\headcommand {\beamer@subsectionpages {11}{12}}
+\headcommand {\slideentry {2}{5}{1}{13/13}{Analisi statistiche}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\sectionentry {3}{Risultati}{14}{Risultati}{0}}
-\headcommand {\beamer@sectionpages {8}{13}}
-\headcommand {\beamer@subsectionpages {13}{13}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{14}{Tempo di esecuzione}}\headcommand {\beamer@subsectionpages {14}{13}}
-\headcommand {\slideentry {3}{1}{1}{14/14}{Tempo di esecuzione}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{6}{14}{I nodi utilizzati}}\headcommand {\beamer@subsectionpages {13}{13}}
+\headcommand {\slideentry {2}{6}{1}{14/14}{I nodi utilizzati}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\slideentry {3}{1}{2}{15/15}{Tempo di esecuzione}{0}}
+\headcommand {\sectionentry {3}{Risultati}{15}{Risultati}{0}}
+\headcommand {\beamer@sectionpages {8}{14}}
+\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{15}{Tempo di esecuzione}}\headcommand {\beamer@subsectionpages {15}{14}}
+\headcommand {\slideentry {3}{1}{1}{15/15}{Tempo di esecuzione}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{16}{Memoria utilizzata}}\headcommand {\beamer@subsectionpages {14}{15}}
-\headcommand {\slideentry {3}{2}{1}{16/16}{Memoria utilizzata}{0}}
+\headcommand {\slideentry {3}{1}{2}{16/16}{Tempo di esecuzione}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\sectionentry {4}{Conclusioni}{17}{Conclusioni}{0}}
-\headcommand {\beamer@sectionpages {14}{16}}
-\headcommand {\beamer@subsectionpages {16}{16}}
-\headcommand {\slideentry {4}{0}{1}{17/17}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{17}{Memoria utilizzata}}\headcommand {\beamer@subsectionpages {15}{16}}
+\headcommand {\slideentry {3}{2}{1}{17/17}{Memoria utilizzata}{0}}
 \headcommand {\beamer@framepages {17}{17}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{18}{Conclusione}}\headcommand {\beamer@subsectionpages {17}{17}}
-\headcommand {\slideentry {4}{1}{1}{18/18}{Conclusione}{0}}
+\headcommand {\sectionentry {4}{Conclusioni}{18}{Conclusioni}{0}}
+\headcommand {\beamer@sectionpages {15}{17}}
+\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\slideentry {4}{0}{1}{18/18}{}{0}}
 \headcommand {\beamer@framepages {18}{18}}
-\headcommand {\beamer@subsectionentry {0}{4}{2}{19}{Sviluppo futuro}}\headcommand {\beamer@subsectionpages {18}{18}}
-\headcommand {\slideentry {4}{2}{1}{19/19}{Sviluppo futuro}{0}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{19}{Conclusione}}\headcommand {\beamer@subsectionpages {18}{18}}
+\headcommand {\slideentry {4}{1}{1}{19/19}{Conclusione}{0}}
 \headcommand {\beamer@framepages {19}{19}}
-\headcommand {\beamer@partpages {1}{19}}
-\headcommand {\beamer@subsectionpages {19}{19}}
-\headcommand {\beamer@sectionpages {17}{19}}
-\headcommand {\beamer@documentpages {19}}
-\headcommand {\def \inserttotalframenumber {19}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{20}{Sviluppo futuro}}\headcommand {\beamer@subsectionpages {19}{19}}
+\headcommand {\slideentry {4}{2}{1}{20/20}{Sviluppo futuro}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\beamer@partpages {1}{20}}
+\headcommand {\beamer@subsectionpages {20}{20}}
+\headcommand {\beamer@sectionpages {18}{20}}
+\headcommand {\beamer@documentpages {20}}
+\headcommand {\def \inserttotalframenumber {20}}

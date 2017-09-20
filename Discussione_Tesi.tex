@@ -97,8 +97,8 @@
 \end{block}
 \begin{block}{Svantaggi}
 \small
-\item Cache ridotta
 \item Potenza inferiore
+\item Cache ridotta
 \item Numero inferiori di core
 \end{block}
 \end{itemize}
@@ -140,21 +140,23 @@ Requisiti molto elevati in termini di potenza di calcolo, di occupazione di memo
 \begin{frame}
 \begin{columns}
 \begin{column}{0.8\linewidth}
-\begin{block}{NGS}
+\begin{block}{Next Generation Sequencing}
 \begin{itemize}
 \item Comprende le nuove tecniche per il sequenziamento del 
 DNA.
 %\item Succede al Human Genome Project.
 \item Tecniche più rapide e meno costose dei metodi precedenti.
 \item Shotgun Sequencing.
-\item Necessitano di metodi computazionali basati sulla teoria dei network.
 \end{itemize}
+\end{block}
+\begin{block}{}
+Gli algoritmi di analisi sui dati di NGS sono basati anche sulla teoria dei network.
 \end{block}
 \end{column}
 \end{columns}
 \end{frame}
 
-\subsection{Interesse}
+\subsection{Interesse di GATK-LODn}
 \begin{frame}
 \begin{columns}
 \begin{column}{0.8\linewidth}
@@ -172,20 +174,40 @@ DNA.
 
 \section{Materiali e Metodi}
 
-\subsection{Struttura delle simulazioni}
+\subsection{Lavoro}
 \begin{frame}
 \begin{columns}
-\begin{column}{0.8\linewidth}	
-\begin{block}{Struttura delle simulazioni}
-Una parte di GATK-LOD\ped{n} è stata reimplementata nel tool Snakemake.
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.3]{Workflow.jpg}
-\end{figure}
+\begin{column}{0.8\linewidth}
+\begin{block}{Lavoro svolto per la tesi}
+\begin{itemize}
+\item \textbf{Reimplementazione di una parte di GATK-LOD\ped{n} nel tool Snakemake}
+\item Scritti i file di configurazione per il programma
+\item Scritto uno script per l'estrazioni di subset
+\item Scritto uno script per raggruppare i dati
+\item Creato l'installer
+\item Creato uno script per l'esecuzione delle simulazioni
+\item Effettuate le simulazioni 
+\item Analisi dei dati
+\end{itemize}
 \end{block}
 \end{column}
 \end{columns}
 \end{frame}
+
+%\subsection{Struttura delle simulazioni}
+%\begin{frame}
+%\begin{columns}
+%\begin{column}{0.8\linewidth}	
+%\begin{block}{Struttura delle simulazioni}
+%Una parte di GATK-LOD\ped{n} è stata reimplementata nel tool Snakemake.
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.3]{Workflow.jpg}
+%\end{figure}
+%\end{block}
+%\end{column}
+%\end{columns}
+%\end{frame}
 
 \subsection{La parte considerata}
 \begin{frame}
@@ -212,6 +234,24 @@ Indicizzazione del genoma di riferimento per:
 \end{columns}
 \end{frame}
 
+\subsection{Snakemake}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.8\linewidth}
+\begin{block}{Snakemake}
+\begin{itemize}
+\item Sistema di gestione dei flussi di lavoro
+\item Pochi requisiti 
+\item Scritto in Python e modellato su Make
+\item Gestione specifica delle risorse
+\item Permette di eseguire su cluster
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+
 \subsection{Utilizzo delle risorse}
 \begin{frame}
 \begin{columns}
@@ -219,7 +259,7 @@ Indicizzazione del genoma di riferimento per:
 \begin{block}{Procedura tradizionale}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.3]{concurrency2.png}
+\includegraphics[scale=0.3]{concurrency1.png}
 \end{figure}
 \end{block}
 \end{column}
@@ -232,12 +272,14 @@ Indicizzazione del genoma di riferimento per:
 \begin{block}{Procedura ricercata}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.3]{concurrency1.png}
+\includegraphics[scale=0.3]{concurrency2.png}
 \end{figure}
 \end{block}
 \end{column}
 \end{columns}
 \end{frame}
+
+
 
 \subsection{Analisi statistiche}
 \begin{frame}
@@ -322,7 +364,6 @@ $\begin{array}{*{6}{c}}
 \end{column}
 \end{columns}
 \end{frame}
-
 
 \section{Risultati}
 \subsection{Tempo di esecuzione}

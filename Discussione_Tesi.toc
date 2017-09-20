@@ -6,16 +6,17 @@
 \beamer@subsectionintoc {1}{3}{Obiettivo}{4}{0}{1}
 \beamer@subsectionintoc {1}{4}{Pipeline di calcolo bioinformatico}{5}{0}{1}
 \beamer@subsectionintoc {1}{5}{NGS}{6}{0}{1}
-\beamer@subsectionintoc {1}{6}{Interesse}{7}{0}{1}
+\beamer@subsectionintoc {1}{6}{Interesse di GATK-LODn}{7}{0}{1}
 \beamer@sectionintoc {2}{Materiali e Metodi}{8}{0}{2}
-\beamer@subsectionintoc {2}{1}{Struttura delle simulazioni}{8}{0}{2}
+\beamer@subsectionintoc {2}{1}{Lavoro}{8}{0}{2}
 \beamer@subsectionintoc {2}{2}{La parte considerata}{9}{0}{2}
-\beamer@subsectionintoc {2}{3}{Utilizzo delle risorse}{10}{0}{2}
-\beamer@subsectionintoc {2}{4}{Analisi statistiche}{12}{0}{2}
-\beamer@subsectionintoc {2}{5}{I nodi utilizzati}{13}{0}{2}
-\beamer@sectionintoc {3}{Risultati}{14}{0}{3}
-\beamer@subsectionintoc {3}{1}{Tempo di esecuzione}{14}{0}{3}
-\beamer@subsectionintoc {3}{2}{Memoria utilizzata}{16}{0}{3}
-\beamer@sectionintoc {4}{Conclusioni}{17}{0}{4}
-\beamer@subsectionintoc {4}{1}{Conclusione}{18}{0}{4}
-\beamer@subsectionintoc {4}{2}{Sviluppo futuro}{19}{0}{4}
+\beamer@subsectionintoc {2}{3}{Snakemake}{10}{0}{2}
+\beamer@subsectionintoc {2}{4}{Utilizzo delle risorse}{11}{0}{2}
+\beamer@subsectionintoc {2}{5}{Analisi statistiche}{13}{0}{2}
+\beamer@subsectionintoc {2}{6}{I nodi utilizzati}{14}{0}{2}
+\beamer@sectionintoc {3}{Risultati}{15}{0}{3}
+\beamer@subsectionintoc {3}{1}{Tempo di esecuzione}{15}{0}{3}
+\beamer@subsectionintoc {3}{2}{Memoria utilizzata}{17}{0}{3}
+\beamer@sectionintoc {4}{Conclusioni}{18}{0}{4}
+\beamer@subsectionintoc {4}{1}{Conclusione}{19}{0}{4}
+\beamer@subsectionintoc {4}{2}{Sviluppo futuro}{20}{0}{4}
